@@ -4,7 +4,7 @@ import Layout from '@/layouts/Layout.astro';
 
 <Layout
   title="LIBERA Studio"
-  description="Sistemas digitales, automatización e inteligencia artificial para empresas que quieren crecer sin operar en caos. Mérida, México."
+  description="Sitios web, automatizaciones, agentes de IA e integraciones que conectan tu presencia online con la operación real de tu negocio. Mérida, México."
 >
 
   <!-- ═══════════════════════════════════════════════════════════════════
@@ -42,83 +42,84 @@ import Layout from '@/layouts/Layout.astro';
       aria-hidden="true"
     ></div>
 
-    <!-- Giant A — background visual element -->
+    <!-- Giant A — system nucleus: layered strokes, nodes, connections -->
     <div
-      class="absolute right-0 top-0 bottom-0 pointer-events-none select-none overflow-hidden"
-      style="width: 55vw; max-width: 700px;"
+      class="hero-a absolute pointer-events-none select-none hidden sm:block"
+      style="right: clamp(-3rem, 2vw, 5rem); top: 50%; width: min(46vw, 620px); aspect-ratio: 10 / 11;"
       aria-hidden="true"
     >
-      <span
-        class="absolute -right-16 top-1/2 -translate-y-1/2 font-display leading-none"
-        style="
-          font-family: var(--font-display);
-          font-size: clamp(280px, 38vw, 560px);
-          font-weight: 700;
-          letter-spacing: -0.05em;
-          color: transparent;
-          -webkit-text-stroke: 1px oklch(96% 0.005 60 / 0.06);
-        "
-      >A</span>
+      <svg viewBox="0 0 400 440" fill="none" class="w-full h-full" aria-hidden="true">
+        <defs>
+          <linearGradient id="heroAGrad" x1="200" y1="80" x2="200" y2="440" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="oklch(70% 0.17 48)" />
+            <stop offset="55%" stop-color="oklch(66% 0.16 48 / 0.5)" />
+            <stop offset="100%" stop-color="oklch(66% 0.16 48 / 0.06)" />
+          </linearGradient>
+        </defs>
+
+        <!-- depth echoes -->
+        <path d="M16 444 L200 8 L384 444" stroke="oklch(96% 0.005 60 / 0.045)" stroke-width="1.5" />
+        <path d="M52 444 L200 52 L348 444" stroke="oklch(96% 0.005 60 / 0.08)" stroke-width="1.5" />
+
+        <!-- main A -->
+        <path d="M88 444 L200 96 L312 444" stroke="url(#heroAGrad)" stroke-width="2" />
+        <!-- crossbar -->
+        <line x1="140" y1="330" x2="260" y2="330" stroke="oklch(96% 0.005 60 / 0.25)" stroke-width="1.5" />
+
+        <!-- radiating system connections -->
+        <line x1="200" y1="96" x2="330" y2="36" stroke="oklch(96% 0.005 60 / 0.12)" stroke-width="1" stroke-dasharray="2 7" />
+        <line x1="200" y1="96" x2="86" y2="44" stroke="oklch(96% 0.005 60 / 0.09)" stroke-width="1" stroke-dasharray="2 7" />
+        <line x1="260" y1="330" x2="368" y2="300" stroke="oklch(96% 0.005 60 / 0.09)" stroke-width="1" stroke-dasharray="2 7" />
+
+        <!-- nodes -->
+        <circle cx="200" cy="96" r="5" fill="var(--orange)" class="hero-a-node" />
+        <circle cx="330" cy="36" r="2.5" fill="oklch(96% 0.005 60 / 0.4)" />
+        <circle cx="86" cy="44" r="2" fill="oklch(96% 0.005 60 / 0.3)" />
+        <circle cx="140" cy="330" r="3" fill="oklch(96% 0.005 60 / 0.45)" />
+        <circle cx="260" cy="330" r="3" fill="oklch(96% 0.005 60 / 0.45)" />
+        <circle cx="368" cy="300" r="2.5" fill="oklch(96% 0.005 60 / 0.35)" />
+      </svg>
     </div>
 
     <!-- Content -->
     <div class="container-libera relative z-10 pb-20 pt-40">
 
       <!-- Eyebrow — 1 of max 3 on page -->
+      <span class="eyebrow block mb-6" style="color: var(--orange); font-family: var(--font-mono);" data-reveal>
+        Estudio de sistemas digitales — Mérida, MX
+      </span>
       <!-- Headline -->
       <h1
-        class="font-display mb-8 max-w-6xl"
-        style="
-          font-family: var(--font-display);
-          font-size: clamp(2.25rem, 5vw, 4.75rem);
-          font-weight: 700;
-          letter-spacing: 0.015em;
-          line-height: 1.0;
-          color: var(--text-light);
-        "
+        class="display-hero mb-8 max-w-5xl"
+        style="color: var(--text-light);"
         data-reveal
       >
-        Construimos sistemas digitales para empresas que quieren crecer
-        <span style="color: var(--orange);"> sin operar en caos.</span>
+        Construimos los sistemas que
+        <span style="color: var(--orange);">liberan</span> a tu negocio del caos.
       </h1>
 
       <!-- Subheadline -->
       <p
         class="mb-12 max-w-2xl text-lg leading-relaxed"
-        style="color: var(--text-light);"
+        style="color: var(--text-light); transition-delay: 110ms;"
         data-reveal
       >
-        Diseñamos sitios web, automatizaciones, agentes de IA e integraciones
-        que conectan tu presencia online con la operación real de tu negocio.
+        Sitios web, automatizaciones, agentes de IA e integraciones que conectan
+        tu presencia online con la operación real de tu empresa. Diseñados para
+        funcionar — y para que no dependas de nadie, ni siquiera de nosotros.
       </p>
 
       <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row items-start gap-4" data-reveal>
-        <a
-          href="/diagnostico"
-          class="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          style="background: var(--orange); color: var(--ink);"
-        >
+      <div class="flex flex-col sm:flex-row items-start gap-4" style="transition-delay: 220ms;" data-reveal>
+        <a href="/diagnostico" class="btn btn-primary text-base">
           Solicitar diagnóstico
-          <span
-            class="w-7 h-7 rounded-full flex items-center justify-center"
-            style="background: var(--orange-dark);"
-            aria-hidden="true"
-          >
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+          <span class="btn-icon" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M1 9L9 1M9 1H2M9 1v7"/>
             </svg>
           </span>
         </a>
-        <a
-          href="#metodo"
-          class="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          style="
-            background: transparent;
-            color: var(--text-light);
-            border: 1px solid oklch(26% 0.01 25);
-          "
-        >
+        <a href="#metodo" class="btn btn-ghost-dark text-base">
           Cómo trabajamos
           <span aria-hidden="true">↓</span>
         </a>
@@ -150,40 +151,31 @@ import Layout from '@/layouts/Layout.astro';
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="problema"
-    style="background: var(--surface); background-image: radial-gradient(oklch(10% 0.01 25 / 0.045) 1px, transparent 1px); background-size: 22px 22px;"
-    class="py-32"
+    style="background: var(--surface);"
+    class="py-32 lg:py-40"
     aria-label="El problema que resolvemos"
   >
     <div class="container-libera">
       <div class="max-w-4xl" data-reveal>
-        <p class="text-xs font-mono tracking-widest uppercase mb-10" style="color: var(--text-secondary); font-family: var(--font-mono);">
-          El problema que resolvemos
+        <p class="section-label mb-10" style="color: var(--text-secondary);">
+          <span style="color: var(--orange);">01</span> El problema
         </p>
-        <h2
-          class="font-display mb-10"
-          style="
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 4.5vw, 3.75rem);
-            font-weight: 700;
-            letter-spacing: 0.015em;
-            line-height: 1.08;
-            color: var(--text-primary);
-          "
-        >
+        <h2 class="display-xl mb-10" style="color: var(--text-primary);">
           Tu negocio no necesita más herramientas.
           <span style="color: var(--text-secondary);"> Necesita un sistema.</span>
         </h2>
         <div class="grid md:grid-cols-2 gap-8 mt-12">
           <div>
             <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
-              Una web que no convierte. Mensajes sin seguimiento. Clientes que preguntan y desaparecen.
-              Procesos que dependen de memoria, notas, Excel y suerte.
+              Una web que no convierte. Mensajes de WhatsApp sin seguimiento. Clientes que preguntan y desaparecen.
+              Información repartida entre Excel, notas y memoria. No es falta de tecnología —
+              es falta de conexión entre las piezas.
             </p>
           </div>
           <div>
             <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
-              Conectamos las piezas para que tu negocio funcione con más claridad, y tú puedas enfocarte
-              en lo que realmente importa.
+              Nosotros conectamos esas piezas para que tu negocio opere con claridad,
+              y tú recuperes el tiempo que hoy se pierde en fricción.
             </p>
           </div>
         </div>
@@ -192,16 +184,17 @@ import Layout from '@/layouts/Layout.astro';
       <!-- Pain point list -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-px mt-16" style="background: var(--border);" data-reveal>
         {[
-          'Presencia digital que no genera confianza ni leads',
-          'Operación manual que escala mal y genera errores',
-          'Tecnología adoptada sin estrategia ni integración',
-        ].map((text) => (
-          <div class="flex items-start gap-4 p-8" style="background: var(--surface);">
-            <svg class="flex-shrink-0 mt-1" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <circle cx="9" cy="9" r="8" stroke="var(--border)" stroke-width="1.5"/>
-              <line x1="3.5" y1="14.5" x2="14.5" y2="3.5" stroke="var(--border)" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <p class="text-base" style="color: var(--text-secondary);">{text}</p>
+          'Te buscan en Google y no te encuentran — o no convences.',
+          'Respondes tarde, a mano y sin registro de nada.',
+          'Adoptaste herramientas que nadie en tu equipo usa.',
+        ].map((text, i) => (
+          <div class="flex items-start gap-5 p-8" style="background: var(--surface);">
+            <span
+              class="flex-shrink-0 text-xs font-mono mt-1"
+              style="color: var(--orange); font-family: var(--font-mono); letter-spacing: 0.1em;"
+              aria-hidden="true"
+            >0{i + 1}</span>
+            <p class="text-base leading-relaxed" style="color: var(--text-secondary);">{text}</p>
           </div>
         ))}
       </div>
@@ -214,23 +207,16 @@ import Layout from '@/layouts/Layout.astro';
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="soluciones"
-    style="background: var(--surface-alt); background-image: radial-gradient(oklch(10% 0.01 25 / 0.04) 1px, transparent 1px); background-size: 22px 22px;"
-    class="py-28"
+    style="background: var(--surface-alt);"
+    class="py-28 lg:py-36"
     aria-label="Nuestras soluciones"
   >
     <div class="container-libera">
-      <div class="max-w-2xl mb-16" data-reveal>
-        <h2
-          class="font-display mb-6"
-          style="
-            font-family: var(--font-display);
-            font-size: clamp(1.75rem, 3.5vw, 3rem);
-            font-weight: 700;
-            letter-spacing: 0.015em;
-            line-height: 1.1;
-            color: var(--text-primary);
-          "
-        >
+      <div class="max-w-3xl mb-16" data-reveal>
+        <p class="section-label mb-8" style="color: var(--text-secondary);">
+          <span style="color: var(--orange);">02</span> Soluciones
+        </p>
+        <h2 class="display-lg" style="color: var(--text-primary);">
           Diseñamos la infraestructura digital que conecta presencia, operación e inteligencia.
         </h2>
       </div>
@@ -240,7 +226,8 @@ import Layout from '@/layouts/Layout.astro';
           {
             id: 'presencia',
             label: 'Presencia Digital',
-            description: 'Sitios web, landing pages, Google Business, WhatsApp Business y SEO local. Para que te encuentren, te entiendan y confíen.',
+            promise: 'Para que te encuentren, te entiendan y te elijan.',
+            description: 'Sitios web, landing pages, Google Business Profile, WhatsApp Business y SEO local. Tu primera impresión, trabajando 24/7.',
             href: '/soluciones/presencia-digital',
             accent: 'var(--presencia)',
             services: ['Sitios web premium', 'Landing pages', 'SEO local', 'Google Business'],
@@ -248,7 +235,8 @@ import Layout from '@/layouts/Layout.astro';
           {
             id: 'operacion',
             label: 'Operación Inteligente',
-            description: 'PAOS, CRM simple, dashboards internos y automatización de procesos. Para operar con orden, no con memoria.',
+            promise: 'Para operar con orden, no con memoria.',
+            description: 'PAOS, CRM simple, dashboards internos y automatización de procesos. Cada mensaje, lead y tarea en su lugar.',
             href: '/soluciones/operacion-inteligente',
             accent: 'var(--operacion)',
             services: ['PAOS', 'CRM y leads', 'Dashboards', 'Integraciones'],
@@ -256,7 +244,8 @@ import Layout from '@/layouts/Layout.astro';
           {
             id: 'ai',
             label: 'AI & Automation',
-            description: 'Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. IA aplicada a procesos reales.',
+            promise: 'IA aplicada a procesos reales, no a demos.',
+            description: 'Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. Automatizamos donde hay fricción, no donde hay moda.',
             href: '/soluciones/ai-automation',
             accent: 'var(--ai)',
             services: ['Agentes de IA', 'Asistentes internos', 'n8n & APIs', 'Automatización documental'],
@@ -264,7 +253,8 @@ import Layout from '@/layouts/Layout.astro';
           {
             id: 'productos',
             label: 'Productos Digitales',
-            description: 'Web apps, MVPs, paneles administrativos y prototipos funcionales. Para construir herramientas que realmente se usan.',
+            promise: 'Herramientas que tu equipo realmente usa.',
+            description: 'Web apps, MVPs, paneles administrativos y prototipos funcionales. Del problema al producto, sin años de desarrollo.',
             href: '/soluciones/productos-digitales',
             accent: 'var(--productos)',
             services: ['Web apps', 'MVPs', 'Apps internas', 'Prototipos'],
@@ -272,25 +262,44 @@ import Layout from '@/layouts/Layout.astro';
         ].map((sol, i) => (
           <a
             href={sol.href}
-            class="group relative flex flex-col justify-between p-8 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
+            class="group relative flex flex-col justify-between p-8 lg:p-10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
             data-reveal
             style={`background: var(--surface); border: 1px solid var(--border); transition-delay: ${i * 90}ms;`}
           >
             <!-- Hover glow -->
             <div
-              class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-              style={`background: radial-gradient(ellipse at top left, ${sol.accent}12 0%, transparent 60%);`}
+              class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+              style={`background: radial-gradient(ellipse at top left, ${sol.accent}14 0%, transparent 60%);`}
               aria-hidden="true"
             ></div>
+            <!-- Accent hairline — top, draws on hover -->
+            <div
+              class="absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-0 group-hover:scale-x-100 pointer-events-none"
+              style={`background: ${sol.accent}; transition: transform 0.45s var(--ease-premium);`}
+              aria-hidden="true"
+            ></div>
+            <!-- Ghost index numeral -->
+            <span
+              class="absolute -top-3 right-6 font-display select-none pointer-events-none"
+              style={`font-family: var(--font-display); font-size: 5.5rem; font-weight: 700; line-height: 1; color: ${sol.accent}; opacity: 0.09;`}
+              aria-hidden="true"
+            >0{i + 1}</span>
 
             <div class="relative">
               <!-- Color dot + label -->
-              <div class="flex items-center gap-3 mb-5">
+              <div class="flex items-center gap-3 mb-6">
                 <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style={`background: ${sol.accent};`} aria-hidden="true"></span>
                 <span class="text-xs font-semibold tracking-widest uppercase" style={`color: ${sol.accent};`}>
                   {sol.label}
                 </span>
               </div>
+
+              <h3
+                class="font-display text-2xl mb-4"
+                style="font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; color: var(--text-primary);"
+              >
+                {sol.promise}
+              </h3>
 
               <p class="text-base leading-relaxed mb-8" style="color: var(--text-secondary);">
                 {sol.description}
@@ -356,32 +365,32 @@ import Layout from '@/layouts/Layout.astro';
           {[
             {
               title: 'Diagnóstico',
-              description: 'Revisamos cómo te encuentran, cómo respondes y dónde se pierde valor en tu sistema digital actual.',
+              description: 'Revisamos cómo te encuentran, cómo respondes y dónde se pierde valor. Sin compromiso y sin jerga.',
               accent: 'var(--presencia)',
             },
             {
               title: 'Arquitectura',
-              description: 'Definimos qué construir, en qué orden y por qué. Sin pasos innecesarios.',
+              description: 'Definimos qué construir, en qué orden y por qué. Lo que no aporta, no entra.',
               accent: 'var(--operacion)',
             },
             {
               title: 'Diseño',
-              description: 'Diseñamos la solución con foco en claridad, rendimiento y experiencia real del usuario.',
+              description: 'Claridad antes que decoración. Cada pantalla existe para explicar, convencer o convertir.',
               accent: 'var(--orange)',
             },
             {
               title: 'Desarrollo',
-              description: 'Construimos con código limpio, sistemas probados y stack moderno y mantenible.',
+              description: 'Código original, stack moderno, sistemas probados. Nada de templates disfrazados.',
               accent: 'var(--ai)',
             },
             {
               title: 'Integración',
-              description: 'Conectamos la solución con tu operación: CRM, WhatsApp, formularios, analytics.',
+              description: 'Conectamos la solución con tu operación real: WhatsApp, CRM, formularios, analytics.',
               accent: 'var(--productos)',
             },
             {
-              title: 'Medición',
-              description: 'Definimos métricas, configuramos tracking y dejamos todo visible para decidir mejor.',
+              title: 'Evolución',
+              description: 'Medimos, ajustamos y crecemos el sistema. Un sistema vivo no se entrega: se cultiva.',
               accent: 'var(--operacion)',
             },
           ].map((step) => (
@@ -409,6 +418,36 @@ import Layout from '@/layouts/Layout.astro';
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
+       4.5 DIFERENCIADORES — Striscia marquee tra Metodo e Trabajo
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    id="diferenciadores"
+    style="background: var(--ink); border-block: 1px solid var(--border-dark);"
+    class="py-7 overflow-hidden"
+    aria-label="Lo que nos diferencia"
+  >
+    <div class="diff-track" aria-hidden="false">
+      {[0, 1].map((copy) => (
+        <div class="diff-group" aria-hidden={copy === 1 ? 'true' : undefined}>
+          {[
+            'Código 100% original',
+            'Sistemas que puedes mantener sin nosotros',
+            'Respuesta en menos de 48h',
+            'Construimos antes de prometer',
+            'IA en producción, no en diapositivas',
+          ].map((claim) => (
+            <span class="diff-item">
+              <span class="diff-dot" aria-hidden="true"></span>
+              {claim}
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
        5. TRABAJO — Eyebrow 2 di 3, card grid su sfondo chiaro
        ═══════════════════════════════════════════════════════════════════ -->
   <section
@@ -420,22 +459,17 @@ import Layout from '@/layouts/Layout.astro';
     <div class="container-libera">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16" data-reveal>
         <div>
-          <!-- Eyebrow 2/3 -->
-          <span class="eyebrow block mb-4" style="color: var(--text-secondary); font-family: var(--font-mono);">Trabajo</span>
-          <h2
-            class="font-display"
-            style="
-              font-family: var(--font-display);
-              font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-              font-weight: 700;
-              letter-spacing: 0.015em;
-              line-height: 1.1;
-              color: var(--text-primary);
-            "
-          >
+          <p class="section-label mb-8" style="color: var(--text-secondary);">
+            <span style="color: var(--orange);">03</span> Trabajo
+          </p>
+          <h2 class="display-lg" style="color: var(--text-primary);">
             Construimos para clientes.<br/>
             <span style="color: var(--text-secondary);">También construimos para aprender.</span>
           </h2>
+          <p class="text-base leading-relaxed mt-5 max-w-xl" style="color: var(--text-secondary);">
+            Cada proyecto — propio o de cliente — es un sistema en producción.
+            Esto es lo que construimos y lo que aprendimos construyéndolo.
+          </p>
         </div>
         <a
           href="/trabajo"
@@ -571,8 +605,8 @@ import Layout from '@/layouts/Layout.astro';
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="conocimiento"
-    style="background: var(--surface-alt); background-image: radial-gradient(oklch(10% 0.01 25 / 0.04) 1px, transparent 1px); background-size: 22px 22px;"
-    class="py-28"
+    style="background: var(--surface-alt);"
+    class="py-24"
     aria-label="Guías y Radar"
   >
     <div class="container-libera">
@@ -581,22 +615,12 @@ import Layout from '@/layouts/Layout.astro';
         <!-- Guías -->
         <div data-reveal>
           <p class="eyebrow mb-4" style="color: var(--text-secondary); font-family: var(--font-mono);">Guías</p>
-          <h2
-            class="font-display mb-4"
-            style="
-              font-family: var(--font-display);
-              font-size: clamp(1.5rem, 2.5vw, 2.25rem);
-              font-weight: 700;
-              letter-spacing: 0.015em;
-              line-height: 1.1;
-              color: var(--text-primary);
-            "
-          >
+          <h2 class="display-md mb-4" style="color: var(--text-primary);">
             Conocimiento abierto para decidir mejor.
           </h2>
           <p class="text-base mb-8 leading-relaxed" style="color: var(--text-secondary);">
-            Guías evergreen sobre PAOS, automatización, presencia digital y agentes de IA.
-            Para empresas que quieren entender antes de invertir.
+            Guías claras sobre sistemas, automatización, IA y presencia digital.
+            Para que entiendas qué necesitas antes de invertir — con o sin nosotros.
           </p>
 
           <div class="flex flex-col gap-3 mb-8">
@@ -632,22 +656,13 @@ import Layout from '@/layouts/Layout.astro';
         >
           <div>
             <p class="eyebrow mb-4" style="color: var(--orange); font-family: var(--font-mono);">Radar</p>
-            <h2
-              class="font-display mb-4"
-              style="
-                font-family: var(--font-display);
-                font-size: clamp(1.5rem, 2.5vw, 2.25rem);
-                font-weight: 700;
-                letter-spacing: 0.015em;
-                line-height: 1.1;
-                color: var(--text-light);
-              "
-            >
+            <h2 class="display-md mb-4" style="color: var(--text-light);">
               No seguimos tendencias.<br/>Las probamos.
             </h2>
             <p class="text-base mb-8 leading-relaxed" style="color: var(--text-light);">
-              Analizamos herramientas, modelos, automatizaciones y cambios tecnológicos
-              antes de convertirlos en decisiones reales.
+              Analizamos herramientas, modelos y cambios tecnológicos en nuestro laboratorio
+              antes de convertirlos en recomendaciones. Publicamos lo que funciona —
+              y también lo que rompimos.
             </p>
 
             <!-- Categories -->
@@ -693,49 +708,43 @@ import Layout from '@/layouts/Layout.astro';
       aria-hidden="true"
     ></div>
 
+    <!-- A echo — bookend of the hero nucleus -->
+    <div
+      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"
+      style="width: min(60vw, 760px); aspect-ratio: 10 / 11;"
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 400 440" fill="none" class="w-full h-full" aria-hidden="true">
+        <path d="M40 444 L200 36 L360 444" stroke="oklch(96% 0.005 60 / 0.05)" stroke-width="1.5" />
+        <line x1="128" y1="312" x2="272" y2="312" stroke="oklch(96% 0.005 60 / 0.05)" stroke-width="1.5" />
+        <circle cx="200" cy="36" r="4" fill="oklch(66% 0.16 48 / 0.4)" />
+      </svg>
+    </div>
+
     <div class="container-libera relative z-10 text-center" data-reveal>
       <h2
-        class="font-display mb-8 mx-auto max-w-5xl"
-        style="
-          font-family: var(--font-display);
-          font-size: clamp(2.5rem, 6.5vw, 6rem);
-          font-weight: 700;
-          letter-spacing: 0.015em;
-          line-height: 1.0;
-          color: var(--text-light);
-        "
+        class="display-hero mb-8 mx-auto max-w-5xl"
+        style="font-size: clamp(2.5rem, 6vw, 5.5rem); color: var(--text-light);"
       >
-        Si tu sistema digital no está claro,
-        <span style="color: var(--orange);"> tu crecimiento tampoco.</span>
+        Tu negocio ya funciona.
+        <span style="color: var(--orange);"> Imagínalo funcionando en orden.</span>
       </h2>
 
       <p class="text-lg mb-12 max-w-xl mx-auto" style="color: var(--text-light);">
-        Revisamos cómo te encuentran, cómo respondes y qué parte de tu sistema digital necesita orden primero.
-        Sin compromiso.
+        Empecemos por un diagnóstico: revisamos cómo te encuentran, cómo respondes
+        y qué parte de tu sistema digital necesita orden primero. Sin costo y sin compromiso.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="/diagnostico"
-          class="inline-flex items-center gap-3 px-8 py-5 rounded-full font-semibold text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          style="background: var(--orange); color: var(--ink);"
-        >
+        <a href="/diagnostico" class="btn btn-primary text-lg" style="padding: 1.25rem 2rem;">
           Solicitar diagnóstico
-          <span
-            class="w-8 h-8 rounded-full flex items-center justify-center"
-            style="background: var(--orange-dark);"
-            aria-hidden="true"
-          >
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+          <span class="btn-icon" style="width: 2rem; height: 2rem;" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M1 11L11 1M11 1H2M11 1v9"/>
             </svg>
           </span>
         </a>
-        <a
-          href="/contacto"
-          class="inline-flex items-center gap-3 px-8 py-5 rounded-full font-semibold text-lg transition-all duration-200 hover:scale-[1.02]"
-          style="background: transparent; color: var(--text-light); border: 1px solid oklch(26% 0.01 25);"
-        >
+        <a href="/contacto" class="btn btn-ghost-dark text-lg" style="padding: 1.25rem 2rem;">
           Hablar con el equipo
         </a>
       </div>
@@ -748,6 +757,95 @@ import Layout from '@/layouts/Layout.astro';
   @keyframes scrollDrop {
     0%   { transform: translateY(-100%); }
     100% { transform: translateY(200%); }
+  }
+
+  /* ── Hero A — slow drift + apex node pulse ───────────────────────── */
+  .hero-a {
+    transform: translateY(-50%);
+    animation: heroDrift 14s var(--ease-smooth) infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes heroDrift {
+    from { transform: translateY(calc(-50% - 8px)); }
+    to   { transform: translateY(calc(-50% + 8px)); }
+  }
+
+  .hero-a-node {
+    animation: nodePulse 3.2s var(--ease-smooth) infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.55; transform: scale(1.35); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-a,
+    .hero-a-node {
+      animation: none;
+    }
+  }
+
+  /* ── Diferenciadores marquee ─────────────────────────────────────── */
+  .diff-track {
+    display: flex;
+    width: max-content;
+    animation: diffScroll 42s linear infinite;
+    will-change: transform;
+  }
+
+  .diff-group {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .diff-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding-inline: 1.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--text-muted-light);
+  }
+
+  .diff-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+
+  @keyframes diffScroll {
+    to { transform: translateX(-50%); }
+  }
+
+  #diferenciadores:hover .diff-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .diff-track {
+      animation: none;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .diff-group {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 0.75rem;
+    }
+    .diff-group[aria-hidden="true"] {
+      display: none;
+    }
   }
 
   .method-scroll {
@@ -781,6 +879,9 @@ import Layout from '@/layouts/Layout.astro';
   .method-title {
     --method-title-fit: 1;
     --method-title-opacity: 1;
+    /* Restores the original all-caps look this section was tuned around
+       (the global h1/h2 uppercase rule was removed for long headlines) */
+    text-transform: uppercase;
     color: var(--text-light);
     font-size: clamp(1.05rem, calc(4.6vw * var(--method-title-fit)), 4.65rem);
     line-height: 1.12;

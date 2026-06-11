@@ -111,9 +111,10 @@
     text-wrap: balance;
   }
 
+  /* Sentence case for long display headlines — uppercase is reserved
+     for short labels and the method step titles (own rule) */
   h1, h2 {
-    letter-spacing: 0.015em;
-    text-transform: uppercase;
+    letter-spacing: -0.015em;
   }
 
   p {
@@ -191,6 +192,101 @@
     opacity: 0.6;
   }
 
+  /* Section label — numbered index + hairline rule (enterprise rhythm) */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .section-label::after {
+    content: '';
+    height: 1px;
+    width: 3.5rem;
+    background: currentColor;
+    opacity: 0.3;
+  }
+
+  /* Display type scale — single source for headline sizing */
+  .display-hero {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    font-size: clamp(2.5rem, 5.2vw, 5rem);
+  }
+  .display-xl {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-size: clamp(2rem, 4.5vw, 3.75rem);
+  }
+  .display-lg {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.08;
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  }
+  .display-md {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.12;
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  }
+
+  /* Buttons — shared vocabulary (Button-in-Button on primary) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition:
+      transform 0.25s var(--ease-premium),
+      background-color 0.25s var(--ease-premium),
+      border-color 0.25s var(--ease-premium),
+      color 0.25s var(--ease-premium);
+  }
+  .btn:active { transform: scale(0.98); }
+
+  .btn-primary {
+    background: var(--orange);
+    color: var(--ink);
+    padding: 1rem 1.75rem;
+  }
+  .btn-primary:hover { background: oklch(70% 0.165 48); }
+
+  .btn-ghost-dark {
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid oklch(28% 0.01 25);
+    padding: 1rem 1.75rem;
+  }
+  .btn-ghost-dark:hover {
+    border-color: oklch(44% 0.01 25);
+    background: oklch(96% 0.005 60 / 0.04);
+  }
+
+  .btn-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--orange-dark);
+    color: var(--ink);
+    transition: transform 0.25s var(--ease-premium);
+  }
+  .btn:hover .btn-icon { transform: translateX(2px) translateY(-1px) scale(1.05); }
+
   /* Gradient text — orange, documented structural use: brand A identity only */
   .text-gradient-orange {
     background: linear-gradient(135deg, var(--orange) 0%, oklch(72% 0.22 55) 100%);
@@ -243,13 +339,16 @@
   [data-reveal] {
     opacity: 0;
     transform: translateY(1.5rem);
+    filter: blur(6px);
     transition:
-      opacity 0.7s var(--ease-out-expo),
-      transform 0.7s var(--ease-out-expo);
+      opacity 0.8s var(--ease-out-expo),
+      transform 0.8s var(--ease-out-expo),
+      filter 0.8s var(--ease-out-expo);
   }
   [data-reveal].revealed {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 
   /* Mobile: remove blur-based reveals — GPU layer exhaustion prevention */
