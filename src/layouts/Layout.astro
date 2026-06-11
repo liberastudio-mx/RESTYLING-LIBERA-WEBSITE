@@ -1,0 +1,106 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonical?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/images/og-default.png',
+  canonical,
+  noIndex = false,
+} = Astro.props;
+
+const siteUrl = 'https://www.liberastudio.tech';
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+const fullTitle = title === 'LIBERA Studio'
+  ? 'LIBERA Studio — Sistemas digitales, automatización e IA para empresas'
+  : `${title} — LIBERA Studio`;
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LIBERA Studio",
+  "url": siteUrl,
+  "logo": `${siteUrl}/images/logo.svg`,
+  "description": "Estudio de sistemas digitales, automatización e inteligencia artificial para empresas que quieren operar mejor.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Mérida", "addressCountry": "MX" },
+  "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "url": `${siteUrl}/contacto` }
+});
+---
+
+<!doctype html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="LIBERA Studio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Fonts: self-hosted (preload critical path) -->
+    <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- JSON-LD Organization -->
+    <script type="application/ld+json" set:html={jsonLd} />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Ir al contenido principal</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Scroll reveal observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+      );
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

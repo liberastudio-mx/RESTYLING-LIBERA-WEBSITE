@@ -1,0 +1,36 @@
+# build output
+dist/
+.output/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+
+# Astro
+.astro/
+
+# Claude Code project config
+.claude/
+
+# Font source files in project root (originals, not the optimised woff2 in public/fonts/)
+/Archivo/
+/Fonts/
+/Pliant/
+
+# Dev logs
+dev-server.log
+dev-server.err.log
+*.log

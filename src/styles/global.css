@@ -1,0 +1,273 @@
+/* Design: Brand | Register: Full Palette | Vibe: Soft-Structuralism + Motion Studio */
+
+@import "tailwindcss";
+
+/* ─── Pliant — self-hosted variable font ────────────────────────────── */
+@font-face {
+  font-family: "Pliant";
+  src: url("/fonts/Pliant-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Geist — self-hosted variable fonts ────────────────────────────── */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* ── Color tokens ─────────────────────────────────────── */
+
+    /* Brand anchors */
+    --ink:         oklch(8% 0.01 25);       /* hero / near-black warm */
+    --ink-mid:     oklch(14% 0.01 25);      /* dark sections */
+    --surface:     oklch(97% 0.006 60);     /* base off-white warm */
+    --surface-alt: oklch(94% 0.008 60);     /* slightly deeper off-white */
+    --border:      oklch(88% 0.008 60);     /* subtle hairline */
+    --border-dark: oklch(22% 0.01 25);      /* hairline on dark */
+
+    /* Text */
+    --text-primary:   oklch(12% 0.01 25);   /* body on light */
+    --text-secondary: oklch(38% 0.01 25);   /* muted on light */
+    --text-light:     oklch(96% 0.005 60);  /* on dark surfaces */
+    --text-muted-light: oklch(68% 0.01 25); /* muted on dark */
+
+    /* Brand accent — the A */
+    --orange:      oklch(66% 0.16 48);      /* LIBERA A orange */
+    --orange-dark: oklch(52% 0.15 48);      /* darker variant */
+    --orange-glow: oklch(66% 0.16 48 / 0.14);
+
+    /* Section accents */
+    --presencia:   oklch(47% 0.055 230);    /* muted steel — Presencia Digital */
+    --operacion:   oklch(48% 0.06 145);     /* muted sage — Operación */
+    --ai:          oklch(50% 0.055 48);      /* clay — AI & Automation */
+    --productos:   oklch(48% 0.055 190);    /* muted teal — Digital Products */
+
+    /* ── Typography tokens ────────────────────────────────── */
+    --font-display: "Pliant", "Clash Display", system-ui, sans-serif;
+    --font-body:    "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono:    "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+
+    /* ── Easing tokens ────────────────────────────────────── */
+    --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-premium:    cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-smooth:     cubic-bezier(0.25, 1, 0.5, 1);
+
+    /* ── Layout tokens ────────────────────────────────────── */
+    --container-max: 1440px;
+    --nav-height: 72px;
+  }
+
+  /* ── Reset & base ─────────────────────────────────────────────────── */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+  }
+
+  body,
+  button,
+  input,
+  textarea,
+  select {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-body);
+  }
+
+  button, a {
+    touch-action: manipulation;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── Typography ─────────────────────────────────────────────────────  */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  h1, h2 {
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* ── Scroll margin for fixed nav ─────────────────────────────────── */
+  [id] {
+    scroll-margin-top: var(--nav-height);
+  }
+
+  /* ── Skip to content ─────────────────────────────────────────────── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--orange);
+    color: var(--ink);
+    font-weight: 600;
+    border-radius: 0 0 0.5rem 0.5rem;
+    z-index: 9999;
+    transition: top 0.2s;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+
+  /* ── Focus visible ───────────────────────────────────────────────── */
+  :focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ── Selection ───────────────────────────────────────────────────── */
+  ::selection {
+    background: var(--orange-glow);
+    color: var(--ink);
+  }
+
+  input,
+  textarea,
+  select {
+    outline: none;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: oklch(46% 0.008 25);
+  }
+}
+
+/* ─── Utility classes ────────────────────────────────────────────────── */
+@layer utilities {
+  .container-libera {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+  }
+
+  /* Font families */
+  .font-display { font-family: var(--font-display); }
+  .font-body    { font-family: var(--font-body); }
+  .font-mono    { font-family: var(--font-mono); }
+
+  /* Eyebrow label */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.6;
+  }
+
+  /* Gradient text — orange, documented structural use: brand A identity only */
+  .text-gradient-orange {
+    background: linear-gradient(135deg, var(--orange) 0%, oklch(72% 0.22 55) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section color accents */
+  .accent-presencia  { color: var(--presencia); }
+  .accent-operacion  { color: var(--operacion); }
+  .accent-ai         { color: var(--ai); }
+  .accent-productos  { color: var(--productos); }
+
+  .field-error {
+    display: none;
+    margin-top: 0.5rem;
+    color: oklch(74% 0.13 35);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+
+  .field-error.is-visible {
+    display: block;
+  }
+
+  .form-status {
+    border: 1px solid var(--border-dark);
+    border-radius: 0.875rem;
+    padding: 1rem;
+    color: var(--text-muted-light);
+    background: oklch(12% 0.01 25);
+  }
+
+  .form-status[data-tone="success"] {
+    color: var(--text-light);
+    border-color: oklch(34% 0.08 145);
+    background: oklch(16% 0.035 145 / 0.55);
+  }
+
+  .form-status[data-tone="error"] {
+    color: var(--text-light);
+    border-color: oklch(40% 0.12 35);
+    background: oklch(16% 0.035 35 / 0.55);
+  }
+}
+
+/* ─── Scroll reveal (IntersectionObserver driven) ────────────────────── */
+@layer base {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.7s var(--ease-out-expo),
+      transform 0.7s var(--ease-out-expo);
+  }
+  [data-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile: remove blur-based reveals — GPU layer exhaustion prevention */
+  @media (max-width: 900px) {
+    [data-reveal] {
+      filter: none !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

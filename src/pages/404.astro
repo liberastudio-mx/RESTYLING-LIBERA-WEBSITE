@@ -1,0 +1,19 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+<Layout title="404 — Página no encontrada" description="La página que buscas no existe." noIndex={true}>
+  <section style="background: var(--ink); min-height: 100dvh;" class="flex items-center">
+    <div class="container-libera text-center">
+      <p class="font-mono text-8xl font-bold mb-6" style="color: oklch(18% 0.01 25); font-family: var(--font-mono);">404</p>
+      <h1 class="font-display mb-6" style="font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--text-light); font-weight: 700; letter-spacing: -0.04em;">
+        Esta página no existe.
+      </h1>
+      <p class="text-base mb-10" style="color: oklch(48% 0.008 25);">
+        Puede que haya sido movida o eliminada.
+      </p>
+      <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-all duration-200 hover:scale-[1.02]" style="background: var(--orange); color: var(--ink);">
+        Volver al inicio
+      </a>
+    </div>
+  </section>
+</Layout>

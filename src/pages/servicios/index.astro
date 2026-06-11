@@ -1,0 +1,36 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+<Layout title="Servicios" description="Servicios de LIBERA Studio: diseño web, landing pages, automatización, agentes de IA, PAOS, WhatsApp Business y más.">
+  <section style="background: var(--surface);" class="pt-40 pb-20">
+    <div class="container-libera">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <span class="eyebrow block mb-4" style="color: var(--text-secondary); font-family: var(--font-mono);">Servicios</span>
+        <h1 class="font-display mb-6" style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.04em; color: var(--text-primary); line-height: 1.0;">
+          Lo que construimos.
+        </h1>
+        <p class="text-lg" style="color: var(--text-secondary);">
+          Servicios concretos para cada necesidad digital de tu negocio.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { label: 'Diseño web', href: '/servicios/diseno-web' },
+          { label: 'Landing pages', href: '/servicios/landing-pages' },
+          { label: 'Automatización', href: '/servicios/automatizacion' },
+          { label: 'Agentes de IA', href: '/servicios/agentes-ia' },
+          { label: 'PAOS', href: '/servicios/paos' },
+          { label: 'WhatsApp Business', href: '/servicios/whatsapp-business' },
+          { label: 'Google Business Profile', href: '/servicios/google-business-profile' },
+          { label: 'SEO local', href: '/servicios/seo-local' },
+          { label: 'Consultoría tecnológica', href: '/servicios/consultoria-tecnologica' },
+        ].map((s) => (
+          <a href={s.href} class="p-7 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 group" style="background: var(--surface); border: 1px solid var(--border);" data-reveal>
+            <h2 class="font-display font-semibold text-xl" style="font-family: var(--font-display); color: var(--text-primary);">{s.label}</h2>
+            <span class="text-sm mt-4 block" style="color: var(--orange);">Ver servicio →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,146 @@
+---
+const year = new Date().getFullYear();
+
+const footerLinks = {
+  soluciones: [
+    { label: 'Presencia Digital', href: '/soluciones/presencia-digital' },
+    { label: 'Operación Inteligente', href: '/soluciones/operacion-inteligente' },
+    { label: 'AI & Automation', href: '/soluciones/ai-automation' },
+    { label: 'Productos Digitales', href: '/soluciones/productos-digitales' },
+  ],
+  servicios: [
+    { label: 'Diseño web', href: '/servicios/diseno-web' },
+    { label: 'Landing pages', href: '/servicios/landing-pages' },
+    { label: 'Automatización', href: '/servicios/automatizacion' },
+    { label: 'Agentes de IA', href: '/servicios/agentes-ia' },
+    { label: 'PAOS', href: '/servicios/paos' },
+  ],
+  estudio: [
+    { label: 'Trabajo', href: '/trabajo' },
+    { label: 'Guías', href: '/guias' },
+    { label: 'Radar', href: '/radar' },
+    { label: 'Laboratorio', href: '/laboratorio' },
+    { label: 'Nosotros', href: '/nosotros' },
+  ],
+};
+---
+
+<footer style="background: var(--ink-mid); border-top: 1px solid var(--border-dark);">
+  <div class="container-libera py-20">
+
+    <!-- Top grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+
+      <!-- Brand column -->
+      <div class="lg:col-span-2">
+        <!-- Logo -->
+        <a href="/" class="inline-block mb-6" aria-label="LIBERA Studio">
+          <svg width="130" height="30" viewBox="0 0 130 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="0" y="24" font-family="var(--font-display)" font-size="24" font-weight="700" letter-spacing="-0.04em" fill="oklch(92% 0.005 60)">LIBER</text>
+            <text x="91" y="24" font-family="var(--font-display)" font-size="24" font-weight="700" letter-spacing="-0.04em" fill="var(--orange)">A</text>
+            <text x="0" y="30" font-family="var(--font-body)" font-size="8.5" font-weight="500" letter-spacing="0.22em" fill="oklch(48% 0.008 25)">STUDIO</text>
+          </svg>
+        </a>
+
+        <p class="text-base leading-relaxed mb-8 max-w-xs" style="color: oklch(56% 0.008 25);">
+          Sistemas digitales, automatización e inteligencia artificial para empresas que quieren operar mejor.
+        </p>
+
+        <!-- CTA -->
+        <a
+          href="/diagnostico"
+          class="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          style="background: oklch(22% 0.01 25); color: var(--orange); border: 1px solid oklch(28% 0.01 25);"
+        >
+          Solicitar diagnóstico
+          <span class="text-base" aria-hidden="true">→</span>
+        </a>
+
+        <!-- Location badge -->
+        <div class="flex items-center gap-2 mt-8">
+          <span class="w-1.5 h-1.5 rounded-full" style="background: var(--operacion);"></span>
+          <span class="text-xs tracking-wide" style="color: oklch(42% 0.008 25);">Mérida, México</span>
+        </div>
+      </div>
+
+      <!-- Link columns -->
+      <div>
+        <h3 class="text-xs font-semibold tracking-widest uppercase mb-5" style="color: oklch(42% 0.008 25);">
+          Soluciones
+        </h3>
+        <ul class="space-y-3">
+          {footerLinks.soluciones.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm transition-colors duration-150 hover:text-white"
+                style="color: oklch(56% 0.008 25);"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-semibold tracking-widest uppercase mb-5" style="color: oklch(42% 0.008 25);">
+          Servicios
+        </h3>
+        <ul class="space-y-3">
+          {footerLinks.servicios.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm transition-colors duration-150 hover:text-white"
+                style="color: oklch(56% 0.008 25);"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-semibold tracking-widest uppercase mb-5" style="color: oklch(42% 0.008 25);">
+          Estudio
+        </h3>
+        <ul class="space-y-3">
+          {footerLinks.estudio.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm transition-colors duration-150 hover:text-white"
+                style="color: oklch(56% 0.008 25);"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div
+      class="flex flex-col md:flex-row items-center justify-between gap-4 mt-16 pt-8"
+      style="border-top: 1px solid oklch(18% 0.01 25);"
+    >
+      <p class="text-xs" style="color: oklch(36% 0.008 25);">
+        © {year} LIBERA Studio. Todos los derechos reservados.
+      </p>
+      <div class="flex items-center gap-6">
+        <a href="/privacidad" class="text-xs transition-colors duration-150 hover:text-white" style="color: oklch(36% 0.008 25);">
+          Privacidad
+        </a>
+        <a href="/terminos" class="text-xs transition-colors duration-150 hover:text-white" style="color: oklch(36% 0.008 25);">
+          Términos
+        </a>
+        <a href="/contacto" class="text-xs transition-colors duration-150 hover:text-white" style="color: oklch(36% 0.008 25);">
+          Contacto
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,450 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { label: 'Soluciones', href: '/soluciones', type: 'mega-large' },
+  { label: 'Servicios',  href: '/servicios',  type: 'mega-medium' },
+  { label: 'Trabajo',    href: '/trabajo',    type: 'dropdown-visual' },
+  { label: 'Guías',      href: '/guias',      type: 'mega-editorial' },
+  { label: 'Radar',      href: '/radar',      type: 'dropdown-simple' },
+  { label: 'Laboratorio', href: '/laboratorio', type: 'link' },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50"
+  style="height: var(--nav-height);"
+>
+  <!-- Backdrop -->
+  <div
+    id="header-bg"
+    class="absolute inset-0 transition-all duration-300"
+    style="background: transparent; border-bottom: 1px solid transparent;"
+  ></div>
+
+  <div class="container-libera relative h-full flex items-center justify-between gap-8">
+
+    <!-- Logo -->
+    <a href="/" class="flex-shrink-0 flex items-center gap-2 z-10" aria-label="LIBERA Studio — Inicio">
+      <svg width="122" height="28" viewBox="0 0 122 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="0" y="22" font-family="var(--font-display)" font-size="22" font-weight="700" letter-spacing="-0.04em" fill="oklch(96% 0.005 60)">LIBER</text>
+        <text x="84" y="22" font-family="var(--font-display)" font-size="22" font-weight="700" letter-spacing="-0.04em" fill="var(--orange)">A</text>
+        <text x="0" y="28" font-family="var(--font-body)" font-size="7.5" font-weight="500" letter-spacing="0.24em" fill="oklch(44% 0.008 25)">STUDIO</text>
+      </svg>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden lg:flex items-center gap-0.5 flex-1 justify-center" aria-label="Navegación principal">
+
+      <!-- ── Soluciones — MEGA LARGE ───────────────────────────────── -->
+      <div class="relative group">
+        <button
+          class="nav-btn flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium"
+          style="color: oklch(74% 0.008 60);"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Soluciones
+          <svg class="chevron w-3 h-3 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M1 1.5l5 5 5-5"/>
+          </svg>
+        </button>
+
+        <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[840px] rounded-2xl opacity-0 invisible translate-y-2 transition-all duration-200 pointer-events-none"
+          style="background: oklch(10% 0.012 25); border: 1px solid oklch(20% 0.01 25); box-shadow: 0 32px 80px oklch(0% 0 0 / 0.6);"
+          role="region" aria-label="Soluciones"
+        >
+          <div class="grid grid-cols-4 p-5 gap-1">
+            {[
+              { heading: 'Presencia Digital', accent: 'var(--presencia)', href: '/soluciones/presencia-digital',
+                links: [['Sitios web premium','/servicios/diseno-web'],['Landing pages','/servicios/landing-pages'],['Google Business Profile','/servicios/google-business-profile'],['WhatsApp Business','/servicios/whatsapp-business'],['SEO local','/servicios/seo-local']] },
+              { heading: 'Operación Inteligente', accent: 'var(--operacion)', href: '/soluciones/operacion-inteligente',
+                links: [['PAOS','/servicios/paos'],['Automatización','/servicios/automatizacion'],['CRM y seguimiento','/servicios/automatizacion'],['Dashboards','/servicios/automatizacion'],['Integraciones','/servicios/automatizacion']] },
+              { heading: 'AI & Automation', accent: 'var(--ai)', href: '/soluciones/ai-automation',
+                links: [['Agentes de IA','/servicios/agentes-ia'],['Asistentes internos','/servicios/agentes-ia'],['Flujos con n8n','/servicios/automatizacion'],['Clasificación de mensajes','/servicios/agentes-ia'],['Automatización documental','/servicios/automatizacion']] },
+              { heading: 'Productos Digitales', accent: 'var(--productos)', href: '/soluciones/productos-digitales',
+                links: [['Web apps','/servicios/diseno-web'],['MVPs','/servicios/diseno-web'],['Apps internas','/servicios/diseno-web'],['Paneles admin','/servicios/diseno-web'],['Prototipos','/servicios/diseno-web']] },
+            ].map((col) => (
+              <div class="px-4 py-3 rounded-xl hover:bg-white/[0.03] transition-colors duration-150">
+                <a href={col.href} class="flex items-center gap-2 mb-3 group/col">
+                  <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style={`background:${col.accent};`}></span>
+                  <span class="text-xs font-semibold tracking-wide uppercase transition-opacity duration-150 group-hover/col:opacity-80" style={`color:${col.accent};`}>{col.heading}</span>
+                </a>
+                <ul class="space-y-1.5">
+                  {col.links.map(([label, href]) => (
+                    <li>
+                      <a href={href} class="block text-sm py-0.5 transition-colors duration-150 hover:text-white" style="color: oklch(54% 0.008 25);">{label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div class="mx-5 mb-5 px-4 py-3 rounded-xl flex items-center justify-between" style="background: oklch(7% 0.01 25); border: 1px solid oklch(18% 0.01 25);">
+            <p class="text-xs" style="color: oklch(44% 0.008 25);">¿No sabes por dónde empezar?</p>
+            <a href="/diagnostico" class="text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-200 hover:bg-orange-500/10" style="color: var(--orange); border: 1px solid oklch(30% 0.08 48);">
+              Solicitar diagnóstico →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Servicios — MEGA MEDIUM ────────────────────────────────── -->
+      <div class="relative group">
+        <button class="nav-btn flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium" style="color: oklch(74% 0.008 60);" aria-haspopup="true" aria-expanded="false">
+          Servicios
+          <svg class="chevron w-3 h-3 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M1 1.5l5 5 5-5"/>
+          </svg>
+        </button>
+
+        <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[600px] rounded-2xl opacity-0 invisible translate-y-2 transition-all duration-200 pointer-events-none"
+          style="background: oklch(10% 0.012 25); border: 1px solid oklch(20% 0.01 25); box-shadow: 0 24px 60px oklch(0% 0 0 / 0.5);"
+        >
+          <div class="grid grid-cols-3 gap-1 p-5">
+            {[
+              { heading: 'Web & Presencia', accent: 'var(--presencia)',
+                links: [['Diseño web','/servicios/diseno-web'],['Landing pages','/servicios/landing-pages'],['SEO local','/servicios/seo-local'],['Google Business','/servicios/google-business-profile']] },
+              { heading: 'Automatización & IA', accent: 'var(--ai)',
+                links: [['Automatización','/servicios/automatizacion'],['Agentes de IA','/servicios/agentes-ia'],['WhatsApp Business','/servicios/whatsapp-business'],['Integraciones','/servicios/automatizacion']] },
+              { heading: 'Estrategia & Sistemas', accent: 'var(--operacion)',
+                links: [['PAOS','/servicios/paos'],['Consultoría','/servicios/consultoria-tecnologica'],['Diagnóstico digital','/diagnostico'],['Arquitectura','/servicios/consultoria-tecnologica']] },
+            ].map((col) => (
+              <div class="px-4 py-3 rounded-xl hover:bg-white/[0.03] transition-colors duration-150">
+                <p class="text-xs font-semibold tracking-wide uppercase mb-3" style={`color:${col.accent};`}>{col.heading}</p>
+                <ul class="space-y-1.5">
+                  {col.links.map(([label, href]) => (
+                    <li><a href={href} class="block text-sm py-0.5 transition-colors duration-150 hover:text-white" style="color: oklch(54% 0.008 25);">{label}</a></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <!-- Featured card -->
+          <div class="mx-5 mb-5">
+            <a href="/diagnostico" class="flex items-center justify-between px-5 py-4 rounded-xl transition-all duration-200 hover:bg-white/[0.04] group/feat" style="background: oklch(7% 0.01 25); border: 1px solid oklch(18% 0.01 25);">
+              <div>
+                <p class="text-xs font-mono tracking-wide mb-1" style="color: var(--orange); font-family: var(--font-mono);">Servicio destacado</p>
+                <p class="text-sm font-medium" style="color: oklch(80% 0.008 60);">Diagnóstico de presencia digital y operación</p>
+              </div>
+              <span class="text-sm transition-transform duration-200 group-hover/feat:translate-x-1" style="color: var(--orange);">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Trabajo — DROPDOWN VISUAL ─────────────────────────────── -->
+      <div class="relative group">
+        <button class="nav-btn flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium" style="color: oklch(74% 0.008 60);" aria-haspopup="true" aria-expanded="false">
+          Trabajo
+          <svg class="chevron w-3 h-3 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M1 1.5l5 5 5-5"/>
+          </svg>
+        </button>
+
+        <div class="dropdown absolute top-full left-0 mt-3 w-72 rounded-2xl opacity-0 invisible translate-y-2 transition-all duration-200 pointer-events-none"
+          style="background: oklch(10% 0.012 25); border: 1px solid oklch(20% 0.01 25); box-shadow: 0 20px 48px oklch(0% 0 0 / 0.5);"
+        >
+          <div class="p-3">
+            {[
+              { name: 'Cenote Scout',         cat: 'Producto',       accent: 'var(--presencia)', href: '/trabajo/cenote-scout' },
+              { name: 'LIBERA AI Automation', cat: 'Sistema',        accent: 'var(--ai)',        href: '/trabajo/radar' },
+              { name: 'Radio 9999',           cat: 'Producto',       accent: 'var(--orange)',    href: '/trabajo/9999' },
+              { name: 'Sole Facile',          cat: 'Cliente',        accent: 'var(--operacion)', href: '/trabajo/sole-facile' },
+            ].map((p) => (
+              <a href={p.href} class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-150 hover:bg-white/[0.05] group/p">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style={`background:${p.accent};`} aria-hidden="true"></span>
+                <div>
+                  <span class="block text-xs" style="color: oklch(42% 0.008 25);">{p.cat}</span>
+                  <span class="block text-sm font-medium transition-colors duration-150 group-hover/p:text-white" style="color: oklch(76% 0.008 60);">{p.name}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div class="mx-3 mb-3 px-4 py-2.5 rounded-xl" style="border-top: 1px solid oklch(18% 0.01 25);">
+            <a href="/trabajo" class="flex items-center justify-between text-sm font-medium transition-colors duration-150 hover:text-white" style="color: oklch(52% 0.008 25);">
+              Ver todo el trabajo <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Guías — MEGA EDITORIAL ─────────────────────────────────── -->
+      <div class="relative group">
+        <button class="nav-btn flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium" style="color: oklch(74% 0.008 60);" aria-haspopup="true" aria-expanded="false">
+          Guías
+          <svg class="chevron w-3 h-3 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M1 1.5l5 5 5-5"/>
+          </svg>
+        </button>
+
+        <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[680px] rounded-2xl opacity-0 invisible translate-y-2 transition-all duration-200 pointer-events-none"
+          style="background: oklch(10% 0.012 25); border: 1px solid oklch(20% 0.01 25); box-shadow: 0 24px 60px oklch(0% 0 0 / 0.5);"
+        >
+          <div class="grid grid-cols-2 gap-1 p-5">
+            {[
+              { heading: 'PAOS', accent: 'var(--operacion)',
+                links: [['Qué es un PAOS','/guias/paos/que-es-un-paos'],['Cómo ordenar tu operación','/guias/paos'],['PAOS vs CRM','/guias/paos'],['PAOS para pequeños negocios','/guias/paos']] },
+              { heading: 'Automatización', accent: 'var(--ai)',
+                links: [['Qué automatizar primero','/guias/automatizacion'],['n8n vs Make vs Zapier','/guias/automatizacion'],['Cuándo no automatizar','/guias/automatizacion'],['Automatización con WhatsApp','/guias/automatizacion']] },
+              { heading: 'Inteligencia Artificial', accent: 'var(--presencia)',
+                links: [['Qué es un agente de IA','/guias/inteligencia-artificial/agentes-ia-empresa'],['Agente IA vs chatbot','/guias/inteligencia-artificial'],['IA para atención al cliente','/guias/inteligencia-artificial'],['Errores comunes con IA','/guias/inteligencia-artificial']] },
+              { heading: 'Presencia Digital', accent: 'var(--productos)',
+                links: [['Qué debe tener una web','/guias/presencia-digital'],['Web vs landing page','/guias/presencia-digital'],['Google Maps para negocios','/guias/presencia-digital'],['Por qué tu web no convierte','/guias/presencia-digital/como-saber-si-tu-web-convierte']] },
+            ].map((col) => (
+              <div class="px-4 py-3 rounded-xl hover:bg-white/[0.03] transition-colors duration-150">
+                <p class="text-xs font-mono font-semibold tracking-widest uppercase mb-3" style={`color:${col.accent}; font-family: var(--font-mono);`}>{col.heading}</p>
+                <ul class="space-y-1.5">
+                  {col.links.map(([label, href]) => (
+                    <li><a href={href} class="block text-sm py-0.5 leading-snug transition-colors duration-150 hover:text-white" style="color: oklch(54% 0.008 25);">{label}</a></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <!-- Guía destacada -->
+          <div class="mx-5 mb-5 px-5 py-4 rounded-xl" style="background: oklch(7% 0.01 25); border: 1px solid oklch(18% 0.01 25);">
+            <p class="text-xs mb-2" style="color: oklch(42% 0.008 25);">Empieza por aquí:</p>
+            <a href="/guias/paos/que-es-un-paos" class="text-sm font-medium hover:text-white transition-colors duration-150" style="color: oklch(76% 0.008 60);">
+              "¿Necesita tu negocio una web, una automatización o un sistema completo?" →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Radar — DROPDOWN SIMPLE ────────────────────────────────── -->
+      <div class="relative group">
+        <button class="nav-btn flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium" style="color: oklch(74% 0.008 60);" aria-haspopup="true" aria-expanded="false">
+          Radar
+          <svg class="chevron w-3 h-3 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M1 1.5l5 5 5-5"/>
+          </svg>
+        </button>
+
+        <div class="dropdown absolute top-full left-0 mt-3 w-52 rounded-2xl opacity-0 invisible translate-y-2 transition-all duration-200 pointer-events-none"
+          style="background: oklch(10% 0.012 25); border: 1px solid oklch(20% 0.01 25); box-shadow: 0 16px 40px oklch(0% 0 0 / 0.5);"
+        >
+          <ul class="p-2">
+            {[
+              ['AI',            '/radar/ai'],
+              ['Automatización','/radar/automation'],
+              ['Tools',         '/radar/tools'],
+              ['Web',           '/radar/web'],
+              ['SEO',           '/radar/seo'],
+              ['Experimentos',  '/radar/experiments'],
+              ['Opinión',       '/radar/opinion'],
+            ].map(([label, href]) => (
+              <li>
+                <a href={href} class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm transition-all duration-150 hover:bg-white/[0.05] hover:text-white" style="color: oklch(60% 0.008 25);">
+                  <span class="w-1 h-1 rounded-full flex-shrink-0" style="background: oklch(34% 0.008 25);" aria-hidden="true"></span>
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div class="mx-2 mb-2 px-4 py-2.5 rounded-xl" style="border-top: 1px solid oklch(18% 0.01 25);">
+            <a href="/radar" class="flex items-center justify-between text-xs font-medium transition-colors duration-150 hover:text-white" style="color: oklch(44% 0.008 25);">
+              Ver todo Radar <span style="color: var(--orange);">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Laboratorio — LINK DIRECTO ─────────────────────────────── -->
+      <a
+        href="/laboratorio"
+        class="nav-btn px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        style="color: oklch(74% 0.008 60);"
+        aria-current={currentPath === '/laboratorio' ? 'page' : undefined}
+      >
+        Laboratorio
+      </a>
+
+    </nav>
+
+    <!-- CTA + hamburger -->
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <a
+        href="/diagnostico"
+        class="hidden md:flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+        style="background: var(--orange); color: var(--ink);"
+      >
+        Diagnóstico
+        <span class="w-5 h-5 rounded-full flex items-center justify-center" style="background: var(--orange-dark);" aria-hidden="true">
+          <svg width="7" height="7" viewBox="0 0 8 8" fill="currentColor"><path d="M1 7L7 1M7 1H2M7 1v5"/></svg>
+        </span>
+      </a>
+
+      <!-- Hamburger — mobile only -->
+      <button
+        id="menu-toggle"
+        class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-md"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú"
+        style="color: oklch(88% 0.005 60);"
+      >
+        <span id="bar1" class="w-5 h-0.5 rounded-full transition-all duration-300 origin-center" style="background: currentColor;"></span>
+        <span id="bar2" class="w-5 h-0.5 rounded-full transition-all duration-300" style="background: currentColor;"></span>
+        <span id="bar3" class="w-5 h-0.5 rounded-full transition-all duration-300 origin-center" style="background: currentColor;"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Mobile menu ────────────────────────────────────────────────── -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden fixed inset-x-0 bottom-0 opacity-0 invisible transition-all duration-300 overflow-y-auto"
+    style="top: var(--nav-height); background: var(--ink);"
+    aria-hidden="true"
+  >
+    <div class="container-libera py-8 flex flex-col gap-1">
+      {[
+        { label: 'Soluciones',  href: '/soluciones' },
+        { label: 'Servicios',   href: '/servicios' },
+        { label: 'Trabajo',     href: '/trabajo' },
+        { label: 'Guías',       href: '/guias' },
+        { label: 'Radar',       href: '/radar' },
+        { label: 'Laboratorio', href: '/laboratorio' },
+        { label: 'Nosotros',    href: '/nosotros' },
+      ].map((link, i) => (
+        <a
+          href={link.href}
+          class="py-4 text-2xl font-semibold border-b transition-colors duration-200 hover:text-white"
+          style={`font-family: var(--font-display); color: oklch(72% 0.008 60); border-color: var(--border-dark); transition-delay: ${i * 35}ms;`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="mt-8">
+        <a href="/diagnostico" class="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold" style="background: var(--orange); color: var(--ink);">
+          Solicitar diagnóstico
+          <span class="w-6 h-6 rounded-full flex items-center justify-center text-sm" style="background: var(--orange-dark);" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Hover bridge: invisible area below each group button that bridges the mt-3 gap to the dropdown */
+  nav .group::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 0.75rem; /* = mt-3 on dropdowns */
+    pointer-events: none;
+  }
+  /* Chevron rotates on both CSS hover and JS-managed open states */
+  nav .group:has(.dropdown.kb-open) .chevron,
+  nav .group:has(.dropdown.hover-open) .chevron {
+    transform: rotate(180deg);
+  }
+  .nav-btn:hover {
+    color: oklch(94% 0.005 60) !important;
+    background: oklch(96% 0.006 60 / 0.05);
+  }
+  #site-header nav :is(a, button, p, span),
+  #mobile-menu :is(a, span) {
+    color: var(--text-light) !important;
+  }
+  #mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* Dropdown open states — keyboard and mouse */
+  .dropdown.kb-open,
+  .dropdown.hover-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+</style>
+
+<script>
+  // Header scroll — blur + border on scroll
+  const headerBg = document.getElementById('header-bg');
+  const updateHeader = () => {
+    const scrolled = window.scrollY > 40;
+    if (!headerBg) return;
+    headerBg.style.background   = scrolled ? 'oklch(8% 0.01 25 / 0.9)' : 'transparent';
+    headerBg.style.backdropFilter = scrolled ? 'blur(18px) saturate(120%)' : 'none';
+    headerBg.style.borderBottom = scrolled ? '1px solid oklch(96% 0.005 60 / 0.07)' : '1px solid transparent';
+  };
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  let menuOpen = false;
+
+  const setMenu = (open: boolean) => {
+    menuOpen = open;
+    menuToggle!.setAttribute('aria-expanded', String(open));
+    mobileMenu!.setAttribute('aria-hidden', String(!open));
+    mobileMenu!.classList.toggle('open', open);
+    bar1!.style.transform = open ? 'translateY(8px) rotate(45deg)' : '';
+    bar2!.style.opacity   = open ? '0' : '1';
+    bar3!.style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  menuToggle?.addEventListener('click', () => setMenu(!menuOpen));
+  document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => setMenu(false)));
+
+  // Desktop nav — hover (250ms close delay) + keyboard, merged into one loop so closeTimer is shared
+  const CLOSE_DELAY = 250;
+  const navGroups = document.querySelectorAll('nav .group');
+
+  navGroups.forEach((group) => {
+    const trigger = group.querySelector('button.nav-btn') as HTMLButtonElement | null;
+    const dropdown = group.querySelector('.dropdown') as HTMLElement | null;
+    if (!dropdown) return;
+    let closeTimer: ReturnType<typeof setTimeout> | null = null;
+
+    // Hover
+    group.addEventListener('mouseenter', () => {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      navGroups.forEach((g) => {
+        if (g !== group) (g.querySelector('.dropdown') as HTMLElement | null)?.classList.remove('hover-open');
+      });
+      dropdown.classList.add('hover-open');
+    });
+    group.addEventListener('mouseleave', () => {
+      closeTimer = setTimeout(() => { dropdown.classList.remove('hover-open'); closeTimer = null; }, CLOSE_DELAY);
+    });
+
+    // Keyboard
+    if (!trigger) return;
+    const kbOpen = () => {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      dropdown.classList.add('kb-open');
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+    const kbClose = () => {
+      dropdown.classList.remove('kb-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+    trigger.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        kbOpen();
+        (dropdown.querySelector('a') as HTMLElement | null)?.focus();
+      }
+    });
+    group.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { kbClose(); trigger.focus(); }
+    });
+    group.addEventListener('focusout', (e: FocusEvent) => {
+      if (!group.contains(e.relatedTarget as Node)) kbClose();
+    });
+  });
+</script>

@@ -1,0 +1,34 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+<Layout title="Trabajo" description="Proyectos de LIBERA Studio. Construimos para clientes y también para aprender. Cada proyecto es un sistema real.">
+  <section style="background: var(--surface);" class="pt-40 pb-20">
+    <div class="container-libera">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <span class="eyebrow block mb-4" style="color: var(--text-secondary); font-family: var(--font-mono);">Trabajo</span>
+        <h1 class="font-display mb-6" style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.04em; color: var(--text-primary); line-height: 1.0;">
+          Proyectos reales.<br/>Sistemas que funcionan.
+        </h1>
+        <p class="text-lg" style="color: var(--text-secondary);">
+          Construimos para clientes y también para aprender. Cada proyecto es un caso de estudio en tecnología aplicada.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { name: 'Cenote Scout', category: 'Producto', href: '/trabajo/cenote-scout' },
+          { name: 'LIBERA AI Automation', category: 'Sistema interno', href: '/trabajo/radar' },
+          { name: 'Radio 9999', category: 'Producto', href: '/trabajo/9999' },
+          { name: 'Sole Facile', category: 'Cliente', href: '/trabajo/sole-facile' },
+          { name: 'Morozzo Padel', category: 'Cliente', href: '/trabajo/morozzo-padel' },
+          { name: 'PAOS Framework', category: 'Sistema interno', href: '/trabajo/paos' },
+        ].map((p) => (
+          <a href={p.href} class="p-7 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 group" style="background: var(--surface); border: 1px solid var(--border);" data-reveal>
+            <span class="text-xs font-mono tracking-wide block mb-3" style="color: var(--text-secondary); font-family: var(--font-mono);">{p.category}</span>
+            <h3 class="font-display font-semibold text-xl" style="font-family: var(--font-display); color: var(--text-primary);">{p.name}</h3>
+            <span class="text-sm mt-4 block transition-all duration-200 group-hover:gap-3" style="color: var(--orange);">Ver caso →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

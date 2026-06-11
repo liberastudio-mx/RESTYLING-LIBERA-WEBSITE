@@ -1,0 +1,254 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout
+  title="Diagnóstico de sistema digital"
+  description="Revisamos cómo te encuentran, cómo respondes y dónde se pierde valor en tu sistema digital. Sin compromiso."
+>
+  <section style="background: var(--ink); min-height: 100dvh;" class="pt-40 pb-20">
+    <div class="container-libera">
+      <div class="max-w-2xl">
+        <span class="eyebrow block mb-6" style="color: var(--orange); font-family: var(--font-mono);">Diagnóstico</span>
+        <h1
+          class="font-display mb-6"
+          style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.04em; color: var(--text-light); line-height: 1.05;"
+        >
+          Diagnóstico de presencia digital y operación comercial.
+        </h1>
+        <p class="text-lg mb-12 leading-relaxed" style="color: oklch(52% 0.008 25);">
+          Revisamos cómo te encuentran, cómo respondes, cómo captas oportunidades y dónde se pierde valor en tu sistema digital.
+        </p>
+
+        <form
+          id="diagnostico-form"
+          name="diagnostico"
+          method="POST"
+          class="flex flex-col gap-6"
+          novalidate
+          aria-label="Formulario de diagnóstico"
+        >
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="nombre" class="block text-sm font-medium mb-2" style="color: oklch(68% 0.008 25);">
+                Nombre <span aria-hidden="true" style="color: var(--orange);">*</span>
+              </label>
+              <input
+                id="nombre"
+                name="nombre"
+                type="text"
+                required
+                autocomplete="name"
+                class="w-full px-4 py-3 rounded-xl text-sm transition-colors duration-200"
+                style="background: oklch(14% 0.01 25); border: 1px solid var(--border-dark); color: var(--text-light);"
+                placeholder="Tu nombre"
+                aria-describedby="nombre-error"
+              />
+              <p id="nombre-error" class="field-error">Escribe tu nombre para preparar el diagnóstico.</p>
+            </div>
+            <div>
+              <label for="empresa" class="block text-sm font-medium mb-2" style="color: oklch(68% 0.008 25);">
+                Empresa
+              </label>
+              <input
+                id="empresa"
+                name="empresa"
+                type="text"
+                autocomplete="organization"
+                class="w-full px-4 py-3 rounded-xl text-sm transition-colors duration-200"
+                style="background: oklch(14% 0.01 25); border: 1px solid var(--border-dark); color: var(--text-light);"
+                placeholder="Nombre de tu empresa"
+              />
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="email" class="block text-sm font-medium mb-2" style="color: oklch(68% 0.008 25);">
+                Email <span aria-hidden="true" style="color: var(--orange);">*</span>
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                class="w-full px-4 py-3 rounded-xl text-sm transition-colors duration-200"
+                style="background: oklch(14% 0.01 25); border: 1px solid var(--border-dark); color: var(--text-light);"
+                placeholder="tu@empresa.com"
+                aria-describedby="email-error"
+              />
+              <p id="email-error" class="field-error">Escribe un email válido para poder responderte.</p>
+            </div>
+            <div>
+              <label for="ciudad" class="block text-sm font-medium mb-2" style="color: oklch(68% 0.008 25);">
+                Ciudad
+              </label>
+              <input
+                id="ciudad"
+                name="ciudad"
+                type="text"
+                autocomplete="address-level2"
+                class="w-full px-4 py-3 rounded-xl text-sm transition-colors duration-200"
+                style="background: oklch(14% 0.01 25); border: 1px solid var(--border-dark); color: var(--text-light);"
+                placeholder="Mérida, México"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="web" class="block text-sm font-medium mb-2" style="color: oklch(68% 0.008 25);">
+              Sitio web actual
+            </label>
+            <input
+              id="web"
+              name="web"
+              type="url"
+              autocomplete="url"
+              class="w-full px-4 py-3 rounded-xl text-sm transition-colors duration-200"
+              style="background: oklch(14% 0.01 25); border: 1px solid var(--border-dark); color: var(--text-light);"
+              placeholder="https://tuempresa.com"
+              aria-describedby="web-error"
+            />
+            <p id="web-error" class="field-error">Usa una URL completa, por ejemplo https://tuempresa.com.</p>
+          </div>
+
+          <div>
+            <label for="objetivo" class="block text-sm font-medium mb-2" style="color: oklch(68% 0.008 25);">
+              Principal problema o objetivo <span aria-hidden="true" style="color: var(--orange);">*</span>
+            </label>
+            <select
+              id="objetivo"
+              name="objetivo"
+              required
+              class="w-full px-4 py-3 rounded-xl text-sm transition-colors duration-200"
+              style="background: oklch(14% 0.01 25); border: 1px solid var(--border-dark); color: var(--text-light);"
+              aria-describedby="objetivo-error"
+            >
+              <option value="">Selecciona el más importante</option>
+              <option value="presencia">Mejorar mi presencia digital y web</option>
+              <option value="operacion">Ordenar la operación interna</option>
+              <option value="leads">Generar y dar seguimiento a leads</option>
+              <option value="automatizar">Automatizar procesos repetitivos</option>
+              <option value="ia">Implementar IA de forma útil</option>
+              <option value="app">Construir un producto digital / app</option>
+              <option value="otro">Otro</option>
+            </select>
+            <p id="objetivo-error" class="field-error">Selecciona el punto principal que quieres resolver.</p>
+          </div>
+
+          <div>
+            <label for="mensaje" class="block text-sm font-medium mb-2" style="color: oklch(68% 0.008 25);">
+              Cuéntanos más
+            </label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              class="w-full px-4 py-3 rounded-xl text-sm transition-colors duration-200 resize-none"
+              style="background: oklch(14% 0.01 25); border: 1px solid var(--border-dark); color: var(--text-light);"
+              placeholder="¿Cuál es la situación actual y qué resultado esperas?"
+            ></textarea>
+          </div>
+
+          <p
+            id="diagnostico-status"
+            class="form-status"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></p>
+
+          <div>
+            <button
+              id="diagnostico-submit"
+              type="submit"
+              class="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+              style="background: var(--orange); color: var(--ink);"
+            >
+              <span data-submit-label>Preparar solicitud</span>
+              <span class="w-7 h-7 rounded-full flex items-center justify-center" style="background: var(--orange-dark);" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#diagnostico-form');
+  const status = document.querySelector<HTMLElement>('#diagnostico-status');
+  const submit = document.querySelector<HTMLButtonElement>('#diagnostico-submit');
+  const submitLabel = submit?.querySelector<HTMLElement>('[data-submit-label]');
+
+  const fieldMessages = new Map<string, HTMLElement>();
+  document.querySelectorAll<HTMLElement>('.field-error').forEach((message) => {
+    fieldMessages.set(message.id.replace('-error', ''), message);
+  });
+
+  const setFieldState = (field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement, valid: boolean) => {
+    const message = fieldMessages.get(field.id);
+    field.setAttribute('aria-invalid', String(!valid));
+    field.style.borderColor = valid ? 'var(--border-dark)' : 'oklch(58% 0.14 35)';
+    message?.classList.toggle('is-visible', !valid);
+  };
+
+  const setStatus = (message: string, tone: 'success' | 'error') => {
+    if (!status) return;
+    status.hidden = false;
+    status.textContent = message;
+    status.dataset.tone = tone;
+  };
+
+  const validate = () => {
+    if (!form) return false;
+    const nombre = form.elements.namedItem('nombre') as HTMLInputElement;
+    const email = form.elements.namedItem('email') as HTMLInputElement;
+    const web = form.elements.namedItem('web') as HTMLInputElement;
+    const objetivo = form.elements.namedItem('objetivo') as HTMLSelectElement;
+
+    const checks = [
+      [nombre, nombre.value.trim().length > 1],
+      [email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())],
+      [web, !web.value.trim() || /^https?:\/\/.+\..+/.test(web.value.trim())],
+      [objetivo, Boolean(objetivo.value)],
+    ] as const;
+
+    checks.forEach(([field, valid]) => setFieldState(field, valid));
+    return checks.every(([, valid]) => valid);
+  };
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!validate()) {
+      setStatus('Revisa los campos marcados antes de preparar la solicitud.', 'error');
+      return;
+    }
+
+    if (submit) submit.disabled = true;
+    if (submitLabel) submitLabel.textContent = 'Preparando...';
+
+    const data = new FormData(form);
+    const subject = 'Solicitud de diagnóstico digital';
+    const body = [
+      `Nombre: ${data.get('nombre')}`,
+      `Empresa: ${data.get('empresa') || 'No indicada'}`,
+      `Email: ${data.get('email')}`,
+      `Ciudad: ${data.get('ciudad') || 'No indicada'}`,
+      `Sitio web: ${data.get('web') || 'No indicado'}`,
+      `Objetivo: ${data.get('objetivo')}`,
+      '',
+      `Contexto: ${data.get('mensaje') || 'No indicado'}`,
+    ].join('\n');
+
+    window.location.href = `mailto:hola@liberastudio.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setStatus('Se preparó un borrador de correo con tu diagnóstico. Revísalo y envíalo desde tu cliente de email.', 'success');
+
+    window.setTimeout(() => {
+      if (submit) submit.disabled = false;
+      if (submitLabel) submitLabel.textContent = 'Preparar solicitud';
+    }, 1200);
+  });
+</script>

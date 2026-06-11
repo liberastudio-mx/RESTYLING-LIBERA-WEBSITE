@@ -1,0 +1,1175 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout
+  title="LIBERA Studio"
+  description="Sistemas digitales, automatización e inteligencia artificial para empresas que quieren crecer sin operar en caos. Mérida, México."
+>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       1. HERO — Full-bleed dark, A como núcleo visual
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    id="hero"
+    class="relative flex flex-col justify-end min-h-[100dvh] overflow-hidden"
+    style="background: var(--ink);"
+    aria-label="Hero"
+  >
+    <!-- Radial ambient glow — orange -->
+    <div
+      class="absolute pointer-events-none select-none"
+      style="
+        top: -10%; right: -5%;
+        width: 70vw; height: 70vw;
+        max-width: 800px; max-height: 800px;
+        background: radial-gradient(ellipse at center, var(--orange-glow) 0%, transparent 65%);
+        filter: blur(60px);
+        will-change: transform;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <!-- Subtle grid texture -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="
+        background-image:
+          linear-gradient(oklch(96% 0.005 60 / 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, oklch(96% 0.005 60 / 0.03) 1px, transparent 1px);
+        background-size: 80px 80px;
+      "
+      aria-hidden="true"
+    ></div>
+
+    <!-- Giant A — background visual element -->
+    <div
+      class="absolute right-0 top-0 bottom-0 pointer-events-none select-none overflow-hidden"
+      style="width: 55vw; max-width: 700px;"
+      aria-hidden="true"
+    >
+      <span
+        class="absolute -right-16 top-1/2 -translate-y-1/2 font-display leading-none"
+        style="
+          font-family: var(--font-display);
+          font-size: clamp(280px, 38vw, 560px);
+          font-weight: 700;
+          letter-spacing: -0.05em;
+          color: transparent;
+          -webkit-text-stroke: 1px oklch(96% 0.005 60 / 0.06);
+        "
+      >A</span>
+    </div>
+
+    <!-- Content -->
+    <div class="container-libera relative z-10 pb-20 pt-40">
+
+      <!-- Eyebrow — 1 of max 3 on page -->
+      <!-- Headline -->
+      <h1
+        class="font-display mb-8 max-w-6xl"
+        style="
+          font-family: var(--font-display);
+          font-size: clamp(2.25rem, 5vw, 4.75rem);
+          font-weight: 700;
+          letter-spacing: 0.015em;
+          line-height: 1.0;
+          color: var(--text-light);
+        "
+        data-reveal
+      >
+        Construimos sistemas digitales para empresas que quieren crecer
+        <span style="color: var(--orange);"> sin operar en caos.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p
+        class="mb-12 max-w-2xl text-lg leading-relaxed"
+        style="color: var(--text-light);"
+        data-reveal
+      >
+        Diseñamos sitios web, automatizaciones, agentes de IA e integraciones
+        que conectan tu presencia online con la operación real de tu negocio.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-start gap-4" data-reveal>
+        <a
+          href="/diagnostico"
+          class="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          style="background: var(--orange); color: var(--ink);"
+        >
+          Solicitar diagnóstico
+          <span
+            class="w-7 h-7 rounded-full flex items-center justify-center"
+            style="background: var(--orange-dark);"
+            aria-hidden="true"
+          >
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+              <path d="M1 9L9 1M9 1H2M9 1v7"/>
+            </svg>
+          </span>
+        </a>
+        <a
+          href="#metodo"
+          class="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          style="
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid oklch(26% 0.01 25);
+          "
+        >
+          Cómo trabajamos
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div
+      class="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
+      aria-hidden="true"
+    >
+      <div class="w-px h-12 overflow-hidden" style="background: oklch(26% 0.01 25);">
+        <div
+          class="w-full h-1/2"
+          style="
+            background: var(--orange);
+            animation: scrollDrop 1.8s var(--ease-out-expo) infinite;
+          "
+        ></div>
+      </div>
+      <span class="eyebrow" style="color: oklch(38% 0.008 25); writing-mode: vertical-rl;">scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       2. PROBLEMA — Full-bleed light, testo grande
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    id="problema"
+    style="background: var(--surface); background-image: radial-gradient(oklch(10% 0.01 25 / 0.045) 1px, transparent 1px); background-size: 22px 22px;"
+    class="py-32"
+    aria-label="El problema que resolvemos"
+  >
+    <div class="container-libera">
+      <div class="max-w-4xl" data-reveal>
+        <p class="text-xs font-mono tracking-widest uppercase mb-10" style="color: var(--text-secondary); font-family: var(--font-mono);">
+          El problema que resolvemos
+        </p>
+        <h2
+          class="font-display mb-10"
+          style="
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4.5vw, 3.75rem);
+            font-weight: 700;
+            letter-spacing: 0.015em;
+            line-height: 1.08;
+            color: var(--text-primary);
+          "
+        >
+          Tu negocio no necesita más herramientas.
+          <span style="color: var(--text-secondary);"> Necesita un sistema.</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8 mt-12">
+          <div>
+            <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
+              Una web que no convierte. Mensajes sin seguimiento. Clientes que preguntan y desaparecen.
+              Procesos que dependen de memoria, notas, Excel y suerte.
+            </p>
+          </div>
+          <div>
+            <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
+              Conectamos las piezas para que tu negocio funcione con más claridad, y tú puedas enfocarte
+              en lo que realmente importa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pain point list -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px mt-16" style="background: var(--border);" data-reveal>
+        {[
+          'Presencia digital que no genera confianza ni leads',
+          'Operación manual que escala mal y genera errores',
+          'Tecnología adoptada sin estrategia ni integración',
+        ].map((text) => (
+          <div class="flex items-start gap-4 p-8" style="background: var(--surface);">
+            <svg class="flex-shrink-0 mt-1" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <circle cx="9" cy="9" r="8" stroke="var(--border)" stroke-width="1.5"/>
+              <line x1="3.5" y1="14.5" x2="14.5" y2="3.5" stroke="var(--border)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <p class="text-base" style="color: var(--text-secondary);">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       3. SOLUCIONES — Full-bleed con 4 bloques colorati
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    id="soluciones"
+    style="background: var(--surface-alt); background-image: radial-gradient(oklch(10% 0.01 25 / 0.04) 1px, transparent 1px); background-size: 22px 22px;"
+    class="py-28"
+    aria-label="Nuestras soluciones"
+  >
+    <div class="container-libera">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <h2
+          class="font-display mb-6"
+          style="
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3.5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: 0.015em;
+            line-height: 1.1;
+            color: var(--text-primary);
+          "
+        >
+          Diseñamos la infraestructura digital que conecta presencia, operación e inteligencia.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {[
+          {
+            id: 'presencia',
+            label: 'Presencia Digital',
+            description: 'Sitios web, landing pages, Google Business, WhatsApp Business y SEO local. Para que te encuentren, te entiendan y confíen.',
+            href: '/soluciones/presencia-digital',
+            accent: 'var(--presencia)',
+            services: ['Sitios web premium', 'Landing pages', 'SEO local', 'Google Business'],
+          },
+          {
+            id: 'operacion',
+            label: 'Operación Inteligente',
+            description: 'PAOS, CRM simple, dashboards internos y automatización de procesos. Para operar con orden, no con memoria.',
+            href: '/soluciones/operacion-inteligente',
+            accent: 'var(--operacion)',
+            services: ['PAOS', 'CRM y leads', 'Dashboards', 'Integraciones'],
+          },
+          {
+            id: 'ai',
+            label: 'AI & Automation',
+            description: 'Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. IA aplicada a procesos reales.',
+            href: '/soluciones/ai-automation',
+            accent: 'var(--ai)',
+            services: ['Agentes de IA', 'Asistentes internos', 'n8n & APIs', 'Automatización documental'],
+          },
+          {
+            id: 'productos',
+            label: 'Productos Digitales',
+            description: 'Web apps, MVPs, paneles administrativos y prototipos funcionales. Para construir herramientas que realmente se usan.',
+            href: '/soluciones/productos-digitales',
+            accent: 'var(--productos)',
+            services: ['Web apps', 'MVPs', 'Apps internas', 'Prototipos'],
+          },
+        ].map((sol, i) => (
+          <a
+            href={sol.href}
+            class="group relative flex flex-col justify-between p-8 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
+            data-reveal
+            style={`background: var(--surface); border: 1px solid var(--border); transition-delay: ${i * 90}ms;`}
+          >
+            <!-- Hover glow -->
+            <div
+              class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+              style={`background: radial-gradient(ellipse at top left, ${sol.accent}12 0%, transparent 60%);`}
+              aria-hidden="true"
+            ></div>
+
+            <div class="relative">
+              <!-- Color dot + label -->
+              <div class="flex items-center gap-3 mb-5">
+                <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style={`background: ${sol.accent};`} aria-hidden="true"></span>
+                <span class="text-xs font-semibold tracking-widest uppercase" style={`color: ${sol.accent};`}>
+                  {sol.label}
+                </span>
+              </div>
+
+              <p class="text-base leading-relaxed mb-8" style="color: var(--text-secondary);">
+                {sol.description}
+              </p>
+
+              <!-- Service tags -->
+              <div class="flex flex-wrap gap-2">
+                {sol.services.map((s) => (
+                  <span
+                    class="text-xs px-3 py-1 rounded-full"
+                    style="background: var(--surface-alt); color: var(--text-secondary); border: 1px solid var(--border);"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="relative mt-8 flex items-center gap-2" style={`color: ${sol.accent};`}>
+              <span class="text-sm font-medium">Ver solución</span>
+              <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       4. MÉTODO — Editorial Split, sfondo scuro
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    id="metodo"
+    data-method-section
+    style="background: linear-gradient(to bottom, var(--ink-mid) 0, var(--ink-mid) calc(100% - 90dvh), transparent calc(100% - 90dvh), transparent 100%);"
+    class="method-scroll"
+    aria-label="Nuestro método"
+  >
+    <div class="container-libera method-sticky">
+      <div class="method-layout">
+
+        <!-- Left: sticky -->
+        <div class="method-copy">
+          <h2
+            class="font-display method-title mb-8"
+            data-method-title
+            style="
+              font-family: var(--font-display);
+              font-weight: 700;
+              letter-spacing: 0.015em;
+            "
+          >
+            <span class="method-title-line" data-method-title-line><span>Primero </span><span class="method-title-action">ordenamos</span><span>.</span></span>
+            <span class="method-title-line" data-method-title-line><span>Después </span><span class="method-title-action">diseñamos</span><span>.</span></span>
+            <span class="method-title-line" data-method-title-line><span>Luego </span><span class="method-title-action">automatizamos</span><span>.</span></span>
+          </h2>
+        </div>
+
+        <!-- Bottom: steps -->
+        <div class="method-stage" data-method-stage>
+          {[
+            {
+              title: 'Diagnóstico',
+              description: 'Revisamos cómo te encuentran, cómo respondes y dónde se pierde valor en tu sistema digital actual.',
+              accent: 'var(--presencia)',
+            },
+            {
+              title: 'Arquitectura',
+              description: 'Definimos qué construir, en qué orden y por qué. Sin pasos innecesarios.',
+              accent: 'var(--operacion)',
+            },
+            {
+              title: 'Diseño',
+              description: 'Diseñamos la solución con foco en claridad, rendimiento y experiencia real del usuario.',
+              accent: 'var(--orange)',
+            },
+            {
+              title: 'Desarrollo',
+              description: 'Construimos con código limpio, sistemas probados y stack moderno y mantenible.',
+              accent: 'var(--ai)',
+            },
+            {
+              title: 'Integración',
+              description: 'Conectamos la solución con tu operación: CRM, WhatsApp, formularios, analytics.',
+              accent: 'var(--productos)',
+            },
+            {
+              title: 'Medición',
+              description: 'Definimos métricas, configuramos tracking y dejamos todo visible para decidir mejor.',
+              accent: 'var(--operacion)',
+            },
+          ].map((step) => (
+            <div
+              class="method-step"
+              style={`--step-accent: ${step.accent};`}
+              data-method-step
+            >
+              <h3
+                class="font-display mb-4"
+                style="font-family: var(--font-display);"
+                data-method-step-title
+              >
+                {step.title}
+              </h3>
+              <p class="text-base leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       5. TRABAJO — Eyebrow 2 di 3, card grid su sfondo chiaro
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    id="trabajo"
+    style="background: var(--surface); background-image: radial-gradient(oklch(10% 0.01 25 / 0.045) 1px, transparent 1px); background-size: 22px 22px;"
+    class="py-28"
+    aria-label="Nuestro trabajo"
+  >
+    <div class="container-libera">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16" data-reveal>
+        <div>
+          <!-- Eyebrow 2/3 -->
+          <span class="eyebrow block mb-4" style="color: var(--text-secondary); font-family: var(--font-mono);">Trabajo</span>
+          <h2
+            class="font-display"
+            style="
+              font-family: var(--font-display);
+              font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+              font-weight: 700;
+              letter-spacing: 0.015em;
+              line-height: 1.1;
+              color: var(--text-primary);
+            "
+          >
+            Construimos para clientes.<br/>
+            <span style="color: var(--text-secondary);">También construimos para aprender.</span>
+          </h2>
+        </div>
+        <a
+          href="/trabajo"
+          class="flex-shrink-0 inline-flex items-center gap-2 text-sm font-medium transition-colors duration-150 hover:opacity-70"
+          style="color: var(--text-secondary);"
+        >
+          Ver todo el trabajo <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div
+        class="grid grid-cols-1 lg:grid-cols-[1.18fr_0.82fr] gap-px"
+        style="background: var(--border); border: 1px solid var(--border);"
+      >
+        {[
+          {
+            name: 'Cenote Scout',
+            category: 'Producto digital',
+            description: 'Plataforma para descubrir cenotes, rutas y experiencias en Yucatán. Sistema de datos, mapas y contenido editorial.',
+            stack: ['Astro', 'TypeScript', 'Supabase'],
+            status: 'En desarrollo',
+            href: '/trabajo/cenote-scout',
+            accent: 'var(--presencia)',
+          },
+          {
+            name: 'LIBERA AI Automation',
+            category: 'Sistema interno',
+            description: 'Infraestructura de agentes y automatizaciones para operación del estudio. Publicación, análisis, CRM y flujos n8n.',
+            stack: ['n8n', 'Claude API', 'Airtable'],
+            status: 'En producción',
+            href: '/trabajo/radar',
+            accent: 'var(--ai)',
+          },
+          {
+            name: 'Radio 9999',
+            category: 'Producto digital',
+            description: 'Infraestructura ligera para transmitir, organizar contenido y crear comunidad en torno a radio y audio.',
+            stack: ['Astro', 'Tailwind', 'Edge'],
+            status: 'Prototipo activo',
+            href: '/trabajo/9999',
+            accent: 'var(--orange)',
+          },
+          {
+            name: 'Sole Facile',
+            category: 'Cliente',
+            description: 'Ecosistema digital para empresa de instalación solar en Italia. Web, contenido, automatizaciones y agente IA.',
+            stack: ['WordPress', 'n8n', 'Claude API'],
+            status: 'En producción',
+            href: '/trabajo/sole-facile',
+            accent: 'var(--operacion)',
+          },
+          {
+            name: 'Morozzo Padel',
+            category: 'Cliente',
+            description: 'Presencia digital y sistema de reservas para club de pádel. Rediseño, SEO local y automatización de comunicación.',
+            stack: ['HTML/CSS', 'JS', 'WhatsApp API'],
+            status: 'Completado',
+            href: '/trabajo/morozzo-padel',
+            accent: 'var(--productos)',
+          },
+          {
+            name: 'PAOS Framework',
+            category: 'Sistema interno',
+            description: 'Sistema operativo de conocimiento para el estudio. Agentes, plantillas, workflows y base de datos estructurada.',
+            stack: ['Obsidian', 'n8n', 'Claude API'],
+            status: 'En uso activo',
+            href: '/trabajo/paos',
+            accent: 'var(--presencia)',
+          },
+        ].map((project, i) => (
+          <a
+            href={project.href}
+            class={`group flex flex-col justify-between transition-all duration-300 hover:-translate-y-0.5 ${i === 0 ? 'p-9 md:p-10 lg:row-span-2' : 'p-7'}`}
+            style={`background: var(--surface); min-height: ${i === 0 ? '430px' : '230px'}; transition-delay: ${i * 65}ms;`}
+            data-reveal
+          >
+            <div>
+              <div class="flex items-start justify-between gap-4 mb-5">
+                <div>
+                  <span
+                    class="block text-xs font-mono tracking-wider uppercase mb-2"
+                    style={`color: ${project.accent}; font-family: var(--font-mono);`}
+                  >
+                    {project.category}
+                  </span>
+                  <h3
+                    class={`font-display font-semibold ${i === 0 ? 'text-3xl md:text-4xl' : 'text-xl'}`}
+                    style="font-family: var(--font-display); color: var(--text-primary);"
+                  >
+                    {project.name}
+                  </h3>
+                </div>
+                <span
+                  class="flex-shrink-0 text-xs px-3 py-1 rounded-full"
+                  style="background: var(--surface-alt); color: var(--text-secondary); border: 1px solid var(--border); white-space: nowrap;"
+                >
+                  {project.status}
+                </span>
+              </div>
+
+              <p class={`${i === 0 ? 'text-base max-w-xl' : 'text-sm'} leading-relaxed`} style="color: var(--text-secondary);">
+                {project.description}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-2 mt-6 mb-4">
+                {project.stack.map((tech) => (
+                  <span
+                    class="text-xs font-mono px-2.5 py-1 rounded-md"
+                    style="background: var(--surface-alt); color: var(--text-secondary); font-family: var(--font-mono);"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div
+                class="flex items-center gap-2 text-sm font-medium transition-all duration-200 group-hover:gap-3"
+                style={`color: ${project.accent};`}
+              >
+                Ver caso <span aria-hidden="true">→</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       6. GUÍAS + RADAR — Editoriale chiaro/scuro split
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    id="conocimiento"
+    style="background: var(--surface-alt); background-image: radial-gradient(oklch(10% 0.01 25 / 0.04) 1px, transparent 1px); background-size: 22px 22px;"
+    class="py-28"
+    aria-label="Guías y Radar"
+  >
+    <div class="container-libera">
+      <div class="grid lg:grid-cols-2 gap-12">
+
+        <!-- Guías -->
+        <div data-reveal>
+          <p class="eyebrow mb-4" style="color: var(--text-secondary); font-family: var(--font-mono);">Guías</p>
+          <h2
+            class="font-display mb-4"
+            style="
+              font-family: var(--font-display);
+              font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+              font-weight: 700;
+              letter-spacing: 0.015em;
+              line-height: 1.1;
+              color: var(--text-primary);
+            "
+          >
+            Conocimiento abierto para decidir mejor.
+          </h2>
+          <p class="text-base mb-8 leading-relaxed" style="color: var(--text-secondary);">
+            Guías evergreen sobre PAOS, automatización, presencia digital y agentes de IA.
+            Para empresas que quieren entender antes de invertir.
+          </p>
+
+          <div class="flex flex-col gap-3 mb-8">
+            {[
+              { title: 'Qué es un PAOS y por qué tu empresa necesita uno', href: '/guias/paos/que-es-un-paos', categoria: 'PAOS' },
+              { title: 'Qué puede hacer un agente de IA en una empresa real', href: '/guias/inteligencia-artificial/agentes-ia-empresa', categoria: 'IA' },
+              { title: 'Cómo saber si tu presencia digital está funcionando', href: '/guias/presencia-digital/como-saber-si-tu-web-convierte', categoria: 'Presencia' },
+            ].map((guia) => (
+              <a
+                href={guia.href}
+                class="flex items-center justify-between p-5 rounded-xl transition-all duration-200 hover:-translate-y-0.5 group"
+                style="background: var(--surface); border: 1px solid var(--border);"
+              >
+                <div>
+                  <span class="text-xs font-mono tracking-wider" style="color: var(--text-secondary); font-family: var(--font-mono);">{guia.categoria}</span>
+                  <p class="text-sm font-medium mt-1" style="color: var(--text-primary);">{guia.title}</p>
+                </div>
+                <span class="flex-shrink-0 ml-4 transition-transform duration-200 group-hover:translate-x-1" style="color: var(--text-secondary);" aria-hidden="true">→</span>
+              </a>
+            ))}
+          </div>
+
+          <a href="/guias" class="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-150 hover:opacity-70" style="color: var(--text-primary);">
+            Ver todas las guías <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- Radar -->
+        <div
+          class="flex flex-col justify-between p-10 rounded-2xl"
+          style="background: var(--ink); border: 1px solid var(--border-dark);"
+          data-reveal
+        >
+          <div>
+            <p class="eyebrow mb-4" style="color: var(--orange); font-family: var(--font-mono);">Radar</p>
+            <h2
+              class="font-display mb-4"
+              style="
+                font-family: var(--font-display);
+                font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+                font-weight: 700;
+                letter-spacing: 0.015em;
+                line-height: 1.1;
+                color: var(--text-light);
+              "
+            >
+              No seguimos tendencias.<br/>Las probamos.
+            </h2>
+            <p class="text-base mb-8 leading-relaxed" style="color: var(--text-light);">
+              Analizamos herramientas, modelos, automatizaciones y cambios tecnológicos
+              antes de convertirlos en decisiones reales.
+            </p>
+
+            <!-- Categories -->
+            <div class="flex flex-wrap gap-2 mb-8">
+              {['AI', 'Automatización', 'Tools', 'Web', 'SEO', 'Experimentos'].map((cat) => (
+                <a
+                  href={`/radar/${cat.toLowerCase().replace('ó','o').replace('ú','u')}`}
+                  class="text-xs px-3 py-1.5 rounded-full transition-colors duration-200 hover:opacity-80"
+                  style="background: oklch(16% 0.01 25); color: var(--text-light); border: 1px solid var(--border-dark);"
+                >
+                  {cat}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <a
+            href="/radar"
+            class="inline-flex items-center gap-3 px-6 py-3 rounded-full font-medium text-sm transition-all duration-200 hover:scale-[1.02]"
+            style="background: oklch(16% 0.01 25); color: var(--orange); border: 1px solid oklch(26% 0.01 25);"
+          >
+            Explorar Radar <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       7. CTA FINAL — Full-bleed dark, impatto massimo
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    id="cta"
+    style="background: var(--ink);"
+    class="py-48 lg:py-64 relative overflow-hidden"
+    aria-label="Llamada a la acción"
+  >
+    <!-- Glow -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at center, var(--orange-glow) 0%, transparent 60%);"
+      aria-hidden="true"
+    ></div>
+
+    <div class="container-libera relative z-10 text-center" data-reveal>
+      <h2
+        class="font-display mb-8 mx-auto max-w-5xl"
+        style="
+          font-family: var(--font-display);
+          font-size: clamp(2.5rem, 6.5vw, 6rem);
+          font-weight: 700;
+          letter-spacing: 0.015em;
+          line-height: 1.0;
+          color: var(--text-light);
+        "
+      >
+        Si tu sistema digital no está claro,
+        <span style="color: var(--orange);"> tu crecimiento tampoco.</span>
+      </h2>
+
+      <p class="text-lg mb-12 max-w-xl mx-auto" style="color: var(--text-light);">
+        Revisamos cómo te encuentran, cómo respondes y qué parte de tu sistema digital necesita orden primero.
+        Sin compromiso.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/diagnostico"
+          class="inline-flex items-center gap-3 px-8 py-5 rounded-full font-semibold text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          style="background: var(--orange); color: var(--ink);"
+        >
+          Solicitar diagnóstico
+          <span
+            class="w-8 h-8 rounded-full flex items-center justify-center"
+            style="background: var(--orange-dark);"
+            aria-hidden="true"
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+              <path d="M1 11L11 1M11 1H2M11 1v9"/>
+            </svg>
+          </span>
+        </a>
+        <a
+          href="/contacto"
+          class="inline-flex items-center gap-3 px-8 py-5 rounded-full font-semibold text-lg transition-all duration-200 hover:scale-[1.02]"
+          style="background: transparent; color: var(--text-light); border: 1px solid oklch(26% 0.01 25);"
+        >
+          Hablar con el equipo
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  @keyframes scrollDrop {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+
+  .method-scroll {
+    min-height: 1240dvh;
+    margin-bottom: -90dvh;
+    position: relative;
+  }
+
+  .method-sticky {
+    min-height: 100dvh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: stretch;
+    padding-block: calc(var(--nav-height) + 1.25rem) 2rem;
+  }
+
+  .method-layout {
+    min-height: calc(100dvh - var(--nav-height) - 3.25rem);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(1.25rem, 3dvh, 2.75rem);
+  }
+
+  .method-copy {
+    max-width: min(100%, 980px);
+  }
+
+  .method-title {
+    --method-title-fit: 1;
+    --method-title-opacity: 1;
+    color: var(--text-light);
+    font-size: clamp(1.05rem, calc(4.6vw * var(--method-title-fit)), 4.65rem);
+    line-height: 1.12;
+    max-width: 100%;
+    opacity: var(--method-title-opacity);
+    text-align: left;
+    transform: none;
+    will-change: opacity;
+  }
+
+  .method-title-line {
+    --method-line-opacity: 0;
+    --method-line-x: 0px;
+    --method-line-y: 0px;
+    --method-line-scale: 1;
+    --method-line-accent: 0%;
+    display: block;
+    width: max-content;
+    max-width: none;
+    color: var(--text-light);
+    opacity: var(--method-line-opacity);
+    transform: translate3d(var(--method-line-x), var(--method-line-y), 0) scale(var(--method-line-scale));
+    transform-origin: left top;
+    white-space: nowrap;
+    transition: none;
+    will-change: transform, opacity;
+  }
+
+  .method-title-action {
+    color: color-mix(in oklch, var(--orange) var(--method-line-accent), var(--text-light));
+  }
+
+  .method-stage {
+    min-height: clamp(390px, 48dvh, 560px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .method-step {
+    --method-step-x: 0vw;
+    --method-step-y: 5.5rem;
+    --method-step-opacity: 0;
+    --method-step-focus: 0%;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-block: clamp(0.5rem, 2vw, 1.5rem);
+    padding-inline: 0;
+    opacity: var(--method-step-opacity);
+    transform: translate3d(var(--method-step-x), var(--method-step-y), 0);
+    transition:
+      opacity 0.42s var(--ease-out-expo),
+      transform 0.42s var(--ease-out-expo);
+    will-change: transform, opacity;
+    pointer-events: none;
+  }
+
+  .method-step h3 {
+    color: color-mix(in oklch, var(--text-light) var(--method-step-focus), var(--orange));
+    font-size: calc(clamp(4.5rem, 14vw, 15rem) * var(--method-step-title-fit, 1));
+    font-style: normal;
+    font-weight: 900;
+    line-height: 0.9;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .method-step p {
+    color: color-mix(in oklch, var(--text-light) var(--method-step-focus), oklch(66% 0.03 60));
+    font-size: clamp(1.35rem, 2.4vw, 2rem);
+    line-height: 1.35;
+    max-width: 58rem;
+    text-align: right;
+  }
+
+  @media (max-width: 1023px) {
+    .method-sticky {
+      padding-block: calc(var(--nav-height) + 1rem) 1.25rem;
+    }
+
+    .method-layout {
+      min-height: calc(100dvh - var(--nav-height) - 2.25rem);
+      gap: clamp(1rem, 2.5dvh, 2rem);
+    }
+
+    .method-title {
+      font-size: clamp(0.95rem, 4.65vw, 2rem);
+    }
+
+    .method-stage {
+      min-height: 420px;
+    }
+
+    .method-step {
+      padding-inline: 0;
+    }
+
+    .method-step h3 {
+      font-size: calc(clamp(3.4rem, 16vw, 8.75rem) * var(--method-step-title-fit, 1));
+    }
+
+    .method-step p {
+      font-size: clamp(1.05rem, 3vw, 1.45rem);
+      max-width: min(100%, 42rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .method-scroll {
+      min-height: auto;
+      padding-block: 7rem;
+    }
+
+    .method-sticky {
+      position: relative;
+      min-height: auto;
+      padding-block: 0;
+    }
+
+    .method-layout {
+      min-height: auto;
+    }
+
+    .method-title {
+      --method-title-opacity: 1;
+    }
+
+    .method-title-line {
+      --method-line-opacity: 1;
+      --method-line-x: 0px;
+      --method-line-y: 0px;
+      --method-line-scale: 0.66;
+      --method-line-accent: 100%;
+    }
+
+    .method-stage {
+      min-height: auto;
+      overflow: visible;
+      display: grid;
+      gap: 1px;
+      background: var(--border-dark);
+      border-top: 0;
+    }
+
+    .method-step {
+      --method-step-focus: 100%;
+      position: relative;
+      opacity: 1;
+      transform: none;
+      background: var(--ink-mid);
+    }
+  }
+</style>
+
+<script>
+  const methodSection = document.querySelector<HTMLElement>('[data-method-section]');
+  const methodFrame = document.querySelector<HTMLElement>('.method-sticky');
+  const methodSteps = [...document.querySelectorAll<HTMLElement>('[data-method-step]')];
+  const methodTitle = document.querySelector<HTMLElement>('[data-method-title]');
+  const methodTitleLines = [...document.querySelectorAll<HTMLElement>('[data-method-title-line]')];
+  const methodStepTitles = [...document.querySelectorAll<HTMLElement>('[data-method-step-title]')];
+  const reduceMethodMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Cache section geometry — updated on resize, not on every scroll frame
+  let sectionTop = 0;
+  let sectionHeight = 0;
+  const cacheSectionRect = () => {
+    if (!methodSection) return;
+    sectionTop = methodSection.offsetTop;
+    sectionHeight = methodSection.offsetHeight;
+  };
+
+  const fitMethodTitle = () => {
+    if (!methodTitle) return;
+    methodTitle.style.setProperty('--method-title-fit', '1');
+    let fit = 1;
+
+    while (methodTitle.scrollWidth > methodTitle.clientWidth && fit > 0.52) {
+      fit -= 0.02;
+      methodTitle.style.setProperty('--method-title-fit', fit.toFixed(2));
+    }
+  };
+
+  const fitMethodStepTitles = () => {
+    if (methodStepTitles.length === 0) return;
+
+    document.documentElement.style.setProperty('--method-step-title-fit', '1');
+    let fit = 1;
+
+    while (
+      methodStepTitles.some((title) => title.scrollWidth > title.clientWidth) &&
+      fit > 0.5
+    ) {
+      fit -= 0.02;
+      document.documentElement.style.setProperty('--method-step-title-fit', fit.toFixed(2));
+    }
+  };
+
+  const updateMethodSteps = () => {
+    if (!methodSection || methodSteps.length === 0 || reduceMethodMotion) return;
+
+    const scrollable = Math.max(1, sectionHeight - window.innerHeight);
+    const sectionProgress = (window.scrollY - sectionTop) / scrollable;
+    const rawProgress = Math.min(1, Math.max(0, sectionProgress));
+    const ease = (value: number) => value * value * (3 - 2 * value);
+    const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+    const entryDelay = clamp(window.innerHeight / scrollable, 0.08, 0.16);
+    const methodProgress = clamp((rawProgress - entryDelay) / (1 - entryDelay));
+    const titleSequenceEnd = 0.66;
+    const stepSequenceStart = 0.7;
+    const stepSequenceEnd = 0.9;
+    const titleFadeStart = 0.905;
+    const titleFadeEnd = 0.94;
+    const lineWindow = titleSequenceEnd / Math.max(1, methodTitleLines.length);
+    const stepsEnabled = methodProgress >= stepSequenceStart;
+    const stepsProgress = clamp((methodProgress - stepSequenceStart) / (stepSequenceEnd - stepSequenceStart));
+    const timeline = stepsProgress * methodSteps.length;
+    const titleFade = 1 - ease(clamp((methodProgress - titleFadeStart) / (titleFadeEnd - titleFadeStart)));
+
+    if (methodTitle) {
+      if (sectionProgress < 0 || rawProgress < entryDelay) {
+        methodTitle.style.setProperty('--method-title-opacity', '0');
+
+        methodTitleLines.forEach((line) => {
+          line.style.setProperty('--method-line-opacity', '0');
+          line.style.setProperty('--method-line-x', '0px');
+          line.style.setProperty('--method-line-y', '0px');
+          line.style.setProperty('--method-line-scale', '1');
+          line.style.setProperty('--method-line-accent', '0%');
+        });
+
+        methodSteps.forEach((step) => {
+          step.style.setProperty('--method-step-opacity', '0');
+          step.style.setProperty('--method-step-x', '0vw');
+          step.style.setProperty('--method-step-y', '5.5rem');
+          step.style.setProperty('--method-step-focus', '0%');
+          step.setAttribute('aria-hidden', 'true');
+        });
+
+        return;
+      }
+
+      methodTitle.style.setProperty('--method-title-opacity', titleFade.toFixed(3));
+    }
+
+    const titleRect = methodTitle?.getBoundingClientRect();
+    const navHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 0;
+    const frameRect = methodFrame?.getBoundingClientRect();
+    const frameStyle = methodFrame ? getComputedStyle(methodFrame) : null;
+    const framePaddingLeft = frameStyle ? parseFloat(frameStyle.paddingLeft) || 0 : 0;
+    const framePaddingRight = frameStyle ? parseFloat(frameStyle.paddingRight) || 0 : 0;
+    const heroLeft = frameRect ? frameRect.left + framePaddingLeft : Math.max(16, titleRect?.left ?? 0);
+    const heroRight = frameRect ? frameRect.right - framePaddingRight : window.innerWidth - heroLeft;
+    const heroSafeInset = clamp(window.innerWidth * 0.03, 18, 48);
+    const heroInnerLeft = heroLeft + heroSafeInset;
+    const heroInnerRight = heroRight - heroSafeInset;
+    const heroAvailableWidth = Math.max(1, heroInnerRight - heroInnerLeft);
+    const heroCenterX = heroInnerLeft + heroAvailableWidth / 2;
+    const getLineTextWidth = (line: HTMLElement) => {
+      return Math.max(1, line.offsetWidth || line.scrollWidth);
+    };
+    const heroReferenceLine = methodTitleLines[methodTitleLines.length - 1] ?? methodTitleLines[0];
+    const heroReferenceWidth = heroReferenceLine ? getLineTextWidth(heroReferenceLine) : 1;
+    const sharedHeroScale = heroAvailableWidth / heroReferenceWidth;
+
+    methodTitleLines.forEach((line, index) => {
+      const local = (methodProgress - index * lineWindow) / lineWindow;
+      const lineWidth = getLineTextWidth(line);
+      const lineHeight = Math.max(1, line.offsetHeight);
+      const lineLeft = line.offsetLeft;
+      const lineTop = (titleRect?.top ?? 0) + line.offsetTop;
+      const heroScale = sharedHeroScale;
+      const heroX = heroCenterX - (lineWidth * heroScale) / 2 - lineLeft;
+      const heroY = navHeight + (window.innerHeight - navHeight - lineHeight * heroScale) / 2 - lineTop;
+      const finalY = -index * lineHeight * 0.34;
+      let opacity = 0;
+      let travel = 1;
+      let scale = heroScale;
+      let accent = 0;
+
+      if (local >= 0 && local < 0.3) {
+        opacity = 1;
+        travel = 1;
+        scale = heroScale;
+        accent = 0;
+      } else if (local >= 0.3 && local < 0.44) {
+        opacity = 1;
+        travel = 1;
+        scale = heroScale;
+        accent = ease((local - 0.3) / 0.14);
+      } else if (local >= 0.44 && local < 0.76) {
+        opacity = 1;
+        travel = 1;
+        scale = heroScale;
+        accent = 1;
+      } else if (local >= 0.76 && local < 1) {
+        const settle = ease((local - 0.76) / 0.24);
+        opacity = 1;
+        travel = 1 - settle;
+        scale = heroScale + (0.66 - heroScale) * settle;
+        accent = 1;
+      } else if (local >= 1) {
+        opacity = 1;
+        travel = 0;
+        scale = 0.66;
+        accent = 1;
+      }
+
+      line.style.setProperty('--method-line-opacity', opacity.toFixed(3));
+      line.style.setProperty('--method-line-x', `${(heroX * travel).toFixed(1)}px`);
+      line.style.setProperty('--method-line-y', `${(heroY * travel + finalY * (1 - travel)).toFixed(1)}px`);
+      line.style.setProperty('--method-line-scale', scale.toFixed(3));
+      line.style.setProperty('--method-line-accent', `${Math.round(accent * 100)}%`);
+    });
+
+    methodSteps.forEach((step, index) => {
+      const local = stepsEnabled ? timeline - index : -1;
+      let opacity = 0;
+      let translateX = 0;
+      let translateY = 5.5;
+      let focus = 0;
+
+      if (local >= 0 && local < 0.18) {
+        const progress = ease(local / 0.18);
+        opacity = progress;
+        translateX = 0;
+        translateY = 5.5 * (1 - progress);
+        focus = progress;
+      } else if (local >= 0.18 && local < 0.76) {
+        opacity = 1;
+        translateX = 0;
+        translateY = 0;
+        focus = 1;
+      } else if (local >= 0.76 && local < 0.92) {
+        const progress = ease((local - 0.76) / 0.16);
+        opacity = 1 - progress;
+        translateX = -46 * progress;
+        translateY = 0;
+        focus = 1;
+      } else {
+        opacity = 0;
+        translateX = local < 0 ? 0 : -46;
+        translateY = local < 0 ? 5.5 : 0;
+        focus = local < 0 ? 0 : 1;
+      }
+
+      const active = opacity > 0.5;
+
+      step.style.setProperty('--method-step-opacity', opacity.toFixed(3));
+      step.style.setProperty('--method-step-x', `${translateX.toFixed(1)}vw`);
+      step.style.setProperty('--method-step-y', `${translateY.toFixed(2)}rem`);
+      step.style.setProperty('--method-step-focus', `${Math.round(focus * 100)}%`);
+      step.setAttribute('aria-hidden', String(!active));
+    });
+  };
+
+  let methodTicking = false;
+  const requestMethodUpdate = () => {
+    if (methodTicking) return;
+    methodTicking = true;
+    window.requestAnimationFrame(() => {
+      updateMethodSteps();
+      methodTicking = false;
+    });
+  };
+
+  // On resize: refresh geometry cache + fit titles, then update steps
+  const onResize = () => {
+    cacheSectionRect();
+    fitMethodTitle();
+    fitMethodStepTitles();
+    requestMethodUpdate();
+  };
+
+  cacheSectionRect();
+  fitMethodTitle();
+  fitMethodStepTitles();
+  updateMethodSteps();
+
+  window.addEventListener('scroll', requestMethodUpdate, { passive: true });
+  window.addEventListener('resize', onResize);
+
+  if ('ResizeObserver' in window && methodTitle) {
+    new ResizeObserver(onResize).observe(methodTitle);
+  }
+</script>
