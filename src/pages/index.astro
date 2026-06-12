@@ -1,22 +1,63 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+
+const solutionVisual = '/images/libera-placeholder.png';
+const solucionesHome = [
+  {
+    id: 'presencia',
+    label: 'Presencia Digital',
+    promise: 'Para que te encuentren, te entiendan y te elijan.',
+    description: 'Sitios web, landing pages, Google Business Profile, WhatsApp Business y SEO local. Tu primera impresión, trabajando 24/7.',
+    href: '/soluciones/presencia-digital',
+    accent: 'var(--presencia)',
+    services: ['Sitios web premium', 'Landing pages', 'SEO local', 'Google Business'],
+  },
+  {
+    id: 'operacion',
+    label: 'Operación Inteligente',
+    promise: 'Para operar con orden, no con memoria.',
+    description: 'PAOS, CRM simple, dashboards internos y automatización de procesos. Cada mensaje, lead y tarea en su lugar.',
+    href: '/soluciones/operacion-inteligente',
+    accent: 'var(--operacion)',
+    services: ['PAOS', 'CRM y leads', 'Dashboards', 'Integraciones'],
+  },
+  {
+    id: 'ai',
+    label: 'AI & Automation',
+    promise: 'IA aplicada a procesos reales, no a demos.',
+    description: 'Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. Automatizamos donde hay fricción, no donde hay moda.',
+    href: '/soluciones/ai-automation',
+    accent: 'var(--ai)',
+    services: ['Agentes de IA', 'Asistentes internos', 'n8n & APIs', 'Automatización documental'],
+  },
+  {
+    id: 'productos',
+    label: 'Productos Digitales',
+    promise: 'Herramientas que tu equipo realmente usa.',
+    description: 'Web apps, MVPs, paneles administrativos y prototipos funcionales. Del problema al producto, sin años de desarrollo.',
+    href: '/soluciones/productos-digitales',
+    accent: 'var(--productos)',
+    services: ['Web apps', 'MVPs', 'Apps internas', 'Prototipos'],
+  },
+];
 ---
 
 <Layout
-  title="LIBERA Studio"
+  title="LIBERA Studio — Estudio de sistemas digitales"
   description="Sitios web, automatizaciones, agentes de IA e integraciones que conectan tu presencia online con la operación real de tu negocio. Mérida, México."
 >
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       1. HERO — Full-bleed dark, A como núcleo visual
+       1. HERO, Full-bleed dark, A como núcleo visual
        ═══════════════════════════════════════════════════════════════════ -->
+  <div class="hero-pin-stage">
   <section
     id="hero"
-    class="relative flex flex-col justify-end min-h-[100dvh] overflow-hidden"
+    class="hero-panel relative flex flex-col justify-end min-h-[100dvh] overflow-hidden"
     style="background: var(--ink);"
     aria-label="Hero"
   >
-    <!-- Radial ambient glow — orange -->
+    <!-- Radial ambient glow, orange -->
     <div
       class="absolute pointer-events-none select-none"
       style="
@@ -42,7 +83,7 @@ import Layout from '@/layouts/Layout.astro';
       aria-hidden="true"
     ></div>
 
-    <!-- Giant A — system nucleus: layered strokes, nodes, connections -->
+    <!-- Giant A, system nucleus: layered strokes, nodes, connections -->
     <div
       class="hero-a absolute pointer-events-none select-none hidden sm:block"
       style="right: clamp(-3rem, 2vw, 5rem); top: 50%; width: min(46vw, 620px); aspect-ratio: 10 / 11;"
@@ -84,10 +125,6 @@ import Layout from '@/layouts/Layout.astro';
     <!-- Content -->
     <div class="container-libera relative z-10 pb-20 pt-40">
 
-      <!-- Eyebrow — 1 of max 3 on page -->
-      <span class="eyebrow block mb-6" style="color: var(--orange); font-family: var(--font-mono);" data-reveal>
-        Estudio de sistemas digitales — Mérida, MX
-      </span>
       <!-- Headline -->
       <h1
         class="display-hero mb-8 max-w-5xl"
@@ -106,7 +143,7 @@ import Layout from '@/layouts/Layout.astro';
       >
         Sitios web, automatizaciones, agentes de IA e integraciones que conectan
         tu presencia online con la operación real de tu empresa. Diseñados para
-        funcionar — y para que no dependas de nadie, ni siquiera de nosotros.
+        funcionar, y para que no dependas de nadie, ni siquiera de nosotros.
       </p>
 
       <!-- CTAs -->
@@ -144,15 +181,17 @@ import Layout from '@/layouts/Layout.astro';
       <span class="eyebrow" style="color: oklch(38% 0.008 25); writing-mode: vertical-rl;">scroll</span>
     </div>
   </section>
+  </div>
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       2. PROBLEMA — Full-bleed light, testo grande
+       2. PROBLEMA, Full-bleed light, testo grande
        ═══════════════════════════════════════════════════════════════════ -->
+  <div class="problem-pin-stage">
   <section
     id="problema"
     style="background: var(--surface);"
-    class="py-32 lg:py-40"
+    class="problem-overlap py-32 lg:py-40"
     aria-label="El problema que resolvemos"
   >
     <div class="container-libera">
@@ -168,7 +207,7 @@ import Layout from '@/layouts/Layout.astro';
           <div>
             <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
               Una web que no convierte. Mensajes de WhatsApp sin seguimiento. Clientes que preguntan y desaparecen.
-              Información repartida entre Excel, notas y memoria. No es falta de tecnología —
+              Información repartida entre Excel, notas y memoria. No es falta de tecnología,
               es falta de conexión entre las piezas.
             </p>
           </div>
@@ -184,7 +223,7 @@ import Layout from '@/layouts/Layout.astro';
       <!-- Pain point list -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-px mt-16" style="background: var(--border);" data-reveal>
         {[
-          'Te buscan en Google y no te encuentran — o no convences.',
+          'Te buscan en Google y no te encuentran, o no convences.',
           'Respondes tarde, a mano y sin registro de nada.',
           'Adoptaste herramientas que nadie en tu equipo usa.',
         ].map((text, i) => (
@@ -200,144 +239,115 @@ import Layout from '@/layouts/Layout.astro';
       </div>
     </div>
   </section>
+  </div>
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       3. SOLUCIONES — Full-bleed con 4 bloques colorati
+       3. SOLUCIONES, Full-bleed con 4 bloques colorati
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="soluciones"
+    data-solutions-section
     style="background: var(--surface-alt);"
-    class="py-28 lg:py-36"
+    class="solutions-overlap py-24 lg:py-32"
     aria-label="Nuestras soluciones"
   >
-    <div class="container-libera">
-      <div class="max-w-3xl mb-16" data-reveal>
-        <p class="section-label mb-8" style="color: var(--text-secondary);">
-          <span style="color: var(--orange);">02</span> Soluciones
-        </p>
-        <h2 class="display-lg" style="color: var(--text-primary);">
-          Diseñamos la infraestructura digital que conecta presencia, operación e inteligencia.
-        </h2>
-      </div>
+    <div class="container-libera solutions-pin">
+      <div class="solutions-layout">
+        <div class="solutions-sticky">
+          <div class="solutions-intro max-w-3xl" data-reveal>
+            <p class="section-label mb-8" style="color: var(--text-secondary);">
+              <span style="color: var(--orange);">02</span> Soluciones
+            </p>
+            <h2 class="display-lg solutions-title" style="color: var(--text-primary);">
+              Diseñamos los sistemas que conectan presencia, operación e inteligencia.
+            </h2>
+          </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {[
-          {
-            id: 'presencia',
-            label: 'Presencia Digital',
-            promise: 'Para que te encuentren, te entiendan y te elijan.',
-            description: 'Sitios web, landing pages, Google Business Profile, WhatsApp Business y SEO local. Tu primera impresión, trabajando 24/7.',
-            href: '/soluciones/presencia-digital',
-            accent: 'var(--presencia)',
-            services: ['Sitios web premium', 'Landing pages', 'SEO local', 'Google Business'],
-          },
-          {
-            id: 'operacion',
-            label: 'Operación Inteligente',
-            promise: 'Para operar con orden, no con memoria.',
-            description: 'PAOS, CRM simple, dashboards internos y automatización de procesos. Cada mensaje, lead y tarea en su lugar.',
-            href: '/soluciones/operacion-inteligente',
-            accent: 'var(--operacion)',
-            services: ['PAOS', 'CRM y leads', 'Dashboards', 'Integraciones'],
-          },
-          {
-            id: 'ai',
-            label: 'AI & Automation',
-            promise: 'IA aplicada a procesos reales, no a demos.',
-            description: 'Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. Automatizamos donde hay fricción, no donde hay moda.',
-            href: '/soluciones/ai-automation',
-            accent: 'var(--ai)',
-            services: ['Agentes de IA', 'Asistentes internos', 'n8n & APIs', 'Automatización documental'],
-          },
-          {
-            id: 'productos',
-            label: 'Productos Digitales',
-            promise: 'Herramientas que tu equipo realmente usa.',
-            description: 'Web apps, MVPs, paneles administrativos y prototipos funcionales. Del problema al producto, sin años de desarrollo.',
-            href: '/soluciones/productos-digitales',
-            accent: 'var(--productos)',
-            services: ['Web apps', 'MVPs', 'Apps internas', 'Prototipos'],
-          },
-        ].map((sol, i) => (
-          <a
-            href={sol.href}
-            class="group relative flex flex-col justify-between p-8 lg:p-10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
-            data-reveal
-            style={`background: var(--surface); border: 1px solid var(--border); transition-delay: ${i * 90}ms;`}
-          >
-            <!-- Hover glow -->
-            <div
-              class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-              style={`background: radial-gradient(ellipse at top left, ${sol.accent}14 0%, transparent 60%);`}
-              aria-hidden="true"
-            ></div>
-            <!-- Accent hairline — top, draws on hover -->
-            <div
-              class="absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-0 group-hover:scale-x-100 pointer-events-none"
-              style={`background: ${sol.accent}; transition: transform 0.45s var(--ease-premium);`}
-              aria-hidden="true"
-            ></div>
-            <!-- Ghost index numeral -->
-            <span
-              class="absolute -top-3 right-6 font-display select-none pointer-events-none"
-              style={`font-family: var(--font-display); font-size: 5.5rem; font-weight: 700; line-height: 1; color: ${sol.accent}; opacity: 0.09;`}
-              aria-hidden="true"
-            >0{i + 1}</span>
-
-            <div class="relative">
-              <!-- Color dot + label -->
-              <div class="flex items-center gap-3 mb-6">
-                <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style={`background: ${sol.accent};`} aria-hidden="true"></span>
-                <span class="text-xs font-semibold tracking-widest uppercase" style={`color: ${sol.accent};`}>
+          <figure class="solution-visual-shell" data-reveal>
+            <div class="solution-visual-frame">
+              {solucionesHome.map((sol, i) => (
+                <img
+                  src={solutionVisual}
+                  width="1340"
+                  height="1340"
+                  alt={`Imagen provisional para ${sol.label}`}
+                  class={`solution-visual-image ${i === 0 ? 'is-active' : ''}`}
+                  data-solution-image={sol.id}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              ))}
+            </div>
+            <figcaption class="solution-visual-caption">
+              {solucionesHome.map((sol, i) => (
+                <span
+                  class={`solution-visual-label ${i === 0 ? 'is-active' : ''}`}
+                  data-solution-label={sol.id}
+                >
                   {sol.label}
                 </span>
-              </div>
+              ))}
+            </figcaption>
+          </figure>
+        </div>
 
-              <h3
-                class="font-display text-2xl mb-4"
-                style="font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; color: var(--text-primary);"
-              >
-                {sol.promise}
-              </h3>
+        <div class="solutions-card-rail" aria-label="Lista de soluciones">
+          {solucionesHome.map((sol, i) => (
+            <a
+              href={sol.href}
+              class={`solution-card group ${i === 0 ? 'is-active is-visible' : ''}`}
+              data-solution-card={sol.id}
+              style={`--solution-accent: ${sol.accent};`}
+            >
+              <div class="solution-card-glow" aria-hidden="true"></div>
+              <span class="solution-card-index" aria-hidden="true">0{i + 1}</span>
 
-              <p class="text-base leading-relaxed mb-8" style="color: var(--text-secondary);">
-                {sol.description}
-              </p>
-
-              <!-- Service tags -->
-              <div class="flex flex-wrap gap-2">
-                {sol.services.map((s) => (
-                  <span
-                    class="text-xs px-3 py-1 rounded-full"
-                    style="background: var(--surface-alt); color: var(--text-secondary); border: 1px solid var(--border);"
-                  >
-                    {s}
+              <div class="relative">
+                <div class="flex items-center gap-3 mb-8">
+                  <span class="w-3 h-3 rounded-full flex-shrink-0" style={`background: ${sol.accent};`} aria-hidden="true"></span>
+                  <span class="text-xs font-semibold tracking-widest uppercase" style={`color: ${sol.accent};`}>
+                    {sol.label}
                   </span>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            <!-- Arrow -->
-            <div class="relative mt-8 flex items-center gap-2" style={`color: ${sol.accent};`}>
-              <span class="text-sm font-medium">Ver solución</span>
-              <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-        ))}
+                <h3 class="solution-card-title">
+                  {sol.promise}
+                </h3>
+
+                <p class="solution-card-copy">
+                  {sol.description}
+                </p>
+
+                <div class="flex flex-wrap gap-2">
+                  {sol.services.map((s) => (
+                    <span class="solution-service-tag">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div class="relative mt-10 flex items-center gap-3 text-sm font-semibold" style={`color: ${sol.accent};`}>
+                <span>Ver solución</span>
+                <span class="solution-card-arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       4. MÉTODO — Editorial Split, sfondo scuro
+       4. MÉTODO, Editorial Split, sfondo scuro
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="metodo"
     data-method-section
-    style="background: linear-gradient(to bottom, var(--ink-mid) 0, var(--ink-mid) calc(100% - 90dvh), transparent calc(100% - 90dvh), transparent 100%);"
-    class="method-scroll"
+    style="background: var(--ink-mid);"
+    class="method-scroll method-overlap"
     aria-label="Nuestro método"
   >
     <div class="container-libera method-sticky">
@@ -416,44 +426,13 @@ import Layout from '@/layouts/Layout.astro';
     </div>
   </section>
 
-
   <!-- ═══════════════════════════════════════════════════════════════════
-       4.5 DIFERENCIADORES — Striscia marquee tra Metodo e Trabajo
-       ═══════════════════════════════════════════════════════════════════ -->
-  <section
-    id="diferenciadores"
-    style="background: var(--ink); border-block: 1px solid var(--border-dark);"
-    class="py-7 overflow-hidden"
-    aria-label="Lo que nos diferencia"
-  >
-    <div class="diff-track" aria-hidden="false">
-      {[0, 1].map((copy) => (
-        <div class="diff-group" aria-hidden={copy === 1 ? 'true' : undefined}>
-          {[
-            'Código 100% original',
-            'Sistemas que puedes mantener sin nosotros',
-            'Respuesta en menos de 48h',
-            'Construimos antes de prometer',
-            'IA en producción, no en diapositivas',
-          ].map((claim) => (
-            <span class="diff-item">
-              <span class="diff-dot" aria-hidden="true"></span>
-              {claim}
-            </span>
-          ))}
-        </div>
-      ))}
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       5. TRABAJO — Eyebrow 2 di 3, card grid su sfondo chiaro
+       5. TRABAJO, Eyebrow 2 di 3, card grid su sfondo chiaro
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="trabajo"
     style="background: var(--surface); background-image: radial-gradient(oklch(10% 0.01 25 / 0.045) 1px, transparent 1px); background-size: 22px 22px;"
-    class="py-28"
+    class="work-overlap py-28"
     aria-label="Nuestro trabajo"
   >
     <div class="container-libera">
@@ -467,7 +446,7 @@ import Layout from '@/layouts/Layout.astro';
             <span style="color: var(--text-secondary);">También construimos para aprender.</span>
           </h2>
           <p class="text-base leading-relaxed mt-5 max-w-xl" style="color: var(--text-secondary);">
-            Cada proyecto — propio o de cliente — es un sistema en producción.
+            Cada proyecto, propio o de cliente, es un sistema en producción.
             Esto es lo que construimos y lo que aprendimos construyéndolo.
           </p>
         </div>
@@ -502,15 +481,6 @@ import Layout from '@/layouts/Layout.astro';
             status: 'En producción',
             href: '/trabajo/radar',
             accent: 'var(--ai)',
-          },
-          {
-            name: 'Radio 9999',
-            category: 'Producto digital',
-            description: 'Infraestructura ligera para transmitir, organizar contenido y crear comunidad en torno a radio y audio.',
-            stack: ['Astro', 'Tailwind', 'Edge'],
-            status: 'Prototipo activo',
-            href: '/trabajo/9999',
-            accent: 'var(--orange)',
           },
           {
             name: 'Sole Facile',
@@ -601,7 +571,7 @@ import Layout from '@/layouts/Layout.astro';
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       6. GUÍAS + RADAR — Editoriale chiaro/scuro split
+       6. GUÍAS + RADAR, Editoriale chiaro/scuro split
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="conocimiento"
@@ -620,7 +590,7 @@ import Layout from '@/layouts/Layout.astro';
           </h2>
           <p class="text-base mb-8 leading-relaxed" style="color: var(--text-secondary);">
             Guías claras sobre sistemas, automatización, IA y presencia digital.
-            Para que entiendas qué necesitas antes de invertir — con o sin nosotros.
+            Para que entiendas qué necesitas antes de invertir, con o sin nosotros.
           </p>
 
           <div class="flex flex-col gap-3 mb-8">
@@ -661,19 +631,26 @@ import Layout from '@/layouts/Layout.astro';
             </h2>
             <p class="text-base mb-8 leading-relaxed" style="color: var(--text-light);">
               Analizamos herramientas, modelos y cambios tecnológicos en nuestro laboratorio
-              antes de convertirlos en recomendaciones. Publicamos lo que funciona —
+              antes de convertirlos en recomendaciones. Publicamos lo que funciona,
               y también lo que rompimos.
             </p>
 
             <!-- Categories -->
             <div class="flex flex-wrap gap-2 mb-8">
-              {['AI', 'Automatización', 'Tools', 'Web', 'SEO', 'Experimentos'].map((cat) => (
+              {[
+                { label: 'AI', href: '/radar/ai' },
+                { label: 'Automatización', href: '/radar/automation' },
+                { label: 'Tools', href: '/radar/tools' },
+                { label: 'Web', href: '/radar/web' },
+                { label: 'SEO', href: '/radar/seo' },
+                { label: 'Experimentos', href: '/radar/experiments' },
+              ].map((cat) => (
                 <a
-                  href={`/radar/${cat.toLowerCase().replace('ó','o').replace('ú','u')}`}
+                  href={cat.href}
                   class="text-xs px-3 py-1.5 rounded-full transition-colors duration-200 hover:opacity-80"
                   style="background: oklch(16% 0.01 25); color: var(--text-light); border: 1px solid var(--border-dark);"
                 >
-                  {cat}
+                  {cat.label}
                 </a>
               ))}
             </div>
@@ -693,7 +670,7 @@ import Layout from '@/layouts/Layout.astro';
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       7. CTA FINAL — Full-bleed dark, impatto massimo
+       7. CTA FINAL, Full-bleed dark, impatto massimo
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="cta"
@@ -708,7 +685,7 @@ import Layout from '@/layouts/Layout.astro';
       aria-hidden="true"
     ></div>
 
-    <!-- A echo — bookend of the hero nucleus -->
+    <!-- A echo, bookend of the hero nucleus -->
     <div
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"
       style="width: min(60vw, 760px); aspect-ratio: 10 / 11;"
@@ -759,7 +736,390 @@ import Layout from '@/layouts/Layout.astro';
     100% { transform: translateY(200%); }
   }
 
-  /* ── Hero A — slow drift + apex node pulse ───────────────────────── */
+  .hero-pin-stage {
+    position: relative;
+    min-height: 200dvh;
+    background: var(--ink);
+    z-index: 0;
+  }
+
+  .hero-panel {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+  }
+
+  .problem-pin-stage {
+    position: relative;
+    min-height: 280dvh;
+    margin-top: -100dvh;
+    background: var(--surface);
+    z-index: 2;
+  }
+
+  .problem-overlap {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    min-height: 100dvh;
+    z-index: 2;
+  }
+
+  .solutions-overlap {
+    position: relative;
+    z-index: 3;
+    margin-top: -100dvh;
+    min-height: 460dvh;
+    padding-block: 0;
+  }
+
+  .method-overlap {
+    position: relative;
+    z-index: 4;
+    margin-top: 0;
+  }
+
+  .work-overlap {
+    position: relative;
+    z-index: 5;
+    margin-top: -82dvh;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-pin-stage {
+      min-height: auto;
+    }
+
+    .hero-panel {
+      position: relative;
+    }
+
+    .problem-pin-stage {
+      min-height: auto;
+      margin-top: 0;
+    }
+
+    .problem-overlap {
+      position: relative;
+      min-height: auto;
+    }
+
+    .solutions-overlap {
+      margin-top: 0;
+    }
+
+    .method-overlap {
+      margin-top: 0;
+    }
+
+    .work-overlap {
+      margin-top: 0;
+    }
+  }
+
+  .solutions-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.68fr) minmax(0, 1.32fr);
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: center;
+    position: relative;
+    min-height: calc(100dvh - var(--nav-height));
+  }
+
+  .solutions-pin {
+    position: sticky;
+    top: var(--nav-height);
+    min-height: calc(100dvh - var(--nav-height));
+    display: flex;
+    align-items: center;
+  }
+
+  .solutions-sticky {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .solutions-intro {
+    max-width: min(100%, 25rem);
+  }
+
+  .solutions-intro .section-label {
+    margin-bottom: 1.25rem;
+  }
+
+  .solutions-title {
+    font-size: clamp(1.55rem, 2.25vw, 2.55rem);
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .solution-visual-shell {
+    margin-top: clamp(1rem, 2.5dvh, 1.75rem);
+    width: min(100%, 380px);
+  }
+
+  .solution-visual-frame {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background: var(--ink);
+    border: 1px solid oklch(18% 0.01 25);
+    box-shadow: 0 24px 64px oklch(8% 0.01 25 / 0.16);
+  }
+
+  .solution-visual-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: auto;
+    background:
+      linear-gradient(to bottom, oklch(96% 0.005 60 / 0.08), transparent 34%),
+      radial-gradient(ellipse at 80% 18%, var(--orange-glow), transparent 45%);
+    mix-blend-mode: screen;
+  }
+
+  .solution-visual-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: var(--solution-image-opacity, 0);
+    transform: scale(var(--solution-image-scale, 0.985));
+    transition:
+      opacity 0.52s var(--ease-out-expo),
+      filter 0.52s var(--ease-out-expo),
+      transform 0.52s var(--ease-out-expo);
+    filter: saturate(0.84) brightness(0.9);
+  }
+
+  .solution-visual-image.is-active {
+    --solution-image-opacity: 1;
+    --solution-image-scale: 1;
+    filter: saturate(1) brightness(1);
+  }
+
+  .solution-visual-caption {
+    position: relative;
+    min-height: 1.4rem;
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .solution-visual-label {
+    position: absolute;
+    inset: 0 auto auto 0;
+    opacity: var(--solution-label-opacity, 0);
+    transition: opacity 0.35s var(--ease-premium);
+  }
+
+  .solution-visual-label.is-active {
+    --solution-label-opacity: 1;
+  }
+
+  .solutions-card-rail {
+    position: relative;
+    min-height: min(560px, calc(100dvh - var(--nav-height) - 3rem));
+    padding-top: 0;
+  }
+
+  .solution-card {
+    --solution-accent: var(--orange);
+    --solution-card-opacity: 0;
+    --solution-card-y: 5rem;
+    position: absolute;
+    inset: 50% 0 auto 0;
+    display: flex;
+    min-height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    background: transparent;
+    border-top: 0;
+    color: var(--text-primary);
+    opacity: var(--solution-card-opacity);
+    transform: translate3d(0, calc(-50% + var(--solution-card-y)), 0);
+    transition:
+      opacity 0.36s var(--ease-out-expo),
+      transform 0.44s var(--ease-out-expo),
+      color 0.35s var(--ease-premium);
+    will-change: opacity, transform;
+    pointer-events: none;
+  }
+
+  .solution-card:first-child {
+    border-top: 0;
+  }
+
+  .solution-card.is-active {
+    pointer-events: auto;
+  }
+
+  .solution-card-glow {
+    display: none;
+  }
+
+  .solution-card.is-active .solution-card-glow,
+  .solution-card:hover .solution-card-glow {
+    opacity: 0;
+  }
+
+  .solution-card-index {
+    position: absolute;
+    right: 0;
+    top: clamp(1.75rem, 5dvh, 4rem);
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 8vw, 7.5rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--solution-accent);
+    opacity: 0.055;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .solution-card-title {
+    position: relative;
+    max-width: min(100%, 45rem);
+    margin-bottom: 1.25rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 3.5vw, 3.8rem);
+    font-weight: 750;
+    letter-spacing: -0.018em;
+    line-height: 1.02;
+    color: var(--text-primary);
+  }
+
+  .solution-card-copy {
+    position: relative;
+    max-width: 45rem;
+    margin-bottom: 1.5rem;
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  .solution-service-tag {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.15rem 0;
+    background: transparent;
+    border: 0;
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+  }
+
+  .solution-service-tag::before {
+    content: '';
+    width: 0.35rem;
+    height: 0.35rem;
+    margin-right: 0.55rem;
+    border-radius: 9999px;
+    background: var(--solution-accent);
+    opacity: 0.7;
+  }
+
+  .solution-card-arrow {
+    display: inline-flex;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.25s var(--ease-premium);
+  }
+
+  .solution-card:hover .solution-card-arrow {
+    transform: translate3d(0.25rem, -0.0625rem, 0);
+  }
+
+  @media (max-width: 1023px) {
+    .solutions-overlap {
+      min-height: auto;
+      padding-block: 6rem;
+    }
+
+    .solutions-pin {
+      position: relative;
+      top: auto;
+      min-height: auto;
+      display: block;
+    }
+
+    .solutions-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      position: relative;
+      top: auto;
+      min-height: auto;
+    }
+
+    .solutions-sticky {
+      position: relative;
+      top: auto;
+      min-height: auto;
+    }
+
+    .solution-visual-shell {
+      width: min(100%, 480px);
+      margin-top: 2rem;
+    }
+
+    .solutions-card-rail {
+      display: grid;
+      gap: 1rem;
+      min-height: auto;
+      padding-top: 0;
+    }
+
+    .solution-card {
+      position: relative;
+      inset: auto;
+      min-height: auto;
+      opacity: 1;
+      transform: none;
+      padding: clamp(2rem, 7vw, 3.25rem) 0;
+      pointer-events: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .solution-card {
+      min-height: auto;
+      padding: 1.5rem 0;
+    }
+
+    .solution-card-title {
+      max-width: min(100%, 39rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .solution-card,
+    .solution-visual-image,
+    .solution-visual-label,
+    .solution-card-arrow,
+    .solution-card-glow {
+      transform: none !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .solution-card {
+      opacity: 1;
+      transform: none;
+      will-change: auto;
+    }
+  }
+
+  /* ── Hero A, slow drift + apex node pulse ───────────────────────── */
   .hero-a {
     transform: translateY(-50%);
     animation: heroDrift 14s var(--ease-smooth) infinite alternate;
@@ -789,68 +1149,9 @@ import Layout from '@/layouts/Layout.astro';
     }
   }
 
-  /* ── Diferenciadores marquee ─────────────────────────────────────── */
-  .diff-track {
-    display: flex;
-    width: max-content;
-    animation: diffScroll 42s linear infinite;
-    will-change: transform;
-  }
-
-  .diff-group {
-    display: flex;
-    flex-shrink: 0;
-  }
-
-  .diff-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.875rem;
-    padding-inline: 1.75rem;
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    color: var(--text-muted-light);
-  }
-
-  .diff-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 9999px;
-    background: var(--orange);
-    flex-shrink: 0;
-  }
-
-  @keyframes diffScroll {
-    to { transform: translateX(-50%); }
-  }
-
-  #diferenciadores:hover .diff-track {
-    animation-play-state: paused;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .diff-track {
-      animation: none;
-      width: 100%;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .diff-group {
-      flex-wrap: wrap;
-      justify-content: center;
-      row-gap: 0.75rem;
-    }
-    .diff-group[aria-hidden="true"] {
-      display: none;
-    }
-  }
-
   .method-scroll {
     min-height: 1240dvh;
-    margin-bottom: -90dvh;
+    margin-bottom: 0;
     position: relative;
   }
 
@@ -943,7 +1244,7 @@ import Layout from '@/layouts/Layout.astro';
   }
 
   .method-step h3 {
-    color: color-mix(in oklch, var(--text-light) var(--method-step-focus), var(--orange));
+    color: var(--text-light);
     font-size: calc(clamp(4.5rem, 14vw, 15rem) * var(--method-step-title-fit, 1));
     font-style: normal;
     font-weight: 900;
@@ -956,7 +1257,7 @@ import Layout from '@/layouts/Layout.astro';
   }
 
   .method-step p {
-    color: color-mix(in oklch, var(--text-light) var(--method-step-focus), oklch(66% 0.03 60));
+    color: oklch(86% 0.012 60);
     font-size: clamp(1.35rem, 2.4vw, 2rem);
     line-height: 1.35;
     max-width: 58rem;
@@ -1043,6 +1344,87 @@ import Layout from '@/layouts/Layout.astro';
 </style>
 
 <script>
+  const solutionCards = [...document.querySelectorAll<HTMLElement>('[data-solution-card]')];
+  const solutionImages = [...document.querySelectorAll<HTMLElement>('[data-solution-image]')];
+  const solutionLabels = [...document.querySelectorAll<HTMLElement>('[data-solution-label]')];
+  const solutionsSection = document.querySelector<HTMLElement>('[data-solutions-section]');
+
+  const setActiveSolution = (id: string, intensity = 1) => {
+    solutionCards.forEach((card) => {
+      card.classList.toggle('is-active', card.dataset.solutionCard === id);
+    });
+
+    solutionImages.forEach((image) => {
+      const isActive = image.dataset.solutionImage === id;
+      image.classList.toggle('is-active', isActive);
+      image.style.setProperty('--solution-image-opacity', isActive ? intensity.toFixed(3) : '0');
+      image.style.setProperty('--solution-image-scale', isActive ? (0.985 + intensity * 0.015).toFixed(3) : '0.985');
+    });
+
+    solutionLabels.forEach((label) => {
+      const isActive = label.dataset.solutionLabel === id;
+      label.classList.toggle('is-active', isActive);
+      label.style.setProperty('--solution-label-opacity', isActive ? intensity.toFixed(3) : '0');
+    });
+  };
+
+  if (solutionsSection && solutionCards.length > 0) {
+    const reduceSolutionsMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ease = (value: number) => value * value * (3 - 2 * value);
+    const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+    let solutionTicking = false;
+
+    const updateSolutions = () => {
+      solutionTicking = false;
+
+      if (window.innerWidth < 1024 || reduceSolutionsMotion) {
+        solutionCards.forEach((card) => {
+          card.classList.add('is-active');
+          card.style.removeProperty('--solution-card-opacity');
+          card.style.removeProperty('--solution-card-y');
+        });
+        setActiveSolution(solutionCards[0]?.dataset.solutionCard ?? '', 1);
+        return;
+      }
+
+      const scrollable = Math.max(1, solutionsSection.offsetHeight - window.innerHeight);
+      const progress = clamp((window.scrollY - solutionsSection.offsetTop) / scrollable);
+      const maxIndex = Math.max(1, solutionCards.length - 1);
+      const revealWindow = 0.18;
+      let activeId = solutionCards[0]?.dataset.solutionCard ?? '';
+      let activeIntensity = 0;
+
+      solutionCards.forEach((card, index) => {
+        const center = index / maxIndex;
+        const distance = Math.abs(progress - center);
+        const intensity = ease(clamp(1 - distance / revealWindow));
+        const y = (center - progress) * 18;
+
+        card.style.setProperty('--solution-card-opacity', intensity.toFixed(3));
+        card.style.setProperty('--solution-card-y', `${y.toFixed(2)}rem`);
+        card.classList.toggle('is-active', intensity > 0.56);
+        card.setAttribute('aria-hidden', intensity > 0.18 ? 'false' : 'true');
+
+        if (intensity > activeIntensity) {
+          activeIntensity = intensity;
+          activeId = card.dataset.solutionCard ?? activeId;
+        }
+      });
+
+      setActiveSolution(activeId, activeIntensity);
+    };
+
+    const requestSolutionsUpdate = () => {
+      if (solutionTicking) return;
+      solutionTicking = true;
+      window.requestAnimationFrame(updateSolutions);
+    };
+
+    updateSolutions();
+    window.addEventListener('scroll', requestSolutionsUpdate, { passive: true });
+    window.addEventListener('resize', requestSolutionsUpdate, { passive: true });
+  }
+
   const methodSection = document.querySelector<HTMLElement>('[data-method-section]');
   const methodFrame = document.querySelector<HTMLElement>('.method-sticky');
   const methodSteps = [...document.querySelectorAll<HTMLElement>('[data-method-step]')];
@@ -1051,7 +1433,7 @@ import Layout from '@/layouts/Layout.astro';
   const methodStepTitles = [...document.querySelectorAll<HTMLElement>('[data-method-step-title]')];
   const reduceMethodMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Cache section geometry — updated on resize, not on every scroll frame
+  // Cache section geometry, updated on resize, not on every scroll frame
   let sectionTop = 0;
   let sectionHeight = 0;
   const cacheSectionRect = () => {
@@ -1089,18 +1471,43 @@ import Layout from '@/layouts/Layout.astro';
   const updateMethodSteps = () => {
     if (!methodSection || methodSteps.length === 0 || reduceMethodMotion) return;
 
+    const hideMethodSequence = () => {
+      methodTitle?.style.setProperty('--method-title-opacity', '0');
+
+      methodTitleLines.forEach((line) => {
+        line.style.setProperty('--method-line-opacity', '0');
+        line.style.setProperty('--method-line-x', '0px');
+        line.style.setProperty('--method-line-y', '0px');
+        line.style.setProperty('--method-line-scale', '1');
+        line.style.setProperty('--method-line-accent', '0%');
+      });
+
+      methodSteps.forEach((step) => {
+        step.style.setProperty('--method-step-opacity', '0');
+        step.style.setProperty('--method-step-x', '0vw');
+        step.style.setProperty('--method-step-y', '5.5rem');
+        step.style.setProperty('--method-step-focus', '0%');
+        step.setAttribute('aria-hidden', 'true');
+      });
+    };
+
+    if (methodSection.getBoundingClientRect().top > 0) {
+      hideMethodSequence();
+      return;
+    }
+
     const scrollable = Math.max(1, sectionHeight - window.innerHeight);
     const sectionProgress = (window.scrollY - sectionTop) / scrollable;
     const rawProgress = Math.min(1, Math.max(0, sectionProgress));
     const ease = (value: number) => value * value * (3 - 2 * value);
     const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
-    const entryDelay = clamp(window.innerHeight / scrollable, 0.08, 0.16);
+    const entryDelay = 0;
     const methodProgress = clamp((rawProgress - entryDelay) / (1 - entryDelay));
-    const titleSequenceEnd = 0.66;
-    const stepSequenceStart = 0.7;
-    const stepSequenceEnd = 0.9;
-    const titleFadeStart = 0.905;
-    const titleFadeEnd = 0.94;
+    const titleSequenceEnd = 0.38;
+    const stepSequenceStart = 0.5;
+    const stepSequenceEnd = 0.92;
+    const titleFadeStart = 0.925;
+    const titleFadeEnd = 0.965;
     const lineWindow = titleSequenceEnd / Math.max(1, methodTitleLines.length);
     const stepsEnabled = methodProgress >= stepSequenceStart;
     const stepsProgress = clamp((methodProgress - stepSequenceStart) / (stepSequenceEnd - stepSequenceStart));
@@ -1109,24 +1516,7 @@ import Layout from '@/layouts/Layout.astro';
 
     if (methodTitle) {
       if (sectionProgress < 0 || rawProgress < entryDelay) {
-        methodTitle.style.setProperty('--method-title-opacity', '0');
-
-        methodTitleLines.forEach((line) => {
-          line.style.setProperty('--method-line-opacity', '0');
-          line.style.setProperty('--method-line-x', '0px');
-          line.style.setProperty('--method-line-y', '0px');
-          line.style.setProperty('--method-line-scale', '1');
-          line.style.setProperty('--method-line-accent', '0%');
-        });
-
-        methodSteps.forEach((step) => {
-          step.style.setProperty('--method-step-opacity', '0');
-          step.style.setProperty('--method-step-x', '0vw');
-          step.style.setProperty('--method-step-y', '5.5rem');
-          step.style.setProperty('--method-step-focus', '0%');
-          step.setAttribute('aria-hidden', 'true');
-        });
-
+        hideMethodSequence();
         return;
       }
 
@@ -1177,23 +1567,23 @@ import Layout from '@/layouts/Layout.astro';
         opacity = 1;
         travel = 1;
         scale = heroScale;
-        accent = ease((local - 0.3) / 0.14);
+        accent = 0;
       } else if (local >= 0.44 && local < 0.76) {
         opacity = 1;
         travel = 1;
         scale = heroScale;
-        accent = 1;
+        accent = 0;
       } else if (local >= 0.76 && local < 1) {
         const settle = ease((local - 0.76) / 0.24);
         opacity = 1;
         travel = 1 - settle;
         scale = heroScale + (0.66 - heroScale) * settle;
-        accent = 1;
+        accent = 0;
       } else if (local >= 1) {
         opacity = 1;
         travel = 0;
         scale = 0.66;
-        accent = 1;
+        accent = ease(clamp((local - 1) / 0.12));
       }
 
       line.style.setProperty('--method-line-opacity', opacity.toFixed(3));

@@ -19,7 +19,6 @@ import Layout from '@/layouts/Layout.astro';
           {[
             { name: 'Cenote Scout', status: 'En desarrollo', href: '/trabajo/cenote-scout' },
             { name: 'LIBERA AI Automation', status: 'En producción', href: '/trabajo/radar' },
-            { name: 'Radio 9999', status: 'Prototipo activo', href: '/trabajo/9999' },
           ].map((p) => (
             <a href={p.href} class="p-6 rounded-xl transition-all duration-200 hover:-translate-y-0.5 group" style="background: oklch(14% 0.01 25); border: 1px solid var(--border-dark);">
               <span class="text-xs font-mono block mb-2" style="color: oklch(44% 0.008 25); font-family: var(--font-mono);">{p.status}</span>

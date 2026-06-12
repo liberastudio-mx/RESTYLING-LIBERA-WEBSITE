@@ -2,7 +2,7 @@
 
 @import "tailwindcss";
 
-/* ─── Pliant — self-hosted variable font ────────────────────────────── */
+/* ─── Pliant, self-hosted variable font ────────────────────────────── */
 @font-face {
   font-family: "Pliant";
   src: url("/fonts/Pliant-Variable.woff2") format("woff2");
@@ -11,7 +11,7 @@
   font-display: swap;
 }
 
-/* ─── Geist — self-hosted variable fonts ────────────────────────────── */
+/* ─── Geist, self-hosted variable fonts ────────────────────────────── */
 @font-face {
   font-family: "Geist";
   src: url("/fonts/Geist-Variable.woff2") format("woff2");
@@ -46,16 +46,16 @@
     --text-light:     oklch(96% 0.005 60);  /* on dark surfaces */
     --text-muted-light: oklch(68% 0.01 25); /* muted on dark */
 
-    /* Brand accent — the A */
+    /* Brand accent, the A */
     --orange:      oklch(66% 0.16 48);      /* LIBERA A orange */
     --orange-dark: oklch(52% 0.15 48);      /* darker variant */
     --orange-glow: oklch(66% 0.16 48 / 0.14);
 
     /* Section accents */
-    --presencia:   oklch(47% 0.055 230);    /* muted steel — Presencia Digital */
-    --operacion:   oklch(48% 0.06 145);     /* muted sage — Operación */
-    --ai:          oklch(50% 0.055 48);      /* clay — AI & Automation */
-    --productos:   oklch(48% 0.055 190);    /* muted teal — Digital Products */
+    --presencia:   oklch(47% 0.055 230);    /* muted steel, Presencia Digital */
+    --operacion:   oklch(48% 0.06 145);     /* muted sage, Operación */
+    --ai:          oklch(50% 0.055 48);      /* clay, AI & Automation */
+    --productos:   oklch(48% 0.055 190);    /* muted teal, Digital Products */
 
     /* ── Typography tokens ────────────────────────────────── */
     --font-display: "Pliant", "Clash Display", system-ui, sans-serif;
@@ -70,6 +70,8 @@
     /* ── Layout tokens ────────────────────────────────────── */
     --container-max: 1440px;
     --nav-height: 72px;
+    --z-header: 50;
+    --z-skip-link: 60;
   }
 
   /* ── Reset & base ─────────────────────────────────────────────────── */
@@ -111,7 +113,7 @@
     text-wrap: balance;
   }
 
-  /* Sentence case for long display headlines — uppercase is reserved
+  /* Sentence case for long display headlines, uppercase is reserved
      for short labels and the method step titles (own rule) */
   h1, h2 {
     letter-spacing: -0.015em;
@@ -136,7 +138,7 @@
     color: var(--ink);
     font-weight: 600;
     border-radius: 0 0 0.5rem 0.5rem;
-    z-index: 9999;
+    z-index: var(--z-skip-link);
     transition: top 0.2s;
   }
   .skip-link:focus {
@@ -192,7 +194,7 @@
     opacity: 0.6;
   }
 
-  /* Section label — numbered index + hairline rule (enterprise rhythm) */
+  /* Section label, numbered index + hairline rule (enterprise rhythm) */
   .section-label {
     display: flex;
     align-items: center;
@@ -211,7 +213,7 @@
     opacity: 0.3;
   }
 
-  /* Display type scale — single source for headline sizing */
+  /* Display type scale, single source for headline sizing */
   .display-hero {
     font-family: var(--font-display);
     font-weight: 700;
@@ -241,7 +243,7 @@
     font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   }
 
-  /* Buttons — shared vocabulary (Button-in-Button on primary) */
+  /* Buttons, shared vocabulary (Button-in-Button on primary) */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -286,14 +288,6 @@
     transition: transform 0.25s var(--ease-premium);
   }
   .btn:hover .btn-icon { transform: translateX(2px) translateY(-1px) scale(1.05); }
-
-  /* Gradient text — orange, documented structural use: brand A identity only */
-  .text-gradient-orange {
-    background: linear-gradient(135deg, var(--orange) 0%, oklch(72% 0.22 55) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
 
   /* Section color accents */
   .accent-presencia  { color: var(--presencia); }
@@ -351,7 +345,7 @@
     filter: blur(0);
   }
 
-  /* Mobile: remove blur-based reveals — GPU layer exhaustion prevention */
+  /* Mobile: remove blur-based reveals, GPU layer exhaustion prevention */
   @media (max-width: 900px) {
     [data-reveal] {
       filter: none !important;

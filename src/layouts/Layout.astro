@@ -22,8 +22,8 @@ const {
 const siteUrl = 'https://www.liberastudio.tech';
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
 const fullTitle = title === 'LIBERA Studio'
-  ? 'LIBERA Studio — Sistemas digitales, automatización e IA para empresas'
-  : `${title} — LIBERA Studio`;
+  ? 'LIBERA Studio, Sistemas digitales, automatización e IA para empresas'
+  : `${title}, LIBERA Studio`;
 
 const jsonLd = JSON.stringify({
   "@context": "https://schema.org",
