@@ -128,11 +128,12 @@ const solucionesHome = [
       <!-- Headline -->
       <h1
         class="display-hero mb-8 w-full text-center"
-        style="color: var(--text-light); font-size: clamp(2.5rem, 9vw, 10rem); text-transform: uppercase;"
+        style="color: var(--text-light); text-transform: uppercase;"
         data-reveal
+        data-hero-headline
       >
-        Construimos el sistema<br/>
-        que <span style="color: var(--orange);">libera</span> tu negocio.
+        <span data-hero-line style="display:block; white-space:nowrap;">Construimos el sistema</span>
+        <span data-hero-line style="display:block; white-space:nowrap;">que <span style="color: var(--orange);">libera</span> tu negocio</span>
       </h1>
 
       <!-- Subheadline -->
@@ -141,8 +142,7 @@ const solucionesHome = [
         style="color: var(--text-light); transition-delay: 110ms;"
         data-reveal
       >
-        Presencia digital, automatización e inteligencia artificial.<br/>
-        Un solo sistema, diseñado para tu empresa.
+        Presencia digital, automatización e inteligencia artificial.
       </p>
 
     </div>
@@ -167,8 +167,8 @@ const solucionesHome = [
           <span style="color: var(--orange);">01</span> El problema
         </p>
         <h2 class="display-xl mb-10" style="color: var(--text-primary);">
-          Tu negocio no necesita más herramientas.
-          <span style="color: var(--text-secondary);"> Necesita un sistema.</span>
+          No necesitas más herramientas.
+          <span style="color: var(--text-secondary);"> Necesitas un sistema.</span>
         </h2>
         <div class="grid md:grid-cols-2 gap-8 mt-12">
           <div>
@@ -1309,6 +1309,26 @@ const solucionesHome = [
     }
   }
 </style>
+
+<script>
+  // Fit hero headline to exact container width — binary search on font-size
+  function fitHeroHeadline() {
+    const h1 = document.querySelector<HTMLElement>('[data-hero-headline]');
+    if (!h1) return;
+    const targetWidth = h1.clientWidth;
+    const lines = [...h1.querySelectorAll<HTMLElement>('[data-hero-line]')];
+    let lo = 10, hi = 600;
+    while (hi - lo > 0.25) {
+      const mid = (lo + hi) / 2;
+      h1.style.fontSize = mid + 'px';
+      const maxWidth = Math.max(...lines.map(l => l.scrollWidth));
+      if (maxWidth <= targetWidth) lo = mid; else hi = mid;
+    }
+    h1.style.fontSize = lo + 'px';
+  }
+  fitHeroHeadline();
+  window.addEventListener('resize', fitHeroHeadline);
+</script>
 
 <script>
   const solutionCards = [...document.querySelectorAll<HTMLElement>('[data-solution-card]')];
