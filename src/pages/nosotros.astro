@@ -1,37 +1,145 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 ---
-<Layout title="Nosotros" description="LIBERA Studio es un laboratorio de sistemas digitales en Mérida, México. Somos Cesare, Gerardo y Alma: construimos antes de prometer.">
-  <section style="background: var(--surface); min-height: 100dvh;" class="pt-40 pb-20">
+<Layout
+  title="Nosotros — LIBERA Studio"
+  description="LIBERA Studio es un laboratorio de sistemas digitales en Mérida, México. Somos Alma y Cesare: construimos antes de prometer."
+>
+
+  <!-- HERO -->
+  <section class="pt-40 pb-24" style="background: var(--ink);">
     <div class="container-libera">
-      <div class="max-w-3xl" data-reveal>
-        <span class="eyebrow block mb-6" style="color: var(--text-secondary); font-family: var(--font-mono);">Nosotros</span>
-        <h1 class="font-display mb-8" style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.04em; color: var(--text-primary); line-height: 1.0;">
-          Un laboratorio, no una agencia.
+      <div class="max-w-4xl" data-reveal>
+        <p class="section-label mb-10" style="color: var(--text-secondary);">Nosotros</p>
+        <h1 class="display-xl mb-8" style="color: var(--text-light); line-height: 1.0;">
+          Un laboratorio,<br/>no una agencia.
         </h1>
-        <p class="text-xl leading-relaxed mb-8" style="color: var(--text-secondary);">
+        <p class="text-xl leading-relaxed max-w-2xl" style="color: oklch(52% 0.008 25);">
           Somos Alma y Cesare. Dos personas que se cansaron de ver cómo la tecnología
           prometía liberar a los negocios y terminaba complicándolos.
         </p>
-        <p class="text-base leading-relaxed mb-8" style="color: var(--text-secondary);">
-          Así nació LIBERA: un estudio que escucha el problema, diseña el sistema, lo construye
-          y se queda hasta que funciona. Trabajamos desde Mérida con proyectos en México y Europa,
-          y aprendimos una cosa en el camino: los mejores sistemas son los que las personas
-          pueden mantener solas.
-        </p>
-        <p class="text-base leading-relaxed mb-12" style="color: var(--text-secondary);">
-          No vendemos hype. No fingimos ser una multinacional. Construimos, y lo que construimos,
-          lo puedes ver.
-        </p>
-        <a
-          href="/laboratorio"
-          class="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          style="background: var(--ink); color: var(--text-light);"
-        >
-          Ver el laboratorio
-          <span aria-hidden="true">→</span>
-        </a>
       </div>
     </div>
   </section>
+
+  <!-- POR QUÉ EXISTIMOS -->
+  <section class="py-24" style="background: var(--surface);">
+    <div class="container-libera">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div data-reveal>
+          <p class="section-label mb-10" style="color: var(--text-secondary);">Por qué existimos</p>
+          <p class="text-lg leading-relaxed mb-6" style="color: var(--text-secondary);">
+            Los negocios no fracasan por falta de tecnología. Fracasan porque la tecnología que adoptan
+            no está conectada. Una web aquí, un WhatsApp allá, un Excel en el otro extremo.
+            Piezas sueltas que nadie unió.
+          </p>
+          <p class="text-lg leading-relaxed mb-6" style="color: var(--text-secondary);">
+            LIBERA nació para eso: escuchar el problema, diseñar el sistema, construirlo
+            y quedarse hasta que funciona. Trabajamos desde Mérida con proyectos en México y Europa.
+          </p>
+          <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
+            Y aprendimos algo en el camino: los mejores sistemas son los que las personas
+            pueden mantener solas.
+          </p>
+        </div>
+        <div data-reveal>
+          <blockquote class="pl-8" style="border-left: 2px solid var(--orange);">
+            <p style="font-family: var(--font-display); color: var(--text-primary); font-size: clamp(1.4rem, 2.2vw, 1.9rem); line-height: 1.2;">
+              "Construimos antes de prometer. Probamos las soluciones antes de venderlas.
+              Lo que rompemos, lo documentamos. Lo que resiste, lo entregamos."
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIADORES -->
+  <section class="py-24" style="background: var(--ink);">
+    <div class="container-libera">
+      <p class="section-label mb-12" style="color: var(--text-secondary);" data-reveal>Cómo trabajamos</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style="background: oklch(18% 0.01 25);" data-reveal>
+        {[
+          {
+            n: '01',
+            title: 'Código 100% original',
+            copy: 'Nada de templates con nueva camisa. Cada sistema que construimos es nuestro desde la primera línea.',
+          },
+          {
+            n: '02',
+            title: 'Sistemas que puedes mantener sin nosotros',
+            copy: 'Crecimiento sin dependencia. Construimos para que puedas operar solo si así lo decides.',
+          },
+          {
+            n: '03',
+            title: 'Respuesta en menos de 48h',
+            copy: 'Una promesa operativa concreta. No somos una agencia con cola de tickets.',
+          },
+          {
+            n: '04',
+            title: 'Construimos antes de prometer',
+            copy: 'Probamos las soluciones en nosotros mismos. Si una herramienta no resiste, no la vendemos.',
+          },
+          {
+            n: '05',
+            title: 'IA en producción, no en diapositivas',
+            copy: 'Automatizamos donde hay fricción real, no donde hay moda. Sin demos: con sistemas que trabajan hoy.',
+          },
+          {
+            n: '',
+            title: '',
+            copy: '',
+          },
+        ].map((d) => (
+          <div class="p-8 lg:p-10" style="background: var(--ink);">
+            {d.n && <span class="block text-xs font-mono mb-4" style="color: oklch(36% 0.008 25); font-family: var(--font-mono);">{d.n}</span>}
+            {d.title && <h3 class="text-lg font-semibold mb-3" style="font-family: var(--font-display); color: var(--text-light);">{d.title}</h3>}
+            {d.copy && <p class="text-sm leading-relaxed" style="color: oklch(48% 0.008 25);">{d.copy}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="py-24" style="background: var(--surface);">
+    <div class="container-libera">
+      <p class="section-label mb-12" style="color: var(--text-secondary);" data-reveal>El equipo</p>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl" data-reveal>
+        <div class="p-8 rounded-2xl" style="background: var(--ink); border: 1px solid var(--border-dark);">
+          <h3 class="text-xl font-semibold mb-1" style="font-family: var(--font-display); color: var(--text-light);">Cesare</h3>
+          <p class="text-xs mb-5" style="color: var(--orange); font-family: var(--font-mono); letter-spacing: 0.08em;">SISTEMAS & AUTOMATIZACIÓN</p>
+          <p class="text-sm leading-relaxed" style="color: oklch(52% 0.008 25);">
+            Arquitectura de sistemas, automatización con n8n, agentes de IA y desarrollo web.
+            El que intenta romper las cosas antes de entregarlas.
+          </p>
+        </div>
+        <div class="p-8 rounded-2xl" style="background: var(--ink); border: 1px solid var(--border-dark);">
+          <h3 class="text-xl font-semibold mb-1" style="font-family: var(--font-display); color: var(--text-light);">Alma</h3>
+          <p class="text-xs mb-5" style="color: var(--orange); font-family: var(--font-mono); letter-spacing: 0.08em;">ESTRATEGIA & OPERACIÓN</p>
+          <p class="text-sm leading-relaxed" style="color: oklch(52% 0.008 25);">
+            Estrategia digital, diseño de procesos y gestión de clientes.
+            La que traduce el caos del negocio en un sistema con orden.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32" style="background: var(--ink);">
+    <div class="container-libera text-center" data-reveal>
+      <h2 class="display-lg mb-4" style="color: var(--text-light);">
+        No vendemos hype.
+      </h2>
+      <p class="text-xl mb-12 max-w-xl mx-auto" style="color: oklch(48% 0.008 25);">
+        Construimos, y lo que construimos, lo puedes ver.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/trabajo" class="btn btn-ghost-dark">Ver nuestro trabajo</a>
+        <a href="/diagnostico" class="btn btn-primary">Solicitar diagnóstico</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>

@@ -215,7 +215,7 @@ const solucionesHome = [
   <section
     id="soluciones"
     data-solutions-section
-    style="background: var(--surface-alt);"
+    style="background: var(--surface);"
     class="solutions-overlap py-24 lg:py-32"
     aria-label="Nuestras soluciones"
   >
@@ -736,7 +736,7 @@ const solucionesHome = [
     position: relative;
     z-index: 3;
     margin-top: -100dvh;
-    min-height: 460dvh;
+    min-height: 820dvh;
     padding-block: 0;
   }
 
@@ -903,7 +903,6 @@ const solucionesHome = [
   .solution-card {
     --solution-accent: var(--orange);
     --solution-card-opacity: 0;
-    --solution-card-y: 5rem;
     position: absolute;
     inset: 50% 0 auto 0;
     display: flex;
@@ -915,12 +914,11 @@ const solucionesHome = [
     border-top: 0;
     color: var(--text-primary);
     opacity: var(--solution-card-opacity);
-    transform: translate3d(0, calc(-50% + var(--solution-card-y)), 0);
+    transform: translate3d(0, -50%, 0);
     transition:
       opacity 0.36s var(--ease-out-expo),
-      transform 0.44s var(--ease-out-expo),
       color 0.35s var(--ease-premium);
-    will-change: opacity, transform;
+    will-change: opacity;
     pointer-events: none;
   }
 
@@ -1368,37 +1366,42 @@ const solucionesHome = [
         solutionCards.forEach((card) => {
           card.classList.add('is-active');
           card.style.removeProperty('--solution-card-opacity');
-          card.style.removeProperty('--solution-card-y');
         });
         setActiveSolution(solutionCards[0]?.dataset.solutionCard ?? '', 1);
         return;
       }
 
       const scrollable = Math.max(1, solutionsSection.offsetHeight - window.innerHeight);
-      const progress = clamp((window.scrollY - solutionsSection.offsetTop) / scrollable);
+      const rawProgress = clamp((window.scrollY - solutionsSection.offsetTop) / scrollable);
+      const startPause = 0.16;
+      const endPause = 0.06;
+      const progress = clamp((rawProgress - startPause) / (1 - startPause - endPause));
       const maxIndex = Math.max(1, solutionCards.length - 1);
-      const revealWindow = 0.18;
+      const revealWindow = 0.12;
       let activeId = solutionCards[0]?.dataset.solutionCard ?? '';
       let activeIntensity = 0;
+      let activeVisualOpacity = 0;
 
       solutionCards.forEach((card, index) => {
         const center = index / maxIndex;
         const distance = Math.abs(progress - center);
         const intensity = ease(clamp(1 - distance / revealWindow));
-        const y = (center - progress) * 18;
+        const textOpacity = progress <= center
+          ? (distance <= revealWindow ? 1 : 0)
+          : ease(clamp(1 - (progress - center) / revealWindow));
 
-        card.style.setProperty('--solution-card-opacity', intensity.toFixed(3));
-        card.style.setProperty('--solution-card-y', `${y.toFixed(2)}rem`);
-        card.classList.toggle('is-active', intensity > 0.56);
-        card.setAttribute('aria-hidden', intensity > 0.18 ? 'false' : 'true');
+        card.style.setProperty('--solution-card-opacity', textOpacity.toFixed(3));
+        card.classList.toggle('is-active', textOpacity > 0.56);
+        card.setAttribute('aria-hidden', textOpacity > 0.18 ? 'false' : 'true');
 
         if (intensity > activeIntensity) {
           activeIntensity = intensity;
+          activeVisualOpacity = textOpacity;
           activeId = card.dataset.solutionCard ?? activeId;
         }
       });
 
-      setActiveSolution(activeId, activeIntensity);
+      setActiveSolution(activeId, activeVisualOpacity);
     };
 
     const requestSolutionsUpdate = () => {

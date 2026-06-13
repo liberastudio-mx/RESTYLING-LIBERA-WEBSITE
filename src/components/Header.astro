@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Trabajo',    href: '/trabajo',    type: 'dropdown-visual' },
   { label: 'Guías',      href: '/guias',      type: 'mega-editorial' },
   { label: 'Radar',      href: '/radar',      type: 'dropdown-simple' },
-  { label: 'Laboratorio', href: '/laboratorio', type: 'link' },
+  { label: 'Nosotros', href: '/nosotros', type: 'link' },
 ];
 ---
 
@@ -207,12 +207,12 @@ const navLinks = [
 
       <!-- ── Laboratorio, LINK DIRECTO ─────────────────────────────── -->
       <a
-        href="/laboratorio"
+        href="/nosotros"
         class="nav-btn px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
         style="color: oklch(74% 0.008 60);"
-        aria-current={currentPath === '/laboratorio' ? 'page' : undefined}
+        aria-current={currentPath === '/nosotros' ? 'page' : undefined}
       >
-        Laboratorio
+        Nosotros
       </a>
 
     </nav>
@@ -259,7 +259,6 @@ const navLinks = [
         { label: 'Trabajo',     href: '/trabajo' },
         { label: 'Guías',       href: '/guias' },
         { label: 'Radar',       href: '/radar' },
-        { label: 'Laboratorio', href: '/laboratorio' },
         { label: 'Nosotros',    href: '/nosotros' },
       ].map((link, i) => (
         <a
