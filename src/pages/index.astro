@@ -1,25 +1,26 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 
-const solutionVisual = '/images/libera-placeholder.png';
 const solucionesHome = [
-  {
-    id: 'presencia',
-    label: 'Presencia Digital',
-    promise: 'Para que te encuentren, te entiendan y te elijan.',
-    description: 'Sitios web, landing pages, Google Business Profile, WhatsApp Business y SEO local. Tu primera impresión, trabajando 24/7.',
-    href: '/soluciones/presencia-digital',
-    accent: 'var(--presencia)',
-    services: ['Sitios web premium', 'Landing pages', 'SEO local', 'Google Business'],
-  },
   {
     id: 'operacion',
     label: 'Operación Inteligente',
     promise: 'Para operar con orden, no con memoria.',
     description: 'PAOS, CRM simple, dashboards internos y automatización de procesos. Cada mensaje, lead y tarea en su lugar.',
     href: '/soluciones/operacion-inteligente',
-    accent: 'var(--operacion)',
+    accent: '#003049',
+    image: '/images/sol-operacion.png',
     services: ['PAOS', 'CRM y leads', 'Dashboards', 'Integraciones'],
+  },
+  {
+    id: 'presencia',
+    label: 'Presencia Digital',
+    promise: 'Para que te encuentren, te entiendan y te elijan.',
+    description: 'Sitios web, landing pages, Google Business Profile, WhatsApp Business y SEO local. Tu primera impresión, trabajando 24/7.',
+    href: '/soluciones/presencia-digital',
+    accent: '#d62828',
+    image: '/images/sol-presencia.png',
+    services: ['Sitios web premium', 'Landing pages', 'SEO local', 'Google Business'],
   },
   {
     id: 'ai',
@@ -27,7 +28,8 @@ const solucionesHome = [
     promise: 'IA aplicada a procesos reales, no a demos.',
     description: 'Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. Automatizamos donde hay fricción, no donde hay moda.',
     href: '/soluciones/ai-automation',
-    accent: 'var(--ai)',
+    accent: '#f77f00',
+    image: '/images/sol-ai.png',
     services: ['Agentes de IA', 'Asistentes internos', 'n8n & APIs', 'Automatización documental'],
   },
   {
@@ -36,7 +38,8 @@ const solucionesHome = [
     promise: 'Herramientas que tu equipo realmente usa.',
     description: 'Web apps, MVPs, paneles administrativos y prototipos funcionales. Del problema al producto, sin años de desarrollo.',
     href: '/soluciones/productos-digitales',
-    accent: 'var(--productos)',
+    accent: '#fcbf49',
+    image: '/images/sol-productos.png',
     services: ['Web apps', 'MVPs', 'Apps internas', 'Prototipos'],
   },
 ];
@@ -57,70 +60,8 @@ const solucionesHome = [
     style="background: #ffffff;"
     aria-label="Hero"
   >
-    <!-- Radial ambient glow, orange -->
-    <div
-      class="absolute pointer-events-none select-none"
-      style="
-        top: -10%; right: -5%;
-        width: 70vw; height: 70vw;
-        max-width: 800px; max-height: 800px;
-        background: radial-gradient(ellipse at center, var(--orange-glow) 0%, transparent 65%);
-        filter: blur(60px);
-        will-change: transform;
-      "
-      aria-hidden="true"
-    ></div>
-
-    <!-- Subtle grid texture -->
-    <div
-      class="absolute inset-0 pointer-events-none"
-      style="
-        background-image:
-          linear-gradient(oklch(96% 0.005 60 / 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, oklch(96% 0.005 60 / 0.03) 1px, transparent 1px);
-        background-size: 80px 80px;
-      "
-      aria-hidden="true"
-    ></div>
-
-    <!-- Giant A, system nucleus: layered strokes, nodes, connections -->
-    <div
-      class="hero-a absolute pointer-events-none select-none hidden sm:block"
-      style="right: clamp(-3rem, 2vw, 5rem); top: 50%; width: min(46vw, 620px); aspect-ratio: 10 / 11;"
-      aria-hidden="true"
-    >
-      <svg viewBox="0 0 400 440" fill="none" class="w-full h-full" aria-hidden="true">
-        <defs>
-          <linearGradient id="heroAGrad" x1="200" y1="80" x2="200" y2="440" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#f77f00" />
-            <stop offset="55%" stop-color="oklch(70% 0.19 55 / 0.5)" />
-            <stop offset="100%" stop-color="oklch(70% 0.19 55 / 0.06)" />
-          </linearGradient>
-        </defs>
-
-        <!-- depth echoes -->
-        <path d="M16 444 L200 8 L384 444" stroke="oklch(96% 0.005 60 / 0.045)" stroke-width="1.5" />
-        <path d="M52 444 L200 52 L348 444" stroke="oklch(96% 0.005 60 / 0.08)" stroke-width="1.5" />
-
-        <!-- main A -->
-        <path d="M88 444 L200 96 L312 444" stroke="url(#heroAGrad)" stroke-width="2" />
-        <!-- crossbar -->
-        <line x1="140" y1="330" x2="260" y2="330" stroke="oklch(96% 0.005 60 / 0.25)" stroke-width="1.5" />
-
-        <!-- radiating system connections -->
-        <line x1="200" y1="96" x2="330" y2="36" stroke="oklch(96% 0.005 60 / 0.12)" stroke-width="1" stroke-dasharray="2 7" />
-        <line x1="200" y1="96" x2="86" y2="44" stroke="oklch(96% 0.005 60 / 0.09)" stroke-width="1" stroke-dasharray="2 7" />
-        <line x1="260" y1="330" x2="368" y2="300" stroke="oklch(96% 0.005 60 / 0.09)" stroke-width="1" stroke-dasharray="2 7" />
-
-        <!-- nodes -->
-        <circle cx="200" cy="96" r="5" fill="var(--orange)" class="hero-a-node" />
-        <circle cx="330" cy="36" r="2.5" fill="oklch(96% 0.005 60 / 0.4)" />
-        <circle cx="86" cy="44" r="2" fill="oklch(96% 0.005 60 / 0.3)" />
-        <circle cx="140" cy="330" r="3" fill="oklch(96% 0.005 60 / 0.45)" />
-        <circle cx="260" cy="330" r="3" fill="oklch(96% 0.005 60 / 0.45)" />
-        <circle cx="368" cy="300" r="2.5" fill="oklch(96% 0.005 60 / 0.35)" />
-      </svg>
-    </div>
+    <!-- DotField interactive background -->
+    <div id="hero-dot-field" class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 
     <!-- Content -->
     <div class="container-libera relative z-10 py-20">
@@ -242,29 +183,22 @@ const solucionesHome = [
     id="soluciones"
     data-solutions-section
     style="background: var(--surface);"
-    class="solutions-overlap py-24 lg:py-32"
+    class="solutions-overlap pb-24 lg:pb-32"
     aria-label="Nuestras soluciones"
   >
     <div class="container-libera solutions-pin">
       <div class="solutions-layout">
-        <div class="solutions-sticky">
-          <div class="solutions-intro max-w-3xl" data-reveal>
-            <p class="section-label mb-8" style="color: var(--text-secondary);">
-              <span style="color: var(--orange);">02</span> Soluciones
-            </p>
-            <h2 class="display-lg solutions-title" style="color: var(--text-primary);">
-              Diseñamos los sistemas que conectan presencia, operación e inteligencia.
-            </h2>
-          </div>
 
+        <!-- Left: full-height sticky image -->
+        <div class="solutions-image-col">
           <figure class="solution-visual-shell" data-reveal>
             <div class="solution-visual-frame">
               {solucionesHome.map((sol, i) => (
                 <img
-                  src={solutionVisual}
+                  src={sol.image}
                   width="1340"
                   height="1340"
-                  alt={`Imagen provisional para ${sol.label}`}
+                  alt={sol.label}
                   class={`solution-visual-image ${i === 0 ? 'is-active' : ''}`}
                   data-solution-image={sol.id}
                   loading={i === 0 ? 'eager' : 'lazy'}
@@ -272,20 +206,18 @@ const solucionesHome = [
                 />
               ))}
             </div>
-            <figcaption class="solution-visual-caption">
-              {solucionesHome.map((sol, i) => (
-                <span
-                  class={`solution-visual-label ${i === 0 ? 'is-active' : ''}`}
-                  data-solution-label={sol.id}
-                >
-                  {sol.label}
-                </span>
-              ))}
-            </figcaption>
           </figure>
         </div>
 
-        <div class="solutions-card-rail" aria-label="Lista de soluciones">
+        <!-- Right: title + cards -->
+        <div class="solutions-sticky">
+          <div class="solutions-intro" data-reveal>
+            <h2 class="display-lg solutions-title" style="color: var(--text-primary);">
+              Diseñamos los sistemas que conectan presencia, operación e inteligencia.
+            </h2>
+          </div>
+
+          <div class="solutions-card-rail" aria-label="Lista de soluciones">
           {solucionesHome.map((sol, i) => (
             <a
               href={sol.href}
@@ -297,11 +229,11 @@ const solucionesHome = [
               <span class="solution-card-index" aria-hidden="true">0{i + 1}</span>
 
               <div class="relative">
-                <div class="flex items-center gap-3 mb-8">
-                  <span class="w-3 h-3 rounded-full flex-shrink-0" style={`background: ${sol.accent};`} aria-hidden="true"></span>
+                <div class="flex items-center justify-end gap-3 mb-8">
                   <span class="text-xs font-semibold tracking-widest uppercase" style={`color: ${sol.accent};`}>
                     {sol.label}
                   </span>
+                  <span class="w-3 h-3 rounded-full flex-shrink-0" style={`background: ${sol.accent};`} aria-hidden="true"></span>
                 </div>
 
                 <h3 class="solution-card-title">
@@ -312,7 +244,7 @@ const solucionesHome = [
                   {sol.description}
                 </p>
 
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap justify-end gap-2">
                   {sol.services.map((s) => (
                     <span class="solution-service-tag">
                       {s}
@@ -321,12 +253,13 @@ const solucionesHome = [
                 </div>
               </div>
 
-              <div class="relative mt-10 flex items-center gap-3 text-sm font-semibold" style={`color: ${sol.accent};`}>
+              <div class="relative mt-10 flex items-center justify-end gap-3 text-sm font-semibold" style={`color: ${sol.accent};`}>
                 <span>Ver solución</span>
                 <span class="solution-card-arrow" aria-hidden="true">→</span>
               </div>
             </a>
           ))}
+          </div>
         </div>
       </div>
     </div>
@@ -764,7 +697,7 @@ const solucionesHome = [
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: calc(var(--nav-height, 4rem) + 3rem) clamp(1.5rem, 5vw, 5rem) clamp(1.5rem, 3dvh, 2.5rem);
+    padding: calc(var(--nav-height, 4rem) + 3rem) clamp(1.25rem, 4vw, 3.5rem) clamp(1.5rem, 3dvh, 2.5rem);
     overflow: hidden;
   }
 
@@ -772,7 +705,8 @@ const solucionesHome = [
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 1.5rem;
   }
 
   .problem-title {
@@ -857,7 +791,7 @@ const solucionesHome = [
   }
 
   .problem-stat-source {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     color: var(--text-tertiary, oklch(60% 0.01 60));
     font-family: var(--font-mono);
     letter-spacing: 0.02em;
@@ -865,6 +799,24 @@ const solucionesHome = [
 
   /* Tablet */
   @media (max-width: 1023px) {
+    /* Reset sticky scroll containers — no longer needed below desktop */
+    .hero-pin-stage {
+      min-height: auto;
+    }
+
+    .problem-pin-stage {
+      min-height: auto;
+      margin-top: 0;
+    }
+
+    .solutions-overlap {
+      margin-top: 0;
+    }
+
+    .work-overlap {
+      margin-top: 0;
+    }
+
     .problem-overlap {
       height: auto;
       min-height: 100dvh;
@@ -873,7 +825,7 @@ const solucionesHome = [
     }
 
     .problem-left {
-      padding: calc(var(--nav-height, 4rem) + 2rem) clamp(1.25rem, 5vw, 3rem) 2rem;
+      padding: calc(var(--nav-height, 4rem) + 2rem) clamp(1.25rem, 4vw, 3.5rem) 2rem;
     }
 
     .problem-right {
@@ -887,6 +839,10 @@ const solucionesHome = [
 
     .problem-body {
       font-size: 1rem;
+    }
+
+    .solutions-sticky {
+      padding-top: 0;
     }
   }
 
@@ -979,11 +935,20 @@ const solucionesHome = [
 
   .solutions-layout {
     display: grid;
-    grid-template-columns: minmax(260px, 0.68fr) minmax(0, 1.32fr);
-    gap: clamp(3rem, 8vw, 7rem);
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: start;
     position: relative;
     min-height: calc(100dvh - var(--nav-height));
+  }
+
+  .solutions-image-col {
+    position: sticky;
+    top: var(--nav-height);
+    height: calc(100dvh - var(--nav-height));
+    overflow: hidden;
+    padding-top: calc(var(--nav-height, 4rem) * 0.75);
+    padding-bottom: 2rem;
   }
 
   .solutions-pin {
@@ -991,21 +956,24 @@ const solucionesHome = [
     top: var(--nav-height);
     min-height: calc(100dvh - var(--nav-height));
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .solutions-sticky {
     position: relative;
     top: auto;
     min-height: auto;
-    padding-top: 0;
+    padding-top: 2rem;
+    padding-left: clamp(1.5rem, 4vw, 3rem);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    text-align: right;
   }
 
   .solutions-intro {
-    max-width: min(100%, 25rem);
+    max-width: 100%;
+    text-align: right;
   }
 
   .solutions-intro .section-label {
@@ -1013,19 +981,20 @@ const solucionesHome = [
   }
 
   .solutions-title {
-    font-size: clamp(1.55rem, 2.25vw, 2.55rem);
     line-height: 1.08;
     text-wrap: balance;
   }
 
   .solution-visual-shell {
-    margin-top: clamp(1rem, 2.5dvh, 1.75rem);
-    width: min(100%, 380px);
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
   }
 
   .solution-visual-frame {
     position: relative;
-    aspect-ratio: 1;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     border-radius: 1.25rem;
     background: var(--surface);
@@ -1142,18 +1111,20 @@ const solucionesHome = [
   .solution-card-title {
     position: relative;
     max-width: min(100%, 45rem);
+    text-align: right;
     margin-bottom: 1.25rem;
     font-family: var(--font-display);
-    font-size: clamp(2.1rem, 3.5vw, 3.8rem);
-    font-weight: 750;
-    letter-spacing: -0.018em;
-    line-height: 1.02;
-    color: var(--text-primary);
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: #003049;
   }
 
   .solution-card-copy {
     position: relative;
     max-width: 45rem;
+    text-align: right;
     margin-bottom: 1.5rem;
     font-size: clamp(1rem, 1.2vw, 1.15rem);
     line-height: 1.55;
@@ -1213,15 +1184,25 @@ const solucionesHome = [
       min-height: auto;
     }
 
+    .solutions-image-col {
+      position: relative;
+      top: auto;
+      height: 50dvh;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
     .solutions-sticky {
       position: relative;
       top: auto;
       min-height: auto;
+      padding-top: 0;
     }
 
     .solution-visual-shell {
-      width: min(100%, 480px);
-      margin-top: 2rem;
+      width: 100%;
+      height: 100%;
+      margin-top: 0;
     }
 
     .solutions-card-rail {
@@ -1839,4 +1820,172 @@ const solucionesHome = [
   if ('ResizeObserver' in window && methodTitle) {
     new ResizeObserver(onResize).observe(methodTitle);
   }
+</script>
+
+<script>
+  // DotField — vanilla JS canvas background for hero
+  (function initDotField() {
+    const TWO_PI = Math.PI * 2;
+    const P = {
+      dotRadius:    1.5,
+      dotSpacing:   14,
+      cursorRadius: 750,
+      bulgeStrength: 67,
+      glowRadius:   160,
+      gradientFrom: '#eae2b7',
+      gradientTo:   '#fcbf49',
+      glowColor:    '#ffffff',
+    };
+
+    const container = document.getElementById('hero-dot-field');
+    if (!container) return;
+
+    // Canvas
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
+    container.appendChild(canvas);
+    const ctx = canvas.getContext('2d', { alpha: true })!;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    // SVG glow overlay
+    const glowId = 'dfg-' + Math.random().toString(36).slice(2, 7);
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;';
+    const defs = document.createElementNS(NS, 'defs');
+    const rg   = document.createElementNS(NS, 'radialGradient');
+    rg.setAttribute('id', glowId);
+    const s1 = document.createElementNS(NS, 'stop');
+    s1.setAttribute('offset', '0%');
+    s1.setAttribute('stop-color', P.glowColor);
+    s1.setAttribute('stop-opacity', '0.18');
+    const s2 = document.createElementNS(NS, 'stop');
+    s2.setAttribute('offset', '100%');
+    s2.setAttribute('stop-color', P.glowColor);
+    s2.setAttribute('stop-opacity', '0');
+    rg.appendChild(s1); rg.appendChild(s2); defs.appendChild(rg); svg.appendChild(defs);
+    const glowCircle = document.createElementNS(NS, 'circle');
+    glowCircle.setAttribute('cx', '-9999');
+    glowCircle.setAttribute('cy', '-9999');
+    glowCircle.setAttribute('r', String(P.glowRadius));
+    glowCircle.setAttribute('fill', `url(#${glowId})`);
+    glowCircle.style.opacity = '0';
+    svg.appendChild(glowCircle);
+    container.appendChild(svg);
+
+    // State
+    type Dot = { ax: number; ay: number; sx: number; sy: number };
+    let dots: Dot[] = [];
+    let W = 0, H = 0, offX = 0, offY = 0;
+    let mx = -9999, my = -9999, pmx = -9999, pmy = -9999, mspeed = 0;
+    let glowOpacity = 0, engagement = 0;
+    let rafId = 0, resizeTimer = 0;
+
+    function buildGrid(w: number, h: number) {
+      const step = P.dotRadius * 2 + P.dotSpacing;
+      const cols = Math.floor(w / step);
+      const rows = Math.floor(h / step);
+      const padX = (w - cols * step) / 2 + step / 2;
+      const padY = (h - rows * step) / 2 + step / 2;
+      dots = [];
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const ax = padX + c * step;
+          const ay = padY + r * step;
+          dots.push({ ax, ay, sx: ax, sy: ay });
+        }
+      }
+    }
+
+    function doResize() {
+      const rect = container.getBoundingClientRect();
+      W = rect.width; H = rect.height;
+      canvas.width  = W * dpr; canvas.height = H * dpr;
+      canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      offX = rect.left + window.scrollX;
+      offY = rect.top  + window.scrollY;
+      buildGrid(W, H);
+    }
+
+    function onResize() {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(doResize, 80);
+    }
+
+    function onMouseMove(e: MouseEvent) {
+      mx = e.pageX - offX;
+      my = e.pageY - offY;
+    }
+
+    const speedTimer = setInterval(() => {
+      const dx = pmx - mx, dy = pmy - my;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      mspeed += (d - mspeed) * 0.4;
+      if (mspeed < 0.001) mspeed = 0;
+      pmx = mx; pmy = my;
+    }, 20);
+
+    function tick() {
+      const cr = P.cursorRadius;
+      const crSq = cr * cr;
+
+      const targetEng = Math.min(mspeed / 5, 1);
+      engagement += (targetEng - engagement) * 0.06;
+      if (engagement < 0.001) engagement = 0;
+
+      glowOpacity += (engagement - glowOpacity) * 0.08;
+      glowCircle.setAttribute('cx', String(mx));
+      glowCircle.setAttribute('cy', String(my));
+      glowCircle.style.opacity = String(glowOpacity);
+
+      ctx.clearRect(0, 0, W, H);
+
+      const grad = ctx.createLinearGradient(0, 0, W, H);
+      grad.addColorStop(0, P.gradientFrom);
+      grad.addColorStop(1, P.gradientTo);
+      ctx.fillStyle = grad;
+
+      const eng = engagement;
+      const r = P.dotRadius;
+
+      ctx.beginPath();
+      for (let i = 0; i < dots.length; i++) {
+        const dot = dots[i];
+        const dx = mx - dot.ax;
+        const dy = my - dot.ay;
+        const distSq = dx * dx + dy * dy;
+
+        if (distSq < crSq && eng > 0.01) {
+          const dist  = Math.sqrt(distSq);
+          const t     = 1 - dist / cr;
+          const push  = t * t * P.bulgeStrength * eng;
+          const angle = Math.atan2(dy, dx);
+          dot.sx += (dot.ax - Math.cos(angle) * push - dot.sx) * 0.15;
+          dot.sy += (dot.ay - Math.sin(angle) * push - dot.sy) * 0.15;
+        } else {
+          dot.sx += (dot.ax - dot.sx) * 0.1;
+          dot.sy += (dot.ay - dot.sy) * 0.1;
+        }
+
+        ctx.moveTo(dot.sx + r, dot.sy);
+        ctx.arc(dot.sx, dot.sy, r, 0, TWO_PI);
+      }
+      ctx.fill();
+
+      rafId = requestAnimationFrame(tick);
+    }
+
+    doResize();
+    window.addEventListener('resize',    onResize,    { passive: true });
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    rafId = requestAnimationFrame(tick);
+
+    document.addEventListener('astro:before-swap', () => {
+      cancelAnimationFrame(rafId);
+      clearInterval(speedTimer);
+      window.removeEventListener('resize',    onResize);
+      window.removeEventListener('mousemove', onMouseMove);
+    }, { once: true });
+  })();
 </script>
