@@ -33,23 +33,23 @@
     /* ── Color tokens ─────────────────────────────────────── */
 
     /* Brand anchors */
-    --ink:         oklch(8% 0.01 25);       /* hero / near-black warm */
-    --ink-mid:     oklch(14% 0.01 25);      /* dark sections */
-    --surface:     oklch(97% 0.006 60);     /* base off-white warm */
-    --surface-alt: oklch(94% 0.008 60);     /* slightly deeper off-white */
-    --border:      oklch(88% 0.008 60);     /* subtle hairline */
-    --border-dark: oklch(22% 0.01 25);      /* hairline on dark */
+    --ink:         #003049;                  /* dark sections / navy */
+    --ink-mid:     #003049;                  /* dark sections */
+    --surface:     #ffffff;                  /* base white */
+    --surface-alt: oklch(97% 0.004 60);      /* slightly off-white */
+    --border:      oklch(88% 0.005 60);      /* subtle hairline */
+    --border-dark: oklch(35% 0.05 235);      /* hairline on dark */
 
     /* Text */
-    --text-primary:   oklch(12% 0.01 25);   /* body on light */
-    --text-secondary: oklch(38% 0.01 25);   /* muted on light */
-    --text-light:     oklch(96% 0.005 60);  /* on dark surfaces */
-    --text-muted-light: oklch(68% 0.01 25); /* muted on dark */
+    --text-primary:     #003049;             /* body on light */
+    --text-secondary:   oklch(36% 0.04 235); /* muted navy on light */
+    --text-light:       #ffffff;             /* on dark surfaces */
+    --text-muted-light: oklch(76% 0.025 90); /* muted on dark */
 
-    /* Brand accent, the A */
-    --orange:      oklch(66% 0.16 48);      /* LIBERA A orange */
-    --orange-dark: oklch(52% 0.15 48);      /* darker variant */
-    --orange-glow: oklch(66% 0.16 48 / 0.14);
+    /* Brand accent */
+    --orange:      #f77f00;                  /* primary accent */
+    --orange-dark: oklch(58% 0.18 55);       /* darker variant */
+    --orange-glow: oklch(70% 0.19 55 / 0.14);
 
     /* Section accents */
     --presencia:   oklch(47% 0.055 230);    /* muted steel, Presencia Digital */
@@ -248,7 +248,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    border-radius: 9999px;
+    border-radius: 0.625rem;
     font-weight: 600;
     transition:
       transform 0.25s var(--ease-premium),
@@ -260,10 +260,10 @@
 
   .btn-primary {
     background: var(--orange);
-    color: var(--ink);
+    color: #ffffff;
     padding: 1rem 1.75rem;
   }
-  .btn-primary:hover { background: oklch(70% 0.165 48); }
+  .btn-primary:hover { background: oklch(62% 0.19 55); }
 
   .btn-ghost-dark {
     background: transparent;
@@ -276,10 +276,20 @@
     background: oklch(96% 0.005 60 / 0.04);
   }
 
+  .btn-ghost-light {
+    background: transparent;
+    color: #003049;
+    border: 1px solid #003049;
+    padding: 1rem 1.75rem;
+  }
+  .btn-ghost-light:hover {
+    background: oklch(22% 0.07 235 / 0.06);
+  }
+
   .btn-icon {
     width: 1.75rem;
     height: 1.75rem;
-    border-radius: 9999px;
+    border-radius: 0.625rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;

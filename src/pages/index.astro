@@ -54,7 +54,7 @@ const solucionesHome = [
   <section
     id="hero"
     class="hero-panel relative flex flex-col justify-center min-h-[100dvh] overflow-hidden"
-    style="background: var(--ink);"
+    style="background: #ffffff;"
     aria-label="Hero"
   >
     <!-- Radial ambient glow, orange -->
@@ -92,9 +92,9 @@ const solucionesHome = [
       <svg viewBox="0 0 400 440" fill="none" class="w-full h-full" aria-hidden="true">
         <defs>
           <linearGradient id="heroAGrad" x1="200" y1="80" x2="200" y2="440" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="oklch(70% 0.17 48)" />
-            <stop offset="55%" stop-color="oklch(66% 0.16 48 / 0.5)" />
-            <stop offset="100%" stop-color="oklch(66% 0.16 48 / 0.06)" />
+            <stop offset="0%" stop-color="#f77f00" />
+            <stop offset="55%" stop-color="oklch(70% 0.19 55 / 0.5)" />
+            <stop offset="100%" stop-color="oklch(70% 0.19 55 / 0.06)" />
           </linearGradient>
         </defs>
 
@@ -127,24 +127,36 @@ const solucionesHome = [
 
       <!-- Headline -->
       <h1
-        class="display-hero mb-8 w-full text-center"
-        style="color: var(--text-light); text-transform: uppercase;"
+        class="mb-8"
+        style="color: #003049; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(1.75rem, 2.8vw, 3rem);"
         data-reveal
         data-hero-headline
       >
-        <span data-hero-line style="display:block; white-space:nowrap;">Construimos el sistema</span>
-        <span data-hero-line style="display:block; white-space:nowrap;">que <span style="color: var(--orange);">libera</span> tu negocio</span>
+        <span data-hero-line style="display:block; white-space:nowrap;">Construimos</span>
+        <span data-hero-line style="display:block; white-space:nowrap;">el sistema que</span>
+        <span data-hero-line style="display:block; white-space:nowrap;"><span style="color: var(--orange);">libera</span> tu negocio.</span>
       </h1>
 
       <!-- Subheadline -->
       <p
-        class="mb-0 max-w-xl mx-auto text-lg leading-relaxed text-center"
-        style="color: var(--text-light); transition-delay: 110ms;"
+        class="mb-10 max-w-xl text-lg leading-relaxed"
+        style="color: #003049; opacity: 0.7; transition-delay: 110ms;"
         data-reveal
       >
         Presencia digital, automatización e inteligencia artificial.
       </p>
 
+    </div>
+
+    <!-- CTAs — anchored to bottom -->
+    <div class="container-libera absolute bottom-10 left-0 right-0 flex flex-wrap items-center gap-4" data-reveal style="transition-delay: 180ms;">
+      <a href="/diagnostico" class="btn btn-primary">
+        Solicitar diagnóstico
+        <span class="btn-icon" aria-hidden="true">→</span>
+      </a>
+      <a href="/trabajo" class="btn btn-ghost-light">
+        Trabajos
+      </a>
     </div>
 
   </section>
@@ -157,53 +169,67 @@ const solucionesHome = [
   <div class="problem-pin-stage">
   <section
     id="problema"
-    style="background: var(--surface);"
-    class="problem-overlap py-32 lg:py-40"
+    style="background: #ffffff;"
+    class="problem-overlap"
     aria-label="El problema que resolvemos"
   >
-    <div class="container-libera">
-      <div class="max-w-4xl" data-reveal>
-        <p class="section-label mb-10" style="color: var(--text-secondary);">
-          <span style="color: var(--orange);">01</span> El problema
-        </p>
-        <h2 class="display-xl mb-10" style="color: var(--text-primary);">
-          No necesitas más herramientas.
-          <span style="color: var(--text-secondary);"> Necesitas un sistema.</span>
+    <!-- Left: text + stats -->
+    <div class="problem-left" data-reveal>
+      <div class="problem-content">
+        <h2 class="problem-title mb-6" style="color: var(--text-primary);">
+          Tecnología que se integra a tu forma de trabajar.
         </h2>
-        <div class="grid md:grid-cols-2 gap-8 mt-12">
-          <div>
-            <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
-              Una web que no convierte. Mensajes de WhatsApp sin seguimiento. Clientes que preguntan y desaparecen.
-              Información repartida entre Excel, notas y memoria. No es falta de tecnología,
-              es falta de conexión entre las piezas.
-            </p>
-          </div>
-          <div>
-            <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
-              Nosotros conectamos esas piezas para que tu negocio opere con claridad,
-              y tú recuperes el tiempo que hoy se pierde en fricción.
-            </p>
-          </div>
-        </div>
+        <p class="problem-body mb-4" style="color: var(--text-secondary);">
+          Una buena web, un WhatsApp bien configurado y procesos claros pueden cambiar la manera en que un negocio atiende, vende y crece.
+        </p>
+        <p class="problem-body" style="color: var(--text-secondary);">
+          LIBERA diseña sistemas digitales simples, conectados y útiles: pensados para que tu equipo los use de verdad.
+        </p>
       </div>
 
-      <!-- Pain point list -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-px mt-16" style="background: var(--border);" data-reveal>
+      <div class="problem-stats">
         {[
-          'Te buscan en Google y no te encuentran, o no convences.',
-          'Respondes tarde, a mano y sin registro de nada.',
-          'Adoptaste herramientas que nadie en tu equipo usa.',
-        ].map((text, i) => (
-          <div class="flex items-start gap-5 p-8" style="background: var(--surface);">
-            <span
-              class="flex-shrink-0 text-xs font-mono mt-1"
-              style="color: var(--orange); font-family: var(--font-mono); letter-spacing: 0.1em;"
-              aria-hidden="true"
-            >0{i + 1}</span>
-            <p class="text-base leading-relaxed" style="color: var(--text-secondary);">{text}</p>
+          {
+            value: '31%',
+            text: 'de reducción en costos de TI atribuidos a automatización inteligente.',
+            source: 'IBM Institute for Business Value',
+          },
+          {
+            value: '0.5–3.4 pts',
+            text: 'de crecimiento anual de productividad podrían venir de IA generativa y automatización.',
+            source: 'McKinsey',
+          },
+          {
+            value: '2.6x',
+            text: 'más citas reportó Farmacias del Ahorro usando WhatsApp Flows.',
+            source: 'WhatsApp Business',
+          },
+          {
+            value: '51%',
+            text: 'más interacciones reportó Banco Ciudad usando WhatsApp Business Platform.',
+            source: 'WhatsApp Business',
+          },
+        ].map((stat) => (
+          <div class="problem-stat">
+            <p class="problem-stat-value font-display" style="font-family: var(--font-display);">{stat.value}</p>
+            <p class="problem-stat-text">{stat.text}</p>
+            <p class="problem-stat-source">Fuente: {stat.source}</p>
           </div>
         ))}
       </div>
+    </div>
+
+    <!-- Right: image full height -->
+    <div class="problem-right">
+      <img
+        src="/images/problemas.png"
+        alt="Sistemas digitales integrados"
+        width="720"
+        height="1280"
+        loading="lazy"
+        decoding="async"
+        class="problem-img"
+      />
     </div>
   </section>
   </div>
@@ -661,7 +687,7 @@ const solucionesHome = [
       <svg viewBox="0 0 400 440" fill="none" class="w-full h-full" aria-hidden="true">
         <path d="M40 444 L200 36 L360 444" stroke="oklch(96% 0.005 60 / 0.05)" stroke-width="1.5" />
         <line x1="128" y1="312" x2="272" y2="312" stroke="oklch(96% 0.005 60 / 0.05)" stroke-width="1.5" />
-        <circle cx="200" cy="36" r="4" fill="oklch(66% 0.16 48 / 0.4)" />
+        <circle cx="200" cy="36" r="4" fill="oklch(70% 0.19 55 / 0.4)" />
       </svg>
     </div>
 
@@ -728,8 +754,175 @@ const solucionesHome = [
     position: sticky;
     top: 0;
     height: 100dvh;
-    min-height: 100dvh;
+    overflow: hidden;
     z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .problem-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: calc(var(--nav-height, 4rem) + 3rem) clamp(1.5rem, 5vw, 5rem) clamp(1.5rem, 3dvh, 2.5rem);
+    overflow: hidden;
+  }
+
+  .problem-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .problem-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.6vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .problem-body {
+    font-size: clamp(1rem, 1.1vw, 1.1rem);
+    line-height: 1.65;
+    max-width: 100%;
+    text-wrap: pretty;
+  }
+
+  .problem-right {
+    height: 100dvh;
+    overflow: hidden;
+    padding-top: calc(var(--nav-height, 4rem) + 3rem);
+    box-sizing: border-box;
+  }
+
+  .problem-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .problem-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .problem-stat {
+    padding: clamp(0.75rem, 1.5dvh, 1.25rem) 0;
+    border-right: 1px solid var(--border);
+    padding-right: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  .problem-stat:nth-child(2) {
+    border-right: none;
+    padding-left: clamp(0.75rem, 2vw, 1.5rem);
+    padding-right: 0;
+  }
+
+  .problem-stat:nth-child(3),
+  .problem-stat:nth-child(4) {
+    border-top: 1px solid var(--border);
+  }
+
+  .problem-stat:nth-child(4) {
+    border-right: none;
+    padding-left: clamp(0.75rem, 2vw, 1.5rem);
+    padding-right: 0;
+  }
+
+  .problem-stat:nth-child(3) {
+    padding-right: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  .problem-stat-value {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .problem-stat-text {
+    font-size: clamp(0.75rem, 0.85vw, 0.82rem);
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  .problem-stat-source {
+    font-size: 0.65rem;
+    color: var(--text-tertiary, oklch(60% 0.01 60));
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+  }
+
+  /* Tablet */
+  @media (max-width: 1023px) {
+    .problem-overlap {
+      height: auto;
+      min-height: 100dvh;
+      position: relative;
+      grid-template-columns: 1fr;
+    }
+
+    .problem-left {
+      padding: calc(var(--nav-height, 4rem) + 2rem) clamp(1.25rem, 5vw, 3rem) 2rem;
+    }
+
+    .problem-right {
+      height: 45dvh;
+      padding-top: 0;
+    }
+
+    .problem-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+    }
+
+    .problem-body {
+      font-size: 1rem;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .problem-overlap {
+      min-height: auto;
+    }
+
+    .problem-left {
+      padding: calc(var(--nav-height, 4rem) + 1.5rem) 1.25rem 1.5rem;
+      gap: 2rem;
+    }
+
+    .problem-right {
+      height: 40dvh;
+    }
+
+    .problem-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .problem-stat {
+      border-right: none;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .problem-stat:nth-child(2) {
+      border-top: 1px solid var(--border);
+      padding-left: 0;
+    }
+
+    .problem-stat:nth-child(4) {
+      padding-left: 0;
+    }
   }
 
   .solutions-overlap {
@@ -835,20 +1028,13 @@ const solucionesHome = [
     aspect-ratio: 1;
     overflow: hidden;
     border-radius: 1.25rem;
-    background: var(--ink);
-    border: 1px solid oklch(18% 0.01 25);
-    box-shadow: 0 24px 64px oklch(8% 0.01 25 / 0.16);
+    background: var(--surface);
+    border: none;
+    box-shadow: none;
   }
 
   .solution-visual-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: auto;
-    background:
-      linear-gradient(to bottom, oklch(96% 0.005 60 / 0.08), transparent 34%),
-      radial-gradient(ellipse at 80% 18%, var(--orange-glow), transparent 45%);
-    mix-blend-mode: screen;
+    display: none;
   }
 
   .solution-visual-image {
@@ -1315,7 +1501,7 @@ const solucionesHome = [
     if (!h1) return;
     const targetWidth = h1.clientWidth;
     const lines = [...h1.querySelectorAll<HTMLElement>('[data-hero-line]')];
-    let lo = 10, hi = 600;
+    let lo = 10, hi = 90;
     while (hi - lo > 0.25) {
       const mid = (lo + hi) / 2;
       h1.style.fontSize = mid + 'px';
@@ -1373,11 +1559,11 @@ const solucionesHome = [
 
       const scrollable = Math.max(1, solutionsSection.offsetHeight - window.innerHeight);
       const rawProgress = clamp((window.scrollY - solutionsSection.offsetTop) / scrollable);
-      const startPause = 0.16;
+      const startPause = 0.08;
       const endPause = 0.06;
       const progress = clamp((rawProgress - startPause) / (1 - startPause - endPause));
       const maxIndex = Math.max(1, solutionCards.length - 1);
-      const revealWindow = 0.12;
+      const revealWindow = 0.07;
       let activeId = solutionCards[0]?.dataset.solutionCard ?? '';
       let activeIntensity = 0;
       let activeVisualOpacity = 0;
@@ -1493,8 +1679,8 @@ const solucionesHome = [
     const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
     const entryDelay = 0;
     const methodProgress = clamp((rawProgress - entryDelay) / (1 - entryDelay));
-    const titleSequenceEnd = 0.38;
-    const stepSequenceStart = 0.5;
+    const titleSequenceEnd = 0.28;
+    const stepSequenceStart = 0.36;
     const stepSequenceEnd = 0.92;
     const titleFadeStart = 0.925;
     const titleFadeEnd = 0.965;
