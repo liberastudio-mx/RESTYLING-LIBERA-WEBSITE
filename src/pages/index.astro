@@ -397,7 +397,8 @@ const solucionesHome = [
             stack: ['Astro', 'TypeScript', 'Supabase'],
             status: 'En desarrollo',
             href: '/trabajo/cenote-scout',
-            accent: 'var(--presencia)',
+            accent: '#f77f00',
+            image: '/images/cta-bg.png',
           },
           {
             name: 'LIBERA AI Automation',
@@ -406,7 +407,8 @@ const solucionesHome = [
             stack: ['n8n', 'Claude API', 'Airtable'],
             status: 'En producción',
             href: '/trabajo/radar',
-            accent: 'var(--ai)',
+            accent: '#fcbf49',
+            image: '/images/cta-bg.png',
           },
           {
             name: 'Sole Facile',
@@ -415,7 +417,8 @@ const solucionesHome = [
             stack: ['WordPress', 'n8n', 'Claude API'],
             status: 'En producción',
             href: '/trabajo/sole-facile',
-            accent: 'var(--operacion)',
+            accent: '#d62828',
+            image: '/images/cta-bg.png',
           },
           {
             name: 'Morozzo Padel',
@@ -424,7 +427,8 @@ const solucionesHome = [
             stack: ['HTML/CSS', 'JS', 'WhatsApp API'],
             status: 'Completado',
             href: '/trabajo/morozzo-padel',
-            accent: 'var(--productos)',
+            accent: '#eae2b7',
+            image: '/images/cta-bg.png',
           },
           {
             name: 'PAOS Framework',
@@ -433,60 +437,78 @@ const solucionesHome = [
             stack: ['Obsidian', 'n8n', 'Claude API'],
             status: 'En uso activo',
             href: '/trabajo/paos',
-            accent: 'var(--presencia)',
+            accent: '#003049',
+            image: '/images/cta-bg.png',
           },
         ].map((project, i) => (
           <a
             href={project.href}
-            class={`group flex flex-col justify-between transition-all duration-300 hover:-translate-y-0.5 ${i === 0 ? 'p-9 md:p-10 lg:row-span-2' : 'p-7'}`}
-            style={`background: var(--surface); min-height: ${i === 0 ? '430px' : '230px'}; transition-delay: ${i * 65}ms;`}
+            class={`group relative overflow-hidden flex flex-col justify-between ${i === 0 ? 'lg:row-span-2' : ''}`}
+            style={`min-height: ${i === 0 ? '430px' : '230px'}; transition-delay: ${i * 65}ms;`}
             data-reveal
           >
-            <div>
-              <div class="flex items-start justify-between gap-4 mb-5">
-                <div>
+            <!-- Immagine full-cover con zoom al hover -->
+            <img
+              src={project.image}
+              alt=""
+              aria-hidden="true"
+              class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+            <!-- Overlay gradiente: più scuro in basso dove c'è il testo -->
+            <div
+              class="absolute inset-0"
+              style="background: linear-gradient(to top, rgba(0,30,48,0.92) 0%, rgba(0,30,48,0.55) 50%, rgba(0,30,48,0.25) 100%);"
+              aria-hidden="true"
+            ></div>
+
+            <!-- Contenuto -->
+            <div class={`relative z-10 flex flex-col justify-between h-full ${i === 0 ? 'p-9 md:p-10' : 'p-7'}`}>
+              <div>
+                <div class="flex items-start justify-between gap-4 mb-5">
+                  <div>
+                    <span
+                      class="block text-xs font-mono tracking-wider uppercase mb-2"
+                      style={`color: ${project.accent}; font-family: var(--font-mono);`}
+                    >
+                      {project.category}
+                    </span>
+                    <h3
+                      class={`font-display font-semibold ${i === 0 ? 'text-3xl md:text-4xl' : 'text-xl'}`}
+                      style="font-family: var(--font-display); color: #ffffff;"
+                    >
+                      {project.name}
+                    </h3>
+                  </div>
                   <span
-                    class="block text-xs font-mono tracking-wider uppercase mb-2"
-                    style={`color: ${project.accent}; font-family: var(--font-mono);`}
+                    class="flex-shrink-0 text-xs px-3 py-1 rounded-full"
+                    style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.15); white-space: nowrap; backdrop-filter: blur(4px);"
                   >
-                    {project.category}
+                    {project.status}
                   </span>
-                  <h3
-                    class={`font-display font-semibold ${i === 0 ? 'text-3xl md:text-4xl' : 'text-xl'}`}
-                    style="font-family: var(--font-display); color: var(--text-primary);"
-                  >
-                    {project.name}
-                  </h3>
                 </div>
-                <span
-                  class="flex-shrink-0 text-xs px-3 py-1 rounded-full"
-                  style="background: var(--surface-alt); color: var(--text-secondary); border: 1px solid var(--border); white-space: nowrap;"
+                <p class={`${i === 0 ? 'text-base max-w-xl' : 'text-sm'} leading-relaxed`} style="color: rgba(255,255,255,0.7);">
+                  {project.description}
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-2 mt-6 mb-4">
+                  {project.stack.map((tech) => (
+                    <span
+                      class="text-xs font-mono px-2.5 py-1 rounded-md"
+                      style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); font-family: var(--font-mono); border: 1px solid rgba(255,255,255,0.1);"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div
+                  class="flex items-center gap-2 text-sm font-medium transition-all duration-200 group-hover:gap-3"
+                  style={`color: ${project.accent};`}
                 >
-                  {project.status}
-                </span>
-              </div>
-
-              <p class={`${i === 0 ? 'text-base max-w-xl' : 'text-sm'} leading-relaxed`} style="color: var(--text-secondary);">
-                {project.description}
-              </p>
-            </div>
-
-            <div>
-              <div class="flex flex-wrap gap-2 mt-6 mb-4">
-                {project.stack.map((tech) => (
-                  <span
-                    class="text-xs font-mono px-2.5 py-1 rounded-md"
-                    style="background: var(--surface-alt); color: var(--text-secondary); font-family: var(--font-mono);"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm font-medium transition-all duration-200 group-hover:gap-3"
-                style={`color: ${project.accent};`}
-              >
-                Ver caso <span aria-hidden="true">→</span>
+                  Ver caso <span aria-hidden="true">→</span>
+                </div>
               </div>
             </div>
           </a>
