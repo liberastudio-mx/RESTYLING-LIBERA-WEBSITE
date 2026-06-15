@@ -362,14 +362,14 @@ const solucionesHome = [
     class="work-overlap"
     aria-label="Nuestro trabajo"
   >
-    <div class="container-libera w-full">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10" data-reveal>
+    <div class="container-libera w-full work-inner">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5 flex-shrink-0" data-reveal>
         <div>
-          <h2 class="display-lg" style="color: var(--text-primary);">
+          <h2 class="display-md" style="color: var(--text-primary);">
             Construimos para clientes.<br/>
             <span style="color: var(--text-secondary);">También construimos para aprender.</span>
           </h2>
-          <p class="text-base leading-relaxed mt-5 max-w-xl" style="color: var(--text-secondary);">
+          <p class="text-sm leading-relaxed mt-3 max-w-xl" style="color: var(--text-secondary);">
             Cada proyecto, propio o de cliente, es un sistema en producción.
           </p>
         </div>
@@ -382,7 +382,7 @@ const solucionesHome = [
         </a>
       </div>
       <div
-        class="grid grid-cols-2"
+        class="work-card-grid"
         style="background: var(--border); border: 1px solid var(--border); gap: 1px;"
       >
         {[
@@ -429,8 +429,8 @@ const solucionesHome = [
         ].map((project, i) => (
           <a
             href={project.href}
-            class="group relative overflow-hidden flex flex-col justify-between"
-            style={`min-height: clamp(220px, 28dvh, 340px); transition-delay: ${i * 65}ms;`}
+            class="group relative overflow-hidden flex flex-col justify-between work-card"
+            style={`transition-delay: ${i * 65}ms;`}
             data-reveal
           >
             <img
@@ -441,8 +441,8 @@ const solucionesHome = [
               loading="lazy"
             />
             <div
-              class="absolute inset-0 transition-opacity duration-500"
-              style="background: linear-gradient(to top, rgba(0,20,40,0.92) 0%, rgba(0,20,40,0.65) 50%, rgba(0,20,40,0.3) 100%); opacity: 0;"
+              class="absolute inset-0 transition-opacity duration-500 opacity-0"
+              style="background: linear-gradient(to top, rgba(0,20,40,0.92) 0%, rgba(0,20,40,0.65) 50%, rgba(0,20,40,0.3) 100%);"
               aria-hidden="true"
               data-card-overlay
             ></div>
@@ -883,48 +883,20 @@ const solucionesHome = [
     letter-spacing: 0.02em;
   }
 
-  /* Tablet */
+  /* Tablet + Mobile — reset tutti i pin-stage e sticky scroll */
   @media (max-width: 1023px) {
-    /* Reset sticky scroll containers — no longer needed below desktop */
+    /* ── Hero ── */
     .hero-pin-stage {
       min-height: auto;
     }
 
+    .hero-panel {
+      position: relative;
+    }
+
+    /* ── Problema ── */
     .problem-pin-stage {
       min-height: auto;
-      margin-top: 0;
-    }
-
-    .solutions-overlap {
-      margin-top: 0;
-    }
-
-    .work-overlap {
-      margin-top: 0;
-    }
-
-    .conocimiento-pin-stage {
-      height: auto;
-    }
-
-    #conocimiento {
-      position: relative;
-      top: auto;
-      height: auto;
-      grid-template-rows: auto auto;
-    }
-
-    .conocimiento-half > .container-libera {
-      height: auto;
-      align-items: flex-start;
-    }
-
-    .conocimiento-half-grid {
-      grid-template-columns: 1fr;
-      height: auto;
-    }
-
-    .cta-overlap {
       margin-top: 0;
     }
 
@@ -952,14 +924,93 @@ const solucionesHome = [
       font-size: 1rem;
     }
 
+    /* ── Solutions ── */
+    .solutions-overlap {
+      margin-top: 0;
+    }
+
     .solutions-sticky {
       padding-top: 0;
+    }
+
+    /* ── Trabajo ── */
+    .work-pin-stage {
+      min-height: auto;
+      margin-top: 0;
+    }
+
+    .work-overlap {
+      position: relative;
+      top: auto;
+      height: auto;
+      overflow: visible;
+      padding-top: calc(var(--nav-height, 72px) + 2rem);
+      padding-bottom: 3rem;
+    }
+
+    .work-inner {
+      height: auto;
+    }
+
+    .work-card-grid {
+      height: auto;
+      grid-template-rows: auto;
+      flex: none;
+    }
+
+    .work-card {
+      min-height: clamp(200px, 40vw, 320px);
+    }
+
+    /* ── Conocimiento ── */
+    .conocimiento-pin-stage {
+      height: auto;
+      margin-top: 0;
+    }
+
+    #conocimiento {
+      position: relative;
+      top: auto;
+      height: auto;
+      grid-template-rows: auto auto;
+    }
+
+    .conocimiento-half > .container-libera {
+      height: auto;
+      align-items: flex-start;
+    }
+
+    .conocimiento-half-grid {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+
+    .conocimiento-card {
+      aspect-ratio: auto;
+      min-height: 180px;
+    }
+
+    /* ── CTA ── */
+    .cta-overlap {
+      margin-top: 0;
     }
   }
 
   /* Mobile */
   @media (max-width: 640px) {
     .problem-overlap {
+      min-height: auto;
+    }
+
+    .work-card {
+      min-height: 260px;
+    }
+
+    .work-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .conocimiento-card {
       min-height: auto;
     }
 
@@ -1020,7 +1071,27 @@ const solucionesHome = [
     overflow: hidden;
     z-index: 5;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: calc(var(--nav-height, 72px) + 1.5rem);
+    padding-bottom: 1.5rem;
+  }
+
+  .work-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .work-card-grid {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .work-card {
+    min-height: 0;
   }
 
   /* ── Conocimiento pin + CTA overlap ───────────────────────── */
@@ -1894,9 +1965,8 @@ const solucionesHome = [
       const local = (methodProgress - index * lineWindow) / lineWindow;
       const lineWidth = getLineTextWidth(line);
       const lineHeight = Math.max(1, line.offsetHeight);
-      const lineRect = line.getBoundingClientRect();
-      const lineLeft = lineRect.left;
-      const lineTop = lineRect.top;
+      const lineLeft = (titleRect?.left ?? 0) + line.offsetLeft;
+      const lineTop = (titleRect?.top ?? 0) + line.offsetTop;
       const heroScale = sharedHeroScale;
       const heroX = heroCenterX - (lineWidth * heroScale) / 2 - lineLeft;
       const heroY = navHeight + (window.innerHeight - navHeight - lineHeight * heroScale) / 2 - lineTop;
