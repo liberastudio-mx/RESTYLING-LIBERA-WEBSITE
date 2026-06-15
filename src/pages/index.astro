@@ -91,7 +91,7 @@ const solucionesHome = [
 
     <!-- CTAs — anchored to bottom -->
     <div class="container-libera absolute bottom-10 left-0 right-0 flex flex-wrap items-center gap-4" data-reveal style="transition-delay: 180ms;">
-      <a href="/diagnostico" class="btn btn-primary">
+      <a href="/diagnostico" class="btn btn-primary" data-magnetic>
         Solicitar diagnóstico
         <span class="btn-icon" aria-hidden="true">→</span>
       </a>
@@ -722,7 +722,7 @@ const solucionesHome = [
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/diagnostico" class="btn btn-primary text-lg" style="padding: 1.25rem 2rem;">
+        <a href="/diagnostico" class="btn btn-primary text-lg" style="padding: 1.25rem 2rem;" data-magnetic>
           Solicitar diagnóstico
           <span class="btn-icon" style="width: 2rem; height: 2rem;" aria-hidden="true">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1028,6 +1028,7 @@ const solucionesHome = [
     height: 280dvh;
     position: relative;
     z-index: 6;
+    margin-top: -100dvh;
   }
 
   #conocimiento {
