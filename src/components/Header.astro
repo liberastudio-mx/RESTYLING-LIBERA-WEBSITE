@@ -178,17 +178,17 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
         >
           <ul class="p-2">
             {[
-              ['AI',            '/radar/ai'],
-              ['Automatización','/radar/automation'],
-              ['Tools',         '/radar/tools'],
-              ['Web',           '/radar/web'],
-              ['SEO',           '/radar/seo'],
-              ['Experimentos',  '/radar/experiments'],
-              ['Opinión',       '/radar/opinion'],
-            ].map(([label, href]) => (
+              ['AI',            '/radar/ai',          '#d62828'],
+              ['Automatización','/radar/automation',   '#f77f00'],
+              ['Tools',         '/radar/tools',        '#fcbf49'],
+              ['Web',           '/radar/web',          '#003049'],
+              ['SEO',           '/radar/seo',          '#d62828'],
+              ['Experimentos',  '/radar/experiments',  '#f77f00'],
+              ['Opinión',       '/radar/opinion',      '#fcbf49'],
+            ].map(([label, href, dot]) => (
               <li>
                 <a href={href} class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm transition-all duration-150 hover:bg-[#003049]/[0.04] hover:text-[#003049]" style="color: rgba(0,48,73,0.65);">
-                  <span class="w-1 h-1 rounded-full flex-shrink-0" style="background: rgba(0,48,73,0.25);" aria-hidden="true"></span>
+                  <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style={`background: ${dot};`} aria-hidden="true"></span>
                   {label}
                 </a>
               </li>
