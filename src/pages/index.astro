@@ -355,25 +355,22 @@ const solucionesHome = [
   <!-- ═══════════════════════════════════════════════════════════════════
        5. TRABAJO, Eyebrow 2 di 3, card grid su sfondo chiaro
        ═══════════════════════════════════════════════════════════════════ -->
+  <div class="work-pin-stage">
   <section
     id="trabajo"
     style="background: var(--surface); background-image: radial-gradient(oklch(10% 0.01 25 / 0.045) 1px, transparent 1px); background-size: 22px 22px;"
-    class="work-overlap py-28"
+    class="work-overlap"
     aria-label="Nuestro trabajo"
   >
-    <div class="container-libera">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16" data-reveal>
+    <div class="container-libera w-full">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10" data-reveal>
         <div>
-          <p class="section-label mb-8" style="color: var(--text-secondary);">
-            <span style="color: var(--orange);">03</span> Trabajo
-          </p>
           <h2 class="display-lg" style="color: var(--text-primary);">
             Construimos para clientes.<br/>
             <span style="color: var(--text-secondary);">También construimos para aprender.</span>
           </h2>
           <p class="text-base leading-relaxed mt-5 max-w-xl" style="color: var(--text-secondary);">
             Cada proyecto, propio o de cliente, es un sistema en producción.
-            Esto es lo que construimos y lo que aprendimos construyéndolo.
           </p>
         </div>
         <a
@@ -384,10 +381,9 @@ const solucionesHome = [
           Ver todo el trabajo <span aria-hidden="true">→</span>
         </a>
       </div>
-
       <div
-        class="grid grid-cols-1 lg:grid-cols-[1.18fr_0.82fr] gap-px"
-        style="background: var(--border); border: 1px solid var(--border);"
+        class="grid grid-cols-2"
+        style="background: var(--border); border: 1px solid var(--border); gap: 1px;"
       >
         {[
           {
@@ -430,43 +426,27 @@ const solucionesHome = [
             accent: '#eae2b7',
             image: '/images/cta-bg.png',
           },
-          {
-            name: 'PAOS Framework',
-            category: 'Sistema interno',
-            description: 'Sistema operativo de conocimiento para el estudio. Agentes, plantillas, workflows y base de datos estructurada.',
-            stack: ['Obsidian', 'n8n', 'Claude API'],
-            status: 'En uso activo',
-            href: '/trabajo/paos',
-            accent: '#003049',
-            image: '/images/cta-bg.png',
-          },
         ].map((project, i) => (
           <a
             href={project.href}
-            class={`group relative overflow-hidden flex flex-col justify-between ${i === 0 ? 'lg:row-span-2' : ''}`}
-            style={`min-height: ${i === 0 ? '430px' : '230px'}; transition-delay: ${i * 65}ms;`}
+            class="group relative overflow-hidden flex flex-col justify-between"
+            style={`min-height: clamp(220px, 28dvh, 340px); transition-delay: ${i * 65}ms;`}
             data-reveal
           >
-            <!-- Immagine full-cover con zoom al hover -->
             <img
               src={project.image}
               alt=""
               aria-hidden="true"
               class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-              loading={i === 0 ? 'eager' : 'lazy'}
+              loading="lazy"
             />
-            <!-- Overlay: quasi invisibile a riposo, scuro all'hover -->
             <div
               class="absolute inset-0 transition-opacity duration-500"
               style="background: linear-gradient(to top, rgba(0,20,40,0.92) 0%, rgba(0,20,40,0.65) 50%, rgba(0,20,40,0.3) 100%); opacity: 0;"
               aria-hidden="true"
               data-card-overlay
             ></div>
-
-            <!-- Contenuto: invisibile a riposo, appare all'hover -->
-            <div
-              class={`relative z-10 flex flex-col justify-between h-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 ${i === 0 ? 'p-9 md:p-10' : 'p-7'}`}
-            >
+            <div class="relative z-10 flex flex-col justify-between h-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 p-8">
               <div>
                 <div class="flex items-start justify-between gap-4 mb-5">
                   <div>
@@ -477,7 +457,7 @@ const solucionesHome = [
                       {project.category}
                     </span>
                     <h3
-                      class={`font-display font-semibold ${i === 0 ? 'text-3xl md:text-4xl' : 'text-xl'}`}
+                      class="font-display font-semibold text-2xl"
                       style="font-family: var(--font-display); color: #ffffff;"
                     >
                       {project.name}
@@ -490,11 +470,10 @@ const solucionesHome = [
                     {project.status}
                   </span>
                 </div>
-                <p class={`${i === 0 ? 'text-base max-w-xl' : 'text-sm'} leading-relaxed`} style="color: rgba(255,255,255,0.75);">
+                <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.75);">
                   {project.description}
                 </p>
               </div>
-
               <div>
                 <div class="flex flex-wrap gap-2 mt-6 mb-4">
                   {project.stack.map((tech) => (
@@ -506,10 +485,7 @@ const solucionesHome = [
                     </span>
                   ))}
                 </div>
-                <div
-                  class="flex items-center gap-2 text-sm font-medium"
-                  style={`color: ${project.accent};`}
-                >
+                <div class="flex items-center gap-2 text-sm font-medium" style={`color: ${project.accent};`}>
                   Ver caso <span aria-hidden="true">→</span>
                 </div>
               </div>
@@ -519,6 +495,7 @@ const solucionesHome = [
       </div>
     </div>
   </section>
+  </div>
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
@@ -803,7 +780,10 @@ const solucionesHome = [
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: calc(var(--nav-height, 4rem) + 3rem) clamp(1.25rem, 4vw, 3.5rem) clamp(1.5rem, 3dvh, 2.5rem);
+    padding-top: calc(var(--nav-height, 4rem) + 3rem);
+    padding-bottom: clamp(1.5rem, 3dvh, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 3.5rem);
+    padding-left: max(clamp(1.25rem, 4vw, 3.5rem), calc((100vw - 1440px) / 2 + clamp(1.25rem, 4vw, 3.5rem)));
     overflow: hidden;
   }
 
@@ -1026,10 +1006,21 @@ const solucionesHome = [
     margin-top: 0;
   }
 
-  .work-overlap {
+  .work-pin-stage {
+    min-height: 250dvh;
     position: relative;
     z-index: 5;
     margin-top: -82dvh;
+  }
+
+  .work-overlap {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    overflow: hidden;
+    z-index: 5;
+    display: flex;
+    align-items: center;
   }
 
   /* ── Conocimiento pin + CTA overlap ───────────────────────── */
@@ -1050,14 +1041,14 @@ const solucionesHome = [
 
   .conocimiento-half {
     display: flex;
-    align-items: stretch;
+    align-items: center;
     overflow: hidden;
+    padding-block: 2rem;
   }
 
   .conocimiento-half > .container-libera {
     display: flex;
     align-items: stretch;
-    height: 100%;
   }
 
   .conocimiento-half-grid {
@@ -1066,19 +1057,18 @@ const solucionesHome = [
     gap: 0;
     align-items: stretch;
     width: 100%;
-    height: 100%;
   }
 
-  /* card group: arrotondamento solo agli angoli esterni */
-  .conocimiento-card--first { border-radius: 1rem 0 0 1rem; }
+  .conocimiento-card--first { border-radius: 0; }
   .conocimiento-card--mid   { border-radius: 0; }
-  .conocimiento-card--last  { border-radius: 0 1rem 1rem 0; }
+  .conocimiento-card--last  { border-radius: 0; }
 
   .conocimiento-card {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
+    aspect-ratio: 1 / 1;
     transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .conocimiento-card:hover {
