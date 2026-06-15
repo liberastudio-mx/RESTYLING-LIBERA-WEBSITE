@@ -46,10 +46,18 @@
     --text-light:       #ffffff;             /* on dark surfaces */
     --text-muted-light: oklch(76% 0.025 90); /* muted on dark */
 
+    /* Brand palette (5 colori ufficiali) */
+    --brand-navy:   #003049;
+    --brand-red:    #d62828;
+    --brand-orange: #f77f00;
+    --brand-yellow: #fcbf49;
+    --brand-sand:   #eae2b7;
+
     /* Brand accent */
     --orange:      #f77f00;                  /* primary accent */
     --orange-dark: oklch(58% 0.18 55);       /* darker variant */
     --orange-glow: oklch(70% 0.19 55 / 0.14);
+    --sand:        #eae2b7;                  /* brand sand/cream */
 
     /* Section accents */
     --presencia:   oklch(47% 0.055 230);    /* muted steel, Presencia Digital */
