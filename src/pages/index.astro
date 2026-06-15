@@ -272,7 +272,7 @@ const solucionesHome = [
   <section
     id="metodo"
     data-method-section
-    style="background: var(--ink-mid);"
+    style="background: #120F17;"
     class="method-scroll method-overlap"
     aria-label="Nuestro método"
   >
@@ -527,105 +527,166 @@ const solucionesHome = [
   <div class="conocimiento-pin-stage">
   <section
     id="conocimiento"
-    style="background: var(--surface-alt);"
-    class="py-24"
     aria-label="Guías y Radar"
   >
-    <div class="container-libera">
-      <div class="grid lg:grid-cols-2 gap-12">
+    <!-- ── TOP: Guías ── -->
+    <div class="conocimiento-half" style="background: var(--surface);">
+      <div class="container-libera w-full">
+        <div class="conocimiento-half-grid">
 
-        <!-- Guías -->
-        <div data-reveal>
-          <p class="eyebrow mb-4" style="color: var(--text-secondary); font-family: var(--font-mono);">Guías</p>
-          <h2 class="display-md mb-4" style="color: var(--text-primary);">
-            Conocimiento abierto para decidir mejor.
-          </h2>
-          <p class="text-base mb-8 leading-relaxed" style="color: var(--text-secondary);">
-            Guías claras sobre sistemas, automatización, IA y presencia digital.
-            Para que entiendas qué necesitas antes de invertir, con o sin nosotros.
-          </p>
-
-          <div class="flex flex-col gap-3 mb-8">
-            {[
-              { title: 'Qué es un PAOS y por qué tu empresa necesita uno', href: '/guias/paos/que-es-un-paos', categoria: 'PAOS' },
-              { title: 'Qué puede hacer un agente de IA en una empresa real', href: '/guias/inteligencia-artificial/agentes-ia-empresa', categoria: 'IA' },
-              { title: 'Cómo saber si tu presencia digital está funcionando', href: '/guias/presencia-digital/como-saber-si-tu-web-convierte', categoria: 'Presencia' },
-            ].map((guia) => (
-              <a
-                href={guia.href}
-                class="flex items-center justify-between p-5 rounded-xl transition-all duration-200 hover:-translate-y-0.5 group"
-                style="background: var(--surface); border: 1px solid var(--border);"
-              >
-                <div>
-                  <span class="text-xs font-mono tracking-wider" style="color: var(--text-secondary); font-family: var(--font-mono);">{guia.categoria}</span>
-                  <p class="text-sm font-medium mt-1" style="color: var(--text-primary);">{guia.title}</p>
-                </div>
-                <span class="flex-shrink-0 ml-4 transition-transform duration-200 group-hover:translate-x-1" style="color: var(--text-secondary);" aria-hidden="true">→</span>
-              </a>
-            ))}
-          </div>
-
-          <a href="/guias" class="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-150 hover:opacity-70" style="color: var(--text-primary);">
-            Ver todas las guías <span aria-hidden="true">→</span>
-          </a>
-        </div>
-
-        <!-- Radar -->
-        <div
-          class="relative overflow-hidden flex flex-col justify-between p-10 rounded-2xl"
-          style="border: 1px solid var(--border-dark); background: var(--ink);"
-          data-reveal
-        >
-          <img
-            src="/images/radar-bg.png"
-            alt=""
-            aria-hidden="true"
-            class="absolute inset-0 w-full h-full object-cover object-center"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 rounded-2xl" style="background: rgba(0,20,40,0.65);" aria-hidden="true"></div>
-          <div class="relative z-10">
-            <p class="eyebrow mb-4" style="color: #fcbf49; font-family: var(--font-mono);">Radar</p>
-            <h2 class="display-md mb-4" style="color: var(--text-light);">
-              No seguimos tendencias.<br/>Las probamos.
+          <!-- Heading -->
+          <div data-reveal class="flex flex-col justify-center pr-4" style="padding-block: 2.5rem;">
+            <p class="eyebrow mb-3" style="color: var(--text-secondary); font-family: var(--font-mono);">Guías</p>
+            <h2 class="display-md mb-6" style="color: var(--text-primary);">
+              Conocimiento abierto para decidir mejor.
             </h2>
-            <p class="text-base mb-8 leading-relaxed" style="color: var(--text-light);">
-              Analizamos herramientas, modelos y cambios tecnológicos en nuestro laboratorio
-              antes de convertirlos en recomendaciones. Publicamos lo que funciona,
-              y también lo que rompimos.
-            </p>
-
-            <!-- Categories -->
-            <div class="flex flex-wrap gap-2 mb-8">
-              {[
-                { label: 'AI', href: '/radar/ai' },
-                { label: 'Automatización', href: '/radar/automation' },
-                { label: 'Tools', href: '/radar/tools' },
-                { label: 'Web', href: '/radar/web' },
-                { label: 'SEO', href: '/radar/seo' },
-                { label: 'Experimentos', href: '/radar/experiments' },
-              ].map((cat) => (
-                <a
-                  href={cat.href}
-                  class="text-xs px-3 py-1.5 rounded-full transition-colors duration-200 hover:opacity-80"
-                  style="background: oklch(16% 0.01 25); color: var(--text-light); border: 1px solid var(--border-dark);"
-                >
-                  {cat.label}
-                </a>
-              ))}
-            </div>
+            <a href="/guias" class="inline-flex items-center gap-2 text-sm font-medium transition-opacity duration-150 hover:opacity-60 group" style="color: var(--text-primary);">
+              Ver todas las guías
+              <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
           </div>
 
-          <a
-            href="/radar"
-            class="relative z-10 inline-flex items-center gap-3 px-6 py-3 rounded-full font-medium text-sm transition-all duration-200 hover:scale-[1.02]"
-            style="background: oklch(16% 0.01 25); color: #fcbf49; border: 1px solid oklch(26% 0.01 25);"
-          >
-            Explorar Radar <span aria-hidden="true">→</span>
-          </a>
+          <!-- 3 Guías cards -->
+          {[
+            {
+              categoria: 'PAOS',
+              bg: '#f77f00',
+              pos: 'first',
+              title: 'Qué es un PAOS y por qué tu empresa necesita uno',
+              href: '/guias/paos/que-es-un-paos',
+            },
+            {
+              categoria: 'IA',
+              bg: '#003049',
+              pos: 'mid',
+              title: 'Qué puede hacer un agente de IA en una empresa real',
+              href: '/guias/inteligencia-artificial/agentes-ia-empresa',
+            },
+            {
+              categoria: 'Presencia',
+              bg: '#d62828',
+              pos: 'last',
+              title: 'Cómo saber si tu presencia digital está funcionando',
+              href: '/guias/presencia-digital/como-saber-si-tu-web-convierte',
+            },
+          ].map((guia) => (
+            <a
+              href={guia.href}
+              class={`conocimiento-card conocimiento-card--${guia.pos} group`}
+              style={`background: ${guia.bg};`}
+              data-reveal
+            >
+              <span
+                class="text-xs font-mono tracking-wider uppercase block"
+                style="color: rgba(255,255,255,0.6); font-family: var(--font-mono);"
+              >
+                {guia.categoria}
+              </span>
+              <p class="text-sm font-semibold leading-snug flex-1" style="color: #ffffff;">
+                {guia.title}
+              </p>
+              <span
+                class="text-sm transition-transform duration-200 group-hover:translate-x-1 mt-auto inline-block"
+                style="color: rgba(255,255,255,0.7);"
+                aria-hidden="true"
+              >→</span>
+            </a>
+          ))}
         </div>
       </div>
     </div>
+
+    <!-- ── BOTTOM: Radar ── -->
+    <div class="conocimiento-half" style="background: var(--ink); position: relative; overflow: hidden;">
+      <img
+        src="/images/radar-bg.png"
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover object-center"
+        loading="lazy"
+        style="opacity: 0.35;"
+      />
+      <div class="absolute inset-0" style="background: rgba(0,20,40,0.72);" aria-hidden="true"></div>
+
+      <div class="container-libera w-full relative z-10">
+        <div class="conocimiento-half-grid">
+
+          <!-- Heading -->
+          <div data-reveal class="flex flex-col justify-center pr-4" style="padding-block: 2.5rem;">
+            <p class="eyebrow mb-3" style="color: #fcbf49; font-family: var(--font-mono);">Radar</p>
+            <h2 class="display-md mb-4" style="color: #ffffff;">
+              Blog del equipo
+            </h2>
+            <p class="text-sm mb-6 leading-relaxed" style="color: oklch(72% 0.025 235);">
+              Artículos del equipo. Sí, también escribimos.
+            </p>
+            <a
+              href="/radar"
+              class="inline-flex items-center gap-2 text-sm font-medium transition-opacity duration-150 hover:opacity-60 group"
+              style="color: #fcbf49;"
+            >
+              Ver todos los artículos
+              <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- 2 Radar article cards -->
+          {[
+            {
+              categoria: 'AI',
+              accent: '#fcbf49',
+              pos: 'first',
+              title: 'GPT-4o vs Claude 3.5: cuál usar en producción real',
+              href: '/radar/ai/gpt4o-vs-claude-produccion',
+            },
+            {
+              categoria: 'Automatización',
+              accent: '#f77f00',
+              pos: 'mid',
+              title: 'n8n en producción: lo que nadie te cuenta antes de empezar',
+              href: '/radar/automatizacion/n8n-produccion',
+            },
+          ].map((art) => (
+            <a
+              href={art.href}
+              class={`conocimiento-card conocimiento-card--dark conocimiento-card--${art.pos} group`}
+              style="background: oklch(10% 0.015 235 / 0.75); border: 1px solid oklch(28% 0.02 235 / 0.5); backdrop-filter: blur(6px);"
+              data-reveal
+            >
+              <span
+                class="text-xs font-mono tracking-wider uppercase block"
+                style={`color: ${art.accent}; font-family: var(--font-mono);`}
+              >
+                {art.categoria}
+              </span>
+              <p class="text-sm font-semibold leading-snug flex-1" style="color: #ffffff;">
+                {art.title}
+              </p>
+              <span
+                class="text-sm transition-transform duration-200 group-hover:translate-x-1 mt-auto inline-block"
+                style={`color: ${art.accent};`}
+                aria-hidden="true"
+              >→</span>
+            </a>
+          ))}
+
+          <!-- Ver todos card -->
+          <a
+            href="/radar"
+            class="conocimiento-card conocimiento-card--last conocimiento-card--cta group flex flex-col items-start justify-end"
+            style="background: oklch(8% 0.01 235 / 0.6); border: 1px solid oklch(28% 0.02 235 / 0.5); backdrop-filter: blur(6px);"
+            data-reveal
+          >
+            <span class="text-xs font-mono tracking-wider uppercase mb-2 block" style="color: #fcbf49; font-family: var(--font-mono);">
+              Ver todos
+            </span>
+            <span class="text-3xl transition-transform duration-200 group-hover:translate-x-1" style="color: #ffffff;" aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
   </section>
   </div><!-- /conocimiento-pin-stage -->
 
@@ -870,6 +931,17 @@ const solucionesHome = [
       position: relative;
       top: auto;
       height: auto;
+      grid-template-rows: auto auto;
+    }
+
+    .conocimiento-half > .container-libera {
+      height: auto;
+      align-items: flex-start;
+    }
+
+    .conocimiento-half-grid {
+      grid-template-columns: 1fr;
+      height: auto;
     }
 
     .cta-overlap {
@@ -969,18 +1041,55 @@ const solucionesHome = [
 
   #conocimiento {
     position: sticky;
-    top: 0;
-    height: 100dvh;
+    top: var(--nav-height, 72px);
+    height: calc(100dvh - var(--nav-height, 72px));
     overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .conocimiento-half {
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  .conocimiento-half > .container-libera {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+  }
+
+  .conocimiento-half-grid {
+    display: grid;
+    grid-template-columns: minmax(200px, 240px) repeat(3, 1fr);
+    gap: 0;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* card group: arrotondamento solo agli angoli esterni */
+  .conocimiento-card--first { border-radius: 1rem 0 0 1rem; }
+  .conocimiento-card--mid   { border-radius: 0; }
+  .conocimiento-card--last  { border-radius: 0 1rem 1rem 0; }
+
+  .conocimiento-card {
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 0.625rem;
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .conocimiento-card:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
   }
 
   .cta-overlap {
     position: relative;
     z-index: 7;
-    margin-top: -100dvh;
+    margin-top: calc(var(--nav-height, 72px) - 100dvh);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1391,6 +1500,8 @@ const solucionesHome = [
     flex-direction: column;
     justify-content: space-between;
     gap: clamp(1.25rem, 3dvh, 2.75rem);
+    position: relative;
+    z-index: 1;
   }
 
   .method-copy {
@@ -2078,4 +2189,8 @@ const solucionesHome = [
   })();
 
 
+</script>
+
+<script>
+  import '../scripts/method-aurora.js';
 </script>
