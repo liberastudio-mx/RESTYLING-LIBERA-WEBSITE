@@ -154,7 +154,7 @@ function init() {
   // Canvas assoluto sotto il contenuto
   gl.canvas.setAttribute('aria-hidden', 'true');
   gl.canvas.style.cssText =
-    'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+    'position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:100vw;height:100%;pointer-events:none;z-index:0;';
   host.prepend(gl.canvas);
 
   let currentMouse = [0.5, 0.5];
@@ -172,7 +172,7 @@ function init() {
   host.addEventListener('mouseleave', onMouseLeave);
 
   function resize() {
-    renderer.setSize(host.offsetWidth, host.offsetHeight);
+    renderer.setSize(window.innerWidth, host.offsetHeight);
     if (program) {
       program.uniforms.uResolution.value = [
         gl.canvas.width, gl.canvas.height,
