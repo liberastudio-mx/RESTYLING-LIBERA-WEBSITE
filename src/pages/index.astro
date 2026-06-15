@@ -973,6 +973,15 @@ const solucionesHome = [
     opacity: 1;
   }
 
+  /* Trabajo card: zoom smooth al click */
+  #trabajo a {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  #trabajo a:active {
+    transform: scale(1.03);
+    transition-duration: 0.15s;
+  }
+
   .solutions-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
