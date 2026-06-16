@@ -1,0 +1,76 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Claude Opus 4.8" description="Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos.">
+  <article class="radar-article-page">
+    <header class="radar-article-hero">
+      <img src="/images/LS%20-%20radar%202.png" alt="" width="1254" height="1254" class="radar-article-hero-image" />
+      <span class="radar-article-hero-overlay" aria-hidden="true"></span>
+      <div class="container-libera radar-article-hero-inner">
+        <div class="max-w-3xl">
+          <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
+          <p class="eyebrow mt-10 mb-5" style="color: var(--orange); font-family: var(--font-mono);">IA · 1 junio 2026 · 4 min de lectura</p>
+          <h1 class="font-display radar-article-title">Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos</h1>
+          <p class="radar-article-lead">Anthropic lanzó Claude Opus 4.8 el 28 de mayo de 2026. No es un salto cosmético. Hay cambios concretos que afectan directamente a quienes usan IA para trabajar, automatizar y desarrollar software.</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-libera pb-28">
+      <div class="radar-article-body">
+        <p>Aquí va el resumen sin adornos.</p>
+
+        <h2>Qué mejoró en Opus 4.8</h2>
+        <h3>Menos errores en código sin avisarte</h3>
+        <p>Uno de los problemas más frustrantes con los modelos anteriores: generaban código defectuoso y no lo decían. Con Opus 4.8 eso cambió. El modelo es cuatro veces menos probable de entregar código con errores sin señalarlo. Esto no significa que ya no comete errores: significa que cuando los comete, los menciona.</p>
+        <p>Para cualquier negocio que use IA para desarrollo interno, automatizaciones o scripts, esto reduce el tiempo perdido revisando outputs que parecen correctos pero no lo son.</p>
+        <aside class="radar-stat"><strong>4×</strong><span>menos probable de entregar código con errores sin señalarlo, comparado con versiones anteriores.</span></aside>
+
+        <h3>Mejor en tareas de agente largo</h3>
+        <p>El modelo mejoró en lo que la industria llama agentic tasks: flujos donde la IA necesita tomar múltiples decisiones en secuencia sin intervención humana constante. En Terminal-Bench 2.1, Opus 4.8 obtuvo 74.2%, un avance de 8.4 puntos sobre la versión anterior.</p>
+        <p>Traducción práctica: flujos de trabajo más largos y complejos se completan sin necesidad de que estés ahí supervisando cada paso.</p>
+
+        <h3>Dynamic workflows en Claude Code</h3>
+        <p>La novedad más significativa para desarrolladores: Opus 4.8 activa los dynamic workflows en Claude Code. Esto le permite al asistente ejecutar tareas de gran escala, como reescribir una aplicación completa en un lenguaje distinto, de forma coordinada y autónoma.</p>
+        <p>No es un feature para usuarios casuales. Es relevante si tu equipo usa Claude Code activamente en desarrollo de software.</p>
+
+        <h3>Effort levels controlables por el usuario</h3>
+        <p>Otra adición: puedes controlar el nivel de esfuerzo que el modelo dedica a cada tarea. Respuestas rápidas para consultas simples, procesamiento profundo para análisis complejos. Útil para gestionar costos sin sacrificar calidad donde importa.</p>
+
+        <h2>Lo que deprecaron (y tienes hasta junio 15)</h2>
+        <p>Junto con el lanzamiento, Anthropic anunció la deprecación de Claude Sonnet 4 y Claude Opus 4 (los modelos anteriores). La fecha de retiro en la API es el 15 de junio de 2026.</p>
+        <p>Si tienes integraciones activas con esos modelos vía API, necesitas actualizar antes de esa fecha. No es opcional.</p>
+
+        <h2>El precio no cambió</h2>
+        <p>Opus 4.8 se lanza al mismo precio que su predecesor. Sin incrementos en API pricing. Este detalle importa para quienes tienen proyectos de automatización donde el costo por token es parte del cálculo de ROI.</p>
+
+        <h2>¿Vale la pena actualizar ahora?</h2>
+        <p>Si usas Claude principalmente para escribir, resumir o responder preguntas: el cambio es gradual, lo notarás en precisión pero no cambia tu workflow.</p>
+        <p>Si usas Claude Code o tienes pipelines de automatización vía API: la respuesta es sí, y tienes una razón adicional urgente: tus modelos actuales se retiran en días.</p>
+        <p>Si estás evaluando adoptar IA en tu negocio: Opus 4.8 es el punto de entrada más sólido que ha existido. Más honesto con sus errores, más capaz en tareas largas, mismo costo.</p>
+
+        <h2>Lo que esto dice de Anthropic</h2>
+        <p>Este lanzamiento no ocurre solo. Llegó el mismo día que Anthropic anunció una ronda de financiamiento de $65 mil millones que los pone a un paso del billón de dólares de valuación, superando a OpenAI por primera vez. La empresa también anticipó el próximo lanzamiento de un nuevo modelo llamado Mythos.</p>
+        <p>El ritmo de desarrollo no va a bajar.</p>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .radar-article-page { background: var(--ink); color: var(--text-light); }
+    .radar-article-hero { position: relative; min-height: min(760px, 92dvh); overflow: hidden; display: flex; align-items: flex-end; padding-block: calc(var(--nav-height, 72px) + 6rem) 5.5rem; }
+    .radar-article-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .radar-article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.012 235 / 0.34), oklch(8% 0.012 235 / 0.78)), linear-gradient(90deg, oklch(8% 0.012 235 / 0.78), oklch(8% 0.012 235 / 0.18)); }
+    .radar-article-hero-inner { position: relative; z-index: 1; width: 100%; }
+    .radar-article-title { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 5.4rem); font-weight: 800; line-height: 0.95; letter-spacing: 0.01em; }
+    .radar-article-lead { margin-top: 2rem; color: oklch(88% 0.012 235); font-size: 1.125rem; line-height: 1.75; }
+    .radar-article-body { max-width: 48rem; color: oklch(82% 0.014 235); font-size: 1rem; line-height: 1.8; }
+    .radar-article-body > * + * { margin-top: 1.25rem; }
+    .radar-article-body h2 { margin-top: 3.5rem; color: #fff; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1; }
+    .radar-article-body h3 { margin-top: 2rem; color: #fff; font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; line-height: 1.05; }
+    .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid oklch(35% 0.025 235 / 0.65); }
+    .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
+    .radar-stat span { color: oklch(82% 0.014 235); }
+  </style>
+</Layout>

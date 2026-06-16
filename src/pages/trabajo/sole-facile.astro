@@ -1,14 +1,324 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+
+const stack = ['Webflow', 'Next.js', 'TypeScript', 'Google Analytics 4', 'Search Console', 'Airtable'];
+
+const stats = [
+  { value: '2007', label: 'Anno di fondazione' },
+  { value: '150+', label: 'Impianti installati' },
+  { value: '4', label: 'Canali social gestiti' },
+  { value: '81+', label: 'Articoli pubblicati' },
+];
 ---
-<Layout title="Sole Facile" description="Ecosistema digital para empresa de instalación solar en Italia. Web, contenido, automatizaciones y agente IA.">
-  <section style="background: var(--surface); min-height: calc(100dvh - var(--nav-height));" class="flex items-center">
-    <div class="container-libera py-40">
-      <p class="eyebrow mb-6" style="color: var(--operacion); font-family: var(--font-mono);">Cliente</p>
-      <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">Sole Facile</h1>
-      <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;">Ecosistema digital completo para empresa de instalación solar en Italia. Diseño web, estrategia de contenido, automatizaciones y agente de IA para atención al cliente.</p>
-      <p class="eyebrow mb-8" style="color: var(--text-secondary); font-family: var(--font-mono);">Stack: WordPress · n8n · Claude API</p>
-      <a href="/trabajo" style="color: var(--orange); font-size: 0.875rem; font-weight: 500;">← Volver a Trabajo</a>
+
+<Layout
+  title="Sole Facile — Trabajo — LIBERA Studio"
+  description="Gestione digitale completa per Sole Facile SRL, Torino: sito Webflow, SEO, GA4, social media e automazioni interne."
+>
+
+  <!-- HERO -->
+  <section
+    style="background: var(--ink); min-height: 100dvh;"
+    class="sf-hero relative flex flex-col justify-end overflow-hidden"
+    aria-label="Sole Facile"
+  >
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at 20% 70%, rgba(247,127,0,0.10) 0%, transparent 55%), radial-gradient(ellipse at 80% 15%, rgba(252,191,73,0.06) 0%, transparent 55%);"
+      aria-hidden="true"
+    ></div>
+
+    <div class="sf-hero-logo absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none select-none" aria-hidden="true">
+      <img src="/images/logo-sole-facile.png" alt="" class="w-full h-full object-contain" />
+    </div>
+
+    <div class="container-libera relative z-10 pb-20 pt-44">
+      <a
+        href="/trabajo"
+        class="inline-flex items-center gap-2 text-sm font-medium mb-14 transition-opacity duration-150 hover:opacity-60"
+        style="color: rgba(255,255,255,0.38); font-family: var(--font-mono);"
+      >
+        &larr; Trabajo
+      </a>
+
+      <p class="eyebrow mb-5" style="color: #f77f00; font-family: var(--font-mono);">
+        Cliente &middot; Torino, Italia &middot; Attivo dal 2022
+      </p>
+
+      <h1
+        class="mb-8"
+        style="font-family: var(--font-display); font-weight: 700; line-height: 1.0; color: #ffffff; font-size: clamp(3.5rem, 10vw, 9rem);"
+      >
+        Sole<br/>Facile
+      </h1>
+
+      <p
+        class="mb-14 max-w-2xl"
+        style="color: rgba(255,255,255,0.6); font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.6;"
+      >
+        Fotovoltaico su misura per case e aziende in Piemonte. LIBERA Studio gestisce il digitale: sito, SEO, social e automazioni interne.
+      </p>
+
+      <div class="flex flex-wrap gap-x-10 gap-y-5 mb-14">
+        {stats.map((stat) => (
+          <div>
+            <p style="font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2.25rem); font-weight: 700; color: #f77f00; line-height: 1;">
+              {stat.value}
+            </p>
+            <p class="text-xs mt-1" style="color: rgba(255,255,255,0.38); font-family: var(--font-mono); letter-spacing: 0.06em;">
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        {stack.map((tech) => (
+          <span
+            class="text-xs px-3 py-1.5 rounded-full"
+            style="background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45); font-family: var(--font-mono); border: 1px solid rgba(255,255,255,0.1);"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
     </div>
   </section>
+
+
+  <!-- 01 SITO WEB -->
+  <section style="background: var(--surface);" aria-label="Sito web">
+    <div class="container-libera py-24 lg:py-36">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+        <div>
+          <p class="eyebrow mb-6" style="color: #f77f00; font-family: var(--font-mono);">01 &middot; Sito web</p>
+          <h2
+            class="display-lg mb-8"
+            style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.08;"
+          >
+            Da Webflow a Next.js. Un sito costruito per crescere.
+          </h2>
+          <p class="text-lg leading-relaxed mb-6" style="color: var(--text-secondary);">
+            Il sito live <strong style="color: var(--text-primary);">solefacilesrl.com</strong> gira su Webflow CMS con 81 articoli pubblicati, pagine ottimizzate e blog attivo. Gestione contenuti, redirect tecnici e indicizzazione: tutto monitorato.
+          </p>
+          <p class="text-base leading-relaxed" style="color: var(--text-secondary);">
+            In parallelo costruiamo il restyling completo in <strong style="color: var(--text-primary);">Next.js 16 + TypeScript + Tailwind CSS</strong>: calcolatore del risparmio fotovoltaico, portfolio cantieri, guida acquisto e form contatti avanzati.
+          </p>
+        </div>
+
+        <div class="grid gap-7">
+          {[
+            {
+              label: 'Webflow CMS',
+              text: 'Sito live con gestione contenuti autonoma. 81 articoli nel blog, pagine di servizio, prodotti e FAQ. Slug, redirect e collection gestiti internamente.',
+            },
+            {
+              label: 'Restyling Next.js',
+              text: 'Nuovo sito in sviluppo: Next.js 16 con App Router, TypeScript, Tailwind CSS. Calcolatore risparmio fotovoltaico integrato, portfolio cantieri con filtri, routing ottimizzato.',
+            },
+            {
+              label: 'Struttura SEO-ready',
+              text: 'Canonical URL, Open Graph, breadcrumb e dati strutturati JSON-LD (Organization, LocalBusiness, FAQPage, Article, Service) su ogni pagina.',
+            },
+            {
+              label: 'Font e performance',
+              text: 'Bebas Neue + Source Sans 3 con font-display: swap. Nessuna risorsa bloccante. Caricamento ottimizzato per Core Web Vitals.',
+            },
+          ].map((item) => (
+            <div class="border-t pt-6" style="border-color: var(--border);">
+              <p class="text-xs font-semibold mb-2 uppercase tracking-wider" style="color: #f77f00; font-family: var(--font-mono);">
+                {item.label}
+              </p>
+              <p class="text-base leading-relaxed" style="color: var(--text-secondary);">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 02 ANALYTICS E COOKIE -->
+  <section style="background: var(--ink);" aria-label="Analytics e cookie">
+    <div class="container-libera py-24 lg:py-36">
+      <p class="eyebrow mb-6" style="color: rgba(255,255,255,0.35); font-family: var(--font-mono);">02 &middot; Analytics e tracciamento</p>
+      <h2
+        class="display-lg mb-6 max-w-3xl"
+        style="font-family: var(--font-display); color: #ffffff; line-height: 1.08;"
+      >
+        Tutto tracciato. Nessun servizio esterno che porta via i dati.
+      </h2>
+      <p class="text-lg mb-16 max-w-2xl leading-relaxed" style="color: rgba(255,255,255,0.55);">
+        Google Analytics 4 e Search Console configurati su misura. Il banner cookie &egrave; gestito direttamente nel sito: nessun CookieBot, nessun OneTrust, nessun script di terze parti che rallenta la pagina o raccoglie dati per altri.
+      </p>
+      <div class="grid md:grid-cols-3 gap-10">
+        {[
+          {
+            title: 'Google Analytics 4',
+            text: 'Configurazione GA4 da zero: eventi personalizzati per richieste preventivo e chiamate, conversioni tracciate, audience segmentate per area geografica (Torino e Piemonte).',
+          },
+          {
+            title: 'Google Search Console',
+            text: 'Property verificata, redirect tecnici implementati, canonical corretti, articoli duplicati risolti. Monitoraggio copertura e performance query in corso.',
+          },
+          {
+            title: 'Cookie gestiti internamente',
+            text: 'Banner di consenso costruito nel sito. Zero dipendenze esterne: nessun CookieBot, nessun script di terze parti. I dati degli utenti restano dentro la piattaforma del cliente.',
+          },
+        ].map((item) => (
+          <div>
+            <div class="w-8 h-0.5 mb-7" style="background: #f77f00;" aria-hidden="true"></div>
+            <h3 class="text-lg font-semibold mb-4" style="color: #ffffff; font-family: var(--font-display);">
+              {item.title}
+            </h3>
+            <p class="text-base leading-relaxed" style="color: rgba(255,255,255,0.5);">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 03 SOCIAL MEDIA -->
+  <section style="background: var(--surface);" aria-label="Social media">
+    <div class="container-libera py-24 lg:py-36">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+        <div>
+          <p class="eyebrow mb-6" style="color: #f77f00; font-family: var(--font-mono);">03 &middot; Social media</p>
+          <h2
+            class="display-lg mb-8"
+            style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.08;"
+          >
+            4 canali. 3 post a settimana. Contenuti pensati per ognuno.
+          </h2>
+          <p class="text-lg leading-relaxed mb-5" style="color: var(--text-secondary);">
+            Gestiamo Instagram, Facebook, TikTok e LinkedIn. Ogni piattaforma ha il suo registro: Instagram e TikTok diretti e visuali, Facebook rassicurante e locale, LinkedIn riservato alle aziende con dati di ROI e case study industriali.
+          </p>
+          <p class="text-base leading-relaxed" style="color: var(--text-secondary);">
+            Calendario editoriale su Airtable, condiviso con il cliente. Cesare approva e pubblica. LIBERA produce i contenuti su richiesta, senza pubblicare in autonomia.
+          </p>
+        </div>
+
+        <div class="grid gap-7">
+          {[
+            {
+              label: 'Instagram / TikTok',
+              handle: '@solefacilesrl / @solefacile',
+              text: 'Contenuti visivi: falsi miti sul fotovoltaico, cantieri reali, incentivi con urgenza. Il video sul Reddito Energetico ha superato 17.500 views su TikTok.',
+            },
+            {
+              label: 'Facebook',
+              handle: '/solefacile',
+              text: 'Stesso argomento, tono diverso. Caption più lunga, tono rassicurante, audience locale Torino-Piemonte. Nessun link diretto nel post: penalizza la reach organica.',
+            },
+            {
+              label: 'LinkedIn',
+              handle: '/company/sole-facile-fotovoltaico',
+              text: 'Solo contenuti B2B: capannoni industriali, PMI, facility manager. ROI, payback aziendali, impianti da 50 kWp in su. Zero cross-posting dal consumer.',
+            },
+          ].map((item) => (
+            <div class="border-t pt-6" style="border-color: var(--border);">
+              <p class="text-xs font-semibold mb-0.5 uppercase tracking-wider" style="color: #f77f00; font-family: var(--font-mono);">
+                {item.label}
+              </p>
+              <p class="text-xs mb-3" style="color: var(--text-secondary); font-family: var(--font-mono);">{item.handle}</p>
+              <p class="text-base leading-relaxed" style="color: var(--text-secondary);">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 04 AUTOMAZIONI -->
+  <section style="background: #003049;" aria-label="Automazioni">
+    <div class="container-libera py-24 lg:py-36">
+      <p class="eyebrow mb-6" style="color: rgba(255,255,255,0.35); font-family: var(--font-mono);">04 &middot; Automazioni interne</p>
+      <h2
+        class="display-lg mb-6 max-w-3xl"
+        style="font-family: var(--font-display); color: #ffffff; line-height: 1.08;"
+      >
+        Strumenti già usati. Connessi tra loro.
+      </h2>
+      <p class="text-lg mb-16 max-w-2xl leading-relaxed" style="color: rgba(255,255,255,0.55);">
+        Abbiamo costruito un sistema che collega gli strumenti che Sole Facile usava già: form del sito, database clienti, email e WhatsApp. Ogni nuova richiesta di preventivo arriva automaticamente al posto giusto, senza copiare dati a mano.
+      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px" style="background: rgba(255,255,255,0.08);">
+        {[
+          {
+            num: '01',
+            label: 'Form del sito',
+            text: 'Ogni richiesta di preventivo compilata sul sito entra automaticamente nel database. Zero email perse, zero inserimento manuale.',
+          },
+          {
+            num: '02',
+            label: 'Database clienti',
+            text: 'Airtable come hub centrale: storico contatti, stato preventivi, follow-up. Filtri e viste per gestire il pipeline commerciale.',
+          },
+          {
+            num: '03',
+            label: 'Email automatizzate',
+            text: 'Conferma automatica al cliente appena invia la richiesta. Notifica interna al team. Nessun client di posta da controllare manualmente.',
+          },
+          {
+            num: '04',
+            label: 'WhatsApp',
+            text: 'Notifica WhatsApp al team per ogni nuovo lead in entrata. Il commerciale riceve i dati direttamente sul telefono, in tempo reale.',
+          },
+        ].map((item) => (
+          <div class="p-8 lg:p-10" style="background: #003049;">
+            <p class="text-xs mb-7" style="color: #f77f00; font-family: var(--font-mono); letter-spacing: 0.08em;">{item.num}</p>
+            <h3 class="text-lg font-semibold mb-3" style="font-family: var(--font-display); color: #ffffff;">{item.label}</h3>
+            <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.5);">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section style="background: var(--surface); border-top: 1px solid var(--border);" aria-label="Volver">
+    <div class="container-libera py-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <p class="text-xs mb-2" style="color: var(--text-secondary); font-family: var(--font-mono);">
+          Sole Facile SRL &middot; Cliente &middot; Torino, Italia
+        </p>
+        <p class="text-base" style="color: var(--text-secondary);">
+          Construimos algo así para tu empresa. El primer paso es el diagnóstico.
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="/trabajo" class="btn btn-ghost-dark">&larr; Ver todo el trabajo</a>
+        <a href="/diagnostico" class="btn btn-primary" data-magnetic>
+          Solicitar diagnóstico
+          <span class="btn-icon" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  .sf-hero-logo {
+    width: clamp(200px, 32vw, 440px);
+    opacity: 0.07;
+    filter: brightness(0) invert(1);
+  }
+
+  @media (max-width: 767px) {
+    .sf-hero-logo {
+      width: 55vw;
+      top: auto;
+      bottom: 0;
+      transform: none;
+      opacity: 0.05;
+    }
+  }
+</style>

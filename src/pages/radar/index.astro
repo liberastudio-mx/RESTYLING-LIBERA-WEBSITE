@@ -1,19 +1,85 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+
+const articles = [
+  {
+    category: 'Dev',
+    date: 'Jun 2026',
+    read: '4 min',
+    title: 'Microsoft lanza 7 modelos MAI: GitHub Copilot ya no depende de OpenAI',
+    excerpt: 'Qué cambia para Copilot, Azure AI Foundry y equipos que desarrollan con IA en producción.',
+    href: '/radar/microsoft-mai-modelos-build-2026',
+    image: '/images/LS%20-%20radar%201.png',
+  },
+  {
+    category: 'IA',
+    date: 'Jun 2026',
+    read: '4 min',
+    title: 'Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos',
+    excerpt: 'Menos errores silenciosos, más capacidad en tareas largas y mejor control para flujos de IA.',
+    href: '/radar/claude-opus-4-8',
+    image: '/images/LS%20-%20radar%202.png',
+  },
+  {
+    category: 'IA',
+    date: 'Jun 2026',
+    read: '5 min',
+    title: 'Claude Fable 5: Anthropic libera su primer modelo de clase Mythos',
+    excerpt: 'El primer modelo público de la familia Mythos llega con safeguards activos y más capacidad en código agentico.',
+    href: '/radar/claude-fable-5',
+    image: '/images/LS%20-%20radar%203.png',
+  },
+];
 ---
+
 <Layout title="Radar" description="El observatorio de LIBERA Studio. Analizamos herramientas, modelos y tendencias antes de convertirlos en decisiones reales.">
-  <section style="background: var(--ink-mid);" class="pt-40 pb-20">
+  <section style="background: var(--ink-mid);" class="pt-40 pb-24">
     <div class="container-libera">
-      <div class="max-w-2xl mb-16" data-reveal>
+      <div class="max-w-3xl mb-16" data-reveal>
         <span class="eyebrow block mb-4" style="color: var(--orange); font-family: var(--font-mono);">Radar</span>
-        <h1 class="font-display mb-6" style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.04em; color: var(--text-light); line-height: 1.0;">
+        <h1 class="font-display mb-6" style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.8rem); font-weight: 800; letter-spacing: 0.01em; color: var(--text-light); line-height: 0.95;">
           No seguimos tendencias.<br/>Las probamos.
         </h1>
-        <p class="text-lg" style="color: oklch(52% 0.008 25);">
-          Analizamos herramientas, modelos, automatizaciones y cambios tecnológicos antes de convertirlos en decisiones reales.
+        <p class="text-lg" style="color: oklch(74% 0.018 235);">
+          Inteligencia práctica sobre IA, herramientas y automatización. Sin ruido.
         </p>
       </div>
-      <p class="text-base" style="color: oklch(48% 0.008 25);">Contenido del Radar próximamente. <a href="/diagnostico" style="color: var(--orange);">Solicitar diagnóstico →</a></p>
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        {articles.map((article) => (
+          <a
+            href={article.href}
+            class="group block overflow-hidden"
+            style="background: oklch(10% 0.015 235); border: 1px solid oklch(28% 0.02 235 / 0.55);"
+            data-reveal
+          >
+            <img
+              src={article.image}
+              alt=""
+              width="1254"
+              height="1254"
+              loading="lazy"
+              class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.035]"
+              style="aspect-ratio: 1 / 1;"
+            />
+            <div class="p-6">
+              <div class="mb-5 flex items-center justify-between gap-3">
+                <span class="text-xs font-mono uppercase tracking-wider" style="color: var(--orange); font-family: var(--font-mono);">{article.category}</span>
+                <span class="text-xs font-mono" style="color: oklch(64% 0.014 235); font-family: var(--font-mono);">{article.date} · {article.read}</span>
+              </div>
+              <h2 class="font-display text-2xl leading-tight" style="font-family: var(--font-display); color: var(--text-light);">
+                {article.title}
+              </h2>
+              <p class="mt-4 text-sm leading-relaxed" style="color: oklch(72% 0.014 235);">
+                {article.excerpt}
+              </p>
+              <span class="mt-8 inline-block text-sm font-medium transition-transform duration-200 group-hover:translate-x-1" style="color: var(--orange);">
+                Leer en Radar →
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 </Layout>

@@ -1,0 +1,103 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout
+  title="Microsoft lanza 7 modelos MAI"
+  description="Microsoft lanza 7 modelos MAI: GitHub Copilot ya no depende de OpenAI."
+>
+  <article class="radar-article-page">
+    <header class="radar-article-hero">
+      <img src="/images/LS%20-%20radar%201.png" alt="" width="1254" height="1254" class="radar-article-hero-image" />
+      <span class="radar-article-hero-overlay" aria-hidden="true"></span>
+      <div class="container-libera radar-article-hero-inner">
+        <div class="max-w-3xl">
+          <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
+          <p class="eyebrow mt-10 mb-5" style="color: var(--orange); font-family: var(--font-mono);">Dev · 3 junio 2026 · 4 min de lectura</p>
+          <h1 class="font-display radar-article-title">
+            Microsoft lanza 7 modelos MAI: GitHub Copilot ya no depende de OpenAI
+          </h1>
+          <p class="radar-article-lead">
+            En Build 2026, Microsoft presentó su primera familia de modelos propios — MAI-Code-1-Flash ya está en GitHub Copilot hoy. MAI-Thinking-1 compite de frente con o3 y Claude Opus. Así cambia el juego para los desarrolladores.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-libera pb-28">
+      <div class="radar-article-body">
+        <p>Microsoft nunca había construido sus propios modelos de IA. Pagaba a OpenAI. Integraba GPT-4. Esperaba actualizaciones de terceros. Eso terminó esta semana.</p>
+        <p>En Build 2026, celebrado el 2 y 3 de junio en San Francisco, Microsoft anunció siete modelos MAI construidos internamente: texto, imagen, voz, transcripción, razonamiento y código. El primero ya está disponible hoy mismo en GitHub Copilot para usuarios individuales en VS Code.</p>
+
+        <h2>Los 7 modelos MAI — qué hace cada uno</h2>
+        <p>La familia MAI cubre todo el stack que una empresa de software necesita:</p>
+        <ul>
+          <li>MAI-Code-1-Flash — modelo de codificación para GitHub Copilot (disponible ya)</li>
+          <li>MAI-Thinking-1 — modelo de razonamiento para tareas complejas (preview privado)</li>
+          <li>MAI-Image-2.5 — generación y edición de imágenes con image-to-image</li>
+          <li>MAI-Image-2.5 Flash — versión rápida y económica del anterior</li>
+          <li>MAI-Voice-2 — texto a voz multilingüe</li>
+          <li>MAI-Voice-2 Flash — versión flash, próximamente</li>
+          <li>MAI-Transcribe-1.5 — transcripción, el más rápido y económico de Microsoft</li>
+        </ul>
+        <p>Todos viven en Azure AI Foundry, que ahora tiene más de 12,000 modelos disponibles incluyendo OpenAI, Anthropic y los nuevos MAI.</p>
+
+        <h2>MAI-Code-1-Flash: el que ya está en tu Copilot</h2>
+        <p>Este es el que importa si programas hoy. MAI-Code-1-Flash es un modelo de 5 mil millones de parámetros, entrenado exclusivamente para tareas de código y optimizado directamente con los harnesses de producción de GitHub Copilot.</p>
+        <p>El resultado: el modelo ya sabe cómo interactuar con las herramientas que rodean a Copilot en flujos de trabajo reales, no solo en benchmarks de laboratorio.</p>
+        <aside class="radar-stat"><strong>51.2%</strong><span>en SWE-Bench Pro — 16 puntos arriba de Claude Haiku 4.5 (35.2%), en tareas reales y diversas de ingeniería de software.</span></aside>
+        <p>El otro número que importa: resuelve problemas complejos con hasta 60% menos tokens en SWE-Bench Verified. Menos tokens significa menor costo por tarea en producción.</p>
+        <p>Tiene algo llamado adaptive solution length control: el modelo ajusta la profundidad de su respuesta al problema. Preguntas simples, respuestas cortas. Tareas complejas, razonamiento extendido. Lo que antes requería ajuste manual de prompts.</p>
+        <p>Disponible ahora en GitHub Copilot para usuarios individuales en VS Code (model picker y auto picker). También accesible vía API en Fireworks AI, Baseten y OpenRouter.</p>
+
+        <h2>MAI-Thinking-1: el razonador que compite con o3</h2>
+        <p>Microsoft no dio benchmarks públicos detallados aún — está en preview privado con acceso por solicitud. Lo que sí confirmó: está diseñado para razonamiento, matemáticas e inteligencia general a una fracción del costo de modelos comparables.</p>
+        <p>Viene incluido (bundled) con GitHub Copilot Enterprise. Si tu equipo ya paga Enterprise, MAI-Thinking-1 llega sin costo adicional.</p>
+        <p>También está disponible en Azure AI Foundry y GitHub Models. Pricing por token aún sin publicar.</p>
+
+        <h2>Precios de los modelos que sí están disponibles</h2>
+        <p>Microsoft publicó precios para la mayoría:</p>
+        <ul>
+          <li>MAI-Image-2.5: $5 USD / 1M tokens texto entrada · $8 USD / 1M tokens imagen entrada · $47 USD / 1M tokens imagen salida</li>
+          <li>MAI-Image-2.5 Flash: $1.75 USD / 1M tokens entrada (texto e imagen) · $33 USD / 1M tokens imagen salida</li>
+          <li>MAI-Voice-2: $22 USD / 1M caracteres</li>
+          <li>MAI-Transcribe-1.5: $0.36 USD / hora</li>
+        </ul>
+        <p>MAI-Code-1-Flash en GitHub Copilot no tiene costo adicional al plan actual. En APIs externas (Fireworks, Baseten, OpenRouter), el precio lo fija cada plataforma.</p>
+
+        <h2>Por qué esto cambia el mercado</h2>
+        <p>Hasta esta semana, Microsoft dependía estructuralmente de OpenAI. Su inversión de $13 mil millones compraba capacidad de modelo, no independencia de modelo. Eso generaba un riesgo obvio: si OpenAI subía precios, tardaba en lanzar, o fracasaba en un benchmark importante, Microsoft no tenía alternativa propia.</p>
+        <p>Ahora tiene siete.</p>
+        <p>Para desarrolladores en México y LATAM, el efecto concreto es:</p>
+        <ul>
+          <li>GitHub Copilot se vuelve más competitivo técnicamente sin cambiar de precio</li>
+          <li>Azure AI Foundry ofrece más alternativas a OpenAI sin salir del ecosistema Microsoft</li>
+          <li>El mercado de coding AI tiene un tercer jugador serio — junto a Anthropic (Claude Code) y OpenAI (Codex)</li>
+        </ul>
+        <aside class="radar-stat"><strong>12,000+</strong><span>modelos disponibles en Azure AI Foundry tras Build 2026, incluyendo OpenAI, Anthropic, Meta y los nuevos MAI.</span></aside>
+
+        <h2>¿Qué hacer ahora?</h2>
+        <p>Si usas GitHub Copilot con VS Code: MAI-Code-1-Flash ya está en el model picker. Pruébalo hoy en tareas de refactoring o corrección de bugs y compáralo con GPT-4o o Claude Haiku 4.5. Los benchmarks dicen que gana — verifica si coincide con tu código real.</p>
+        <p>Si tienes flujos de trabajo en Azure: revisa los modelos MAI en Foundry. Para transcripción y voz especialmente, los precios son competitivos frente a Whisper y ElevenLabs.</p>
+        <p>Si evalúas GitHub Copilot Enterprise para tu equipo: MAI-Thinking-1 incluido es un argumento nuevo que no existía antes de esta semana. Solicita acceso al preview privado.</p>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .radar-article-page { background: var(--ink); color: var(--text-light); }
+    .radar-article-hero { position: relative; min-height: min(760px, 92dvh); overflow: hidden; display: flex; align-items: flex-end; padding-block: calc(var(--nav-height, 72px) + 6rem) 5.5rem; }
+    .radar-article-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .radar-article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.012 235 / 0.34), oklch(8% 0.012 235 / 0.78)), linear-gradient(90deg, oklch(8% 0.012 235 / 0.78), oklch(8% 0.012 235 / 0.18)); }
+    .radar-article-hero-inner { position: relative; z-index: 1; width: 100%; }
+    .radar-article-title { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 5.4rem); font-weight: 800; line-height: 0.95; letter-spacing: 0.01em; }
+    .radar-article-lead { margin-top: 2rem; color: oklch(88% 0.012 235); font-size: 1.125rem; line-height: 1.75; }
+    .radar-article-body { max-width: 48rem; color: oklch(82% 0.014 235); font-size: 1rem; line-height: 1.8; }
+    .radar-article-body > * + * { margin-top: 1.25rem; }
+    .radar-article-body h2 { margin-top: 3.5rem; color: #fff; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1; }
+    .radar-article-body ul { padding-left: 1.25rem; list-style: disc; }
+    .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid oklch(35% 0.025 235 / 0.65); }
+    .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
+    .radar-stat span { color: oklch(82% 0.014 235); }
+  </style>
+</Layout>

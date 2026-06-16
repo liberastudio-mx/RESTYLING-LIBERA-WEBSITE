@@ -271,33 +271,30 @@ const solucionesHome = [
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="metodo"
-    data-method-section
+    data-method-clone-section
     style="background: #120F17;"
-    class="method-scroll method-overlap"
+    class="method-clone-scroll"
     aria-label="Nuestro método"
   >
-    <div class="container-libera method-sticky">
-      <div class="method-layout">
-
-        <!-- Left: sticky -->
-        <div class="method-copy">
+    <div class="container-libera method-clone-sticky">
+      <div class="method-clone-layout">
+        <div class="method-clone-copy">
           <h2
-            class="font-display method-title mb-8"
-            data-method-title
+            class="font-display method-clone-title mb-8"
+            data-method-clone-title
             style="
               font-family: var(--font-display);
               font-weight: 700;
               letter-spacing: 0.015em;
             "
           >
-            <span class="method-title-line" data-method-title-line><span>Primero </span><span class="method-title-action">ordenamos</span><span>.</span></span>
-            <span class="method-title-line" data-method-title-line><span>Después </span><span class="method-title-action">diseñamos</span><span>.</span></span>
-            <span class="method-title-line" data-method-title-line><span>Luego </span><span class="method-title-action">automatizamos</span><span>.</span></span>
+            <span class="method-clone-title-line" data-method-clone-title-line><span>Primero </span><span class="method-clone-title-action">ordenamos</span><span>.</span></span>
+            <span class="method-clone-title-line" data-method-clone-title-line><span>Después </span><span class="method-clone-title-action">diseñamos</span><span>.</span></span>
+            <span class="method-clone-title-line" data-method-clone-title-line><span>Luego </span><span class="method-clone-title-action">automatizamos</span><span>.</span></span>
           </h2>
         </div>
 
-        <!-- Bottom: steps -->
-        <div class="method-stage" data-method-stage>
+        <div class="method-clone-stage" data-method-clone-stage>
           {[
             {
               title: 'Diagnóstico',
@@ -331,14 +328,14 @@ const solucionesHome = [
             },
           ].map((step) => (
             <div
-              class="method-step"
+              class="method-clone-step"
               style={`--step-accent: ${step.accent};`}
-              data-method-step
+              data-method-clone-step
             >
               <h3
                 class="font-display mb-4"
                 style="font-family: var(--font-display);"
-                data-method-step-title
+                data-method-clone-step-title
               >
                 {step.title}
               </h3>
@@ -363,7 +360,14 @@ const solucionesHome = [
     aria-label="Nuestro trabajo"
   >
     <div class="container-libera w-full work-inner">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5 flex-shrink-0" data-reveal>
+      <div class="flex flex-col gap-3 mb-5 flex-shrink-0" data-reveal>
+        <a
+          href="/trabajo"
+          class="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-150 hover:opacity-70"
+          style="color: var(--text-secondary);"
+        >
+          Ver todo el trabajo <span aria-hidden="true">→</span>
+        </a>
         <div>
           <h2 class="display-md" style="color: var(--text-primary);">
             Construimos para clientes.<br/>
@@ -373,13 +377,6 @@ const solucionesHome = [
             Cada proyecto, propio o de cliente, es un sistema en producción.
           </p>
         </div>
-        <a
-          href="/trabajo"
-          class="flex-shrink-0 inline-flex items-center gap-2 text-sm font-medium transition-colors duration-150 hover:opacity-70"
-          style="color: var(--text-secondary);"
-        >
-          Ver todo el trabajo <span aria-hidden="true">→</span>
-        </a>
       </div>
       <div
         class="work-card-grid"
@@ -394,17 +391,17 @@ const solucionesHome = [
             status: 'En desarrollo',
             href: '/trabajo/cenote-scout',
             accent: '#f77f00',
-            image: '/images/cta-bg.png',
+            image: '/images/logo-cenotes.png',
           },
           {
-            name: 'LIBERA AI Automation',
+            name: 'PAOS',
             category: 'Sistema interno',
-            description: 'Infraestructura de agentes y automatizaciones para operación del estudio. Publicación, análisis, CRM y flujos n8n.',
-            stack: ['n8n', 'Claude API', 'Airtable'],
+            description: 'Sistema operativo del estudio: 15 agentes de IA, automatizaciones, vault Obsidian y flujos n8n para operar sin fricción.',
+            stack: ['Obsidian', 'Agents', 'Skills'],
             status: 'En producción',
             href: '/trabajo/radar',
             accent: '#fcbf49',
-            image: '/images/cta-bg.png',
+            image: '/images/logo-paos.png',
           },
           {
             name: 'Sole Facile',
@@ -414,7 +411,7 @@ const solucionesHome = [
             status: 'En producción',
             href: '/trabajo/sole-facile',
             accent: '#d62828',
-            image: '/images/cta-bg.png',
+            image: '/images/logo-sole-facile.png',
           },
           {
             name: 'Morozzo Padel',
@@ -424,7 +421,7 @@ const solucionesHome = [
             status: 'Completado',
             href: '/trabajo/morozzo-padel',
             accent: '#eae2b7',
-            image: '/images/cta-bg.png',
+            image: '/images/logo-morozzo.png',
           },
         ].map((project, i) => (
           <a
@@ -446,36 +443,15 @@ const solucionesHome = [
               aria-hidden="true"
               data-card-overlay
             ></div>
-            <div class="relative z-10 flex flex-col justify-between h-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 p-8">
-              <div>
-                <div class="flex items-start justify-between gap-4 mb-5">
-                  <div>
-                    <span
-                      class="block text-xs font-mono tracking-wider uppercase mb-2"
-                      style={`color: ${project.accent}; font-family: var(--font-mono);`}
-                    >
-                      {project.category}
-                    </span>
-                    <h3
-                      class="font-display font-semibold text-2xl"
-                      style="font-family: var(--font-display); color: #ffffff;"
-                    >
-                      {project.name}
-                    </h3>
-                  </div>
-                  <span
-                    class="flex-shrink-0 text-xs px-3 py-1 rounded-full"
-                    style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.15); white-space: nowrap; backdrop-filter: blur(4px);"
-                  >
-                    {project.status}
-                  </span>
-                </div>
-                <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.75);">
-                  {project.description}
-                </p>
-              </div>
-              <div>
-                <div class="flex flex-wrap gap-2 mt-6 mb-4">
+            <div class="relative z-10 flex flex-col justify-end h-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 p-8">
+              <h3
+                class="font-display font-semibold text-2xl mb-4"
+                style="font-family: var(--font-display); color: #ffffff; line-height: 1.2;"
+              >
+                {project.name}
+              </h3>
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
                     <span
                       class="text-xs font-mono px-2.5 py-1 rounded-md"
@@ -485,9 +461,11 @@ const solucionesHome = [
                     </span>
                   ))}
                 </div>
-                <div class="flex items-center gap-2 text-sm font-medium" style={`color: ${project.accent};`}>
-                  Ver caso <span aria-hidden="true">→</span>
-                </div>
+                <span
+                  class="flex-shrink-0 text-2xl font-medium"
+                  style="color: #fcbf49;"
+                  aria-hidden="true"
+                >→</span>
               </div>
             </div>
           </a>
@@ -531,6 +509,7 @@ const solucionesHome = [
               pos: 'first',
               title: 'Qué es un PAOS y por qué tu empresa necesita uno',
               href: '/guias/paos/que-es-un-paos',
+              image: '/images/LS%20-%20guia%20prima.png',
             },
             {
               categoria: 'IA',
@@ -538,6 +517,7 @@ const solucionesHome = [
               pos: 'mid',
               title: 'Qué puede hacer un agente de IA en una empresa real',
               href: '/guias/inteligencia-artificial/agentes-ia-empresa',
+              image: '/images/LS%20-%20guia%202.png',
             },
             {
               categoria: 'Presencia',
@@ -545,6 +525,7 @@ const solucionesHome = [
               pos: 'last',
               title: 'Cómo saber si tu presencia digital está funcionando',
               href: '/guias/presencia-digital/como-saber-si-tu-web-convierte',
+              image: '/images/LS%20-%20guia%20ultima.png',
             },
           ].map((guia) => (
             <a
@@ -553,17 +534,26 @@ const solucionesHome = [
               style={`background: ${guia.bg};`}
               data-reveal
             >
+              <img
+                src={guia.image}
+                alt=""
+                aria-hidden="true"
+                width="1254"
+                height="1254"
+                loading="lazy"
+                class="conocimiento-guide-image"
+              />
               <span
-                class="text-xs font-mono tracking-wider uppercase block"
+                class="conocimiento-card-content text-xs font-mono tracking-wider uppercase block"
                 style="color: rgba(255,255,255,0.6); font-family: var(--font-mono);"
               >
                 {guia.categoria}
               </span>
-              <p class="text-sm font-semibold leading-snug flex-1" style="color: #ffffff;">
+              <p class="conocimiento-card-content conocimiento-guide-title font-semibold leading-snug" style="color: #ffffff;">
                 {guia.title}
               </p>
               <span
-                class="text-sm transition-transform duration-200 group-hover:translate-x-1 mt-auto inline-block"
+                class="conocimiento-arrow text-sm transition-transform duration-200 group-hover:translate-x-1"
                 style="color: rgba(255,255,255,0.7);"
                 aria-hidden="true"
               >→</span>
@@ -607,58 +597,78 @@ const solucionesHome = [
             </a>
           </div>
 
-          <!-- 2 Radar article cards -->
+          <!-- 3 Radar article cards -->
           {[
             {
-              categoria: 'AI',
+              categoria: 'Dev',
               accent: '#fcbf49',
               pos: 'first',
-              title: 'GPT-4o vs Claude 3.5: cuál usar en producción real',
-              href: '/radar/ai/gpt4o-vs-claude-produccion',
+              title: 'Microsoft lanza 7 modelos MAI: GitHub Copilot ya no depende de OpenAI',
+              date: 'Jun 2026',
+              read: '4 min',
+              href: '/radar/microsoft-mai-modelos-build-2026',
+              image: '/images/LS%20-%20radar%201.png',
             },
             {
-              categoria: 'Automatización',
+              categoria: 'IA',
               accent: '#f77f00',
               pos: 'mid',
-              title: 'n8n en producción: lo que nadie te cuenta antes de empezar',
-              href: '/radar/automatizacion/n8n-produccion',
+              title: 'Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos',
+              date: 'Jun 2026',
+              read: '4 min',
+              href: '/radar/claude-opus-4-8',
+              image: '/images/LS%20-%20radar%202.png',
+            },
+            {
+              categoria: 'IA',
+              accent: '#d62828',
+              pos: 'last',
+              title: 'Claude Fable 5: Anthropic libera su primer modelo de clase Mythos',
+              date: 'Jun 2026',
+              read: '5 min',
+              href: '/radar/claude-fable-5',
+              image: '/images/LS%20-%20radar%203.png',
             },
           ].map((art) => (
             <a
               href={art.href}
               class={`conocimiento-card conocimiento-card--dark conocimiento-card--${art.pos} group`}
-              style="background: oklch(10% 0.015 235 / 0.75); border: 1px solid oklch(28% 0.02 235 / 0.5); backdrop-filter: blur(6px);"
+              style="background: oklch(10% 0.015 235 / 0.75); border: 1px solid oklch(28% 0.02 235 / 0.5);"
               data-reveal
             >
+              <img
+                src={art.image}
+                alt=""
+                aria-hidden="true"
+                width="1254"
+                height="1254"
+                loading="lazy"
+                class="conocimiento-radar-image"
+              />
+              <span class="conocimiento-radar-shade" aria-hidden="true"></span>
+              <div class="conocimiento-radar-content">
+                <div class="flex items-center justify-between gap-3">
+                  <span
+                    class="text-xs font-mono tracking-wider uppercase block"
+                    style={`color: ${art.accent}; font-family: var(--font-mono);`}
+                  >
+                    {art.categoria}
+                  </span>
+                  <span class="text-xs font-mono" style="color: rgba(255,255,255,0.62); font-family: var(--font-mono);">
+                    {art.date} · {art.read}
+                  </span>
+                </div>
+                <p class="text-sm font-semibold leading-snug" style="color: #ffffff;">
+                  {art.title}
+                </p>
+              </div>
               <span
-                class="text-xs font-mono tracking-wider uppercase block"
-                style={`color: ${art.accent}; font-family: var(--font-mono);`}
-              >
-                {art.categoria}
-              </span>
-              <p class="text-sm font-semibold leading-snug flex-1" style="color: #ffffff;">
-                {art.title}
-              </p>
-              <span
-                class="text-sm transition-transform duration-200 group-hover:translate-x-1 mt-auto inline-block"
+                class="conocimiento-arrow text-sm transition-transform duration-200 group-hover:translate-x-1"
                 style={`color: ${art.accent};`}
                 aria-hidden="true"
               >→</span>
             </a>
           ))}
-
-          <!-- Ver todos card -->
-          <a
-            href="/radar"
-            class="conocimiento-card conocimiento-card--last conocimiento-card--cta group flex flex-col items-start justify-end"
-            style="background: oklch(8% 0.01 235 / 0.6); border: 1px solid oklch(28% 0.02 235 / 0.5); backdrop-filter: blur(6px);"
-            data-reveal
-          >
-            <span class="text-xs font-mono tracking-wider uppercase mb-2 block" style="color: #fcbf49; font-family: var(--font-mono);">
-              Ver todos
-            </span>
-            <span class="text-3xl transition-transform duration-200 group-hover:translate-x-1" style="color: #ffffff;" aria-hidden="true">→</span>
-          </a>
 
         </div>
       </div>
@@ -1047,7 +1057,7 @@ const solucionesHome = [
     position: relative;
     z-index: 3;
     margin-top: -100dvh;
-    min-height: 820dvh;
+    min-height: 560dvh;
     padding-block: 0;
   }
 
@@ -1141,11 +1151,89 @@ const solucionesHome = [
     flex-direction: column;
     gap: 0.625rem;
     aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .conocimiento-card:hover {
     opacity: 0.88;
     transform: translateY(-2px);
+  }
+
+  .conocimiento-guide-image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.01);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .conocimiento-card:hover .conocimiento-guide-image {
+    transform: scale(1.045);
+  }
+
+  .conocimiento-card-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .conocimiento-card:not(.conocimiento-card--dark) {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .conocimiento-guide-title {
+    font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+  }
+
+  .conocimiento-arrow {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 2;
+  }
+
+  .conocimiento-card--dark {
+    justify-content: flex-end;
+  }
+
+  .conocimiento-radar-image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.01);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .conocimiento-radar-shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(180deg, oklch(6% 0.012 235 / 0.06), oklch(6% 0.012 235 / 0.7)),
+      linear-gradient(0deg, oklch(6% 0.012 235 / 0.56), transparent 58%);
+  }
+
+  .conocimiento-card--dark:hover .conocimiento-radar-image {
+    transform: scale(1.045);
+  }
+
+  .conocimiento-radar-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.625rem;
   }
 
   .cta-overlap {
@@ -1274,9 +1362,9 @@ const solucionesHome = [
     opacity: var(--solution-image-opacity, 0);
     transform: scale(var(--solution-image-scale, 0.985));
     transition:
-      opacity 0.52s var(--ease-out-expo),
-      filter 0.52s var(--ease-out-expo),
-      transform 0.52s var(--ease-out-expo);
+      opacity 0.44s var(--ease-out-expo),
+      filter 0.44s var(--ease-out-expo),
+      transform 0.44s var(--ease-out-expo);
     filter: saturate(0.84) brightness(0.9);
   }
 
@@ -1301,7 +1389,7 @@ const solucionesHome = [
     position: absolute;
     inset: 0 auto auto 0;
     opacity: var(--solution-label-opacity, 0);
-    transition: opacity 0.35s var(--ease-premium);
+    transition: opacity 0.3s var(--ease-premium);
   }
 
   .solution-visual-label.is-active {
@@ -1330,8 +1418,8 @@ const solucionesHome = [
     opacity: var(--solution-card-opacity);
     transform: translate3d(0, -50%, 0);
     transition:
-      opacity 0.36s var(--ease-out-expo),
-      color 0.35s var(--ease-premium);
+      opacity 0.3s var(--ease-out-expo),
+      color 0.3s var(--ease-premium);
     will-change: opacity;
     pointer-events: none;
   }
@@ -1734,6 +1822,195 @@ const solucionesHome = [
       background: var(--ink-mid);
     }
   }
+
+  /* Metodo prototype clone: same idea, tighter scroll rhythm. */
+  .method-clone-scroll {
+    min-height: 900dvh;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  .method-clone-sticky {
+    min-height: 100dvh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: stretch;
+    padding-block: calc(var(--nav-height) + 1.25rem) 2rem;
+  }
+
+  .method-clone-layout {
+    min-height: calc(100dvh - var(--nav-height) - 3.25rem);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(1.25rem, 3dvh, 2.75rem);
+    position: relative;
+    z-index: 1;
+  }
+
+  .method-clone-copy {
+    max-width: min(100%, 980px);
+  }
+
+  .method-clone-title {
+    --method-clone-title-fit: 1;
+    --method-clone-title-opacity: 1;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-size: clamp(1.05rem, calc(4.6vw * var(--method-clone-title-fit)), 4.65rem);
+    line-height: 1.12;
+    max-width: 100%;
+    opacity: var(--method-clone-title-opacity);
+    text-align: left;
+    transform: none;
+    will-change: opacity;
+  }
+
+  .method-clone-title-line {
+    --method-clone-line-opacity: 0;
+    --method-clone-line-x: 0px;
+    --method-clone-line-y: 0px;
+    --method-clone-line-scale: 1;
+    --method-clone-line-accent: 0%;
+    display: block;
+    width: max-content;
+    max-width: none;
+    color: var(--text-light);
+    opacity: var(--method-clone-line-opacity);
+    transform: translate3d(var(--method-clone-line-x), var(--method-clone-line-y), 0) scale(var(--method-clone-line-scale));
+    transform-origin: left top;
+    white-space: nowrap;
+    transition: none;
+    will-change: transform, opacity;
+  }
+
+  .method-clone-title-action {
+    color: color-mix(in oklch, var(--orange) var(--method-clone-line-accent), var(--text-light));
+  }
+
+  .method-clone-stage {
+    min-height: clamp(390px, 48dvh, 560px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .method-clone-step {
+    --method-clone-step-x: 0vw;
+    --method-clone-step-y: 5.5rem;
+    --method-clone-step-opacity: 0;
+    --method-clone-step-focus: 0%;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-block: clamp(0.5rem, 2vw, 1.5rem);
+    padding-inline: 0;
+    opacity: var(--method-clone-step-opacity);
+    transform: translate3d(var(--method-clone-step-x), var(--method-clone-step-y), 0);
+    transition:
+      opacity 0.34s var(--ease-out-expo),
+      transform 0.34s var(--ease-out-expo);
+    will-change: transform, opacity;
+    pointer-events: none;
+  }
+
+  .method-clone-step h3 {
+    color: var(--text-light);
+    font-size: calc(clamp(4.5rem, 14vw, 15rem) * var(--method-clone-step-title-fit, 1));
+    font-style: normal;
+    font-weight: 900;
+    line-height: 0.9;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .method-clone-step p {
+    color: oklch(86% 0.012 60);
+    font-size: clamp(1.35rem, 2.4vw, 2rem);
+    line-height: 1.35;
+    max-width: 58rem;
+    text-align: right;
+  }
+
+  @media (max-width: 1023px) {
+    .method-clone-sticky {
+      padding-block: calc(var(--nav-height) + 1rem) 1.25rem;
+    }
+
+    .method-clone-layout {
+      min-height: calc(100dvh - var(--nav-height) - 2.25rem);
+      gap: clamp(1rem, 2.5dvh, 2rem);
+    }
+
+    .method-clone-title {
+      font-size: clamp(0.95rem, 4.65vw, 2rem);
+    }
+
+    .method-clone-stage {
+      min-height: 420px;
+    }
+
+    .method-clone-step h3 {
+      font-size: calc(clamp(3.4rem, 16vw, 8.75rem) * var(--method-clone-step-title-fit, 1));
+    }
+
+    .method-clone-step p {
+      font-size: clamp(1.05rem, 3vw, 1.45rem);
+      max-width: min(100%, 42rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .method-clone-scroll {
+      min-height: auto;
+      padding-block: 7rem;
+    }
+
+    .method-clone-sticky {
+      position: relative;
+      min-height: auto;
+      padding-block: 0;
+    }
+
+    .method-clone-layout {
+      min-height: auto;
+    }
+
+    .method-clone-title {
+      --method-clone-title-opacity: 1;
+    }
+
+    .method-clone-title-line {
+      --method-clone-line-opacity: 1;
+      --method-clone-line-x: 0px;
+      --method-clone-line-y: 0px;
+      --method-clone-line-scale: 0.66;
+      --method-clone-line-accent: 100%;
+    }
+
+    .method-clone-stage {
+      min-height: auto;
+      overflow: visible;
+      display: grid;
+      gap: 1px;
+      background: var(--border-dark);
+    }
+
+    .method-clone-step {
+      --method-clone-step-focus: 100%;
+      position: relative;
+      opacity: 1;
+      transform: none;
+      background: var(--ink-mid);
+    }
+  }
 </style>
 
 <script>
@@ -1801,11 +2078,11 @@ const solucionesHome = [
 
       const scrollable = Math.max(1, solutionsSection.offsetHeight - window.innerHeight);
       const rawProgress = clamp((window.scrollY - solutionsSection.offsetTop) / scrollable);
-      const startPause = 0.08;
-      const endPause = 0.06;
+      const startPause = 0.04;
+      const endPause = 0.04;
       const progress = clamp((rawProgress - startPause) / (1 - startPause - endPause));
       const maxIndex = Math.max(1, solutionCards.length - 1);
-      const revealWindow = 0.07;
+      const revealWindow = 0.085;
       let activeId = solutionCards[0]?.dataset.solutionCard ?? '';
       let activeIntensity = 0;
       let activeVisualOpacity = 0;
@@ -1843,244 +2120,223 @@ const solucionesHome = [
     window.addEventListener('resize', requestSolutionsUpdate, { passive: true });
   }
 
-  const methodSection = document.querySelector<HTMLElement>('[data-method-section]');
-  const methodFrame = document.querySelector<HTMLElement>('.method-sticky');
-  const methodSteps = [...document.querySelectorAll<HTMLElement>('[data-method-step]')];
-  const methodTitle = document.querySelector<HTMLElement>('[data-method-title]');
-  const methodTitleLines = [...document.querySelectorAll<HTMLElement>('[data-method-title-line]')];
-  const methodStepTitles = [...document.querySelectorAll<HTMLElement>('[data-method-step-title]')];
-  const reduceMethodMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  {
+    const methodSection = document.querySelector('[data-method-clone-section]');
+    const methodFrame = document.querySelector('.method-clone-sticky');
+    const methodSteps = [...document.querySelectorAll('[data-method-clone-step]')];
+    const methodTitle = document.querySelector('[data-method-clone-title]');
+    const methodTitleLines = [...document.querySelectorAll('[data-method-clone-title-line]')];
+    const methodStepTitles = [...document.querySelectorAll('[data-method-clone-step-title]')];
+    const reduceMethodMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Cache section geometry, updated on resize, not on every scroll frame
-  let sectionTop = 0;
-  let sectionHeight = 0;
-  const cacheSectionRect = () => {
-    if (!methodSection) return;
-    sectionTop = methodSection.offsetTop;
-    sectionHeight = methodSection.offsetHeight;
-  };
-
-  const fitMethodTitle = () => {
-    if (!methodTitle) return;
-    methodTitle.style.setProperty('--method-title-fit', '1');
-    let fit = 1;
-
-    while (methodTitle.scrollWidth > methodTitle.clientWidth && fit > 0.52) {
-      fit -= 0.02;
-      methodTitle.style.setProperty('--method-title-fit', fit.toFixed(2));
-    }
-  };
-
-  const fitMethodStepTitles = () => {
-    if (methodStepTitles.length === 0) return;
-
-    document.documentElement.style.setProperty('--method-step-title-fit', '1');
-    let fit = 1;
-
-    while (
-      methodStepTitles.some((title) => title.scrollWidth > title.clientWidth) &&
-      fit > 0.5
-    ) {
-      fit -= 0.02;
-      document.documentElement.style.setProperty('--method-step-title-fit', fit.toFixed(2));
-    }
-  };
-
-  const updateMethodSteps = () => {
-    if (!methodSection || methodSteps.length === 0 || reduceMethodMotion) return;
-
-    const hideMethodSequence = () => {
-      methodTitle?.style.setProperty('--method-title-opacity', '0');
-
-      methodTitleLines.forEach((line) => {
-        line.style.setProperty('--method-line-opacity', '0');
-        line.style.setProperty('--method-line-x', '0px');
-        line.style.setProperty('--method-line-y', '0px');
-        line.style.setProperty('--method-line-scale', '1');
-        line.style.setProperty('--method-line-accent', '0%');
-      });
-
-      methodSteps.forEach((step) => {
-        step.style.setProperty('--method-step-opacity', '0');
-        step.style.setProperty('--method-step-x', '0vw');
-        step.style.setProperty('--method-step-y', '5.5rem');
-        step.style.setProperty('--method-step-focus', '0%');
-        step.setAttribute('aria-hidden', 'true');
-      });
+    let sectionTop = 0;
+    let sectionHeight = 0;
+    const cacheSectionRect = () => {
+      if (!methodSection) return;
+      sectionTop = methodSection.offsetTop;
+      sectionHeight = methodSection.offsetHeight;
     };
 
-    if (methodSection.getBoundingClientRect().top > 0) {
-      hideMethodSequence();
-      return;
-    }
+    const fitMethodTitle = () => {
+      if (!methodTitle) return;
+      methodTitle.style.setProperty('--method-clone-title-fit', '1');
+      let fit = 1;
 
-    const scrollable = Math.max(1, sectionHeight - window.innerHeight);
-    const sectionProgress = (window.scrollY - sectionTop) / scrollable;
-    const rawProgress = Math.min(1, Math.max(0, sectionProgress));
-    const ease = (value: number) => value * value * (3 - 2 * value);
-    const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
-    const entryDelay = 0;
-    const methodProgress = clamp((rawProgress - entryDelay) / (1 - entryDelay));
-    const titleSequenceEnd = 0.28;
-    const stepSequenceStart = 0.36;
-    const stepSequenceEnd = 0.92;
-    const titleFadeStart = 0.925;
-    const titleFadeEnd = 0.965;
-    const lineWindow = titleSequenceEnd / Math.max(1, methodTitleLines.length);
-    const stepsEnabled = methodProgress >= stepSequenceStart;
-    const stepsProgress = clamp((methodProgress - stepSequenceStart) / (stepSequenceEnd - stepSequenceStart));
-    const timeline = stepsProgress * methodSteps.length;
-    const titleFade = 1 - ease(clamp((methodProgress - titleFadeStart) / (titleFadeEnd - titleFadeStart)));
+      while (methodTitle.scrollWidth > methodTitle.clientWidth && fit > 0.52) {
+        fit -= 0.02;
+        methodTitle.style.setProperty('--method-clone-title-fit', fit.toFixed(2));
+      }
+    };
 
-    if (methodTitle) {
-      if (sectionProgress < 0 || rawProgress < entryDelay) {
+    const fitMethodStepTitles = () => {
+      if (methodStepTitles.length === 0) return;
+
+      document.documentElement.style.setProperty('--method-clone-step-title-fit', '1');
+      let fit = 1;
+
+      while (
+        methodStepTitles.some((title) => title.scrollWidth > title.clientWidth) &&
+        fit > 0.5
+      ) {
+        fit -= 0.02;
+        document.documentElement.style.setProperty('--method-clone-step-title-fit', fit.toFixed(2));
+      }
+    };
+
+    const updateMethodSteps = () => {
+      if (!methodSection || methodSteps.length === 0 || reduceMethodMotion) return;
+
+      const hideMethodSequence = () => {
+        methodTitle?.style.setProperty('--method-clone-title-opacity', '0');
+
+        methodTitleLines.forEach((line) => {
+          line.style.setProperty('--method-clone-line-opacity', '0');
+          line.style.setProperty('--method-clone-line-x', '0px');
+          line.style.setProperty('--method-clone-line-y', '0px');
+          line.style.setProperty('--method-clone-line-scale', '1');
+          line.style.setProperty('--method-clone-line-accent', '0%');
+        });
+
+        methodSteps.forEach((step) => {
+          step.style.setProperty('--method-clone-step-opacity', '0');
+          step.style.setProperty('--method-clone-step-x', '0vw');
+          step.style.setProperty('--method-clone-step-y', '5.5rem');
+          step.style.setProperty('--method-clone-step-focus', '0%');
+          step.setAttribute('aria-hidden', 'true');
+        });
+      };
+
+      if (methodSection.getBoundingClientRect().top > 0) {
         hideMethodSequence();
         return;
       }
 
-      methodTitle.style.setProperty('--method-title-opacity', titleFade.toFixed(3));
-    }
+      const scrollable = Math.max(1, sectionHeight - window.innerHeight);
+      const sectionProgress = (window.scrollY - sectionTop) / scrollable;
+      const rawProgress = Math.min(1, Math.max(0, sectionProgress));
+      const ease = (value) => value * value * (3 - 2 * value);
+      const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+      const methodProgress = rawProgress;
+      const titleSequenceEnd = 0.22;
+      const stepSequenceStart = 0.3;
+      const stepSequenceEnd = 0.88;
+      const titleFadeStart = 0.895;
+      const titleFadeEnd = 0.94;
+      const lineWindow = titleSequenceEnd / Math.max(1, methodTitleLines.length);
+      const stepsEnabled = methodProgress >= stepSequenceStart;
+      const stepsProgress = clamp((methodProgress - stepSequenceStart) / (stepSequenceEnd - stepSequenceStart));
+      const timeline = stepsProgress * methodSteps.length;
+      const titleFade = 1 - ease(clamp((methodProgress - titleFadeStart) / (titleFadeEnd - titleFadeStart)));
 
-    const titleRect = methodTitle?.getBoundingClientRect();
-    const navHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 0;
-    const frameRect = methodFrame?.getBoundingClientRect();
-    const frameStyle = methodFrame ? getComputedStyle(methodFrame) : null;
-    const framePaddingLeft = frameStyle ? parseFloat(frameStyle.paddingLeft) || 0 : 0;
-    const framePaddingRight = frameStyle ? parseFloat(frameStyle.paddingRight) || 0 : 0;
-    const heroLeft = frameRect ? frameRect.left + framePaddingLeft : Math.max(16, titleRect?.left ?? 0);
-    const heroRight = frameRect ? frameRect.right - framePaddingRight : window.innerWidth - heroLeft;
-    const heroSafeInset = clamp(window.innerWidth * 0.03, 18, 48);
-    const heroInnerLeft = heroLeft + heroSafeInset;
-    const heroInnerRight = heroRight - heroSafeInset;
-    const heroAvailableWidth = Math.max(1, heroInnerRight - heroInnerLeft);
-    const heroCenterX = heroInnerLeft + heroAvailableWidth / 2;
-    const getLineTextWidth = (line: HTMLElement) => {
-      return Math.max(1, line.offsetWidth || line.scrollWidth);
+      if (methodTitle) {
+        methodTitle.style.setProperty('--method-clone-title-opacity', titleFade.toFixed(3));
+      }
+
+      const titleRect = methodTitle?.getBoundingClientRect();
+      const navHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 0;
+      const frameRect = methodFrame?.getBoundingClientRect();
+      const frameStyle = methodFrame ? getComputedStyle(methodFrame) : null;
+      const framePaddingLeft = frameStyle ? parseFloat(frameStyle.paddingLeft) || 0 : 0;
+      const framePaddingRight = frameStyle ? parseFloat(frameStyle.paddingRight) || 0 : 0;
+      const heroLeft = frameRect ? frameRect.left + framePaddingLeft : Math.max(16, titleRect?.left ?? 0);
+      const heroRight = frameRect ? frameRect.right - framePaddingRight : window.innerWidth - heroLeft;
+      const heroSafeInset = clamp(window.innerWidth * 0.03, 18, 48);
+      const heroInnerLeft = heroLeft + heroSafeInset;
+      const heroInnerRight = heroRight - heroSafeInset;
+      const heroAvailableWidth = Math.max(1, heroInnerRight - heroInnerLeft);
+      const heroCenterX = heroInnerLeft + heroAvailableWidth / 2;
+      const getLineTextWidth = (line) => Math.max(1, line.offsetWidth || line.scrollWidth);
+      const heroReferenceLine = methodTitleLines[methodTitleLines.length - 1] ?? methodTitleLines[0];
+      const heroReferenceWidth = heroReferenceLine ? getLineTextWidth(heroReferenceLine) : 1;
+      const sharedHeroScale = heroAvailableWidth / heroReferenceWidth;
+
+      methodTitleLines.forEach((line, index) => {
+        const local = (methodProgress - index * lineWindow) / lineWindow;
+        const lineWidth = getLineTextWidth(line);
+        const lineHeight = Math.max(1, line.offsetHeight);
+        const lineLeft = (titleRect?.left ?? 0) + line.offsetLeft;
+        const lineTop = (titleRect?.top ?? 0) + line.offsetTop;
+        const heroScale = sharedHeroScale;
+        const heroX = heroCenterX - (lineWidth * heroScale) / 2 - lineLeft;
+        const heroY = navHeight + (window.innerHeight - navHeight - lineHeight * heroScale) / 2 - lineTop;
+        const finalY = -index * lineHeight * 0.34;
+        let opacity = 0;
+        let travel = 1;
+        let scale = heroScale;
+        let accent = 0;
+
+        if (local >= 0 && local < 0.72) {
+          opacity = 1;
+          travel = 1;
+          scale = heroScale;
+        } else if (local >= 0.72 && local < 1) {
+          const settle = ease((local - 0.72) / 0.28);
+          opacity = 1;
+          travel = 1 - settle;
+          scale = heroScale + (0.66 - heroScale) * settle;
+        } else if (local >= 1) {
+          opacity = 1;
+          travel = 0;
+          scale = 0.66;
+          accent = ease(clamp((local - 1) / 0.1));
+        }
+
+        line.style.setProperty('--method-clone-line-opacity', opacity.toFixed(3));
+        line.style.setProperty('--method-clone-line-x', `${(heroX * travel).toFixed(1)}px`);
+        line.style.setProperty('--method-clone-line-y', `${(heroY * travel + finalY * (1 - travel)).toFixed(1)}px`);
+        line.style.setProperty('--method-clone-line-scale', scale.toFixed(3));
+        line.style.setProperty('--method-clone-line-accent', `${Math.round(accent * 100)}%`);
+      });
+
+      methodSteps.forEach((step, index) => {
+        const local = stepsEnabled ? timeline - index : -1;
+        let opacity = 0;
+        let translateX = 0;
+        let translateY = 5.5;
+        let focus = 0;
+
+        if (local >= 0 && local < 0.16) {
+          const progress = ease(local / 0.16);
+          opacity = progress;
+          translateY = 5.5 * (1 - progress);
+          focus = progress;
+        } else if (local >= 0.16 && local < 0.78) {
+          opacity = 1;
+          translateY = 0;
+          focus = 1;
+        } else if (local >= 0.78 && local < 0.92) {
+          const progress = ease((local - 0.78) / 0.14);
+          opacity = 1 - progress;
+          translateX = -46 * progress;
+          translateY = 0;
+          focus = 1;
+        } else {
+          opacity = 0;
+          translateX = local < 0 ? 0 : -46;
+          translateY = local < 0 ? 5.5 : 0;
+          focus = local < 0 ? 0 : 1;
+        }
+
+        const active = opacity > 0.5;
+
+        step.style.setProperty('--method-clone-step-opacity', opacity.toFixed(3));
+        step.style.setProperty('--method-clone-step-x', `${translateX.toFixed(1)}vw`);
+        step.style.setProperty('--method-clone-step-y', `${translateY.toFixed(2)}rem`);
+        step.style.setProperty('--method-clone-step-focus', `${Math.round(focus * 100)}%`);
+        step.setAttribute('aria-hidden', String(!active));
+      });
     };
-    const heroReferenceLine = methodTitleLines[methodTitleLines.length - 1] ?? methodTitleLines[0];
-    const heroReferenceWidth = heroReferenceLine ? getLineTextWidth(heroReferenceLine) : 1;
-    const sharedHeroScale = heroAvailableWidth / heroReferenceWidth;
 
-    methodTitleLines.forEach((line, index) => {
-      const local = (methodProgress - index * lineWindow) / lineWindow;
-      const lineWidth = getLineTextWidth(line);
-      const lineHeight = Math.max(1, line.offsetHeight);
-      const lineLeft = (titleRect?.left ?? 0) + line.offsetLeft;
-      const lineTop = (titleRect?.top ?? 0) + line.offsetTop;
-      const heroScale = sharedHeroScale;
-      const heroX = heroCenterX - (lineWidth * heroScale) / 2 - lineLeft;
-      const heroY = navHeight + (window.innerHeight - navHeight - lineHeight * heroScale) / 2 - lineTop;
-      const finalY = -index * lineHeight * 0.34;
-      let opacity = 0;
-      let travel = 1;
-      let scale = heroScale;
-      let accent = 0;
+    let methodTicking = false;
+    const requestMethodUpdate = () => {
+      if (methodTicking) return;
+      methodTicking = true;
+      window.requestAnimationFrame(() => {
+        updateMethodSteps();
+        methodTicking = false;
+      });
+    };
 
-      if (local >= 0 && local < 0.3) {
-        opacity = 1;
-        travel = 1;
-        scale = heroScale;
-        accent = 0;
-      } else if (local >= 0.3 && local < 0.44) {
-        opacity = 1;
-        travel = 1;
-        scale = heroScale;
-        accent = 0;
-      } else if (local >= 0.44 && local < 0.76) {
-        opacity = 1;
-        travel = 1;
-        scale = heroScale;
-        accent = 0;
-      } else if (local >= 0.76 && local < 1) {
-        const settle = ease((local - 0.76) / 0.24);
-        opacity = 1;
-        travel = 1 - settle;
-        scale = heroScale + (0.66 - heroScale) * settle;
-        accent = 0;
-      } else if (local >= 1) {
-        opacity = 1;
-        travel = 0;
-        scale = 0.66;
-        accent = ease(clamp((local - 1) / 0.12));
-      }
+    const onResize = () => {
+      cacheSectionRect();
+      fitMethodTitle();
+      fitMethodStepTitles();
+      requestMethodUpdate();
+    };
 
-      line.style.setProperty('--method-line-opacity', opacity.toFixed(3));
-      line.style.setProperty('--method-line-x', `${(heroX * travel).toFixed(1)}px`);
-      line.style.setProperty('--method-line-y', `${(heroY * travel + finalY * (1 - travel)).toFixed(1)}px`);
-      line.style.setProperty('--method-line-scale', scale.toFixed(3));
-      line.style.setProperty('--method-line-accent', `${Math.round(accent * 100)}%`);
-    });
-
-    methodSteps.forEach((step, index) => {
-      const local = stepsEnabled ? timeline - index : -1;
-      let opacity = 0;
-      let translateX = 0;
-      let translateY = 5.5;
-      let focus = 0;
-
-      if (local >= 0 && local < 0.18) {
-        const progress = ease(local / 0.18);
-        opacity = progress;
-        translateX = 0;
-        translateY = 5.5 * (1 - progress);
-        focus = progress;
-      } else if (local >= 0.18 && local < 0.76) {
-        opacity = 1;
-        translateX = 0;
-        translateY = 0;
-        focus = 1;
-      } else if (local >= 0.76 && local < 0.92) {
-        const progress = ease((local - 0.76) / 0.16);
-        opacity = 1 - progress;
-        translateX = -46 * progress;
-        translateY = 0;
-        focus = 1;
-      } else {
-        opacity = 0;
-        translateX = local < 0 ? 0 : -46;
-        translateY = local < 0 ? 5.5 : 0;
-        focus = local < 0 ? 0 : 1;
-      }
-
-      const active = opacity > 0.5;
-
-      step.style.setProperty('--method-step-opacity', opacity.toFixed(3));
-      step.style.setProperty('--method-step-x', `${translateX.toFixed(1)}vw`);
-      step.style.setProperty('--method-step-y', `${translateY.toFixed(2)}rem`);
-      step.style.setProperty('--method-step-focus', `${Math.round(focus * 100)}%`);
-      step.setAttribute('aria-hidden', String(!active));
-    });
-  };
-
-  let methodTicking = false;
-  const requestMethodUpdate = () => {
-    if (methodTicking) return;
-    methodTicking = true;
-    window.requestAnimationFrame(() => {
-      updateMethodSteps();
-      methodTicking = false;
-    });
-  };
-
-  // On resize: refresh geometry cache + fit titles, then update steps
-  const onResize = () => {
     cacheSectionRect();
     fitMethodTitle();
     fitMethodStepTitles();
-    requestMethodUpdate();
-  };
+    updateMethodSteps();
 
-  cacheSectionRect();
-  fitMethodTitle();
-  fitMethodStepTitles();
-  updateMethodSteps();
+    window.addEventListener('scroll', requestMethodUpdate, { passive: true });
+    window.addEventListener('resize', onResize);
 
-  window.addEventListener('scroll', requestMethodUpdate, { passive: true });
-  window.addEventListener('resize', onResize);
-
-  if ('ResizeObserver' in window && methodTitle) {
-    new ResizeObserver(onResize).observe(methodTitle);
+    if ('ResizeObserver' in window && methodTitle) {
+      new ResizeObserver(onResize).observe(methodTitle);
+    }
   }
+
 </script>
 
 <script>

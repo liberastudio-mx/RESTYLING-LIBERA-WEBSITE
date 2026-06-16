@@ -1,14 +1,317 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+
+const stack = ['React Native', 'Expo', 'TypeScript', 'Supabase', 'PostGIS', 'Airtable'];
+
+const stats = [
+  { value: '118+', label: 'Cenotes en sistema' },
+  { value: '11', label: 'Datasets oficiales' },
+  { value: '4', label: 'Fases de roadmap' },
+  { value: 'iOS · Android', label: 'Plataformas objetivo' },
+];
+
+const layers = [
+  {
+    num: '01',
+    label: 'App móvil',
+    tech: 'React Native · Expo · TypeScript',
+    items: [
+      'Lista de cenotes con filtros prácticos',
+      'Mapa interactivo con clustering (Mapbox)',
+      'Ficha detalle: precio, horarios, servicios, accesibilidad',
+      'Favoritos con persistencia local',
+      'Bilingüe ES/EN',
+      'Funciona con señal débil',
+    ],
+  },
+  {
+    num: '02',
+    label: 'Backend geoespacial',
+    tech: 'Supabase · PostgreSQL · PostGIS',
+    items: [
+      'Queries geográficas por distancia',
+      'Row Level Security activo',
+      'Schema normalizado (cenotes, servicios, imágenes, operadores)',
+      'Pipeline Airtable → Supabase lista',
+      'API preparada para dashboard de operadores',
+      'Arquitectura escalable a Quintana Roo y Campeche',
+    ],
+  },
+  {
+    num: '03',
+    label: 'CMS y datos',
+    tech: 'Airtable · Field research · Fuentes oficiales',
+    items: [
+      '118+ cenotes en Airtable con enrichment manual',
+      '101 verificados con link Google Maps',
+      'Estado de confiabilidad por dato: verificado / por confirmar / estimado',
+      'Fuentes: GEMA, INEGI, SEFOTUR, SEMARNAT, Gobierno Yucatán',
+      'Checklist de field research estandarizado',
+      'Proceso de actualización continua',
+    ],
+  },
+];
+
+
 ---
-<Layout title="Cenote Scout" description="Plataforma para descubrir cenotes, rutas y experiencias en Yucatán. Sistema de datos, mapas y contenido editorial.">
-  <section style="background: var(--surface); min-height: calc(100dvh - var(--nav-height));" class="flex items-center">
-    <div class="container-libera py-40">
-      <p class="eyebrow mb-6" style="color: var(--presencia); font-family: var(--font-mono);">Producto digital</p>
-      <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">Cenote Scout</h1>
-      <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;">Plataforma para descubrir cenotes, rutas y experiencias en Yucatán. Sistema de datos geoespaciales, mapas interactivos y contenido editorial curado.</p>
-      <p class="eyebrow mb-8" style="color: var(--text-secondary); font-family: var(--font-mono);">Stack: Astro · TypeScript · Supabase</p>
-      <a href="/trabajo" style="color: var(--orange); font-size: 0.875rem; font-weight: 500;">← Volver a Trabajo</a>
+
+<Layout
+  title="Cenote Scout — Trabajo — LIBERA Studio"
+  description="App mobile para explorar cenotes en Yucatán con datos verificados, mapas y sistema editorial. Producto digital en activo desarrollo por LIBERA Studio."
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════ -->
+  <section
+    style="background: var(--ink); min-height: 100dvh;"
+    class="cs-hero relative flex flex-col justify-end overflow-hidden"
+    aria-label="Cenote Scout"
+  >
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 25% 65%, rgba(247,127,0,0.09) 0%, transparent 55%), radial-gradient(ellipse at 75% 15%, rgba(0,48,73,0.5) 0%, transparent 60%);" aria-hidden="true"></div>
+
+    <div class="cs-hero-logo absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none select-none" aria-hidden="true">
+      <img src="/images/logo-cenotes.png" alt="" class="w-full h-full object-contain" />
+    </div>
+
+    <div class="container-libera relative z-10 pb-20 pt-44">
+      <a
+        href="/trabajo"
+        class="inline-flex items-center gap-2 text-sm font-medium mb-14 transition-opacity duration-150 hover:opacity-60"
+        style="color: rgba(255,255,255,0.38); font-family: var(--font-mono);"
+      >
+        ← Trabajo
+      </a>
+
+      <p class="eyebrow mb-5" style="color: #f77f00; font-family: var(--font-mono);">
+        Producto digital · En desarrollo
+      </p>
+
+      <h1
+        class="mb-8"
+        style="font-family: var(--font-display); font-weight: 700; line-height: 1.0; color: #ffffff; font-size: clamp(3.5rem, 10vw, 9rem);"
+      >
+        Cenote<br/>Scout
+      </h1>
+
+      <p
+        class="mb-14 max-w-2xl"
+        style="color: rgba(255,255,255,0.6); font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.6;"
+      >
+        Información práctica sobre cenotes en Yucatán. Precio, acceso, servicios y estado verificado. Para decidir antes de salir.
+      </p>
+
+      <div class="flex flex-wrap gap-x-10 gap-y-5 mb-14">
+        {stats.map((stat) => (
+          <div>
+            <p style="font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2.25rem); font-weight: 700; color: #f77f00; line-height: 1;">
+              {stat.value}
+            </p>
+            <p class="text-xs mt-1" style="color: rgba(255,255,255,0.38); font-family: var(--font-mono); letter-spacing: 0.06em;">
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        {stack.map((tech) => (
+          <span
+            class="text-xs px-3 py-1.5 rounded-full"
+            style="background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45); font-family: var(--font-mono); border: 1px solid rgba(255,255,255,0.1);"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
     </div>
   </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       LA VISIÓN
+       ═══════════════════════════════════════════ -->
+  <section style="background: var(--surface);" aria-label="La visión">
+    <div class="container-libera py-24 lg:py-36">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+        <div>
+          <p class="eyebrow mb-6" style="color: #f77f00; font-family: var(--font-mono);">01 · La visión</p>
+          <h2
+            class="display-lg mb-8"
+            style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.08;"
+          >
+            Información verificada para elegir, visitar y respetar los cenotes de Yucatán.
+          </h2>
+          <p class="text-lg leading-relaxed mb-5" style="color: var(--text-secondary);">
+            Cenote Scout da información práctica, verificada y responsable sobre los cenotes de Yucatán. Google Maps muestra el pin. Cenote Scout dice qué encontrarás cuando llegues.
+          </p>
+          <blockquote
+            class="mt-4 pl-5 text-base leading-relaxed"
+            style="border-left: 2px solid #f77f00; color: var(--text-primary); font-style: italic;"
+          >
+            Preferimos tener 50 cenotes bien documentados que 500 fichas vacías.
+          </blockquote>
+        </div>
+
+        <div class="grid gap-7">
+          {[
+            {
+              label: 'Información práctica',
+              text: 'Precio, horarios, servicios, accesibilidad y estado de los datos. Todo lo que necesitas saber antes de salir de casa.',
+            },
+            {
+              label: 'Datos verificados',
+              text: 'Cada dato tiene un estado visible: verificado, por confirmar, estimado u obsoleto. Sabes exactamente en qué puedes confiar.',
+            },
+            {
+              label: 'Territorio y comunidad',
+              text: 'Cenote Scout da visibilidad a operadores locales y redistribuye el flujo turístico. Los cenotes son agua, cultura y economía de las comunidades.',
+            },
+            {
+              label: 'Turismo redistributivo',
+              text: 'Ik-Kil y Suytun concentran el turismo. Cenote Scout muestra los que no salen en los tours, con la misma información completa.',
+            },
+          ].map((item) => (
+            <div class="border-t pt-6" style="border-color: var(--border);">
+              <p class="text-xs font-semibold mb-2 uppercase tracking-wider" style="color: #f77f00; font-family: var(--font-mono);">
+                {item.label}
+              </p>
+              <p class="text-base leading-relaxed" style="color: var(--text-secondary);">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       EL RETO
+       ═══════════════════════════════════════════ -->
+  <section style="background: var(--ink);" aria-label="El reto">
+    <div class="container-libera py-24 lg:py-36">
+      <p class="eyebrow mb-6" style="color: rgba(255,255,255,0.35); font-family: var(--font-mono);">02 · El reto</p>
+      <h2
+        class="display-lg mb-16 max-w-3xl"
+        style="font-family: var(--font-display); color: #ffffff; line-height: 1.08;"
+      >
+        Llegar a un cenote en Yucatán es fácil. Saber cuánto cuesta, si requiere reserva o qué encontrarás cuando llegues, no lo es.
+      </h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        {[
+          {
+            title: 'Sin datos prácticos',
+            text: 'Las apps existentes muestran fotos. Rara vez dicen cuánto cuesta, si requiere reserva o qué servicios hay. Llegas y descubres.',
+          },
+          {
+            title: 'Saturación concentrada',
+            text: 'Ik-Kil, Suytun y cinco cenotes más concentran el 90% del turismo. Hay decenas de cenotes igualmente buenos, pero sin información accesible nadie los elige.',
+          },
+          {
+            title: 'Sin verificación actualizada',
+            text: 'Los precios cambian por temporada. Los horarios se actualizan sin aviso. Ninguna fuente los sigue. Llegas con datos de hace dos años.',
+          },
+        ].map((item) => (
+          <div>
+            <div class="w-8 h-0.5 mb-7" style="background: #f77f00;" aria-hidden="true"></div>
+            <h3 class="text-lg font-semibold mb-4" style="color: #ffffff; font-family: var(--font-display);">
+              {item.title}
+            </h3>
+            <p class="text-base leading-relaxed" style="color: rgba(255,255,255,0.5);">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       LO QUE CONSTRUIMOS
+       ═══════════════════════════════════════════ -->
+  <section style="background: var(--surface);" aria-label="El sistema">
+    <div class="container-libera py-24 lg:py-36">
+      <p class="eyebrow mb-6" style="color: #f77f00; font-family: var(--font-mono);">03 · El sistema</p>
+      <h2
+        class="display-lg mb-5 max-w-xl"
+        style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.08;"
+      >
+        Una plataforma de tres capas.
+      </h2>
+      <p class="text-lg mb-16 max-w-xl leading-relaxed" style="color: var(--text-secondary);">
+        App, backend geoespacial y sistema editorial. Cada capa alimenta la siguiente para mantener datos reales en las manos del usuario.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-px" style="background: var(--border);">
+        {layers.map((layer) => (
+          <div class="p-8 lg:p-10" style="background: var(--surface);">
+            <p class="text-xs mb-7" style="color: #f77f00; font-family: var(--font-mono); letter-spacing: 0.08em;">
+              {layer.num}
+            </p>
+            <h3
+              class="text-xl font-semibold mb-2"
+              style="font-family: var(--font-display); color: var(--text-primary);"
+            >
+              {layer.label}
+            </h3>
+            <p class="text-xs mb-7" style="color: var(--text-secondary); font-family: var(--font-mono);">
+              {layer.tech}
+            </p>
+            <ul class="space-y-3">
+              {layer.items.map((item) => (
+                <li class="flex items-start gap-3 text-sm leading-relaxed" style="color: var(--text-secondary);">
+                  <span style="color: #f77f00; flex-shrink: 0; margin-top: 0.1rem;" aria-hidden="true">·</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CTA / VOLVER
+       ═══════════════════════════════════════════ -->
+  <section style="background: var(--surface); border-top: 1px solid var(--border);" aria-label="Volver">
+    <div class="container-libera py-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <p class="text-xs mb-2" style="color: var(--text-secondary); font-family: var(--font-mono);">
+          Cenote Scout · Producto digital · En desarrollo
+        </p>
+        <p class="text-base" style="color: var(--text-secondary);">
+          Construimos sistemas como este para empresas en México. El primer paso es entender tu operación.
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="/trabajo" class="btn btn-ghost-dark">← Ver todo el trabajo</a>
+        <a href="/diagnostico" class="btn btn-primary" data-magnetic>
+          Solicitar diagnóstico
+          <span class="btn-icon" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  .cs-hero-logo {
+    width: clamp(240px, 38vw, 520px);
+    opacity: 0.08;
+    filter: brightness(0) invert(1);
+  }
+
+  @media (max-width: 767px) {
+    .cs-hero-logo {
+      width: 60vw;
+      top: auto;
+      bottom: 0;
+      transform: none;
+      opacity: 0.05;
+    }
+  }
+</style>

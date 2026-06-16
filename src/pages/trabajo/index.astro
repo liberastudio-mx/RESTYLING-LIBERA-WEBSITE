@@ -1,33 +1,169 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+
+const projects = [
+  {
+    name: 'Cenote Scout',
+    category: 'Producto',
+    href: '/trabajo/cenote-scout',
+    image: '/images/logo-cenotes.png',
+  },
+  {
+    name: 'LIBERA AI Automation',
+    category: 'Sistema interno',
+    href: '/trabajo/radar',
+    image: null,
+  },
+  {
+    name: 'Sole Facile',
+    category: 'Cliente',
+    href: '/trabajo/sole-facile',
+    image: '/images/logo-sole-facile.png',
+  },
+  {
+    name: 'Morozzo Padel',
+    category: 'Cliente',
+    href: '/trabajo/morozzo-padel',
+    image: '/images/logo-morozzo.png',
+  },
+  {
+    name: 'PAOS Framework',
+    category: 'Sistema interno',
+    href: '/trabajo/paos',
+    image: '/images/logo-paos.png',
+  },
+];
 ---
-<Layout title="Trabajo" description="Proyectos de LIBERA Studio. Construimos para clientes y también para aprender. Cada proyecto es un sistema real.">
+
+<Layout
+  title="Trabajo — LIBERA Studio"
+  description="Proyectos de LIBERA Studio. Construimos para clientes y también para aprender. Cada proyecto es un sistema real."
+>
+
   <section style="background: var(--surface);" class="pt-40 pb-20">
     <div class="container-libera">
+
+      <!-- Intro -->
       <div class="max-w-2xl mb-16" data-reveal>
         <span class="eyebrow block mb-4" style="color: var(--text-secondary); font-family: var(--font-mono);">Trabajo</span>
-        <h1 class="font-display mb-6" style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.04em; color: var(--text-primary); line-height: 1.0;">
+        <h1
+          class="font-display mb-6"
+          style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.04em; color: var(--text-primary); line-height: 1.0;"
+        >
           Proyectos reales.<br/>Sistemas que funcionan.
         </h1>
         <p class="text-lg" style="color: var(--text-secondary);">
           Construimos para clientes y también para aprender. Cada proyecto es un caso de estudio en tecnología aplicada.
         </p>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {[
-          { name: 'Cenote Scout', category: 'Producto', href: '/trabajo/cenote-scout' },
-          { name: 'LIBERA AI Automation', category: 'Sistema interno', href: '/trabajo/radar' },
-          { name: 'Sole Facile', category: 'Cliente', href: '/trabajo/sole-facile' },
-          { name: 'Morozzo Padel', category: 'Cliente', href: '/trabajo/morozzo-padel' },
-          { name: 'PAOS Framework', category: 'Sistema interno', href: '/trabajo/paos' },
-        ].map((p) => (
-          <a href={p.href} class="p-7 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 group" style="background: var(--surface); border: 1px solid var(--border);" data-reveal>
-            <span class="text-xs font-mono tracking-wide block mb-3" style="color: var(--text-secondary); font-family: var(--font-mono);">{p.category}</span>
-            <h3 class="font-display font-semibold text-xl" style="font-family: var(--font-display); color: var(--text-primary);">{p.name}</h3>
-            <span class="text-sm mt-4 block transition-all duration-200 group-hover:gap-3" style="color: var(--orange);">Ver caso →</span>
+
+      <!-- Card grid -->
+      <div
+        class="trabajo-grid"
+        style="background: var(--border); gap: 1px;"
+      >
+        {projects.map((p, i) => (
+          <a
+            href={p.href}
+            class="trabajo-card group relative overflow-hidden flex flex-col"
+            style={`transition-delay: ${i * 55}ms;`}
+            data-reveal
+          >
+            {p.image ? (
+              <img
+                src={p.image}
+                alt=""
+                aria-hidden="true"
+                class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+              />
+            ) : (
+              <div class="absolute inset-0 trabajo-card-empty" aria-hidden="true"></div>
+            )}
+
+            <!-- Gradient overlay -->
+            <div
+              class="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+              style="background: linear-gradient(to top, rgba(0,20,40,0.92) 0%, rgba(0,20,40,0.65) 50%, rgba(0,20,40,0.3) 100%);"
+              aria-hidden="true"
+            ></div>
+
+            <!-- Hover content -->
+            <div class="relative z-10 flex flex-col justify-end h-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 p-8">
+              <h3
+                class="font-display font-semibold text-2xl mb-4"
+                style="font-family: var(--font-display); color: #ffffff; line-height: 1.2;"
+              >
+                {p.name}
+              </h3>
+              <div class="flex items-center justify-between gap-4">
+                <span
+                  class="text-xs font-mono tracking-wide"
+                  style="color: rgba(255,255,255,0.6); font-family: var(--font-mono);"
+                >
+                  {p.category}
+                </span>
+                <span
+                  class="flex-shrink-0 text-2xl font-medium"
+                  style="color: #fcbf49;"
+                  aria-hidden="true"
+                >→</span>
+              </div>
+            </div>
           </a>
         ))}
       </div>
+
     </div>
   </section>
+
 </Layout>
+
+<style>
+  .trabajo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+
+  .trabajo-card {
+    min-height: clamp(240px, 30vw, 420px);
+  }
+
+  .trabajo-card-empty {
+    background: oklch(14% 0.015 235);
+  }
+
+  /* Last card spans full width if odd number */
+  .trabajo-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-height: clamp(200px, 22vw, 320px);
+  }
+
+  @media (min-width: 1024px) {
+    .trabajo-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* 5 cards: first row 3, second row 2 — last card does NOT span */
+    .trabajo-card:last-child:nth-child(odd) {
+      grid-column: auto;
+      max-height: none;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .trabajo-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .trabajo-card {
+      min-height: 260px;
+    }
+
+    .trabajo-card:last-child:nth-child(odd) {
+      grid-column: auto;
+      max-height: none;
+    }
+  }
+</style>

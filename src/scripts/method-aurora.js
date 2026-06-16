@@ -143,9 +143,10 @@ void main() {
 }
 `;
 
-function init() {
-  const host = document.querySelector('.method-sticky');
+function initHost(host) {
   if (!host) return;
+  if (host.dataset.auroraInit === 'true') return;
+  host.dataset.auroraInit = 'true';
 
   const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
   const gl = renderer.gl;
@@ -231,6 +232,10 @@ function init() {
     host.removeEventListener('mouseleave', onMouseLeave);
     gl.getExtension('WEBGL_lose_context')?.loseContext();
   }, { once: true });
+}
+
+function init() {
+  document.querySelectorAll('.method-sticky, .method-clone-sticky').forEach(initHost);
 }
 
 document.addEventListener('astro:page-load', init);
