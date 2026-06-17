@@ -54,14 +54,14 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
         >
           <div class="grid grid-cols-4 p-5 gap-1">
             {[
-              { heading: 'Operación Inteligente', accent: BRAND_COLORS[0], href: '/soluciones/operacion-inteligente',
-                links: [['PAOS','/servicios/paos'],['Automatización','/servicios/automatizacion'],['CRM y seguimiento','/servicios/automatizacion'],['Dashboards','/servicios/automatizacion'],['Integraciones','/servicios/automatizacion']] },
+              { heading: 'Operación Interna', accent: BRAND_COLORS[0], href: '/soluciones/operacion-inteligente',
+                links: [['PAOS','/soluciones/operacion-inteligente/paos'],['Automatización','/soluciones/operacion-inteligente/automatizacion'],['CRM y seguimiento','/soluciones/operacion-inteligente/crm-seguimiento'],['Dashboards','/soluciones/operacion-inteligente/dashboards'],['Integraciones','/soluciones/operacion-inteligente/integraciones']] },
               { heading: 'Presencia Digital',     accent: BRAND_COLORS[1], href: '/soluciones/presencia-digital',
-                links: [['Sitios web premium','/servicios/diseno-web'],['Landing pages','/servicios/landing-pages'],['Google Business Profile','/servicios/google-business-profile'],['WhatsApp Business','/servicios/whatsapp-business'],['SEO local','/servicios/seo-local']] },
-              { heading: 'AI & Automation',       accent: BRAND_COLORS[2], href: '/soluciones/ai-automation',
-                links: [['Agentes de IA','/servicios/agentes-ia'],['Asistentes internos','/servicios/agentes-ia'],['Flujos con n8n','/servicios/automatizacion'],['Clasificación de mensajes','/servicios/agentes-ia'],['Automatización documental','/servicios/automatizacion']] },
+                links: [['Sitios web premium','/soluciones/presencia-digital'],['Landing pages','/soluciones/presencia-digital'],['Google Business Profile','/soluciones/presencia-digital'],['WhatsApp Business','/soluciones/presencia-digital'],['Redes sociales','/soluciones/presencia-digital']] },
+              { heading: 'IA y automatización',   accent: BRAND_COLORS[2], href: '/soluciones/ai-automation',
+                links: [['Agentes de IA','/soluciones/ai-automation'],['Asistentes internos','/soluciones/ai-automation'],['Flujos con n8n','/soluciones/ai-automation'],['Clasificación de mensajes','/soluciones/ai-automation'],['Automatización documental','/soluciones/ai-automation']] },
               { heading: 'Productos Digitales',   accent: BRAND_COLORS[3], href: '/soluciones/productos-digitales',
-                links: [['Web apps','/servicios/diseno-web'],['MVPs','/servicios/diseno-web'],['Apps internas','/servicios/diseno-web'],['Paneles admin','/servicios/diseno-web'],['Prototipos','/servicios/diseno-web']] },
+                links: [['Web apps','/soluciones/productos-digitales'],['MVPs','/soluciones/productos-digitales'],['Apps internas','/soluciones/productos-digitales'],['Paneles admin','/soluciones/productos-digitales'],['Prototipos','/soluciones/productos-digitales']] },
             ].map((col) => (
               <div class="px-4 py-3 rounded-xl hover:bg-[#003049]/[0.03] transition-colors duration-150">
                 <a href={col.href} class="flex items-center gap-2 mb-3 group/col">

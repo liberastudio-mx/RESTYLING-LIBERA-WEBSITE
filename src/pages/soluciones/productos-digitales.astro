@@ -1,13 +1,171 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+
+const structureCards = [
+  { title: 'Web apps', href: '/soluciones/productos-digitales' },
+  { title: 'MVPs', href: '/soluciones/productos-digitales' },
+  { title: 'Apps internas', href: '/soluciones/productos-digitales' },
+  { title: 'Paneles admin', href: '/soluciones/productos-digitales' },
+  { title: 'Prototipos', href: '/soluciones/productos-digitales' },
+];
 ---
+
 <Layout title="Productos Digitales" description="Web apps, MVPs, paneles administrativos y prototipos funcionales para construir herramientas que realmente se usan.">
-  <section style="background: var(--surface); min-height: calc(100dvh - var(--nav-height));" class="flex items-center">
-    <div class="container-libera py-40">
-      <p class="eyebrow mb-6" style="color: var(--productos); font-family: var(--font-mono);">Soluciones</p>
-      <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">Productos Digitales</h1>
-      <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;">Web apps, MVPs, paneles administrativos y prototipos funcionales. Construimos herramientas digitales que realmente se usan.</p>
-      <a href="/soluciones" style="color: var(--orange); font-size: 0.875rem; font-weight: 500;">← Volver a Soluciones</a>
+  <section class="solution-page">
+    <div class="solution-hero">
+      <div class="container-libera solution-layout">
+        <div class="solution-copy-block" data-reveal>
+          <h1 class="display-hero solution-title">Productos Digitales</h1>
+          <div class="solution-hero-text">
+            <p>
+              Construimos herramientas digitales a medida: apps internas, MVPs, paneles administrativos y prototipos que resuelven un problema específico de tu negocio, con código original y sin depender de plantillas de terceros.
+            </p>
+            <p>
+              Antes de escribir una línea de código, definimos qué debe hacer la herramienta, para quién es y qué problema resuelve. El desarrollo viene después, cuando la función está clara.
+            </p>
+          </div>
+        </div>
+
+        <div class="solution-stack" aria-label="Estructura de Productos Digitales" data-reveal>
+          {structureCards.map((card) => (
+            <a href={card.href} class="solution-card">
+              <h2>{card.title}</h2>
+              <span class="solution-card-arrow" aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
+
+  <style>
+    .solution-page {
+      background: #ffffff;
+      color: var(--text-primary);
+    }
+
+    .solution-hero {
+      min-height: auto;
+      display: flex;
+      align-items: flex-start;
+      padding-block: calc(var(--nav-height) + clamp(3.75rem, 6vw, 5.5rem)) clamp(4rem, 7vw, 6rem);
+      background: #ffffff;
+    }
+
+    .solution-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: clamp(2.5rem, 6vw, 6.5rem);
+      width: 100%;
+    }
+
+    .solution-copy-block {
+      display: grid;
+      justify-items: start;
+      flex: 0 1 680px;
+      width: 100%;
+      max-width: 680px;
+      text-align: left;
+    }
+
+    .solution-title {
+      color: var(--text-primary);
+      max-width: 12ch;
+      margin-inline: 0;
+    }
+
+    .solution-hero-text {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.75rem;
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      max-width: 720px;
+      margin-inline: 0;
+      text-align: left;
+    }
+
+    .solution-stack {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: repeat(5, minmax(0, 1fr));
+      flex: 0 0 clamp(320px, 30vw, 430px);
+      width: clamp(320px, 30vw, 430px);
+      margin-left: auto;
+    }
+
+    .solution-card {
+      min-height: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: clamp(0.8rem, 1.4vw, 1.1rem) clamp(1.1rem, 1.8vw, 1.5rem);
+      background: var(--surface);
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+      transition:
+        transform 0.25s var(--ease-premium),
+        background-color 0.25s var(--ease-premium),
+        color 0.25s var(--ease-premium);
+    }
+
+    .solution-card:last-child {
+      border-bottom: 0;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-2px);
+      background: #fcbf49;
+      color: #003049;
+    }
+
+    .solution-card h2 {
+      font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+      line-height: 1.15;
+      margin: 0;
+      color: currentColor;
+    }
+
+    .solution-card-arrow {
+      margin-left: auto;
+      color: currentColor;
+      font-size: 1.25rem;
+      line-height: 1;
+      transition: transform 0.25s var(--ease-premium);
+    }
+
+    .solution-card:hover .solution-card-arrow {
+      transform: translateX(0.25rem);
+    }
+
+    @media (max-width: 820px) {
+      .solution-layout {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .solution-title {
+        max-width: 100%;
+      }
+
+      .solution-stack {
+        grid-template-rows: auto;
+        width: 100%;
+        flex-basis: auto;
+        min-height: 0;
+        margin-top: 0.5rem;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .solution-hero {
+        padding-block: calc(var(--nav-height) + 1.75rem) 2.5rem;
+      }
+    }
+  </style>
 </Layout>

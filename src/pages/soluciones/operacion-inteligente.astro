@@ -1,13 +1,194 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+
+const structureCards = [
+  {
+    title: 'PAOS',
+    href: '/soluciones/operacion-inteligente/paos',
+  },
+  {
+    title: 'Automatización',
+    href: '/soluciones/operacion-inteligente/automatizacion',
+  },
+  {
+    title: 'CRM y seguimiento',
+    href: '/soluciones/operacion-inteligente/crm-seguimiento',
+  },
+  {
+    title: 'Dashboards',
+    href: '/soluciones/operacion-inteligente/dashboards',
+  },
+  {
+    title: 'Integraciones',
+    href: '/soluciones/operacion-inteligente/integraciones',
+  },
+];
 ---
-<Layout title="Operación Inteligente" description="PAOS, CRM, dashboards internos y automatización de procesos para operar con orden, no con memoria.">
-  <section style="background: var(--surface); min-height: calc(100dvh - var(--nav-height));" class="flex items-center">
-    <div class="container-libera py-40">
-      <p class="eyebrow mb-6" style="color: var(--operacion); font-family: var(--font-mono);">Soluciones</p>
-      <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">Operación Inteligente</h1>
-      <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;">PAOS, CRM simple, dashboards internos y automatización de procesos. Para que tu negocio funcione con orden, no con memoria.</p>
-      <a href="/soluciones" style="color: var(--orange); font-size: 0.875rem; font-weight: 500;">← Volver a Soluciones</a>
+
+<Layout
+  title="Operación Interna"
+  description="PAOS, automatización, CRM, dashboards e integraciones para ordenar la operación interna de tu negocio y trabajar con más control."
+>
+  <section class="operation-page">
+    <div class="operation-hero">
+      <div class="container-libera operation-layout">
+        <div class="operation-copy-block" data-reveal>
+          <h1 class="display-hero operation-title">Operación Interna</h1>
+          <div class="operation-hero-text">
+            <p>
+              Construimos la estructura operativa de tu negocio: mensajes, leads y tareas en su lugar, seguimiento visible y decisiones que no dependen de la memoria del equipo.
+            </p>
+            <p>
+              La mayoría de los equipos trabaja con información dispersa en WhatsApp, correos y aplicaciones que no se integran. Operación Interna conecta esas herramientas, define qué hace cada quien y libera al equipo de mantener el orden a mano.
+            </p>
+          </div>
+        </div>
+
+        <div id="estructura" class="operation-stack" aria-label="Estructura de Operación Interna" data-reveal>
+          {structureCards.map((card) => (
+            <a href={card.href} class="operation-card">
+              <h2>{card.title}</h2>
+              <span class="operation-card-arrow" aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
+
+  <style>
+    .operation-page {
+      background: #ffffff;
+      color: var(--text-primary);
+    }
+
+    .operation-hero {
+      min-height: auto;
+      display: flex;
+      align-items: flex-start;
+      padding-block: calc(var(--nav-height) + clamp(3.75rem, 6vw, 5.5rem)) clamp(4rem, 7vw, 6rem);
+      background: #ffffff;
+    }
+
+    .operation-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: clamp(2.5rem, 6vw, 6.5rem);
+      width: 100%;
+    }
+
+    .operation-copy-block {
+      display: grid;
+      justify-items: start;
+      flex: 0 1 680px;
+      width: 100%;
+      max-width: 680px;
+      text-align: left;
+    }
+
+    .operation-title {
+      color: var(--text-primary);
+      max-width: 12ch;
+      margin-inline: 0;
+    }
+
+    .operation-hero-text {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.75rem;
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      max-width: 720px;
+      margin-inline: 0;
+      text-align: left;
+    }
+
+    .operation-stack {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: repeat(5, minmax(0, 1fr));
+      flex: 0 0 clamp(320px, 30vw, 430px);
+      width: clamp(320px, 30vw, 430px);
+      margin-left: auto;
+    }
+
+    .operation-card {
+      min-height: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: clamp(0.8rem, 1.4vw, 1.1rem) clamp(1.1rem, 1.8vw, 1.5rem);
+      background: var(--surface);
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+      transition:
+        transform 0.25s var(--ease-premium),
+        background-color 0.25s var(--ease-premium),
+        color 0.25s var(--ease-premium);
+    }
+
+    .operation-card:last-child {
+      border-bottom: 0;
+    }
+
+    .operation-card:hover {
+      transform: translateY(-2px);
+      background: #003049;
+      color: #ffffff;
+    }
+
+    .operation-card h2 {
+      font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+      line-height: 1.15;
+      margin: 0;
+      color: currentColor;
+    }
+
+    .operation-card-arrow {
+      margin-left: auto;
+      color: currentColor;
+      font-size: 1.25rem;
+      line-height: 1;
+      transition: transform 0.25s var(--ease-premium);
+    }
+
+    .operation-card:hover .operation-card-arrow {
+      transform: translateX(0.25rem);
+    }
+
+    @media (max-width: 820px) {
+      .operation-layout {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .operation-title {
+        max-width: 100%;
+      }
+
+      .operation-stack {
+        grid-template-rows: auto;
+        width: 100%;
+        flex-basis: auto;
+        min-height: 0;
+        margin-top: 0.5rem;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .operation-hero {
+        padding-block: calc(var(--nav-height) + 1.75rem) 2.5rem;
+      }
+
+      .operation-stack {
+        grid-template-columns: 1fr;
+      }
+
+    }
+  </style>
 </Layout>
