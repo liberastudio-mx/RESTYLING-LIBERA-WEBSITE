@@ -122,85 +122,14 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
         </div>
       </div>
 
-      <!-- ── Guías, MEGA EDITORIAL ─────────────────────────────────── -->
-      <div class="relative group">
-        <button class="nav-btn flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium" aria-haspopup="true" aria-expanded="false">
-          Guías
-          <svg class="chevron w-3 h-3 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <path d="M1 1.5l5 5 5-5"/>
-          </svg>
-        </button>
-
-        <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[680px] rounded-2xl opacity-0 invisible translate-y-2 transition-all duration-200 pointer-events-none"
-          style="background: #ffffff; border: 1px solid rgba(0,48,73,0.1); box-shadow: 0 24px 60px rgba(0,48,73,0.1);"
-        >
-          <div class="grid grid-cols-2 gap-1 p-5">
-            {[
-              { heading: 'PAOS',                 accent: BRAND_COLORS[0],
-                links: [['Qué es un PAOS','/guias/paos/que-es-un-paos'],['Cómo ordenar tu operación','/guias/paos'],['PAOS vs CRM','/guias/paos'],['PAOS para pequeños negocios','/guias/paos']] },
-              { heading: 'Automatización',       accent: BRAND_COLORS[1],
-                links: [['Qué automatizar primero','/guias/automatizacion'],['n8n vs Make vs Zapier','/guias/automatizacion'],['Cuándo no automatizar','/guias/automatizacion'],['Automatización con WhatsApp','/guias/automatizacion']] },
-              { heading: 'Inteligencia Artificial', accent: BRAND_COLORS[2],
-                links: [['Qué es un agente de IA','/guias/inteligencia-artificial/agentes-ia-empresa'],['Agente IA vs chatbot','/guias/inteligencia-artificial'],['IA para atención al cliente','/guias/inteligencia-artificial'],['Errores comunes con IA','/guias/inteligencia-artificial']] },
-              { heading: 'Presencia Digital',    accent: BRAND_COLORS[3],
-                links: [['Qué debe tener una web','/guias/presencia-digital'],['Web vs landing page','/guias/presencia-digital'],['Google Maps para negocios','/guias/presencia-digital'],['Por qué tu web no convierte','/guias/presencia-digital/como-saber-si-tu-web-convierte']] },
-            ].map((col) => (
-              <div class="px-4 py-3 rounded-xl hover:bg-[#003049]/[0.03] transition-colors duration-150">
-                <p class="text-xs font-mono font-semibold tracking-widest uppercase mb-3" style={`color:${col.accent}; font-family: var(--font-mono);`}>{col.heading}</p>
-                <ul class="space-y-1.5">
-                  {col.links.map(([label, href]) => (
-                    <li><a href={href} class="block text-sm py-0.5 leading-snug transition-colors duration-150 hover:text-[#003049]" style="color: rgba(0,48,73,0.55);">{label}</a></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div class="mx-5 mb-5 px-5 py-4 rounded-xl" style="background: rgba(0,48,73,0.04); border: 1px solid rgba(0,48,73,0.1);">
-            <p class="text-xs mb-2" style="color: rgba(0,48,73,0.45);">Empieza por aquí:</p>
-            <a href="/guias/paos/que-es-un-paos" class="text-sm font-medium hover:opacity-70 transition-opacity duration-150" style="color: #003049;">
-              "¿Necesita tu negocio una web, una automatización o un sistema completo?" →
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── Radar, DROPDOWN SIMPLE ────────────────────────────────── -->
-      <div class="relative group">
-        <button class="nav-btn flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium" aria-haspopup="true" aria-expanded="false">
-          Radar
-          <svg class="chevron w-3 h-3 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <path d="M1 1.5l5 5 5-5"/>
-          </svg>
-        </button>
-
-        <div class="dropdown absolute top-full left-0 mt-3 w-52 rounded-2xl opacity-0 invisible translate-y-2 transition-all duration-200 pointer-events-none"
-          style="background: #ffffff; border: 1px solid rgba(0,48,73,0.1); box-shadow: 0 16px 40px rgba(0,48,73,0.1);"
-        >
-          <ul class="p-2">
-            {[
-              ['AI',            '/radar/ai',          '#d62828'],
-              ['Automatización','/radar/automation',   '#f77f00'],
-              ['Tools',         '/radar/tools',        '#fcbf49'],
-              ['Web',           '/radar/web',          '#003049'],
-              ['SEO',           '/radar/seo',          '#d62828'],
-              ['Experimentos',  '/radar/experiments',  '#f77f00'],
-              ['Opinión',       '/radar/opinion',      '#fcbf49'],
-            ].map(([label, href, dot]) => (
-              <li>
-                <a href={href} class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm transition-all duration-150 hover:bg-[#003049]/[0.04] hover:text-[#003049]" style="color: rgba(0,48,73,0.65);">
-                  <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style={`background: ${dot};`} aria-hidden="true"></span>
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div class="mx-2 mb-2 px-4 py-2.5 rounded-xl" style="border-top: 1px solid rgba(0,48,73,0.1);">
-            <a href="/radar" class="flex items-center justify-between text-xs font-medium transition-opacity duration-150 hover:opacity-70" style="color: rgba(0,48,73,0.5);">
-              Ver todo Radar <span style="color: var(--orange);">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <!-- ── Radar, LINK DIRECTO ──────────────────────────────────── -->
+      <a
+        href="/radar"
+        class="nav-btn px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        aria-current={currentPath === '/radar' ? 'page' : undefined}
+      >
+        Radar
+      </a>
 
       <!-- ── Nosotros, LINK DIRECTO ─────────────────────────────── -->
       <a
@@ -254,7 +183,6 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
       {[
         { label: 'Soluciones',  href: '/soluciones' },
         { label: 'Trabajo',     href: '/trabajo' },
-        { label: 'Guías',       href: '/guias' },
         { label: 'Radar',       href: '/radar' },
         { label: 'Nosotros',    href: '/nosotros' },
       ].map((link, i) => (
