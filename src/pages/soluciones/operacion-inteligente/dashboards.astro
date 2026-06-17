@@ -1,0 +1,830 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout
+  title="Dashboards | Operación Interna"
+  description="Construimos tableros que muestran lo que importa, en el formato que tu equipo puede leer en dos minutos. Sin exportar Excel. Sin preguntar a nadie."
+>
+  <main class="dash-page">
+
+    <!-- BREADCRUMB -->
+    <nav class="dash-breadcrumb container-libera" aria-label="Navegación de migas de pan">
+      <a href="/soluciones">Soluciones</a>
+      <span aria-hidden="true">›</span>
+      <a href="/soluciones/operacion-inteligente">Operación Interna</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Dashboards</span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="dash-hero">
+      <div class="container-libera dash-hero-grid">
+
+        <div class="dash-hero-copy" data-reveal>
+          <span class="dash-kicker">04 · Dashboards</span>
+          <h1 class="dash-title display-hero">
+            <em>Dashboards:</em> el estado real de tu negocio en un solo vistazo
+          </h1>
+          <div class="dash-hero-dots" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="dash-lead">
+            Construimos tableros que muestran lo que importa, en el formato que tu equipo puede leer en dos minutos. Sin exportar Excel. Sin preguntar a nadie.
+          </p>
+        </div>
+
+        <!-- Mock dashboard -->
+        <aside class="dash-mock" aria-hidden="true" data-reveal>
+          <div class="dash-mock-inner">
+            <div class="dash-mock-sidebar">
+              <div class="dash-mock-logo">A</div>
+              <div class="dash-mock-nav">
+                <span class="dash-nav-item dash-nav-item--active">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+                </span>
+                <span class="dash-nav-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2a6 6 0 1 0 0 12A6 6 0 0 0 8 2z"/><path d="M8 5v3l2 1"/></svg></span>
+                <span class="dash-nav-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1"/><line x1="2" y1="6" x2="14" y2="6"/></svg></span>
+                <span class="dash-nav-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="4" height="4" rx="0.5"/><rect x="9" y="3" width="4" height="4" rx="0.5"/><rect x="3" y="9" width="4" height="4" rx="0.5"/><path d="M9 11h4M11 9v4"/></svg></span>
+                <span class="dash-nav-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="13" x2="3" y2="8"/><line x1="7" y1="13" x2="7" y2="5"/><line x1="11" y1="13" x2="11" y2="9"/></svg></span>
+                <span class="dash-nav-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M8 2v1M8 13v1M2 8h1M13 8h1M3.5 3.5l.7.7M11.8 11.8l.7.7M3.5 12.5l.7-.7M11.8 4.2l.7-.7"/></svg></span>
+              </div>
+            </div>
+
+            <div class="dash-mock-main">
+              <!-- Topbar -->
+              <div class="dash-mock-topbar">
+                <span class="dash-mock-page-title">Resumen general</span>
+                <div class="dash-mock-topbar-right">
+                  <span class="dash-mock-period">Semana actual ∨</span>
+                  <div class="dash-notif-wrap">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5.3A4 4 0 0 0 4 5.3c0 4.7-2 6-2 6h12s-2-1.3-2-6"/><path d="M9.15 14a1.35 1.35 0 0 1-2.3 0"/></svg>
+                    <span class="dash-notif-dot"></span>
+                  </div>
+                  <div class="dash-mock-avatar"></div>
+                </div>
+              </div>
+
+              <!-- KPI row -->
+              <div class="dash-kpi-row">
+                <div class="dash-kpi">
+                  <div class="dash-kpi-top">
+                    <span class="dash-kpi-label">Leads nuevos</span>
+                    <svg class="dash-kpi-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M14 14c0-3.3-2.7-6-6-6S2 10.7 2 14"/></svg>
+                  </div>
+                  <span class="dash-kpi-value">128</span>
+                  <span class="dash-kpi-delta dash-delta--up">↑ 18%</span>
+                  <span class="dash-kpi-sub">vs. semana anterior</span>
+                </div>
+                <div class="dash-kpi">
+                  <div class="dash-kpi-top">
+                    <span class="dash-kpi-label">Conversión a cliente</span>
+                    <svg class="dash-kpi-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 12 6 7 9 10 14 4"/></svg>
+                  </div>
+                  <span class="dash-kpi-value">23%</span>
+                  <span class="dash-kpi-delta dash-delta--up">↑ 3 p.p.</span>
+                  <span class="dash-kpi-sub">vs. semana anterior</span>
+                </div>
+                <div class="dash-kpi">
+                  <div class="dash-kpi-top">
+                    <span class="dash-kpi-label">Tareas atrasadas</span>
+                    <svg class="dash-kpi-icon dash-kpi-icon--warn" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><polyline points="8 5 8 8 10 9"/></svg>
+                  </div>
+                  <span class="dash-kpi-value">45</span>
+                  <span class="dash-kpi-delta dash-delta--up">↑ 12%</span>
+                  <span class="dash-kpi-sub">vs. semana anterior</span>
+                </div>
+                <div class="dash-kpi">
+                  <div class="dash-kpi-top">
+                    <span class="dash-kpi-label">Ingresos facturados</span>
+                    <svg class="dash-kpi-icon dash-kpi-icon--green" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><line x1="8" y1="5" x2="8" y2="11"/><line x1="5.5" y1="7" x2="10.5" y2="7"/></svg>
+                  </div>
+                  <span class="dash-kpi-value">$4.850K</span>
+                  <span class="dash-kpi-delta dash-delta--up">↑ 22%</span>
+                  <span class="dash-kpi-sub">vs. semana anterior</span>
+                </div>
+              </div>
+
+              <!-- Charts row -->
+              <div class="dash-charts-row">
+                <!-- Line chart -->
+                <div class="dash-chart-card">
+                  <p class="dash-chart-title">Leads nuevos por día</p>
+                  <div class="dash-line-chart">
+                    <div class="dash-y-axis">
+                      <span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
+                    </div>
+                    <div class="dash-chart-area">
+                      <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.18"/>
+                            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                          </linearGradient>
+                        </defs>
+                        <path d="M0 65 C20 60 30 55 50 50 C70 45 80 30 100 28 C120 26 130 35 150 20 C165 10 180 15 200 18" fill="none" stroke="#3b82f6" stroke-width="2"/>
+                        <path d="M0 65 C20 60 30 55 50 50 C70 45 80 30 100 28 C120 26 130 35 150 20 C165 10 180 15 200 18 L200 80 L0 80 Z" fill="url(#lineGrad)"/>
+                        <circle cx="150" cy="20" r="3.5" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+                        <rect x="138" y="8" width="24" height="10" rx="2" fill="#3b82f6"/>
+                        <text x="150" y="16" text-anchor="middle" font-size="6" fill="#fff" font-weight="600">28</text>
+                      </svg>
+                      <div class="dash-x-axis">
+                        <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Funnel chart -->
+                <div class="dash-chart-card">
+                  <p class="dash-chart-title">Embudo de ventas</p>
+                  <div class="dash-funnel">
+                    <div class="dash-funnel-row">
+                      <span class="dash-funnel-label">Leads</span>
+                      <div class="dash-funnel-bar-wrap">
+                        <div class="dash-funnel-bar" style="width:100%;background:#3b82f6"></div>
+                      </div>
+                      <span class="dash-funnel-num">128</span>
+                    </div>
+                    <div class="dash-funnel-row">
+                      <span class="dash-funnel-label">Contactados</span>
+                      <div class="dash-funnel-bar-wrap">
+                        <div class="dash-funnel-bar" style="width:67%;background:#60a5fa"></div>
+                      </div>
+                      <span class="dash-funnel-num">86</span>
+                    </div>
+                    <div class="dash-funnel-row">
+                      <span class="dash-funnel-label">Propuesta</span>
+                      <div class="dash-funnel-bar-wrap">
+                        <div class="dash-funnel-bar" style="width:36%;background:#93c5fd"></div>
+                      </div>
+                      <span class="dash-funnel-num">46</span>
+                    </div>
+                    <div class="dash-funnel-row">
+                      <span class="dash-funnel-label">Negociación</span>
+                      <div class="dash-funnel-bar-wrap">
+                        <div class="dash-funnel-bar" style="width:18%;background:#bfdbfe"></div>
+                      </div>
+                      <span class="dash-funnel-num">23</span>
+                    </div>
+                    <div class="dash-funnel-row">
+                      <span class="dash-funnel-label">Cerrados</span>
+                      <div class="dash-funnel-bar-wrap">
+                        <div class="dash-funnel-bar" style="width:12%;background:#2ecc71"></div>
+                      </div>
+                      <span class="dash-funnel-num">16</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Alerts + Pending -->
+              <div class="dash-lower-row">
+                <div class="dash-alerts-card">
+                  <p class="dash-panel-title">Alertas</p>
+                  <div class="dash-alert-item">
+                    <svg class="dash-alert-icon dash-alert-icon--red" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L1.5 13h13L8 2z"/><line x1="8" y1="7" x2="8" y2="10"/><circle cx="8" cy="12" r="0.5" fill="currentColor"/></svg>
+                    <div>
+                      <span class="dash-alert-title">Tareas atrasadas por más de 3 días</span>
+                      <span class="dash-alert-sub">12 tareas</span>
+                    </div>
+                  </div>
+                  <div class="dash-alert-item">
+                    <svg class="dash-alert-icon dash-alert-icon--orange" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L1.5 13h13L8 2z"/><line x1="8" y1="7" x2="8" y2="10"/><circle cx="8" cy="12" r="0.5" fill="currentColor"/></svg>
+                    <div>
+                      <span class="dash-alert-title">Leads sin respuesta</span>
+                      <span class="dash-alert-sub">28 leads</span>
+                    </div>
+                  </div>
+                  <div class="dash-alert-item">
+                    <svg class="dash-alert-icon dash-alert-icon--orange" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L1.5 13h13L8 2z"/><line x1="8" y1="7" x2="8" y2="10"/><circle cx="8" cy="12" r="0.5" fill="currentColor"/></svg>
+                    <div>
+                      <span class="dash-alert-title">Conversión por debajo del objetivo</span>
+                      <span class="dash-alert-sub">23% vs. objetivo 30%</span>
+                    </div>
+                  </div>
+                  <span class="dash-mock-link">Ver todas las alertas →</span>
+                </div>
+
+                <div class="dash-pending-card">
+                  <p class="dash-panel-title">Pendientes importantes</p>
+                  <div class="dash-pending-item">
+                    <svg class="dash-pend-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="2" width="12" height="11" rx="1"/><line x1="1" y1="5.5" x2="13" y2="5.5"/></svg>
+                    <div class="dash-pend-body">
+                      <span class="dash-pend-title">Enviar propuesta a TechNova</span>
+                      <span class="dash-pend-sub">Asignado a: Andrea Soto</span>
+                    </div>
+                    <span class="dash-pend-due dash-due--today">Hoy</span>
+                  </div>
+                  <div class="dash-pending-item">
+                    <svg class="dash-pend-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="2" width="12" height="11" rx="1"/><line x1="1" y1="5.5" x2="13" y2="5.5"/></svg>
+                    <div class="dash-pend-body">
+                      <span class="dash-pend-title">Seguimiento con Juan Pérez</span>
+                      <span class="dash-pend-sub">Asignado a: Carlos Ruiz</span>
+                    </div>
+                    <span class="dash-pend-due dash-due--tomorrow">Mañana</span>
+                  </div>
+                  <div class="dash-pending-item">
+                    <svg class="dash-pend-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><polyline points="2 7 5 10 12 3"/></svg>
+                    <div class="dash-pend-body">
+                      <span class="dash-pend-title">Factura pendiente a Grupo Andino</span>
+                      <span class="dash-pend-sub">Asignado a: Finanzas</span>
+                    </div>
+                    <span class="dash-pend-due dash-due--2d">2 días</span>
+                  </div>
+                  <span class="dash-mock-link">Ver todos los pendientes →</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="dash-content">
+      <div class="container-libera dash-content-grid">
+
+        <div class="dash-body" data-reveal>
+          <p>
+            Muchos negocios toman decisiones con información incompleta, porque reunir los datos lleva tiempo y nadie tiene ese tiempo todos los días. Las ventas están en una hoja, las tareas en otro sistema, los mensajes pendientes en el chat. El panorama real existe, pero hay que armarlo a mano.
+          </p>
+          <p>
+            Un dashboard bien construido elimina ese trabajo. Conecta tus fuentes de información y las presenta en un lugar único, actualizado en tiempo real, organizado para que cualquier persona del equipo entienda el estado del negocio sin que nadie tenga que explicárselo.
+          </p>
+          <p>
+            No construimos dashboards decorativos. Construimos tableros que responden preguntas concretas: cuántos leads entraron esta semana, cuáles están sin respuesta, cuántas tareas están atrasadas, cómo va el mes frente al objetivo.
+          </p>
+        </div>
+
+        <div class="dash-features" data-reveal>
+          <h2 class="dash-features-title">Lo que construimos</h2>
+          <ul class="dash-features-list">
+            <li>
+              <svg class="dash-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              Tableros operativos por área: ventas, atención, operación, finanzas
+            </li>
+            <li>
+              <svg class="dash-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Vista de indicadores clave actualizada sin intervención manual
+            </li>
+            <li>
+              <svg class="dash-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              Alertas automáticas cuando algo se sale del rango esperado
+            </li>
+            <li>
+              <svg class="dash-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Reportes periódicos generados y enviados automáticamente
+            </li>
+            <li>
+              <svg class="dash-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+              Integración con tus fuentes actuales: hojas de cálculo, CRM, apps, formularios
+            </li>
+            <li>
+              <svg class="dash-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Versión para escritorio y para móvil
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="dash-quote">
+      <div class="container-libera dash-quote-inner" data-reveal>
+        <div class="dash-quote-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="26" stroke="var(--orange)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.3"/>
+            <rect x="10" y="18" width="22" height="16" rx="2" stroke="var(--orange)" stroke-width="1.5"/>
+            <rect x="18" y="26" width="22" height="16" rx="2" stroke="var(--orange)" stroke-width="1.5" opacity="0.5"/>
+            <path d="M14 22h14M14 26h10" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <polyline points="22,38 26,32 30,35 36,28 40,31" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="dash-quote-text">
+          <p>Todo el equipo puede ver lo que importa.</p>
+          <p class="dash-quote-orange">Sin exportar Excel. Sin preguntar a nadie.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="dash-cta">
+      <div class="container-libera dash-cta-inner" data-reveal>
+        <div class="dash-cta-copy">
+          <div class="dash-cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="8" width="36" height="28" rx="2" stroke="var(--orange)" stroke-width="1.5"/>
+              <line x1="6" y1="36" x2="42" y2="36" stroke="var(--orange)" stroke-width="1.5"/>
+              <line x1="24" y1="36" x2="24" y2="42" stroke="var(--orange)" stroke-width="1.5"/>
+              <line x1="14" y1="42" x2="34" y2="42" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="44" y="32" width="14" height="24" rx="2" stroke="var(--orange)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="47" y1="36" x2="55" y2="36" stroke="var(--orange)" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="47" y1="40" x2="55" y2="40" stroke="var(--orange)" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+              <polyline points="12,26 18,18 23,22 30,14 36,17" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="36" cy="17" r="2" fill="var(--orange)"/>
+            </svg>
+          </div>
+          <p class="dash-cta-text">
+            Si para saber qué está pasando tienes que preguntar, buscar archivos o juntar reportes a mano, necesitas una vista más clara de tu operación.
+          </p>
+        </div>
+        <a href="/diagnostico" class="btn-primary dash-cta-btn">
+          Ver mis indicadores con claridad
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <style>
+    .dash-page {
+      background: #ffffff;
+      color: var(--text-primary);
+    }
+
+    /* ── BREADCRUMB ── */
+    .dash-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: calc(var(--nav-height) + 1.25rem);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .dash-breadcrumb a { color: var(--text-secondary); transition: color 0.2s; }
+    .dash-breadcrumb a:hover { color: var(--orange); }
+    .dash-breadcrumb [aria-current="page"] { color: var(--orange); font-weight: 600; }
+
+    /* ── HERO ── */
+    .dash-hero {
+      padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    .dash-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .dash-kicker {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+    }
+
+    .dash-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .dash-title em { font-style: normal; color: var(--orange); }
+
+    .dash-hero-dots {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .dash-hero-dots span {
+      display: block;
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 50%;
+      background: var(--orange);
+      opacity: 0.5;
+    }
+
+    .dash-hero-dots span:first-child { opacity: 1; }
+
+    .dash-lead {
+      color: var(--text-secondary);
+      font-size: clamp(0.9rem, 1.15vw, 1rem);
+      line-height: 1.75;
+      max-width: 44ch;
+    }
+
+    /* ── MOCK ── */
+    .dash-mock {
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 28px oklch(0% 0 0 / 0.09);
+      font-size: 0.62rem;
+    }
+
+    .dash-mock-inner {
+      display: flex;
+    }
+
+    .dash-mock-sidebar {
+      width: 2.5rem;
+      background: #003049;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.75rem 0;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .dash-mock-logo {
+      width: 1.4rem;
+      height: 1.4rem;
+      background: var(--orange);
+      border-radius: 0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.7rem;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .dash-mock-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .dash-nav-item {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.25rem;
+      color: oklch(100% 0 0 / 0.4);
+    }
+
+    .dash-nav-item svg { width: 0.85rem; height: 0.85rem; }
+    .dash-nav-item--active { background: oklch(100% 0 0 / 0.12); color: #fff; }
+
+    .dash-mock-main {
+      flex: 1;
+      background: #fafafa;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      min-width: 0;
+    }
+
+    /* Topbar */
+    .dash-mock-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dash-mock-page-title { font-weight: 700; font-size: 0.72rem; color: var(--text-primary); }
+
+    .dash-mock-topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dash-mock-period {
+      font-size: 0.58rem;
+      color: var(--text-secondary);
+      padding: 0.15rem 0.4rem;
+      border: 1px solid var(--border);
+      border-radius: 0.25rem;
+    }
+
+    .dash-notif-wrap {
+      position: relative;
+      display: flex;
+    }
+
+    .dash-notif-wrap svg { width: 0.85rem; height: 0.85rem; color: var(--text-secondary); }
+
+    .dash-notif-dot {
+      position: absolute;
+      top: -0.1rem;
+      right: -0.1rem;
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .dash-mock-avatar {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background: #003049;
+    }
+
+    /* KPIs */
+    .dash-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.4rem;
+    }
+
+    .dash-kpi {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.3rem;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .dash-kpi-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.1rem;
+    }
+
+    .dash-kpi-label { font-size: 0.55rem; color: var(--text-secondary); line-height: 1.2; max-width: 6rem; }
+    .dash-kpi-icon { width: 0.8rem; height: 0.8rem; color: #3b82f6; flex-shrink: 0; }
+    .dash-kpi-icon--warn { color: #e67e22; }
+    .dash-kpi-icon--green { color: #2ecc71; }
+    .dash-kpi-value { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--text-primary); line-height: 1; }
+    .dash-kpi-delta { font-size: 0.55rem; font-weight: 600; }
+    .dash-delta--up { color: #2ecc71; }
+    .dash-kpi-sub { font-size: 0.5rem; color: var(--text-secondary); }
+
+    /* Charts */
+    .dash-charts-row {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 0.4rem;
+    }
+
+    .dash-chart-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.3rem;
+      padding: 0.6rem;
+    }
+
+    .dash-chart-title { font-weight: 700; font-size: 0.6rem; color: var(--text-primary); margin: 0 0 0.4rem; }
+
+    .dash-line-chart {
+      display: flex;
+      gap: 0.25rem;
+      height: 5rem;
+    }
+
+    .dash-y-axis {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+    }
+
+    .dash-y-axis span { font-size: 0.5rem; color: var(--text-secondary); }
+
+    .dash-chart-area { flex: 1; display: flex; flex-direction: column; }
+
+    .dash-chart-area svg { flex: 1; width: 100%; }
+
+    .dash-x-axis {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.15rem 0;
+    }
+
+    .dash-x-axis span { font-size: 0.48rem; color: var(--text-secondary); }
+
+    .dash-funnel { display: flex; flex-direction: column; gap: 0.35rem; }
+
+    .dash-funnel-row {
+      display: grid;
+      grid-template-columns: 5rem 1fr auto;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .dash-funnel-label { font-size: 0.55rem; color: var(--text-secondary); }
+
+    .dash-funnel-bar-wrap {
+      height: 0.5rem;
+      background: var(--border);
+      border-radius: 1px;
+      overflow: hidden;
+    }
+
+    .dash-funnel-bar { height: 100%; border-radius: 1px; }
+    .dash-funnel-num { font-size: 0.55rem; font-weight: 700; color: var(--text-primary); text-align: right; }
+
+    /* Lower */
+    .dash-lower-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+    }
+
+    .dash-alerts-card,
+    .dash-pending-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.3rem;
+      padding: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .dash-panel-title { font-weight: 700; font-size: 0.6rem; color: var(--text-primary); margin: 0 0 0.1rem; }
+
+    .dash-alert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .dash-alert-icon { width: 0.85rem; height: 0.85rem; flex-shrink: 0; margin-top: 0.05rem; }
+    .dash-alert-icon--red { color: #e74c3c; }
+    .dash-alert-icon--orange { color: #e67e22; }
+    .dash-alert-title { display: block; font-size: 0.58rem; font-weight: 600; color: var(--text-primary); }
+    .dash-alert-sub { display: block; font-size: 0.52rem; color: var(--text-secondary); }
+
+    .dash-pending-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: start;
+      gap: 0.3rem;
+    }
+
+    .dash-pend-icon { width: 0.85rem; height: 0.85rem; color: var(--text-secondary); flex-shrink: 0; margin-top: 0.05rem; }
+    .dash-pend-body { display: flex; flex-direction: column; gap: 0.05rem; }
+    .dash-pend-title { font-size: 0.58rem; font-weight: 600; color: var(--text-primary); }
+    .dash-pend-sub { font-size: 0.5rem; color: var(--text-secondary); }
+    .dash-pend-due { font-size: 0.52rem; font-weight: 600; white-space: nowrap; }
+    .dash-due--today { color: #e74c3c; }
+    .dash-due--tomorrow { color: #e67e22; }
+    .dash-due--2d { color: var(--text-secondary); }
+
+    .dash-mock-link { font-size: 0.55rem; color: var(--orange); margin-top: auto; cursor: pointer; }
+
+    /* ── CONTENT ── */
+    .dash-content {
+      padding-block: clamp(3rem, 6vw, 5rem);
+      background: #fff;
+    }
+
+    .dash-content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .dash-body { display: flex; flex-direction: column; gap: 1.1rem; }
+
+    .dash-body p {
+      color: var(--text-secondary);
+      font-size: clamp(0.9rem, 1.1vw, 1rem);
+      line-height: 1.75;
+    }
+
+    .dash-features-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .dash-features-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .dash-features-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      font-size: 0.975rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .dash-feat-icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      color: var(--orange);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    /* ── QUOTE ── */
+    .dash-quote {
+      padding-block: clamp(2.5rem, 5vw, 4rem);
+      background: var(--surface-alt);
+    }
+
+    .dash-quote-inner {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      max-width: 620px;
+      margin-inline: auto;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: #fff;
+    }
+
+    .dash-quote-icon { width: 4rem; height: 4rem; flex-shrink: 0; }
+    .dash-quote-icon svg { width: 100%; height: 100%; }
+
+    .dash-quote-text { display: flex; flex-direction: column; gap: 0.1rem; }
+
+    .dash-quote-text p {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .dash-quote-orange { color: var(--orange) !important; }
+
+    /* ── CTA ── */
+    .dash-cta {
+      padding-block: clamp(2.5rem, 5vw, 4rem);
+      background: #fff;
+    }
+
+    .dash-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    .dash-cta-copy { display: flex; align-items: center; gap: 1.5rem; }
+    .dash-cta-icon { width: 3.5rem; height: 3.5rem; flex-shrink: 0; }
+    .dash-cta-icon svg { width: 100%; height: 100%; }
+
+    .dash-cta-text {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      max-width: 44ch;
+    }
+
+    .dash-cta-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .dash-hero-grid { grid-template-columns: 1fr; }
+      .dash-kpi-row { grid-template-columns: repeat(2, 1fr); }
+      .dash-charts-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 960px) {
+      .dash-content-grid { grid-template-columns: 1fr; }
+      .dash-cta-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      .dash-kpi-row { grid-template-columns: repeat(2, 1fr); }
+      .dash-lower-row { grid-template-columns: 1fr; }
+      .dash-quote-inner { flex-direction: column; align-items: flex-start; }
+      .dash-cta-copy { flex-direction: column; align-items: flex-start; }
+      .dash-cta-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</Layout>

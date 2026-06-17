@@ -1,0 +1,664 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout
+  title="Integraciones | Operación Interna"
+  description="Conectamos las herramientas que ya usas para que trabajen juntas. Sin duplicar datos, sin copiar información de un sistema a otro y sin perder detalles importantes en el camino."
+>
+  <main class="int-page">
+
+    <!-- BREADCRUMB -->
+    <nav class="int-breadcrumb container-libera" aria-label="Navegación de migas de pan">
+      <a href="/soluciones">Soluciones</a>
+      <span aria-hidden="true">›</span>
+      <a href="/soluciones/operacion-inteligente">Operación Interna</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Integraciones</span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="int-hero">
+      <div class="container-libera int-hero-grid">
+
+        <div class="int-hero-copy" data-reveal>
+          <span class="int-kicker">05 · Integraciones</span>
+          <h1 class="int-title display-hero">
+            <em>Integraciones:</em> tus herramientas conectadas, tu operación sin fricciones
+          </h1>
+          <div class="int-hero-dots" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="int-lead">
+            Conectamos las herramientas que ya usas para que trabajen juntas. Sin duplicar datos, sin copiar información de un sistema a otro y sin perder detalles importantes en el camino.
+          </p>
+        </div>
+
+        <!-- Mock integration diagram -->
+        <aside class="int-mock" aria-hidden="true" data-reveal>
+          <!-- Top row -->
+          <div class="int-diagram">
+            <div class="int-diagram-top">
+              <div class="int-tool int-tool--web">
+                <div class="int-tool-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="14" rx="2"/><line x1="3" y1="8" x2="21" y2="8"/><circle cx="6" cy="5.5" r="0.8" fill="currentColor"/><circle cx="9" cy="5.5" r="0.8" fill="currentColor"/></svg>
+                </div>
+                <span>Formulario web</span>
+              </div>
+              <div class="int-tool int-tool--wa">
+                <div class="int-tool-icon int-tool-icon--wa">
+                  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.985-1.398A9.961 9.961 0 0 0 12 22c5.523 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+                </div>
+                <span>WhatsApp</span>
+              </div>
+              <div class="int-tool int-tool--crm">
+                <div class="int-tool-icon int-tool-icon--crm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span>CRM</span>
+              </div>
+            </div>
+
+            <!-- Middle row -->
+            <div class="int-diagram-middle">
+              <div class="int-tool int-tool--sheets">
+                <div class="int-tool-icon int-tool-icon--sheets">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                </div>
+                <span>Google Sheets</span>
+              </div>
+
+              <!-- Hub -->
+              <div class="int-hub">
+                <div class="int-hub-icon">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M16 4l4 6h-3v6h6v-3l6 4-6 4v-3h-6v6h3l-4 6-4-6h3v-6H9v3l-6-4 6-4v3h6V10h-3z" stroke="var(--orange)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="int-hub-label">Motor de flujos</span>
+                <span class="int-hub-sub">APIs & Webhooks</span>
+              </div>
+
+              <div class="int-tool int-tool--email">
+                <div class="int-tool-icon int-tool-icon--email">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <span>Email</span>
+              </div>
+            </div>
+
+            <!-- Second middle row -->
+            <div class="int-diagram-middle">
+              <div class="int-tool int-tool--airtable">
+                <div class="int-tool-icon int-tool-icon--airtable">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M3 6l9-3 9 3-9 3z"/><path d="M3 6v6l9 3 9-3V6"/><path d="M3 15v3l9 3 9-3v-3"/></svg>
+                </div>
+                <span>Airtable</span>
+              </div>
+
+              <div class="int-hub-spacer"></div>
+
+              <div class="int-tool int-tool--billing">
+                <div class="int-tool-icon int-tool-icon--billing">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="10" y1="15" x2="14" y2="15"/></svg>
+                </div>
+                <span>Facturación</span>
+              </div>
+            </div>
+
+            <!-- Bottom row -->
+            <div class="int-diagram-bottom">
+              <div class="int-tool int-tool--pay">
+                <div class="int-tool-icon int-tool-icon--pay">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+                <span>Pasarela de pagos</span>
+              </div>
+              <div class="int-tool int-tool--db">
+                <div class="int-tool-icon int-tool-icon--db">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <span>Base de datos</span>
+              </div>
+              <div class="int-tool int-tool--api">
+                <div class="int-tool-icon int-tool-icon--api">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <span>Webhooks / API</span>
+              </div>
+            </div>
+
+            <!-- Connector lines overlay -->
+            <div class="int-connectors" aria-hidden="true">
+              <svg viewBox="0 0 320 280" preserveAspectRatio="none">
+                <!-- Top to hub -->
+                <path d="M53 58 L53 140 L120 140" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3" marker-end="url(#arr)"/>
+                <path d="M160 58 L160 110" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+                <path d="M267 58 L267 140 L200 140" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+                <!-- Left/right mid to hub -->
+                <path d="M80 140 L120 140" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+                <path d="M200 140 L240 140" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+                <path d="M80 175 L120 155" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+                <path d="M200 155 L240 175" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+                <!-- Hub to bottom -->
+                <path d="M80 222 L120 175" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+                <path d="M160 170 L160 200" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+                <path d="M240 222 L200 175" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+              </svg>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="int-content">
+      <div class="container-libera int-content-grid">
+
+        <div class="int-body" data-reveal>
+          <p>La mayoría de los negocios no tiene un problema de herramientas. Tiene un problema de conexión.</p>
+          <p>
+            El formulario del sitio no habla con el CRM. El CRM no avisa al equipo por WhatsApp. La factura se genera en una plataforma y se registra a mano en otra. El pago entra por un sistema, pero alguien tiene que actualizar el estado en una hoja de cálculo.
+          </p>
+          <p>Cada vez que un dato pasa de una app a otra, alguien lo tiene que mover.</p>
+          <p>
+            Ese trabajo invisible acumula horas cada semana, genera errores cada mes y hace que la operación dependa demasiado de pasos manuales que podrían resolverse mejor.
+          </p>
+          <p>
+            Diseñamos integraciones a medida entre las plataformas que ya forman parte de tu negocio: sitio web, WhatsApp Business, Google Sheets, Airtable, Notion, sistemas de facturación, pasarelas de pago, plataformas de email, CRM y cualquier herramienta que pueda conectarse mediante API o webhooks.
+          </p>
+          <p>
+            Cuando las piezas se conectan, la información fluye mejor, el equipo trabaja con menos fricción y cada sistema deja de funcionar como una isla separada.
+          </p>
+        </div>
+
+        <div class="int-features" data-reveal>
+          <h2 class="int-features-title">Lo que construimos</h2>
+          <ul class="int-features-list">
+            <li>
+              <svg class="int-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              Integración entre formularios del sitio y tu CRM o base de datos.
+            </li>
+            <li>
+              <svg class="int-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Notificaciones automáticas por WhatsApp, correo o canales internos.
+            </li>
+            <li>
+              <svg class="int-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+              Sincronización de datos entre plataformas sin intervención manual.
+            </li>
+            <li>
+              <svg class="int-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Conexión entre pagos, facturación y registros internos.
+            </li>
+            <li>
+              <svg class="int-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Flujos con APIs y webhooks para herramientas sin integración nativa.
+            </li>
+            <li>
+              <svg class="int-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              Documentación clara para que tu equipo entienda cómo funciona cada conexión.
+            </li>
+            <li>
+              <svg class="int-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Estructura preparada para futuras automatizaciones y reportes.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="int-quote">
+      <div class="container-libera int-quote-inner" data-reveal>
+        <div class="int-quote-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="10" stroke="var(--orange)" stroke-width="1.5"/>
+            <circle cx="32" cy="32" r="4" fill="var(--orange)"/>
+            <circle cx="10" cy="20" r="5" stroke="var(--orange)" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="54" cy="20" r="5" stroke="var(--orange)" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="10" cy="44" r="5" stroke="var(--orange)" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="54" cy="44" r="5" stroke="var(--orange)" stroke-width="1.5" opacity="0.6"/>
+            <line x1="15" y1="22" x2="23" y2="27" stroke="var(--orange)" stroke-width="1.2" stroke-dasharray="3 2" opacity="0.5"/>
+            <line x1="41" y1="27" x2="49" y2="22" stroke="var(--orange)" stroke-width="1.2" stroke-dasharray="3 2" opacity="0.5"/>
+            <line x1="15" y1="42" x2="23" y2="37" stroke="var(--orange)" stroke-width="1.2" stroke-dasharray="3 2" opacity="0.5"/>
+            <line x1="41" y1="37" x2="49" y2="42" stroke="var(--orange)" stroke-width="1.2" stroke-dasharray="3 2" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="int-quote-lines">
+          <p>La información fluye <em>mejor.</em></p>
+          <p>El equipo trabaja con <em>menos fricción.</em></p>
+          <p>Cada sistema <em>deja de funcionar como una isla.</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="int-cta">
+      <div class="container-libera int-cta-inner" data-reveal>
+        <div class="int-cta-copy">
+          <div class="int-cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 72 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- plug -->
+              <rect x="28" y="22" width="16" height="12" rx="2" stroke="var(--orange)" stroke-width="1.5"/>
+              <line x1="36" y1="34" x2="36" y2="42" stroke="var(--orange)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M30 22v-4M42 22v-4" stroke="var(--orange)" stroke-width="2" stroke-linecap="round"/>
+              <!-- WA bubble -->
+              <circle cx="8" cy="12" r="7" stroke="var(--orange)" stroke-width="1.2" opacity="0.6"/>
+              <path d="M11 8.5c0 1.5-1.5 3-3 3a3 3 0 0 1-1.4-.35L4 12l.85-2.6A3 3 0 1 1 11 8.5z" stroke="var(--orange)" stroke-width="1" fill="none" opacity="0.6"/>
+              <!-- DB -->
+              <ellipse cx="8" cy="44" rx="7" ry="3" stroke="var(--orange)" stroke-width="1.2" opacity="0.6"/>
+              <path d="M1 44v5c0 1.66 3.13 3 7 3s7-1.34 7-3v-5" stroke="var(--orange)" stroke-width="1.2" opacity="0.6"/>
+              <!-- Sheets -->
+              <rect x="57" y="6" width="14" height="14" rx="1" stroke="var(--orange)" stroke-width="1.2" opacity="0.6"/>
+              <line x1="57" y1="10" x2="71" y2="10" stroke="var(--orange)" stroke-width="1" opacity="0.5"/>
+              <line x1="64" y1="6" x2="64" y2="20" stroke="var(--orange)" stroke-width="1" opacity="0.5"/>
+              <!-- Mail -->
+              <rect x="57" y="36" width="14" height="10" rx="1" stroke="var(--orange)" stroke-width="1.2" opacity="0.6"/>
+              <polyline points="57,37 64,42 71,37" stroke="var(--orange)" stroke-width="1" opacity="0.5"/>
+              <!-- Lines -->
+              <line x1="15" y1="12" x2="28" y2="28" stroke="var(--orange)" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
+              <line x1="15" y1="44" x2="28" y2="36" stroke="var(--orange)" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
+              <line x1="57" y1="13" x2="44" y2="28" stroke="var(--orange)" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
+              <line x1="57" y1="41" x2="44" y2="36" stroke="var(--orange)" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="int-cta-text-wrap">
+            <p class="int-cta-title">Una operación integrada no necesita más pasos manuales para crecer.</p>
+            <p class="int-cta-sub">Necesita herramientas que se comuniquen entre sí y un sistema que mantenga la información en movimiento.</p>
+          </div>
+        </div>
+        <a href="/diagnostico" class="btn-primary int-cta-btn">
+          Conectar mis herramientas
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <style>
+    .int-page {
+      background: #ffffff;
+      color: var(--text-primary);
+    }
+
+    /* ── BREADCRUMB ── */
+    .int-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: calc(var(--nav-height) + 1.25rem);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .int-breadcrumb a { color: var(--text-secondary); transition: color 0.2s; }
+    .int-breadcrumb a:hover { color: var(--orange); }
+    .int-breadcrumb [aria-current="page"] { color: var(--orange); font-weight: 600; }
+
+    /* ── HERO ── */
+    .int-hero {
+      padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    .int-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .int-kicker {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+    }
+
+    .int-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .int-title em { font-style: normal; color: var(--orange); }
+
+    .int-hero-dots {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .int-hero-dots span {
+      display: block;
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 50%;
+      background: var(--orange);
+      opacity: 0.5;
+    }
+
+    .int-hero-dots span:first-child { opacity: 1; }
+
+    .int-lead {
+      color: var(--text-secondary);
+      font-size: clamp(0.9rem, 1.15vw, 1rem);
+      line-height: 1.75;
+      max-width: 44ch;
+    }
+
+    /* ── INTEGRATION DIAGRAM ── */
+    .int-mock {
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: clamp(1.25rem, 2.5vw, 2rem);
+      box-shadow: 0 4px 28px oklch(0% 0 0 / 0.07);
+      background: #fff;
+    }
+
+    .int-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+    }
+
+    .int-connectors {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .int-connectors svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .int-diagram-top,
+    .int-diagram-bottom {
+      display: flex;
+      justify-content: space-around;
+      gap: 1rem;
+    }
+
+    .int-diagram-middle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .int-hub-spacer {
+      flex: 1;
+    }
+
+    .int-tool {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      flex: 1;
+    }
+
+    .int-tool span {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .int-tool-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+    }
+
+    .int-tool-icon svg { width: 1.2rem; height: 1.2rem; color: var(--text-secondary); }
+
+    .int-tool-icon--wa    { background: #25d366; border-color: #25d366; }
+    .int-tool-icon--crm   { background: #3b82f6; border-color: #3b82f6; }
+    .int-tool-icon--sheets { background: #16a34a; border-color: #16a34a; }
+    .int-tool-icon--email  { background: #3b82f6; border-color: #3b82f6; }
+    .int-tool-icon--airtable { background: #f43f5e; border-color: #f43f5e; }
+    .int-tool-icon--billing  { background: #f77f00; border-color: #f77f00; }
+    .int-tool-icon--pay   { background: #003049; border-color: #003049; }
+    .int-tool-icon--db    { background: #7c3aed; border-color: #7c3aed; }
+    .int-tool-icon--api   { background: #0891b2; border-color: #0891b2; }
+
+    .int-hub {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      flex-shrink: 0;
+    }
+
+    .int-hub-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 4px oklch(70% 0.19 55 / 0.1);
+    }
+
+    .int-hub-icon svg { width: 1.5rem; height: 1.5rem; }
+
+    .int-hub-label {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-align: center;
+    }
+
+    .int-hub-sub {
+      font-size: 0.55rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* ── CONTENT ── */
+    .int-content {
+      padding-block: clamp(3rem, 6vw, 5rem);
+      background: #fff;
+    }
+
+    .int-content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .int-body { display: flex; flex-direction: column; gap: 1.1rem; }
+
+    .int-body p {
+      color: var(--text-secondary);
+      font-size: clamp(0.9rem, 1.1vw, 1rem);
+      line-height: 1.75;
+    }
+
+    .int-features-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .int-features-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .int-features-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      font-size: 0.975rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .int-feat-icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      color: var(--orange);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    /* ── QUOTE ── */
+    .int-quote {
+      padding-block: clamp(2.5rem, 5vw, 4rem);
+      background: var(--surface-alt);
+    }
+
+    .int-quote-inner {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      max-width: 680px;
+      margin-inline: auto;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: #fff;
+    }
+
+    .int-quote-icon { width: 4rem; height: 4rem; flex-shrink: 0; }
+    .int-quote-icon svg { width: 100%; height: 100%; }
+
+    .int-quote-lines { display: flex; flex-direction: column; gap: 0.1rem; }
+
+    .int-quote-lines p {
+      font-family: var(--font-display);
+      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .int-quote-lines em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    /* ── CTA ── */
+    .int-cta {
+      padding-block: clamp(2.5rem, 5vw, 4rem);
+      background: #fff;
+    }
+
+    .int-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    .int-cta-copy {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .int-cta-icon { width: 4.5rem; height: 3.5rem; flex-shrink: 0; }
+    .int-cta-icon svg { width: 100%; height: 100%; }
+
+    .int-cta-text-wrap { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .int-cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      max-width: 44ch;
+    }
+
+    .int-cta-sub {
+      font-size: clamp(0.85rem, 1vw, 0.95rem);
+      color: var(--text-secondary);
+      line-height: 1.55;
+      max-width: 50ch;
+    }
+
+    .int-cta-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .int-hero-grid,
+      .int-content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .int-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .int-quote-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .int-cta-copy {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .int-cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .int-diagram-top,
+      .int-diagram-bottom {
+        gap: 0.5rem;
+      }
+
+      .int-tool-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+      }
+
+      .int-tool-icon svg { width: 1rem; height: 1rem; }
+    }
+  </style>
+</Layout>

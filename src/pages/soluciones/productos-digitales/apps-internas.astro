@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+<Layout title="Apps internas | Productos Digitales" description="Herramientas internas a medida para que tu equipo trabaje más rápido y con menos errores.">
+  <main class="ph-page">
+    <div class="container-libera ph-inner">
+      <nav class="ph-bc"><a href="/soluciones">Soluciones</a><span>›</span><a href="/soluciones/productos-digitales">Productos Digitales</a><span>›</span><span aria-current="page">Apps internas</span></nav>
+      <span class="ph-kicker">03 · Apps internas</span>
+      <h1 class="display-hero ph-title">Próximamente</h1>
+    </div>
+  </main>
+  <style>
+    .ph-page{background:#fff;padding-block:calc(var(--nav-height) + 4rem) 6rem}
+    .ph-inner{display:flex;flex-direction:column;gap:1.5rem}
+    .ph-bc{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--text-secondary)}
+    .ph-bc a{color:var(--text-secondary);transition:color .2s}.ph-bc a:hover{color:var(--orange)}
+    .ph-bc [aria-current="page"]{color:var(--orange);font-weight:600}
+    .ph-kicker{display:inline-block;padding:.3rem .75rem;border:1px solid var(--border);border-radius:999px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;color:var(--text-secondary)}
+    .ph-title{color:var(--text-primary)}
+  </style>
+</Layout>

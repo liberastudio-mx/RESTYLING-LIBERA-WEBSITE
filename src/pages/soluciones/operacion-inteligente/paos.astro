@@ -1,0 +1,842 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout
+  title="PAOS | Operación Interna"
+  description="PAOS es el sistema operativo interno de tu negocio. Conecta tu información, tus procesos y tu equipo en un solo lugar."
+>
+  <main class="paos-page">
+
+    <!-- BREADCRUMB -->
+    <nav class="paos-breadcrumb container-libera" aria-label="Navegación de migas de pan">
+      <a href="/soluciones">Soluciones</a>
+      <span aria-hidden="true">›</span>
+      <a href="/soluciones/operacion-inteligente">Operación Interna</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">PAOS</span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="paos-hero">
+      <div class="container-libera paos-hero-grid">
+
+        <div class="paos-hero-copy" data-reveal>
+          <span class="paos-kicker">01 · PAOS</span>
+          <h1 class="paos-title display-hero">
+            Tu operación funciona mientras alguien lo recuerda todo.
+            <em>El problema empieza cuando ya no alcanza.</em>
+          </h1>
+          <p class="paos-lead">
+            Cada negocio que crece llega al mismo punto: el equipo ya no cabe en una sola cabeza. La cotización prometida está en WhatsApp. El seguimiento vive en un Excel que nadie actualiza. Los acuerdos quedan en un correo que nadie vuelve a abrir. Y el estado real de la operación depende de quien lleva más tiempo en la empresa.
+          </p>
+        </div>
+
+        <!-- Mock dashboard 1 -->
+        <aside class="paos-mock paos-mock--hero" aria-hidden="true" data-reveal>
+          <div class="mock-sidebar">
+            <div class="mock-logo-dot">A</div>
+            <div class="mock-nav-icons">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="mock-main">
+            <p class="mock-heading">Resumen general</p>
+            <div class="mock-stats-row">
+              <div class="mock-stat">
+                <span class="mock-stat-label">Leads activos</span>
+                <span class="mock-stat-value">128</span>
+                <span class="mock-stat-delta mock-delta--up">↑ 12%</span>
+                <span class="mock-stat-sub">vs. semana anterior</span>
+              </div>
+              <div class="mock-stat">
+                <span class="mock-stat-label">Tareas pendientes</span>
+                <span class="mock-stat-value">43</span>
+                <span class="mock-stat-delta mock-delta--up">↑ 8%</span>
+                <span class="mock-stat-sub">vs. semana anterior</span>
+              </div>
+              <div class="mock-stat">
+                <span class="mock-stat-label">Acuerdos en curso</span>
+                <span class="mock-stat-value">32</span>
+                <span class="mock-stat-delta mock-delta--up">↑ 15%</span>
+                <span class="mock-stat-sub">vs. semana anterior</span>
+              </div>
+              <div class="mock-stat">
+                <span class="mock-stat-label">Tickets abiertos</span>
+                <span class="mock-stat-value">18</span>
+                <span class="mock-stat-delta mock-delta--down">↓ 5%</span>
+                <span class="mock-stat-sub">vs. semana anterior</span>
+              </div>
+            </div>
+            <div class="mock-lower">
+              <div class="mock-messages">
+                <p class="mock-section-title">Flujo de mensajes</p>
+                <div class="mock-msg-row">
+                  <span>WhatsApp</span><span class="mock-msg-count">57</span>
+                  <span class="mock-delta--up">↑ 20%</span>
+                </div>
+                <div class="mock-msg-row">
+                  <span>Correo</span><span class="mock-msg-count">34</span>
+                  <span class="mock-delta--up">↑ 8%</span>
+                </div>
+                <div class="mock-msg-row">
+                  <span>Formulario web</span><span class="mock-msg-count">19</span>
+                  <span class="mock-delta--up">↑ 12%</span>
+                </div>
+                <span class="mock-link">Ver todos los mensajes →</span>
+              </div>
+              <div class="mock-tasks">
+                <p class="mock-section-title">Tareas por área</p>
+                <div class="mock-task-row">
+                  <span>Ventas</span>
+                  <div class="mock-bar"><div class="mock-bar-fill" style="width:80%;background:#f77f00"></div></div>
+                  <span>12</span>
+                </div>
+                <div class="mock-task-row">
+                  <span>Operación</span>
+                  <div class="mock-bar"><div class="mock-bar-fill" style="width:60%;background:#2ecc71"></div></div>
+                  <span>9</span>
+                </div>
+                <div class="mock-task-row">
+                  <span>Atención al cliente</span>
+                  <div class="mock-bar"><div class="mock-bar-fill" style="width:53%;background:#3498db"></div></div>
+                  <span>8</span>
+                </div>
+                <div class="mock-task-row">
+                  <span>Seguimiento</span>
+                  <div class="mock-bar"><div class="mock-bar-fill" style="width:93%;background:#9b59b6"></div></div>
+                  <span>14</span>
+                </div>
+                <span class="mock-link">Ver tablero completo →</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- SISTEMA OPERATIVO -->
+    <section class="paos-what">
+      <div class="container-libera paos-what-grid">
+
+        <div class="paos-what-copy" data-reveal>
+          <h2 class="paos-what-title">
+            <strong>PAOS</strong> es el sistema operativo interno de tu negocio.
+          </h2>
+          <p class="paos-what-lead">
+            No es una app más, ni una carpeta llena de documentos. Es una estructura diseñada para conectar tu información, tus procesos y tu equipo en un solo lugar, adaptada a la forma real en la que trabajas.
+          </p>
+
+          <p class="paos-what-subtitle">Lo que construimos</p>
+
+          <ul class="paos-list">
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+              Sistema de gestión de información adaptado a tu flujo operativo.
+            </li>
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Clasificación de mensajes entrantes desde WhatsApp, correo y formularios del sitio.
+            </li>
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Tableros de estado por área: ventas, operación, atención al cliente y seguimiento.
+            </li>
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              Base de conocimiento interna para que el equipo pueda decidir sin preguntar cada vez.
+            </li>
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Protocolos de actualización simples, para que el sistema se mantenga vivo sin depender de nosotros.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mock dashboard 2 -->
+        <aside class="paos-mock paos-mock--pipeline" aria-hidden="true" data-reveal>
+          <p class="mock-heading">Pipeline de ventas</p>
+          <div class="mock-pipeline-cols">
+            <div class="mock-pipeline-col">
+              <span class="mock-col-label">Nuevos leads</span>
+              <span class="mock-col-value">15</span>
+            </div>
+            <div class="mock-pipeline-col">
+              <span class="mock-col-label">En contacto</span>
+              <span class="mock-col-value">27</span>
+            </div>
+            <div class="mock-pipeline-col">
+              <span class="mock-col-label">Propuesta</span>
+              <span class="mock-col-value">12</span>
+            </div>
+            <div class="mock-pipeline-col">
+              <span class="mock-col-label">Negociación</span>
+              <span class="mock-col-value">8</span>
+            </div>
+            <div class="mock-pipeline-col">
+              <span class="mock-col-label">Cerrados</span>
+              <span class="mock-col-value">6</span>
+            </div>
+          </div>
+          <div class="mock-pipeline-bars">
+            <div class="mock-pbar" style="width:100%;background:#f77f00;opacity:0.9"></div>
+            <div class="mock-pbar" style="width:72%;background:#003049;opacity:0.7"></div>
+            <div class="mock-pbar" style="width:44%;background:#f77f00;opacity:0.5"></div>
+            <div class="mock-pbar" style="width:29%;background:#003049;opacity:0.4"></div>
+            <div class="mock-pbar" style="width:21%;background:#2ecc71;opacity:0.8"></div>
+          </div>
+          <div class="mock-pipeline-lower">
+            <div class="mock-activity">
+              <p class="mock-section-title">Actividad reciente</p>
+              <div class="mock-activity-item">
+                <span class="mock-activity-icon mock-activity-icon--wa"></span>
+                <div>
+                  <span class="mock-activity-title">Nuevo mensaje de WhatsApp</span>
+                  <span class="mock-activity-sub">Cliente potencial · Hace 5 min</span>
+                </div>
+              </div>
+              <div class="mock-activity-item">
+                <span class="mock-activity-icon mock-activity-icon--mail"></span>
+                <div>
+                  <span class="mock-activity-title">Correo recibido</span>
+                  <span class="mock-activity-sub">Consulta@cliente.com · Hace 18 min</span>
+                </div>
+              </div>
+              <div class="mock-activity-item">
+                <span class="mock-activity-icon mock-activity-icon--task"></span>
+                <div>
+                  <span class="mock-activity-title">Tarea completada</span>
+                  <span class="mock-activity-sub">Seguimiento propuesta · Hace 1 h</span>
+                </div>
+              </div>
+              <span class="mock-link">Ver toda la actividad →</span>
+            </div>
+            <div class="mock-docs">
+              <p class="mock-section-title">Documentos recientes</p>
+              <div class="mock-doc-item">
+                <span class="mock-doc-icon"></span>
+                <span>Propuesta Comercial.pdf</span>
+              </div>
+              <div class="mock-doc-item">
+                <span class="mock-doc-icon"></span>
+                <span>Guía de Atención al Cliente.pdf</span>
+              </div>
+              <div class="mock-doc-item">
+                <span class="mock-doc-icon"></span>
+                <span>Manual de procesos.pdf</span>
+              </div>
+              <span class="mock-link">Ver todos los documentos →</span>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="paos-quote">
+      <div class="container-libera paos-quote-inner" data-reveal>
+        <p class="paos-quote-text">
+          Cuando el sistema está en su lugar, incorporar a una persona nueva toma días, no meses. Un lead no se pierde entre herramientas. Una tarea no depende de la memoria de alguien. Y si una persona no está, la operación no se detiene.
+        </p>
+        <p class="paos-quote-strong">
+          <strong>PAOS</strong> convierte el conocimiento disperso de tu negocio en una estructura clara, útil y lista para crecer.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="paos-cta">
+      <div class="container-libera paos-cta-inner" data-reveal>
+        <div class="paos-cta-copy">
+          <div class="paos-cta-rocket" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="30" stroke="var(--orange)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
+              <path d="M32 10c0 0-14 8-14 22 0 6 3 11 7 14l7 8 7-8c4-3 7-8 7-14 0-14-14-22-14-22z" stroke="var(--orange)" stroke-width="1.5" fill="none"/>
+              <circle cx="32" cy="30" r="4" fill="var(--orange)"/>
+              <path d="M22 52c-2 2-5 4-8 4 0-3 2-6 4-8" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M42 52c2 2 5 4 8 4 0-3-2-6-4-8" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="paos-cta-text">
+            Ordenar tu operación libera tiempo, energía y capacidad de crecimiento.
+          </p>
+        </div>
+        <a href="/diagnostico" class="btn-primary paos-cta-btn">
+          Descubrir más sobre PAOS
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <style>
+    .paos-page {
+      background: #ffffff;
+      color: var(--text-primary);
+    }
+
+    /* ── BREADCRUMB ── */
+    .paos-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: calc(var(--nav-height) + 1.25rem);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .paos-breadcrumb a {
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .paos-breadcrumb a:hover {
+      color: var(--orange);
+    }
+
+    .paos-breadcrumb [aria-current="page"] {
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    /* ── HERO ── */
+    .paos-hero {
+      padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    .paos-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .paos-kicker {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+    }
+
+    .paos-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.12;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .paos-title em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .paos-lead {
+      color: var(--text-secondary);
+      font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+      line-height: 1.75;
+      max-width: 56ch;
+    }
+
+    /* ── MOCK HERO ── */
+    .paos-mock--hero {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 24px oklch(0% 0 0 / 0.08);
+      font-size: 0.7rem;
+    }
+
+    .mock-sidebar {
+      width: 2.75rem;
+      background: #003049;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.75rem 0;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .mock-logo-dot {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: var(--orange);
+      border-radius: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: #fff;
+    }
+
+    .mock-nav-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .mock-nav-icons span {
+      display: block;
+      width: 1rem;
+      height: 0.12rem;
+      background: oklch(100% 0 0 / 0.3);
+      border-radius: 1px;
+    }
+
+    .mock-main {
+      flex: 1;
+      padding: 0.875rem;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .mock-heading {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .mock-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+
+    .mock-stat {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.35rem;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .mock-stat-label {
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+      line-height: 1.2;
+    }
+
+    .mock-stat-value {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .mock-stat-delta {
+      font-size: 0.58rem;
+      font-weight: 600;
+    }
+
+    .mock-stat-sub {
+      font-size: 0.55rem;
+      color: var(--text-secondary);
+    }
+
+    .mock-delta--up   { color: #2ecc71; }
+    .mock-delta--down { color: #e74c3c; }
+
+    .mock-lower {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .mock-messages,
+    .mock-tasks {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.35rem;
+      padding: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .mock-section-title {
+      font-weight: 700;
+      font-size: 0.65rem;
+      color: var(--text-primary);
+      margin: 0 0 0.2rem;
+    }
+
+    .mock-msg-row {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+    }
+
+    .mock-msg-count {
+      margin-left: auto;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .mock-task-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+    }
+
+    .mock-bar {
+      height: 0.25rem;
+      background: var(--border);
+      border-radius: 1px;
+      overflow: hidden;
+    }
+
+    .mock-bar-fill {
+      height: 100%;
+      border-radius: 1px;
+    }
+
+    .mock-link {
+      margin-top: auto;
+      font-size: 0.58rem;
+      color: var(--orange);
+      cursor: pointer;
+    }
+
+    /* ── WHAT SECTION ── */
+    .paos-what {
+      padding-block: clamp(3rem, 6vw, 5rem);
+      background: #fff;
+    }
+
+    .paos-what-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .paos-what-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .paos-what-title strong {
+      color: var(--orange);
+    }
+
+    .paos-what-lead {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 52ch;
+      margin-bottom: 2rem;
+    }
+
+    .paos-what-subtitle {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--orange);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .paos-what-subtitle::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .paos-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.875rem;
+    }
+
+    .paos-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      font-size: 0.975rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .paos-icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      color: var(--orange);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    /* ── MOCK PIPELINE ── */
+    .paos-mock--pipeline {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      box-shadow: 0 4px 24px oklch(0% 0 0 / 0.07);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 0.72rem;
+    }
+
+    .mock-pipeline-cols {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.25rem;
+    }
+
+    .mock-pipeline-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .mock-col-label {
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+      line-height: 1.2;
+    }
+
+    .mock-col-value {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary);
+    }
+
+    .mock-pipeline-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .mock-pbar {
+      height: 0.35rem;
+      border-radius: 2px;
+    }
+
+    .mock-pipeline-lower {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .mock-activity,
+    .mock-docs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .mock-activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .mock-activity-icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .mock-activity-icon--wa   { background: #25d366; }
+    .mock-activity-icon--mail { background: var(--orange); }
+    .mock-activity-icon--task { background: #003049; }
+
+    .mock-activity-title {
+      display: block;
+      font-weight: 600;
+      font-size: 0.6rem;
+      color: var(--text-primary);
+    }
+
+    .mock-activity-sub {
+      display: block;
+      font-size: 0.55rem;
+      color: var(--text-secondary);
+    }
+
+    .mock-doc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+    }
+
+    .mock-doc-icon {
+      width: 0.8rem;
+      height: 1rem;
+      background: var(--orange);
+      border-radius: 0.1rem;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    /* ── QUOTE ── */
+    .paos-quote {
+      padding-block: clamp(3rem, 6vw, 5rem);
+      background: var(--surface-alt);
+    }
+
+    .paos-quote-inner {
+      max-width: 780px;
+      margin-inline: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .paos-quote-text {
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 1.4vw, 1.125rem);
+      line-height: 1.75;
+    }
+
+    .paos-quote-strong {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .paos-quote-strong strong {
+      color: var(--orange);
+    }
+
+    /* ── CTA BANNER ── */
+    .paos-cta {
+      padding-block: clamp(2.5rem, 5vw, 4rem);
+      background: #fff;
+    }
+
+    .paos-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    .paos-cta-copy {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .paos-cta-rocket {
+      width: 3.5rem;
+      height: 3.5rem;
+      flex-shrink: 0;
+    }
+
+    .paos-cta-rocket svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .paos-cta-text {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      max-width: 40ch;
+    }
+
+    .paos-cta-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .paos-hero-grid,
+      .paos-what-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .paos-mock--hero {
+        max-height: 320px;
+        overflow: hidden;
+      }
+
+      .mock-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .paos-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .paos-what-subtitle::after {
+        display: none;
+      }
+
+      .mock-lower,
+      .mock-pipeline-lower {
+        grid-template-columns: 1fr;
+      }
+
+      .mock-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .paos-cta-copy {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .paos-cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</Layout>

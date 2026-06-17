@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout
+  title="Redes sociales | Presencia Digital"
+  description="Presencia consistente en redes sociales: estrategia, contenido y gestión adaptados a tu negocio."
+>
+  <main class="placeholder-page">
+    <div class="container-libera placeholder-inner">
+      <nav class="placeholder-breadcrumb" aria-label="Navegación de migas de pan">
+        <a href="/soluciones">Soluciones</a>
+        <span aria-hidden="true">›</span>
+        <a href="/soluciones/presencia-digital">Presencia Digital</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Redes sociales</span>
+      </nav>
+      <span class="placeholder-kicker">05 · Redes sociales</span>
+      <h1 class="display-hero placeholder-title">Próximamente</h1>
+    </div>
+  </main>
+
+  <style>
+    .placeholder-page { background: #fff; padding-block: calc(var(--nav-height) + 4rem) 6rem; }
+    .placeholder-inner { display: flex; flex-direction: column; gap: 1.5rem; }
+    .placeholder-breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-secondary); }
+    .placeholder-breadcrumb a { color: var(--text-secondary); transition: color 0.2s; }
+    .placeholder-breadcrumb a:hover { color: var(--orange); }
+    .placeholder-breadcrumb [aria-current="page"] { color: var(--orange); font-weight: 600; }
+    .placeholder-kicker { display: inline-block; padding: 0.3rem 0.75rem; border: 1px solid var(--border); border-radius: 999px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--text-secondary); }
+    .placeholder-title { color: var(--text-primary); }
+  </style>
+</Layout>

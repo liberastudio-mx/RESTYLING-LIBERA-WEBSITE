@@ -1,0 +1,882 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout
+  title="CRM y seguimiento | Operación Interna"
+  description="Diseñamos sistemas de seguimiento adaptados a tu operación real. Ningún lead se pierde, ningún cliente queda sin respuesta."
+>
+  <main class="crm-page">
+
+    <!-- BREADCRUMB -->
+    <nav class="crm-breadcrumb container-libera" aria-label="Navegación de migas de pan">
+      <a href="/soluciones">Soluciones</a>
+      <span aria-hidden="true">›</span>
+      <a href="/soluciones/operacion-inteligente">Operación Interna</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">CRM y seguimiento</span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="crm-hero">
+      <div class="container-libera crm-hero-grid">
+
+        <div class="crm-hero-copy" data-reveal>
+          <span class="crm-kicker">03 · CRM y seguimiento</span>
+          <h1 class="crm-title display-hero">
+            <em>CRM y seguimiento:</em> ningún lead se pierde, ningún cliente queda sin respuesta
+          </h1>
+          <div class="crm-hero-dots" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="crm-lead">
+            Diseñamos sistemas de seguimiento adaptados a tu operación real, no plantillas genéricas. Cada contacto entra, se registra y avanza con claridad, para que el equipo sepa qué hacer, cuándo hacerlo y en qué estado está cada oportunidad.
+          </p>
+        </div>
+
+        <!-- Mock CRM dashboard -->
+        <aside class="crm-mock" aria-hidden="true" data-reveal>
+          <div class="crm-mock-header">
+            <div class="crm-mock-sidebar">
+              <div class="crm-mock-logo">A</div>
+              <div class="crm-mock-nav">
+                <span class="crm-nav-dot crm-nav-dot--active"></span>
+                <span class="crm-nav-dot"></span>
+                <span class="crm-nav-dot"></span>
+                <span class="crm-nav-dot"></span>
+                <span class="crm-nav-dot"></span>
+                <span class="crm-nav-dot"></span>
+                <span class="crm-nav-dot"></span>
+              </div>
+            </div>
+            <div class="crm-mock-content">
+              <div class="crm-mock-topbar">
+                <span class="crm-mock-title-bar">CRM · Pipeline de ventas</span>
+                <div class="crm-mock-topbar-icons">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                  <div class="crm-mock-avatar"></div>
+                </div>
+              </div>
+
+              <!-- Stats row -->
+              <div class="crm-mock-stats">
+                <div class="crm-mock-stat">
+                  <span class="crm-stat-label">Nuevos leads</span>
+                  <span class="crm-stat-value">128</span>
+                  <span class="crm-stat-delta up">+ 18%</span>
+                  <span class="crm-stat-sub">vs. semana anterior</span>
+                </div>
+                <div class="crm-mock-stat">
+                  <span class="crm-stat-label">En conversación</span>
+                  <span class="crm-stat-value">45</span>
+                  <span class="crm-stat-delta up">+ 12%</span>
+                  <span class="crm-stat-sub">vs. semana anterior</span>
+                </div>
+                <div class="crm-mock-stat">
+                  <span class="crm-stat-label">Conversión</span>
+                  <span class="crm-stat-value">23%</span>
+                  <span class="crm-stat-delta up">+ 6%</span>
+                  <span class="crm-stat-sub">vs. semana anterior</span>
+                </div>
+                <div class="crm-mock-stat">
+                  <span class="crm-stat-label">Ingresos estimados</span>
+                  <span class="crm-stat-value">$48.5k</span>
+                  <span class="crm-stat-delta up">+ 22%</span>
+                  <span class="crm-stat-sub">vs. semana anterior</span>
+                </div>
+              </div>
+
+              <!-- Kanban -->
+              <div class="crm-mock-kanban">
+                <div class="crm-kanban-col">
+                  <span class="crm-kanban-head">Nuevo <em>128 leads</em></span>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">María López</span>
+                    <span class="crm-card-co">Mkt Digital</span>
+                    <span class="crm-card-time"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><polyline points="8 5 8 8 10 9"/></svg> Hace 1 h</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Carlos Ruiz</span>
+                    <span class="crm-card-co">Tienda Online</span>
+                    <span class="crm-card-time"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="1"/><line x1="2" y1="7" x2="14" y2="7"/></svg> Hace 2 h</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Ana Torres</span>
+                    <span class="crm-card-co">Consultoría</span>
+                    <span class="crm-card-time"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><polyline points="8 5 8 8 10 9"/></svg> Hace 3 h</span>
+                  </div>
+                  <span class="crm-kanban-more">+ 25 más</span>
+                </div>
+                <div class="crm-kanban-col">
+                  <span class="crm-kanban-head">En conversación <em>17 leads</em></span>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Javier Morales</span>
+                    <span class="crm-card-co">Software</span>
+                    <span class="crm-card-time crm-card-time--now"><svg viewBox="0 0 16 16" fill="none" stroke="#25d366" stroke-width="1.5"><path d="M13.5 8.5c0 3-2.7 5-5.5 5a5.5 5.5 0 0 1-2.6-.65L2 14l1.15-3.4A5.5 5.5 0 1 1 13.5 8.5z"/></svg> Hoy</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Lucía Gómez</span>
+                    <span class="crm-card-co">Distribuidora</span>
+                    <span class="crm-card-time crm-card-time--now"><svg viewBox="0 0 16 16" fill="none" stroke="#25d366" stroke-width="1.5"><path d="M13.5 8.5c0 3-2.7 5-5.5 5a5.5 5.5 0 0 1-2.6-.65L2 14l1.15-3.4A5.5 5.5 0 1 1 13.5 8.5z"/></svg> Hoy</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Diego Paredes</span>
+                    <span class="crm-card-co">Agencia</span>
+                    <span class="crm-card-time"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="1"/><line x1="2" y1="7" x2="14" y2="7"/></svg> Ayer</span>
+                  </div>
+                  <span class="crm-kanban-more">+ 12 más</span>
+                </div>
+                <div class="crm-kanban-col">
+                  <span class="crm-kanban-head">Cotizado <em>12 leads</em></span>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Claudia Vega</span>
+                    <span class="crm-card-co">Manufactura</span>
+                    <span class="crm-card-time crm-card-time--now">Hoy</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Roberto Díaz</span>
+                    <span class="crm-card-co">Servicios</span>
+                    <span class="crm-card-time">Ayer</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Paola Herrera</span>
+                    <span class="crm-card-co">E-commerce</span>
+                    <span class="crm-card-time">Ayer</span>
+                  </div>
+                  <span class="crm-kanban-more">+ 7 más</span>
+                </div>
+                <div class="crm-kanban-col">
+                  <span class="crm-kanban-head">Pendiente <em>15 leads</em></span>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Fernando Gil</span>
+                    <span class="crm-card-co">Importaciones</span>
+                    <span class="crm-card-time crm-card-time--warn"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><polyline points="8 5 8 8 10 9"/></svg> Vence mañana</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Andrea Soto</span>
+                    <span class="crm-card-co">Educación</span>
+                    <span class="crm-card-time crm-card-time--warn">Vence en 2 días</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Luis Martínez</span>
+                    <span class="crm-card-co">Logística</span>
+                    <span class="crm-card-time crm-card-time--warn">Vence en 3 días</span>
+                  </div>
+                  <span class="crm-kanban-more">+ 4 más</span>
+                </div>
+                <div class="crm-kanban-col">
+                  <span class="crm-kanban-head">Cerrado <em>15 leads</em></span>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Grupo Andino</span>
+                    <span class="crm-card-co">Proyecto CRM</span>
+                    <span class="crm-card-badge crm-badge--won">Ganado</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Vita Home</span>
+                    <span class="crm-card-co">Tienda Online</span>
+                    <span class="crm-card-badge crm-badge--won">Ganado</span>
+                  </div>
+                  <div class="crm-kanban-card">
+                    <span class="crm-card-name">Nova Tech</span>
+                    <span class="crm-card-co">Web App</span>
+                    <span class="crm-card-badge crm-badge--won">Ganado</span>
+                  </div>
+                  <span class="crm-kanban-more">+ 12 más</span>
+                </div>
+              </div>
+
+              <!-- Lower panels -->
+              <div class="crm-mock-lower">
+                <div class="crm-mock-activity">
+                  <p class="crm-mock-panel-title">Actividad reciente</p>
+                  <div class="crm-activity-item">
+                    <span class="crm-activity-dot crm-dot--wa"></span>
+                    <div>
+                      <span class="crm-act-title">Nueva respuesta de WhatsApp</span>
+                      <span class="crm-act-sub">María López · Mkt Digital · Hace 10 min</span>
+                    </div>
+                  </div>
+                  <div class="crm-activity-item">
+                    <span class="crm-activity-dot crm-dot--mail"></span>
+                    <div>
+                      <span class="crm-act-title">Cotización enviada</span>
+                      <span class="crm-act-sub">Claudia Vega · Manufactura · Hace 1 h</span>
+                    </div>
+                  </div>
+                  <div class="crm-activity-item">
+                    <span class="crm-activity-dot crm-dot--call"></span>
+                    <div>
+                      <span class="crm-act-title">Llamada registrada</span>
+                      <span class="crm-act-sub">Javier Morales · Software · Hace 2 h</span>
+                    </div>
+                  </div>
+                  <span class="crm-mock-link">Ver toda la actividad →</span>
+                </div>
+                <div class="crm-mock-tasks">
+                  <p class="crm-mock-panel-title">Tareas y recordatorios</p>
+                  <div class="crm-task-item">
+                    <span class="crm-task-icon"></span>
+                    <span class="crm-task-label">Responder a Fernando Gil</span>
+                    <span class="crm-task-due crm-due--tomorrow">Vence mañana</span>
+                  </div>
+                  <div class="crm-task-item">
+                    <span class="crm-task-icon"></span>
+                    <span class="crm-task-label">Enviar propuesta a Andrea Soto</span>
+                    <span class="crm-task-due crm-due--2d">Vence en 2 días</span>
+                  </div>
+                  <div class="crm-task-item">
+                    <span class="crm-task-icon"></span>
+                    <span class="crm-task-label">Llamar a Luis Martínez</span>
+                    <span class="crm-task-due crm-due--3d">Vence en 3 días</span>
+                  </div>
+                  <span class="crm-mock-link">Ver todas mis tareas →</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="crm-content">
+      <div class="container-libera crm-content-grid">
+
+        <div class="crm-body" data-reveal>
+          <p>
+            La mayoría de los negocios no pierden clientes potenciales por falta de producto ni necesariamente por precio. Los pierden porque nadie dio seguimiento a tiempo, porque el lead quedó en el WhatsApp de una sola persona, porque la cotización se envió y nadie volvió a escribir, o porque <strong>no había una forma clara de saber quién debía continuar la conversación.</strong>
+          </p>
+          <p><strong>Un CRM bien diseñado resuelve eso.</strong></p>
+          <p>
+            No hablamos del software más caro ni del sistema más complejo. Hablamos de una estructura simple, clara y útil, construida para que tu equipo la use de verdad todos los días.
+          </p>
+          <p>
+            Creamos tu flujo de seguimiento desde el primer contacto hasta el cierre: entrada de leads, estados visibles, recordatorios automáticos, registro de interacciones y reportes simples para entender qué está pasando con tus oportunidades comerciales.
+          </p>
+          <p>Todo el equipo ve la misma información. Nadie trabaja de memoria. Y cada lead tiene un siguiente paso claro.</p>
+        </div>
+
+        <div class="crm-features" data-reveal>
+          <h2 class="crm-features-title">Lo que construimos</h2>
+          <ul class="crm-features-list">
+            <li>
+              <svg class="crm-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Flujo de seguimiento adaptado a tu proceso real de ventas.
+            </li>
+            <li>
+              <svg class="crm-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+              Estados de contacto claros: nuevo, en conversación, cotizado, pendiente, cerrado.
+            </li>
+            <li>
+              <svg class="crm-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              Recordatorios automáticos para no perder el momento correcto de respuesta.
+            </li>
+            <li>
+              <svg class="crm-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Registro de interacciones por canal: WhatsApp, correo, llamada o formulario.
+            </li>
+            <li>
+              <svg class="crm-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Reportes simples de conversión que puedes leer en pocos minutos.
+            </li>
+            <li>
+              <svg class="crm-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+              Integración con las herramientas que tu equipo ya usa.
+            </li>
+            <li>
+              <svg class="crm-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
+              Vista clara de oportunidades abiertas, pendientes y cerradas.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="crm-quote">
+      <div class="container-libera crm-quote-inner" data-reveal>
+        <div class="crm-quote-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="28" r="10" stroke="var(--orange)" stroke-width="1.5"/>
+            <circle cx="40" cy="28" r="10" stroke="var(--orange)" stroke-width="1.5" opacity="0.5"/>
+            <path d="M14 48c0-5.5 4.5-10 10-10h16c5.5 0 10 4.5 10 10" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M34 42l4 4-4 4" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="crm-quote-text">
+          <p>Todo el equipo ve la misma información.</p>
+          <p class="crm-quote-orange">Nadie trabaja de memoria.</p>
+          <p>Y cada lead tiene un siguiente paso claro.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="crm-cta">
+      <div class="container-libera crm-cta-inner" data-reveal>
+        <div class="crm-cta-copy">
+          <div class="crm-cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="10" width="36" height="44" rx="2" stroke="var(--orange)" stroke-width="1.5"/>
+              <line x1="16" y1="22" x2="36" y2="22" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="16" y1="30" x2="36" y2="30" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              <line x1="16" y1="38" x2="28" y2="38" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              <circle cx="48" cy="46" r="10" stroke="var(--orange)" stroke-width="1.5" fill="none"/>
+              <line x1="48" y1="42" x2="48" y2="46" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="48" y1="46" x2="51" y2="49" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="20" cy="54" r="5" stroke="var(--orange)" stroke-width="1.5" fill="none" opacity="0.4"/>
+              <path d="M18 54l1.5 1.5L23 51" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+            </svg>
+          </div>
+          <p class="crm-cta-text">
+            Si tus oportunidades dependen de quién recuerda dar seguimiento, es momento de ordenar el proceso comercial antes de perder más leads.
+          </p>
+        </div>
+        <a href="/diagnostico" class="btn-primary crm-cta-btn">
+          Ordenar mi seguimiento
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <style>
+    .crm-page {
+      background: #ffffff;
+      color: var(--text-primary);
+    }
+
+    /* ── BREADCRUMB ── */
+    .crm-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: calc(var(--nav-height) + 1.25rem);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .crm-breadcrumb a { color: var(--text-secondary); transition: color 0.2s; }
+    .crm-breadcrumb a:hover { color: var(--orange); }
+    .crm-breadcrumb [aria-current="page"] { color: var(--orange); font-weight: 600; }
+
+    /* ── HERO ── */
+    .crm-hero {
+      padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    .crm-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .crm-kicker {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+    }
+
+    .crm-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .crm-title em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .crm-hero-dots {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .crm-hero-dots span {
+      display: block;
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 50%;
+      background: var(--orange);
+      opacity: 0.5;
+    }
+
+    .crm-hero-dots span:first-child { opacity: 1; }
+
+    .crm-lead {
+      color: var(--text-secondary);
+      font-size: clamp(0.9rem, 1.15vw, 1rem);
+      line-height: 1.75;
+      max-width: 48ch;
+    }
+
+    /* ── MOCK CRM ── */
+    .crm-mock {
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 28px oklch(0% 0 0 / 0.09);
+      font-size: 0.62rem;
+    }
+
+    .crm-mock-header {
+      display: flex;
+      height: 100%;
+    }
+
+    .crm-mock-sidebar {
+      width: 2.5rem;
+      background: #003049;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.75rem 0;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .crm-mock-logo {
+      width: 1.4rem;
+      height: 1.4rem;
+      background: var(--orange);
+      border-radius: 0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.7rem;
+      color: #fff;
+    }
+
+    .crm-mock-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .crm-nav-dot {
+      display: block;
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 0.2rem;
+      background: oklch(100% 0 0 / 0.15);
+    }
+
+    .crm-nav-dot--active { background: var(--orange); }
+
+    .crm-mock-content {
+      flex: 1;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0.75rem;
+      min-width: 0;
+    }
+
+    .crm-mock-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .crm-mock-title-bar {
+      font-weight: 700;
+      font-size: 0.7rem;
+      color: var(--text-primary);
+    }
+
+    .crm-mock-topbar-icons {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .crm-mock-topbar-icons svg {
+      width: 0.85rem;
+      height: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .crm-mock-avatar {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    /* Stats */
+    .crm-mock-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.4rem;
+    }
+
+    .crm-mock-stat {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.3rem;
+      padding: 0.45rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .crm-stat-label { color: var(--text-secondary); font-size: 0.55rem; line-height: 1.2; }
+    .crm-stat-value { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--text-primary); line-height: 1; }
+    .crm-stat-delta { font-size: 0.55rem; font-weight: 600; }
+    .crm-stat-delta.up { color: #2ecc71; }
+    .crm-stat-sub { font-size: 0.5rem; color: var(--text-secondary); }
+
+    /* Kanban */
+    .crm-mock-kanban {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.4rem;
+    }
+
+    .crm-kanban-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .crm-kanban-head {
+      font-weight: 700;
+      font-size: 0.58rem;
+      color: var(--text-primary);
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .crm-kanban-head em {
+      font-style: normal;
+      font-weight: 400;
+      color: var(--text-secondary);
+      display: block;
+    }
+
+    .crm-kanban-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.25rem;
+      padding: 0.35rem 0.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .crm-card-name { font-weight: 700; font-size: 0.58rem; color: var(--text-primary); }
+    .crm-card-co { font-size: 0.52rem; color: var(--text-secondary); }
+
+    .crm-card-time {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.52rem;
+      color: var(--text-secondary);
+      margin-top: 0.1rem;
+    }
+
+    .crm-card-time svg { width: 0.65rem; height: 0.65rem; }
+    .crm-card-time--now { color: #25d366; }
+    .crm-card-time--warn { color: #e67e22; }
+
+    .crm-card-badge {
+      display: inline-block;
+      margin-top: 0.15rem;
+      padding: 0.1rem 0.3rem;
+      border-radius: 999px;
+      font-size: 0.5rem;
+      font-weight: 700;
+    }
+
+    .crm-badge--won { background: oklch(93% 0.06 145); color: oklch(35% 0.12 145); }
+
+    .crm-kanban-more { font-size: 0.52rem; color: var(--orange); cursor: pointer; }
+
+    /* Lower panels */
+    .crm-mock-lower {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .crm-mock-activity,
+    .crm-mock-tasks {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.3rem;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .crm-mock-panel-title {
+      font-weight: 700;
+      font-size: 0.6rem;
+      color: var(--text-primary);
+      margin: 0 0 0.15rem;
+    }
+
+    .crm-activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .crm-activity-dot {
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .crm-dot--wa   { background: #25d366; }
+    .crm-dot--mail { background: var(--orange); }
+    .crm-dot--call { background: #003049; }
+
+    .crm-act-title { display: block; font-weight: 600; font-size: 0.58rem; color: var(--text-primary); }
+    .crm-act-sub   { display: block; font-size: 0.52rem; color: var(--text-secondary); }
+
+    .crm-task-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .crm-task-icon {
+      width: 0.7rem;
+      height: 0.85rem;
+      background: var(--orange);
+      border-radius: 0.1rem;
+      opacity: 0.7;
+    }
+
+    .crm-task-label { font-size: 0.55rem; color: var(--text-primary); }
+    .crm-task-due { font-size: 0.5rem; font-weight: 600; white-space: nowrap; }
+    .crm-due--tomorrow { color: #e74c3c; }
+    .crm-due--2d { color: #e67e22; }
+    .crm-due--3d { color: #f39c12; }
+
+    .crm-mock-link { font-size: 0.55rem; color: var(--orange); margin-top: auto; cursor: pointer; }
+
+    /* ── CONTENT ── */
+    .crm-content {
+      padding-block: clamp(3rem, 6vw, 5rem);
+      background: #fff;
+    }
+
+    .crm-content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .crm-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .crm-body p {
+      color: var(--text-secondary);
+      font-size: clamp(0.9rem, 1.1vw, 1rem);
+      line-height: 1.75;
+    }
+
+    .crm-body strong { color: var(--text-primary); }
+
+    .crm-features-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .crm-features-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .crm-features-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      font-size: 0.975rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .crm-feat-icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      color: var(--orange);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    /* ── QUOTE ── */
+    .crm-quote {
+      padding-block: clamp(2.5rem, 5vw, 4rem);
+      background: var(--surface-alt);
+    }
+
+    .crm-quote-inner {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      max-width: 680px;
+      margin-inline: auto;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: #fff;
+    }
+
+    .crm-quote-icon {
+      width: 4rem;
+      height: 4rem;
+      flex-shrink: 0;
+    }
+
+    .crm-quote-icon svg { width: 100%; height: 100%; }
+
+    .crm-quote-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .crm-quote-text p {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .crm-quote-orange { color: var(--orange) !important; }
+
+    /* ── CTA ── */
+    .crm-cta {
+      padding-block: clamp(2.5rem, 5vw, 4rem);
+      background: #fff;
+    }
+
+    .crm-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    .crm-cta-copy {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .crm-cta-icon { width: 3.5rem; height: 3.5rem; flex-shrink: 0; }
+    .crm-cta-icon svg { width: 100%; height: 100%; }
+
+    .crm-cta-text {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      max-width: 44ch;
+    }
+
+    .crm-cta-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .crm-hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .crm-mock-kanban {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .crm-content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .crm-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .crm-mock-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .crm-mock-kanban {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .crm-mock-lower {
+        grid-template-columns: 1fr;
+      }
+
+      .crm-quote-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .crm-cta-copy {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .crm-cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</Layout>
