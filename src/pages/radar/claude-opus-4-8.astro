@@ -8,16 +8,15 @@ import Layout from '@/layouts/Layout.astro';
       <img src="/images/LS%20-%20radar%202.png" alt="" width="1254" height="1254" class="radar-article-hero-image" />
       <span class="radar-article-hero-overlay" aria-hidden="true"></span>
       <div class="container-libera radar-article-hero-inner">
-        <div class="max-w-3xl">
-          <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
-          <p class="eyebrow mt-10 mb-5" style="color: var(--orange); font-family: var(--font-mono);">IA · 1 junio 2026 · 4 min de lectura</p>
-          <h1 class="font-display radar-article-title">Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos</h1>
-          <p class="radar-article-lead">Anthropic lanzó Claude Opus 4.8 el 28 de mayo de 2026. No es un salto cosmético. Hay cambios concretos que afectan directamente a quienes usan IA para trabajar, automatizar y desarrollar software.</p>
-        </div>
+        <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
+        <p class="eyebrow mt-10 mb-5" style="color: var(--orange); font-family: var(--font-mono);">IA · 1 junio 2026 · 4 min de lectura</p>
+        <h1 class="font-display radar-article-title">Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos</h1>
+        <p class="radar-article-lead max-w-3xl">Anthropic lanzó Claude Opus 4.8 el 28 de mayo de 2026. No es un salto cosmético. Hay cambios concretos que afectan directamente a quienes usan IA para trabajar, automatizar y desarrollar software.</p>
       </div>
     </header>
 
-    <div class="container-libera pb-28">
+    <div class="radar-article-body-wrapper">
+    <div class="container-libera pb-28" style="padding-top: 4rem;">
       <div class="radar-article-body">
         <p>Aquí va el resumen sin adornos.</p>
 
@@ -55,22 +54,28 @@ import Layout from '@/layouts/Layout.astro';
         <p>El ritmo de desarrollo no va a bajar.</p>
       </div>
     </div>
+    </div>
   </article>
 
   <style>
     .radar-article-page { background: var(--ink); color: var(--text-light); }
-    .radar-article-hero { position: relative; min-height: min(760px, 92dvh); overflow: hidden; display: flex; align-items: flex-end; padding-block: calc(var(--nav-height, 72px) + 6rem) 5.5rem; }
+    .radar-article-hero { position: relative; min-height: min(760px, 92dvh); overflow: hidden; display: flex; align-items: flex-end; padding-block: calc(var(--nav-height, 72px) + 6rem) calc(5.5rem + 70px); }
     .radar-article-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
     .radar-article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.012 235 / 0.34), oklch(8% 0.012 235 / 0.78)), linear-gradient(90deg, oklch(8% 0.012 235 / 0.78), oklch(8% 0.012 235 / 0.18)); }
     .radar-article-hero-inner { position: relative; z-index: 1; width: 100%; }
-    .radar-article-title { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 5.4rem); font-weight: 800; line-height: 0.95; letter-spacing: 0.01em; }
-    .radar-article-lead { margin-top: 2rem; color: oklch(88% 0.012 235); font-size: 1.125rem; line-height: 1.75; }
-    .radar-article-body { max-width: 48rem; color: oklch(82% 0.014 235); font-size: 1rem; line-height: 1.8; }
+    .radar-article-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: 0.01em; }
+    .radar-article-lead { margin-top: 2rem; color: oklch(88% 0.012 235); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.65; }
+    .radar-article-body-wrapper { background: #ffffff; margin-top: -70px; position: relative; z-index: 1; }
+    .radar-article-body { max-width: 48rem; color: rgba(0,48,73,0.72); font-size: 1rem; line-height: 1.8; }
     .radar-article-body > * + * { margin-top: 1.25rem; }
-    .radar-article-body h2 { margin-top: 3.5rem; color: #fff; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1; }
-    .radar-article-body h3 { margin-top: 2rem; color: #fff; font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; line-height: 1.05; }
-    .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid oklch(35% 0.025 235 / 0.65); }
+    .radar-article-body h2 { margin-top: 3.5rem; color: #003049; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1; }
+    .radar-article-body h3 { margin-top: 2rem; color: #003049; font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; line-height: 1.05; }
+    .radar-article-body ul { padding-left: 1.25rem; list-style: disc; }
+    .radar-article-body table { width: 100%; border-collapse: collapse; overflow: hidden; font-size: 0.95rem; }
+    .radar-article-body th, .radar-article-body td { border-bottom: 1px solid rgba(0,48,73,0.12); padding: 0.85rem 0; text-align: left; }
+    .radar-article-body th { color: #003049; font-family: var(--font-mono); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.08em; }
+    .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid rgba(0,48,73,0.12); }
     .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
-    .radar-stat span { color: oklch(82% 0.014 235); }
+    .radar-stat span { color: rgba(0,48,73,0.65); }
   </style>
 </Layout>
