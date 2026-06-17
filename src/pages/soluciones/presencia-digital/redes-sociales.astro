@@ -3,31 +3,558 @@ import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout
-  title="Redes sociales | Presencia Digital"
-  description="Presencia consistente en redes sociales: estrategia, contenido y gestión adaptados a tu negocio."
+  title="Gestión de Redes Sociales | Presencia Digital"
+  description="Gestionamos tus redes sociales para que tu negocio tenga una presencia activa, coherente y profesional, sin publicar por publicar."
 >
-  <main class="placeholder-page">
-    <div class="container-libera placeholder-inner">
-      <nav class="placeholder-breadcrumb" aria-label="Navegación de migas de pan">
-        <a href="/soluciones">Soluciones</a>
-        <span aria-hidden="true">›</span>
-        <a href="/soluciones/presencia-digital">Presencia Digital</a>
-        <span aria-hidden="true">›</span>
-        <span aria-current="page">Redes sociales</span>
-      </nav>
-      <span class="placeholder-kicker">05 · Redes sociales</span>
-      <h1 class="display-hero placeholder-title">Próximamente</h1>
-    </div>
+  <main class="rs-page">
+
+    <!-- BREADCRUMB -->
+    <nav class="rs-breadcrumb container-libera" aria-label="breadcrumb">
+      <a href="/soluciones">Soluciones</a>
+      <span>›</span>
+      <a href="/soluciones/presencia-digital">Presencia Digital</a>
+      <span>›</span>
+      <span aria-current="page">Gestión de redes sociales</span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="rs-hero">
+      <div class="container-libera rs-hero-grid">
+
+        <div class="rs-hero-copy" data-reveal>
+          <span class="rs-kicker">05 · Gestión de redes sociales</span>
+          <h1 class="rs-title">
+            Gestión de redes sociales: <em>presencia constante, contenido con intención</em>
+          </h1>
+          <p class="rs-lead">
+            Gestionamos tus redes sociales para que tu negocio tenga una presencia activa, coherente y profesional, sin publicar por publicar. Cada contenido debe ayudar a explicar lo que haces, construir confianza y abrir nuevas conversaciones con clientes potenciales.
+          </p>
+          <div class="rs-benefits">
+            <div class="rs-benefit">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Presencia activa y profesional</span>
+            </div>
+            <div class="rs-benefit">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Contenido con intención</span>
+            </div>
+            <div class="rs-benefit">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Más conversaciones con clientes</span>
+            </div>
+            <div class="rs-benefit">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              <span>Crecimiento sostenido</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mock social media -->
+        <aside class="rs-mock" aria-hidden="true" data-reveal>
+
+          <!-- Platform icons row -->
+          <div class="rs-platforms">
+            <div class="rs-plat rs-plat-ig">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
+            </div>
+            <div class="rs-plat rs-plat-fb">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <div class="rs-plat rs-plat-li">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div class="rs-plat rs-plat-tt">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.77 1.52V6.75a4.85 4.85 0 0 1-1-.06z"/></svg>
+            </div>
+          </div>
+
+          <!-- Post cards -->
+          <div class="rs-posts">
+
+            <!-- Instagram post -->
+            <div class="rs-post">
+              <div class="rs-post-head rs-ph-ig">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+                <span>Instagram</span>
+              </div>
+              <div class="rs-post-profile">
+                <div class="rs-post-av rs-av-ig"></div>
+                <div>
+                  <p class="rs-post-name">Tu Negocio</p>
+                  <p class="rs-post-sub">Servicios profesionales</p>
+                </div>
+              </div>
+              <div class="rs-post-img rs-img-ig"></div>
+              <div class="rs-post-actions">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <div class="rs-post-bookmark">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="rs-post-caption">
+                <p>Lo que hacemos resuelve problemas reales, todos los días.</p>
+                <span class="rs-post-more">Ver más →</span>
+              </div>
+            </div>
+
+            <!-- Facebook post -->
+            <div class="rs-post">
+              <div class="rs-post-head rs-ph-fb">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                <span>Facebook</span>
+              </div>
+              <div class="rs-post-profile">
+                <div class="rs-post-av rs-av-fb"></div>
+                <div>
+                  <p class="rs-post-name">Tu Negocio</p>
+                  <p class="rs-post-sub">Ayer a las 10:30 · <span class="rs-globe">🌐</span></p>
+                </div>
+              </div>
+              <div class="rs-post-img rs-img-fb"></div>
+              <div class="rs-post-reactions">
+                <div class="rs-reacts">
+                  <span class="rs-react rs-react-like">👍</span>
+                  <span class="rs-react rs-react-love">❤️</span>
+                  <span class="rs-react-count">23</span>
+                </div>
+                <span class="rs-post-sub">2 comentarios</span>
+              </div>
+              <div class="rs-post-fb-actions">
+                <span>Me gusta</span>
+                <span>Comentar</span>
+                <span>Compartir</span>
+              </div>
+              <div class="rs-post-caption rs-post-caption-fb">
+                <p>Así es como trabajamos para dar resultados medibles.</p>
+                <span class="rs-post-more">Ver más →</span>
+              </div>
+            </div>
+
+            <!-- LinkedIn post -->
+            <div class="rs-post rs-post-li">
+              <div class="rs-post-head rs-ph-li">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                <span>LinkedIn</span>
+              </div>
+              <div class="rs-post-profile">
+                <div class="rs-post-av rs-av-li"></div>
+                <div>
+                  <p class="rs-post-name">Tu Negocio</p>
+                  <p class="rs-post-sub">1 día · <span class="rs-globe">🌐</span></p>
+                </div>
+              </div>
+              <div class="rs-post-li-body">
+                <p class="rs-post-li-title">Estrategia, proceso y resultados.</p>
+                <p class="rs-post-li-text">Así ayudamos a nuestros clientes a crecer.</p>
+                <span class="rs-post-more">Ver más →</span>
+              </div>
+              <div class="rs-post-li-footer">
+                <span class="rs-li-count">15</span>
+                <span class="rs-li-share">Compartir</span>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="rs-content">
+      <div class="container-libera rs-content-grid">
+
+        <div class="rs-body" data-reveal>
+          <div class="rs-row">
+            <div class="rs-row-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3z"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <p>Tener redes sociales no significa subir algo cuando hay tiempo. Tampoco significa llenar el perfil de frases genéricas, diseños repetidos o tendencias que no tienen nada que ver con tu negocio.</p>
+          </div>
+          <div class="rs-row">
+            <div class="rs-row-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <p><strong>Una buena gestión de redes empieza</strong> por entender qué necesita ver una persona antes de confiar en ti: qué haces, cómo trabajas, qué problemas resuelves, qué resultados puedes mostrar y por qué debería contactarte.</p>
+          </div>
+          <div class="rs-row">
+            <div class="rs-row-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <p>Construimos una estrategia de contenido alineada con tu marca, tu oferta y tu tipo de cliente. Definimos pilares editoriales, formatos, frecuencia de publicación, tono de comunicación y llamados a la acción claros, para que cada publicación tenga una función dentro de tu presencia digital.</p>
+          </div>
+          <div class="rs-row">
+            <div class="rs-row-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <p>No buscamos que tu negocio parezca una marca más haciendo ruido. Buscamos que se vea activo, confiable y fácil de entender para quien llega desde Instagram, Facebook, LinkedIn o una búsqueda en Google.</p>
+          </div>
+        </div>
+
+        <div class="rs-checklist" data-reveal>
+          <h2 class="rs-cl-title">Lo que hacemos</h2>
+          <ul class="rs-cl-list">
+            <li class="rs-cl-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Estrategia de contenido adaptada a tu negocio y audiencia.</span>
+            </li>
+            <li class="rs-cl-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>Calendario editorial mensual con publicaciones planificadas.</span>
+            </li>
+            <li class="rs-cl-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>Diseño de piezas visuales alineadas con tu identidad.</span>
+            </li>
+            <li class="rs-cl-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Redacción de textos claros, naturales y orientados a conversión.</span>
+            </li>
+            <li class="rs-cl-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+              <span>Adaptación de contenidos para Instagram, Facebook, LinkedIn o TikTok.</span>
+            </li>
+            <li class="rs-cl-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              <span>Optimización de perfiles para que expliquen mejor lo que ofreces.</span>
+            </li>
+            <li class="rs-cl-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              <span>Publicación programada y seguimiento básico de rendimiento.</span>
+            </li>
+            <li class="rs-cl-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>Reporte mensual con métricas simples y recomendaciones de mejora.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="rs-cta">
+      <div class="container-libera rs-cta-inner" data-reveal>
+        <div class="rs-cta-left">
+          <div class="rs-cta-icon" aria-hidden="true">
+            <svg width="72" height="72" viewBox="0 0 96 96" fill="none">
+              <rect x="20" y="10" width="38" height="64" rx="5" stroke="#1a1a1a" stroke-width="2" fill="#fff"/>
+              <rect x="24" y="16" width="30" height="20" rx="2" fill="#ece5dd"/>
+              <circle cx="30" cy="44" r="4" fill="#e1306c"/>
+              <circle cx="42" cy="42" r="5" fill="#1877f2"/>
+              <circle cx="54" cy="46" r="4" fill="#0a66c2"/>
+              <rect x="24" y="52" width="30" height="3" rx="1.5" fill="#e0e0e0"/>
+              <rect x="24" y="58" width="20" height="2" rx="1" fill="#e0e0e0"/>
+              <path d="M48 28l8-8 8 8-4-1v10h-8V27l-4 1z" fill="#f77f00"/>
+              <circle cx="68" cy="18" r="10" fill="#e1306c"/>
+              <path d="M65 13h2a2 2 0 0 1 2 2v6h-2v-3a1 1 0 0 0-1-1h-1v-4z" fill="#fff"/>
+              <circle cx="68" cy="18" r="2" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="rs-cta-text">
+            <p>Las redes sociales bien gestionadas no son solo una vitrina.</p>
+            <p class="rs-orange">Son una forma de mantener tu negocio presente, explicar tu valor y generar <span class="rs-orange-b">confianza</span> antes de que alguien te escriba.</p>
+          </div>
+        </div>
+        <a href="/diagnostico" class="btn-primary rs-cta-btn">Ordenar mis redes sociales <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
   </main>
 
   <style>
-    .placeholder-page { background: #fff; padding-block: calc(var(--nav-height) + 4rem) 6rem; }
-    .placeholder-inner { display: flex; flex-direction: column; gap: 1.5rem; }
-    .placeholder-breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-secondary); }
-    .placeholder-breadcrumb a { color: var(--text-secondary); transition: color 0.2s; }
-    .placeholder-breadcrumb a:hover { color: var(--orange); }
-    .placeholder-breadcrumb [aria-current="page"] { color: var(--orange); font-weight: 600; }
-    .placeholder-kicker { display: inline-block; padding: 0.3rem 0.75rem; border: 1px solid var(--border); border-radius: 999px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--text-secondary); }
-    .placeholder-title { color: var(--text-primary); }
+    .rs-page { background: #ffffff; color: var(--text-primary); }
+
+    .rs-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: calc(var(--nav-height) + 1.25rem);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .rs-breadcrumb a { color: var(--text-secondary); transition: color 0.2s; }
+    .rs-breadcrumb a:hover { color: #f77f00; }
+    .rs-breadcrumb [aria-current="page"] { color: #f77f00; font-weight: 600; }
+
+    .rs-hero {
+      padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem);
+      padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .rs-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: start;
+    }
+
+    .rs-kicker {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+    }
+
+    .rs-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+    .rs-title em { font-style: normal; color: #f77f00; }
+
+    .rs-lead {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: 46ch;
+      margin-bottom: 1.75rem;
+    }
+
+    .rs-benefits { display: flex; flex-direction: column; gap: 0.65rem; }
+    .rs-benefit { display: flex; align-items: center; gap: 0.65rem; }
+    .rs-benefit span { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.3; }
+
+    /* MOCK */
+    .rs-mock { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .rs-platforms {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+    .rs-plat {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rs-plat-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .rs-plat-fb { background: #1877f2; }
+    .rs-plat-li { background: #0a66c2; }
+    .rs-plat-tt { background: #000000; }
+
+    .rs-posts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      align-items: start;
+    }
+
+    .rs-post {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 0.4rem;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .rs-post-head {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.4rem;
+      font-size: 0.45rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .rs-ph-ig { background: linear-gradient(90deg, #e6683c, #cc2366); }
+    .rs-ph-fb { background: #1877f2; }
+    .rs-ph-li { background: #0a66c2; }
+
+    .rs-post-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.4rem;
+    }
+    .rs-post-av {
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .rs-av-ig { background: linear-gradient(135deg, #003049, #1a5a7a); }
+    .rs-av-fb { background: linear-gradient(135deg, #1877f2, #0a4fb8); }
+    .rs-av-li { background: linear-gradient(135deg, #0a66c2, #004b8f); }
+
+    .rs-post-name { font-size: 0.5rem; font-weight: 700; color: #1a1a1a; margin: 0; }
+    .rs-post-sub { font-size: 0.4rem; color: #5f6368; margin: 0; }
+    .rs-globe { font-size: 0.38rem; }
+
+    .rs-post-img {
+      width: 100%;
+      height: 4rem;
+    }
+    .rs-img-ig { background: linear-gradient(135deg, #003049 0%, #1a5a7a 50%, #b0cad4 100%); }
+    .rs-img-fb { background: linear-gradient(135deg, #1a3a5c 0%, #2d6a9f 100%); }
+
+    .rs-post-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.4rem;
+    }
+    .rs-post-bookmark { margin-left: auto; }
+
+    .rs-post-reactions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.2rem 0.4rem;
+      font-size: 0.4rem;
+      color: #5f6368;
+    }
+    .rs-reacts { display: flex; align-items: center; gap: 0.15rem; }
+    .rs-react { font-size: 0.45rem; }
+    .rs-react-count { font-size: 0.4rem; color: #5f6368; }
+
+    .rs-post-fb-actions {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.2rem 0.3rem;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .rs-post-fb-actions span { font-size: 0.4rem; color: #5f6368; font-weight: 600; }
+
+    .rs-post-caption {
+      padding: 0.3rem 0.4rem;
+    }
+    .rs-post-caption p { font-size: 0.44rem; color: #1a1a1a; line-height: 1.4; margin: 0 0 0.15rem; }
+    .rs-post-caption-fb { padding-top: 0.2rem; }
+
+    .rs-post-li-body {
+      padding: 0.4rem;
+    }
+    .rs-post-li-title { font-size: 0.52rem; font-weight: 700; color: #1a1a1a; margin: 0 0 0.15rem; line-height: 1.3; }
+    .rs-post-li-text { font-size: 0.44rem; color: #5f6368; margin: 0 0 0.2rem; line-height: 1.4; }
+
+    .rs-post-li-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.2rem 0.4rem;
+      border-top: 1px solid #f0f0f0;
+    }
+    .rs-li-count { font-size: 0.4rem; color: #5f6368; }
+    .rs-li-share { font-size: 0.4rem; color: #5f6368; font-weight: 600; }
+
+    .rs-post-more { font-size: 0.4rem; color: #0a66c2; font-weight: 600; display: block; }
+
+    /* CONTENT */
+    .rs-content {
+      padding-top: clamp(2.5rem, 5vw, 4rem);
+      padding-bottom: clamp(2.5rem, 5vw, 4rem);
+      background: #ffffff;
+    }
+    .rs-content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .rs-body { display: flex; flex-direction: column; gap: 1rem; }
+
+    .rs-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .rs-row-icon { flex-shrink: 0; margin-top: 0.1rem; }
+    .rs-row p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; margin: 0; }
+    .rs-row strong { color: var(--text-primary); }
+
+    .rs-cl-title {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      font-weight: 700;
+      color: #f77f00;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .rs-cl-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .rs-cl-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+
+    .rs-cl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .rs-cl-item:last-child { border-bottom: none; }
+    .rs-cl-item svg { flex-shrink: 0; margin-top: 0.1rem; }
+
+    /* CTA */
+    .rs-cta {
+      padding-top: clamp(2rem, 4vw, 3.5rem);
+      padding-bottom: clamp(2rem, 4vw, 3.5rem);
+      background: var(--surface-alt);
+    }
+    .rs-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: clamp(1.25rem, 2.5vw, 2rem);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: #ffffff;
+    }
+    .rs-cta-left { display: flex; align-items: center; gap: 1.5rem; }
+    .rs-cta-icon { flex-shrink: 0; }
+    .rs-cta-text { display: flex; flex-direction: column; gap: 0.3rem; }
+    .rs-cta-text p {
+      font-family: var(--font-display);
+      font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin: 0;
+    }
+    .rs-orange { color: #f77f00 !important; }
+    .rs-orange-b { font-weight: 700; }
+    .rs-cta-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1024px) {
+      .rs-hero-grid { grid-template-columns: 1fr; }
+      .rs-mock { max-width: 40rem; }
+      .rs-content-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      .rs-cta-inner { flex-direction: column; align-items: flex-start; }
+      .rs-cta-btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 600px) {
+      .rs-posts { grid-template-columns: 1fr; }
+      .rs-plat { width: 2rem; height: 2rem; }
+    }
   </style>
 </Layout>
