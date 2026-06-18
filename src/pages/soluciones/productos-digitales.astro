@@ -1,6 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Productos Digitales",
+  "description": "Web apps, MVPs, paneles administrativos y prototipos funcionales para construir herramientas que realmente se usan.",
+  "provider": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
+  "areaServed": { "@type": "Country", "name": "México" },
+  "url": "https://www.liberastudio.tech/soluciones/productos-digitales",
+  "serviceType": "Desarrollo de Productos Digitales"
+});
+
 const structureCards = [
   { title: 'Web apps', href: '/soluciones/productos-digitales/web-apps' },
   { title: 'MVPs', href: '/soluciones/productos-digitales/mvps' },
@@ -10,7 +21,7 @@ const structureCards = [
 ];
 ---
 
-<Layout title="Productos Digitales" description="Web apps, MVPs, paneles administrativos y prototipos funcionales para construir herramientas que realmente se usan.">
+<Layout title="Productos Digitales" description="Web apps, MVPs, paneles administrativos y prototipos funcionales para construir herramientas que realmente se usan." jsonLdExtra={serviceSchema}>
   <section class="solution-page">
     <div class="solution-hero">
       <div class="container-libera solution-layout">

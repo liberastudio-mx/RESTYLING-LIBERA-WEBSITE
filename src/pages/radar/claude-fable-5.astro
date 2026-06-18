@@ -1,11 +1,32 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '@/assets/images/LS - radar 3.png';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Fable 5: Anthropic libera su primer modelo de clase Mythos",
+  "description": "Mismo núcleo que Mythos 5, safeguards activos para el público. En codificación agentica supera a todos los modelos disponibles.",
+  "datePublished": "2026-06-09",
+  "dateModified": "2026-06-09",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
+  "image": "https://www.liberastudio.tech/images/LS%20-%20radar%203.png",
+  "url": "https://www.liberastudio.tech/radar/claude-fable-5",
+  "articleSection": "IA",
+  "inLanguage": "es-MX"
+});
 ---
 
-<Layout title="Claude Fable 5" description="Claude Fable 5: Anthropic libera su primer modelo de clase Mythos.">
+<Layout
+  title="Claude Fable 5"
+  description="Claude Fable 5: Anthropic libera su primer modelo de clase Mythos."
+  jsonLdExtra={articleSchema}
+>
   <article class="radar-article-page">
     <header class="radar-article-hero">
-      <img src="/images/LS%20-%20radar%203.png" alt="" width="1254" height="1254" class="radar-article-hero-image" />
+      <Image src={heroImg} alt="" widths={[800, 1254]} sizes="100vw" class="radar-article-hero-image" />
       <span class="radar-article-hero-overlay" aria-hidden="true"></span>
       <div class="container-libera radar-article-hero-inner">
             <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
@@ -68,6 +89,15 @@ import Layout from '@/layouts/Layout.astro';
         <h2>Una nota sobre el contexto del lanzamiento</h2>
         <p>Anthropic publicó este lanzamiento tres días después de emitir un aviso interno advirtiendo que el ritmo de desarrollo de IA supera la capacidad actual de sus propios sistemas de seguridad. Fable 5 es, al mismo tiempo, el modelo más capaz que han liberado al público y el más controlado técnicamente. Los safeguards no son marketing: son la condición bajo la cual Anthropic acepta hacer este modelo accesible.</p>
         <p>Esa tensión no desaparece. Lo que cambia es que ahora tienes acceso al resultado.</p>
+
+        <div class="radar-article-related">
+          <p class="radar-related-label">Si esto te interesa</p>
+          <div class="radar-related-links">
+            <a href="/soluciones/ai-automation">Cómo aplicamos IA en procesos reales →</a>
+            <a href="/soluciones/ai-automation/agentes-ia">Agentes de IA para tu negocio →</a>
+            <a href="/soluciones/ai-automation/asistentes-internos">Asistentes internos con Claude →</a>
+          </div>
+        </div>
       </div>
     </div>
     </div>
@@ -93,5 +123,10 @@ import Layout from '@/layouts/Layout.astro';
     .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid rgba(0,48,73,0.12); }
     .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
     .radar-stat span { color: rgba(0,48,73,0.65); }
+    .radar-article-related { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,48,73,0.12); }
+    .radar-related-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .radar-related-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .radar-related-links a { color: #003049; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+    .radar-related-links a:hover { color: var(--orange); }
   </style>
 </Layout>

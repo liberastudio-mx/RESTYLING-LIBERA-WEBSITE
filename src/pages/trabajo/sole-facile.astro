@@ -1,5 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logoImg from '@/assets/images/logo sole facile per linkedin.png';
 
 const stack = ['Webflow', 'Next.js', 'TypeScript', 'Google Analytics 4', 'Search Console', 'Airtable'];
 
@@ -29,7 +31,7 @@ const stats = [
     ></div>
 
     <div class="sf-hero-logo absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none select-none" aria-hidden="true">
-      <img src="/images/logo-sole-facile.png" alt="" class="w-full h-full object-contain" />
+      <Image src={logoImg} alt="" widths={[400, 800]} sizes="40vw" class="w-full h-full object-contain" />
     </div>
 
     <div class="container-libera relative z-10 pb-20 pt-44">

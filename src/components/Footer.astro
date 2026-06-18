@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImg from '@/assets/images/LIBERA - Logo Bianco.png';
+
 const year = new Date().getFullYear();
 
 const footerLinks = {
@@ -27,10 +30,10 @@ const footerLinks = {
       <div class="lg:col-span-2">
         <!-- Logo -->
         <a href="/" class="inline-block mb-6" aria-label="LIBERA Studio">
-          <img
-            src="/images/logo-bianco.png"
-            width="923"
-            height="162"
+          <Image
+            src={logoImg}
+            width={190}
+            height={33}
             alt="LIBERA Studio"
             class="block h-auto w-[168px] sm:w-[190px]"
           />

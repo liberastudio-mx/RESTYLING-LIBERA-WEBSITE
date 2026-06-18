@@ -1,6 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Operación Interna",
+  "description": "PAOS, automatización, CRM, dashboards e integraciones para ordenar cómo trabaja tu equipo internamente.",
+  "provider": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
+  "areaServed": { "@type": "Country", "name": "México" },
+  "url": "https://www.liberastudio.tech/soluciones/operacion-interna",
+  "serviceType": "Operación Interna y Sistemas de Gestión"
+});
+
 const structureCards = [
   {
     title: 'PAOS',
@@ -28,6 +39,7 @@ const structureCards = [
 <Layout
   title="Operación Interna"
   description="PAOS, automatización, CRM, dashboards e integraciones para ordenar la operación interna de tu negocio y trabajar con más control."
+  jsonLdExtra={serviceSchema}
 >
   <section class="operation-page">
     <div class="operation-hero">

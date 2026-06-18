@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImg from '@/assets/images/LIBERA - Logo Blu.png';
+
 const currentPath = Astro.url.pathname;
 
 const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
@@ -21,7 +24,7 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
     <!-- Logo -->
     <a href="/" class="flex-shrink-0 flex items-center gap-2 z-10" aria-label="LIBERA Studio, Inicio">
       <span class="nav-dot" aria-hidden="true"></span>
-      <img src="/images/logo-blu.png" alt="LIBERA Studio" height="32" class="block" style="width: auto; height: 32px;" />
+      <Image src={logoImg} alt="LIBERA Studio" height={32} width={120} class="block" style="width: auto; height: 32px;" />
     </a>
 
     <!-- Desktop nav -->

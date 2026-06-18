@@ -1,5 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logoImg from '@/assets/images/logo cenotes.png';
 
 const stack = ['React Native', 'Expo', 'TypeScript', 'Supabase', 'PostGIS', 'Airtable'];
 
@@ -71,7 +73,7 @@ const layers = [
     <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 25% 65%, rgba(247,127,0,0.09) 0%, transparent 55%), radial-gradient(ellipse at 75% 15%, rgba(0,48,73,0.5) 0%, transparent 60%);" aria-hidden="true"></div>
 
     <div class="cs-hero-logo absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none select-none" aria-hidden="true">
-      <img src="/images/logo-cenotes.png" alt="" class="w-full h-full object-contain" />
+      <Image src={logoImg} alt="" widths={[400, 800]} sizes="40vw" class="w-full h-full object-contain" />
     </div>
 
     <div class="container-libera relative z-10 pb-20 pt-44">

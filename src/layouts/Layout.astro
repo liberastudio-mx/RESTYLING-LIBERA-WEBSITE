@@ -9,6 +9,7 @@ interface Props {
   ogImage?: string;
   canonical?: string;
   noIndex?: boolean;
+  jsonLdExtra?: string;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   ogImage = '/images/og-default.png',
   canonical,
   noIndex = false,
+  jsonLdExtra,
 } = Astro.props;
 
 const siteUrl = 'https://www.liberastudio.tech';
@@ -25,16 +27,71 @@ const fullTitle = title === 'LIBERA Studio'
   ? 'LIBERA Studio, Sistemas digitales, automatización e IA para empresas'
   : `${title}, LIBERA Studio`;
 
-const jsonLd = JSON.stringify({
+const jsonLdOrg = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "LIBERA Studio",
   "url": siteUrl,
-  "logo": `${siteUrl}/images/logo.svg`,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${siteUrl}/images/logo-blu.png`,
+    "width": 923,
+    "height": 162
+  },
   "description": "Estudio de sistemas digitales, automatización e inteligencia artificial para empresas que quieren operar mejor.",
   "address": { "@type": "PostalAddress", "addressLocality": "Mérida", "addressCountry": "MX" },
-  "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "url": `${siteUrl}/contacto` }
+  "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "url": `${siteUrl}/diagnostico` },
+  "sameAs": ["https://www.linkedin.com/company/libera-studio"]
 });
+
+// Auto BreadcrumbList from URL path
+const segments = Astro.url.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+const slugToLabel: Record<string, string> = {
+  soluciones: 'Soluciones',
+  'presencia-digital': 'Presencia Digital',
+  'operacion-interna': 'Operación Interna',
+  'ai-automation': 'AI & Automation',
+  'productos-digitales': 'Productos Digitales',
+  'sitios-web-premium': 'Sitios web premium',
+  'landing-pages': 'Landing pages',
+  'google-business-profile': 'Google Business Profile',
+  'whatsapp-business': 'WhatsApp Business',
+  'redes-sociales': 'Redes sociales',
+  paos: 'PAOS',
+  automatizacion: 'Automatización',
+  'crm-seguimiento': 'CRM y seguimiento',
+  dashboards: 'Dashboards',
+  integraciones: 'Integraciones',
+  'agentes-ia': 'Agentes de IA',
+  'asistentes-internos': 'Asistentes internos',
+  'flujos-n8n': 'Flujos con n8n',
+  'clasificacion-mensajes': 'Clasificación de mensajes',
+  'automatizacion-documental': 'Automatización documental',
+  'web-apps': 'Web apps',
+  mvps: 'MVPs',
+  'apps-internas': 'Apps internas',
+  'paneles-admin': 'Paneles admin',
+  prototipos: 'Prototipos',
+  radar: 'Radar',
+  trabajo: 'Trabajo',
+  nosotros: 'Nosotros',
+  diagnostico: 'Solicitar diagnóstico',
+  laboratorio: 'Laboratorio',
+};
+
+const breadcrumbLd = segments.length > 0 ? JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+    ...segments.map((seg, i) => ({
+      "@type": "ListItem",
+      "position": i + 2,
+      "name": slugToLabel[seg] ?? seg,
+      "item": `${siteUrl}/${segments.slice(0, i + 1).join('/')}`
+    }))
+  ]
+}) : null;
 ---
 
 <!doctype html>
@@ -74,7 +131,11 @@ const jsonLd = JSON.stringify({
     <link rel="preload" href="/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- JSON-LD Organization -->
-    <script type="application/ld+json" set:html={jsonLd} />
+    <script type="application/ld+json" set:html={jsonLdOrg} />
+    <!-- JSON-LD BreadcrumbList -->
+    {breadcrumbLd && <script type="application/ld+json" set:html={breadcrumbLd} />}
+    <!-- JSON-LD page-specific -->
+    {jsonLdExtra && <script type="application/ld+json" set:html={jsonLdExtra} />}
   </head>
   <body>
     <a href="#main" class="skip-link">Ir al contenido principal</a>

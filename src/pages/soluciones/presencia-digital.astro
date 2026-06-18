@@ -1,6 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Presencia Digital",
+  "description": "Sitios web premium, landing pages, Google Business Profile, WhatsApp Business y redes sociales para que te encuentren, te entiendan y confíen.",
+  "provider": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
+  "areaServed": { "@type": "Country", "name": "México" },
+  "url": "https://www.liberastudio.tech/soluciones/presencia-digital",
+  "serviceType": "Presencia Digital y Marketing Online"
+});
+
 const structureCards = [
   { title: 'Sitios web premium', href: '/soluciones/presencia-digital/sitios-web-premium' },
   { title: 'Landing pages', href: '/soluciones/presencia-digital/landing-pages' },
@@ -10,7 +21,7 @@ const structureCards = [
 ];
 ---
 
-<Layout title="Presencia Digital" description="Sitios web, landing pages, Google Business, SEO local y WhatsApp Business para que te encuentren, te entiendan y confíen.">
+<Layout title="Presencia Digital" description="Sitios web, landing pages, Google Business, SEO local y WhatsApp Business para que te encuentren, te entiendan y confíen." jsonLdExtra={serviceSchema}>
   <section class="solution-page">
     <div class="solution-hero">
       <div class="container-libera solution-layout">

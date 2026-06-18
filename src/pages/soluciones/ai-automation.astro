@@ -1,6 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI & Automation",
+  "description": "Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. IA aplicada a procesos reales, no a demos.",
+  "provider": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
+  "areaServed": { "@type": "Country", "name": "México" },
+  "url": "https://www.liberastudio.tech/soluciones/ai-automation",
+  "serviceType": "Automatización e Inteligencia Artificial"
+});
+
 const structureCards = [
   { title: 'Agentes de IA', href: '/soluciones/ai-automation/agentes-ia' },
   { title: 'Asistentes internos', href: '/soluciones/ai-automation/asistentes-internos' },
@@ -10,7 +21,7 @@ const structureCards = [
 ];
 ---
 
-<Layout title="IA y automatización" description="Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. IA aplicada a procesos reales.">
+<Layout title="IA y automatización" description="Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. IA aplicada a procesos reales." jsonLdExtra={serviceSchema}>
   <section class="solution-page">
     <div class="solution-hero">
       <div class="container-libera solution-layout">

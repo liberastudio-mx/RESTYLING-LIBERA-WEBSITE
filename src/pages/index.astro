@@ -1,5 +1,21 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import problemasImg    from '@/assets/images/LS - problemas.png';
+import solOperacionImg from '@/assets/images/LS - 2 - operacion inteligente.png';
+import solPresenciaImg from '@/assets/images/LS - 2 - presencia digital.png';
+import solAiImg        from '@/assets/images/LS - 2 - Ai e automation.png';
+import solProductosImg from '@/assets/images/LS - 2 - Productos digitales.png';
+import logoCenotesImg  from '@/assets/images/logo cenotes.png';
+import logoPaosImg     from '@/assets/images/Logo paos.png';
+import logoSoleFacileImg from '@/assets/images/logo sole facile per linkedin.png';
+import logoMorozzoImg  from '@/assets/images/logo morozzo.png';
+import radarBgImg      from '@/assets/images/LS - Background radar.png';
+import radar1Img       from '@/assets/images/LS - radar 1.png';
+import radar2Img       from '@/assets/images/LS - radar 2.png';
+import radar3Img       from '@/assets/images/LS - radar 3.png';
+import ctaBgImg        from '@/assets/images/LS - background CTA.png';
 
 const solucionesHome = [
   {
@@ -9,7 +25,7 @@ const solucionesHome = [
     description: 'PAOS, CRM simple, dashboards internos y automatización de procesos. Cada mensaje, lead y tarea en su lugar.',
     href: '/soluciones/operacion-interna',
     accent: '#003049',
-    image: '/images/sol-operacion.png',
+    image: solOperacionImg,
     services: ['PAOS', 'CRM y leads', 'Dashboards', 'Integraciones'],
   },
   {
@@ -19,7 +35,7 @@ const solucionesHome = [
     description: 'Sitios web, landing pages, Google Business Profile, WhatsApp Business y redes sociales. Tu primera impresión, trabajando 24/7.',
     href: '/soluciones/presencia-digital',
     accent: '#d62828',
-    image: '/images/sol-presencia.png',
+    image: solPresenciaImg,
     services: ['Sitios web premium', 'Landing pages', 'Redes sociales', 'Google Business'],
   },
   {
@@ -29,7 +45,7 @@ const solucionesHome = [
     description: 'Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. Automatizamos donde hay fricción, no donde hay moda.',
     href: '/soluciones/ai-automation',
     accent: '#f77f00',
-    image: '/images/sol-ai.png',
+    image: solAiImg,
     services: ['Agentes de IA', 'Asistentes internos', 'n8n & APIs', 'Automatización documental'],
   },
   {
@@ -39,7 +55,7 @@ const solucionesHome = [
     description: 'Web apps, MVPs, paneles administrativos y prototipos funcionales. Del problema al producto, sin años de desarrollo.',
     href: '/soluciones/productos-digitales',
     accent: '#fcbf49',
-    image: '/images/sol-productos.png',
+    image: solProductosImg,
     services: ['Web apps', 'MVPs', 'Apps internas', 'Prototipos'],
   },
 ];
@@ -75,7 +91,7 @@ const solucionesHome = [
       >
         <span data-hero-line style="display:block; white-space:nowrap;">Construimos</span>
         <span data-hero-line style="display:block; white-space:nowrap;">el sistema que</span>
-        <span data-hero-line style="display:block; white-space:nowrap;"><span style="color: var(--orange);">libera</span> tu negocio.</span>
+        <span data-hero-line style="display:block; white-space:nowrap;"><em style="color: var(--orange); font-style: italic;">libera</em> tu negocio.</span>
       </h1>
 
       <!-- Subheadline -->
@@ -118,7 +134,7 @@ const solucionesHome = [
     <div class="problem-left" data-reveal>
       <div class="problem-content">
         <h2 class="problem-title mb-6" style="color: var(--text-primary);">
-          Tecnología que se integra a tu forma de trabajar.
+          Tecnología que se integra a <em style="color: var(--orange); font-style: italic;">tu forma de trabajar.</em>
         </h2>
         <p class="problem-body mb-4" style="color: var(--text-secondary);">
           Una buena web, un WhatsApp bien configurado y procesos claros pueden cambiar la manera en que un negocio atiende, vende y crece.
@@ -129,13 +145,12 @@ const solucionesHome = [
       </div>
 
       <div class="problem-mobile-visual">
-        <img
-          src="/images/problemas.png"
+        <Image
+          src={problemasImg}
           alt="Sistemas digitales integrados"
-          width="720"
-          height="1280"
+          widths={[400, 720]}
+          sizes="100vw"
           loading="lazy"
-          decoding="async"
         />
       </div>
 
@@ -173,13 +188,12 @@ const solucionesHome = [
 
     <!-- Right: image full height -->
     <div class="problem-right">
-      <img
-        src="/images/problemas.png"
+      <Image
+        src={problemasImg}
         alt="Sistemas digitales integrados"
-        width="720"
-        height="1280"
+        widths={[720, 1080]}
+        sizes="50vw"
         loading="lazy"
-        decoding="async"
         class="problem-img"
       />
     </div>
@@ -205,15 +219,14 @@ const solucionesHome = [
           <figure class="solution-visual-shell" data-reveal>
             <div class="solution-visual-frame">
               {solucionesHome.map((sol, i) => (
-                <img
+                <Image
                   src={sol.image}
-                  width="1340"
-                  height="1340"
                   alt={sol.label}
+                  widths={[600, 900, 1340]}
+                  sizes="(max-width: 1023px) 100vw, 50vw"
                   class={`solution-visual-image ${i === 0 ? 'is-active' : ''}`}
                   data-solution-image={sol.id}
                   loading={i === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
                 />
               ))}
             </div>
@@ -224,7 +237,7 @@ const solucionesHome = [
         <div class="solutions-sticky">
           <div class="solutions-intro" data-reveal>
             <h2 class="display-lg solutions-title" style="color: var(--text-primary);">
-              Diseñamos los sistemas que conectan presencia, operación e inteligencia.
+              Diseñamos <em style="color: var(--orange); font-style: italic;">los sistemas que conectan</em> presencia, operación e inteligencia.
             </h2>
           </div>
 
@@ -237,13 +250,12 @@ const solucionesHome = [
               style={`--solution-accent: ${sol.accent};`}
             >
               <div class="solution-card-mobile-visual" aria-hidden="true">
-                <img
+                <Image
                   src={sol.image}
-                  width="1340"
-                  height="1340"
                   alt=""
+                  widths={[400, 800]}
+                  sizes="100vw"
                   loading="lazy"
-                  decoding="async"
                 />
               </div>
               <div class="solution-card-glow" aria-hidden="true"></div>
@@ -381,23 +393,23 @@ const solucionesHome = [
     aria-label="Nuestro trabajo"
   >
     <div class="container-libera w-full work-inner">
-      <div class="flex flex-col gap-3 mb-5 flex-shrink-0" data-reveal>
-        <a
-          href="/trabajo"
-          class="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-150 hover:opacity-70"
-          style="color: var(--text-secondary);"
-        >
-          Ver todo el trabajo <span aria-hidden="true">→</span>
-        </a>
+      <div class="work-header mb-5 flex-shrink-0" data-reveal>
         <div>
           <h2 class="display-md" style="color: var(--text-primary);">
             Construimos para clientes.<br/>
-            <span style="color: var(--text-secondary);">También construimos para aprender.</span>
+            <em style="color: var(--orange); font-style: italic;">También construimos para aprender.</em>
           </h2>
           <p class="text-sm leading-relaxed mt-3 max-w-xl" style="color: var(--text-secondary);">
             Cada proyecto, propio o de cliente, es un sistema en producción.
           </p>
         </div>
+        <a
+          href="/trabajo"
+          class="work-ver-todo inline-flex items-center gap-2 text-sm font-bold transition-opacity duration-150 hover:opacity-70"
+          style="color: var(--orange);"
+        >
+          Ver todo el trabajo <span aria-hidden="true">→</span>
+        </a>
       </div>
       <div
         class="work-card-grid"
@@ -412,7 +424,7 @@ const solucionesHome = [
             status: 'En desarrollo',
             href: '/trabajo/cenote-scout',
             accent: '#f77f00',
-            image: '/images/logo-cenotes.png',
+            image: logoCenotesImg,
           },
           {
             name: 'PAOS',
@@ -422,7 +434,7 @@ const solucionesHome = [
             status: 'En producción',
             href: '/trabajo/radar',
             accent: '#fcbf49',
-            image: '/images/logo-paos.png',
+            image: logoPaosImg,
           },
           {
             name: 'Sole Facile',
@@ -432,7 +444,7 @@ const solucionesHome = [
             status: 'En producción',
             href: '/trabajo/sole-facile',
             accent: '#d62828',
-            image: '/images/logo-sole-facile.png',
+            image: logoSoleFacileImg,
           },
           {
             name: 'Morozzo Padel',
@@ -442,7 +454,7 @@ const solucionesHome = [
             status: 'Completado',
             href: '/trabajo/morozzo-padel',
             accent: '#eae2b7',
-            image: '/images/logo-morozzo.png',
+            image: logoMorozzoImg,
           },
         ].map((project, i) => (
           <a
@@ -451,10 +463,12 @@ const solucionesHome = [
             style={`transition-delay: ${i * 65}ms;`}
             data-reveal
           >
-            <img
+            <Image
               src={project.image}
               alt=""
               aria-hidden="true"
+              widths={[400, 700]}
+              sizes="(max-width: 1023px) 100vw, 50vw"
               class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               loading="lazy"
             />
@@ -506,10 +520,12 @@ const solucionesHome = [
     aria-label="Radar"
   >
     <div class="conocimiento-half radar-feature" style="background: var(--ink); position: relative; overflow: hidden;">
-      <img
-        src="/images/radar-bg.png"
+      <Image
+        src={radarBgImg}
         alt=""
         aria-hidden="true"
+        widths={[800, 1440, 1920]}
+        sizes="100vw"
         class="absolute inset-0 w-full h-full object-cover object-center"
         loading="lazy"
         style="opacity: 0.35;"
@@ -548,27 +564,27 @@ const solucionesHome = [
               date: 'Jun 2026',
               read: '4 min',
               href: '/radar/microsoft-mai-modelos-build-2026',
-              image: '/images/LS%20-%20radar%201.png',
+              image: radar1Img,
             },
             {
               categoria: 'IA',
-              accent: '#f77f00',
+              accent: '#fcbf49',
               pos: 'mid',
               title: 'Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos',
               date: 'Jun 2026',
               read: '4 min',
               href: '/radar/claude-opus-4-8',
-              image: '/images/LS%20-%20radar%202.png',
+              image: radar2Img,
             },
             {
               categoria: 'IA',
-              accent: '#d62828',
+              accent: '#fcbf49',
               pos: 'last',
               title: 'Claude Fable 5: Anthropic libera su primer modelo de clase Mythos',
               date: 'Jun 2026',
               read: '5 min',
               href: '/radar/claude-fable-5',
-              image: '/images/LS%20-%20radar%203.png',
+              image: radar3Img,
             },
           ].map((art) => (
             <a
@@ -577,12 +593,12 @@ const solucionesHome = [
               style="background: oklch(10% 0.015 235 / 0.75); border: 1px solid oklch(28% 0.02 235 / 0.5);"
               data-reveal
             >
-              <img
+              <Image
                 src={art.image}
                 alt=""
                 aria-hidden="true"
-                width="1254"
-                height="1254"
+                widths={[400, 700]}
+                sizes="(max-width: 1023px) 100vw, 25vw"
                 loading="lazy"
                 class="conocimiento-radar-image"
               />
@@ -599,15 +615,15 @@ const solucionesHome = [
                     {art.date} · {art.read}
                   </span>
                 </div>
-                <p class="text-sm font-semibold leading-snug" style="color: #ffffff;">
+                <p class="conocimiento-radar-title" style="color: #ffffff;">
                   {art.title}
                 </p>
+                <span
+                  class="conocimiento-arrow text-sm transition-transform duration-200 group-hover:translate-x-1"
+                  style={`color: ${art.accent};`}
+                  aria-hidden="true"
+                >→</span>
               </div>
-              <span
-                class="conocimiento-arrow text-sm transition-transform duration-200 group-hover:translate-x-1"
-                style={`color: ${art.accent};`}
-                aria-hidden="true"
-              >→</span>
             </a>
           ))}
 
@@ -629,10 +645,12 @@ const solucionesHome = [
     aria-label="Llamada a la acción"
   >
     <!-- Background image -->
-    <img
-      src="/images/cta-bg.png"
+    <Image
+      src={ctaBgImg}
       alt=""
       aria-hidden="true"
+      widths={[800, 1440, 1920]}
+      sizes="100vw"
       class="absolute inset-0 w-full h-full pointer-events-none select-none"
       style="object-fit: cover; object-position: center; opacity: 0.18;"
       loading="lazy"
@@ -777,6 +795,7 @@ const solucionesHome = [
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center center;
     display: block;
   }
 
@@ -818,7 +837,8 @@ const solucionesHome = [
   .problem-stat-value {
     font-size: clamp(1.25rem, 2vw, 2rem);
     font-weight: 900;
-    color: var(--text-primary);
+    font-style: italic;
+    color: var(--orange);
     line-height: 1;
     margin-bottom: 0.35rem;
     font-variant-numeric: tabular-nums;
@@ -919,6 +939,7 @@ const solucionesHome = [
 
     /* ── Conocimiento ── */
     .conocimiento-pin-stage {
+      min-height: auto;
       height: auto;
       margin-top: 0;
     }
@@ -928,6 +949,10 @@ const solucionesHome = [
       top: auto;
       height: auto;
       grid-template-rows: auto;
+    }
+
+    .conocimiento-half {
+      padding-block: 4rem 3rem;
     }
 
     .conocimiento-half > .container-libera {
@@ -1037,6 +1062,20 @@ const solucionesHome = [
     height: 100%;
   }
 
+  .work-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .work-ver-todo {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-bottom: 0.15rem;
+  }
+
   .work-card-grid {
     flex: 1;
     min-height: 0;
@@ -1051,7 +1090,7 @@ const solucionesHome = [
 
   /* ── Conocimiento pin + CTA overlap ───────────────────────── */
   .conocimiento-pin-stage {
-    height: 180dvh;
+    min-height: 250dvh;
     position: relative;
     z-index: 6;
     margin-top: -100dvh;
@@ -1059,8 +1098,8 @@ const solucionesHome = [
 
   #conocimiento {
     position: sticky;
-    top: var(--nav-height, 72px);
-    height: calc(100dvh - var(--nav-height, 72px));
+    top: 0;
+    height: 100dvh;
     overflow: hidden;
     display: grid;
     grid-template-rows: 1fr;
@@ -1070,7 +1109,7 @@ const solucionesHome = [
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-block: 2rem;
+    padding-block: calc(var(--nav-height, 72px) + 1.5rem) 1.5rem;
   }
 
   .conocimiento-half > .container-libera {
@@ -1092,7 +1131,7 @@ const solucionesHome = [
   .conocimiento-card--last  { border-radius: 0; }
 
   .conocimiento-card {
-    padding: 1.5rem;
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
@@ -1167,8 +1206,8 @@ const solucionesHome = [
     inset: 0;
     z-index: -1;
     background:
-      linear-gradient(180deg, oklch(6% 0.012 235 / 0.06), oklch(6% 0.012 235 / 0.7)),
-      linear-gradient(0deg, oklch(6% 0.012 235 / 0.56), transparent 58%);
+      linear-gradient(180deg, oklch(6% 0.012 235 / 0.05) 0%, oklch(6% 0.012 235 / 0.82) 100%),
+      linear-gradient(0deg, oklch(6% 0.012 235 / 0.97) 0%, oklch(6% 0.012 235 / 0.75) 40%, transparent 60%);
   }
 
   .conocimiento-card--dark:hover .conocimiento-radar-image {
@@ -1176,19 +1215,32 @@ const solucionesHome = [
   }
 
   .conocimiento-radar-content {
-    position: relative;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1;
     display: flex;
-    flex: 1;
     flex-direction: column;
-    justify-content: flex-end;
-    gap: 0.625rem;
+    gap: 0.75rem;
     min-width: 0;
+    padding: 1.25rem 1.75rem 1.75rem;
   }
 
   .conocimiento-radar-content > div {
     min-width: 0;
     flex-wrap: wrap;
+  }
+
+  .conocimiento-radar-title {
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .conocimiento-arrow {
+    margin-top: 0.25rem;
   }
 
   .cta-overlap {
@@ -1226,6 +1278,17 @@ const solucionesHome = [
 
     .work-overlap {
       margin-top: 0;
+    }
+
+    .conocimiento-pin-stage {
+      min-height: auto;
+      margin-top: 0;
+    }
+
+    #conocimiento {
+      position: relative;
+      top: auto;
+      height: auto;
     }
   }
 
@@ -1973,6 +2036,7 @@ const solucionesHome = [
 
   @media (max-width: 900px) {
     .conocimiento-pin-stage {
+      min-height: auto;
       height: auto;
       margin-top: 0;
     }

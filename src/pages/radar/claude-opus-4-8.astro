@@ -1,11 +1,28 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '@/assets/images/LS - radar 2.png';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos",
+  "description": "Análisis de las mejoras de Claude Opus 4.8 y su impacto en automatización de procesos empresariales.",
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-01",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
+  "image": "https://www.liberastudio.tech/images/LS%20-%20radar%202.png",
+  "url": "https://www.liberastudio.tech/radar/claude-opus-4-8",
+  "articleSection": "IA",
+  "inLanguage": "es-MX"
+});
 ---
 
-<Layout title="Claude Opus 4.8" description="Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos.">
+<Layout title="Claude Opus 4.8" description="Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos." jsonLdExtra={articleSchema}>
   <article class="radar-article-page">
     <header class="radar-article-hero">
-      <img src="/images/LS%20-%20radar%202.png" alt="" width="1254" height="1254" class="radar-article-hero-image" />
+      <Image src={heroImg} alt="" widths={[800, 1254]} sizes="100vw" class="radar-article-hero-image" />
       <span class="radar-article-hero-overlay" aria-hidden="true"></span>
       <div class="container-libera radar-article-hero-inner">
         <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
@@ -52,6 +69,15 @@ import Layout from '@/layouts/Layout.astro';
         <h2>Lo que esto dice de Anthropic</h2>
         <p>Este lanzamiento no ocurre solo. Llegó el mismo día que Anthropic anunció una ronda de financiamiento de $65 mil millones que los pone a un paso del billón de dólares de valuación, superando a OpenAI por primera vez. La empresa también anticipó el próximo lanzamiento de un nuevo modelo llamado Mythos.</p>
         <p>El ritmo de desarrollo no va a bajar.</p>
+
+        <div class="radar-article-related">
+          <p class="radar-related-label">Si esto te interesa</p>
+          <div class="radar-related-links">
+            <a href="/soluciones/ai-automation">IA aplicada a procesos reales →</a>
+            <a href="/soluciones/ai-automation/flujos-n8n">Automatiza flujos con n8n →</a>
+            <a href="/soluciones/ai-automation/automatizacion-documental">Automatización documental →</a>
+          </div>
+        </div>
       </div>
     </div>
     </div>
@@ -77,5 +103,10 @@ import Layout from '@/layouts/Layout.astro';
     .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid rgba(0,48,73,0.12); }
     .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
     .radar-stat span { color: rgba(0,48,73,0.65); }
+    .radar-article-related { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,48,73,0.12); }
+    .radar-related-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .radar-related-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .radar-related-links a { color: #003049; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+    .radar-related-links a:hover { color: var(--orange); }
   </style>
 </Layout>
