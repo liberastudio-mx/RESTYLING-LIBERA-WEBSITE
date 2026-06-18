@@ -1,19 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const guias = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/guias' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    categoria: z.enum(['paos', 'automatizacion', 'inteligencia-artificial', 'presencia-digital', 'whatsapp-business']),
-    fecha: z.date(),
-    destacado: z.boolean().default(false),
-    imagen: z.string().optional(),
-    tiempoLectura: z.string().optional(),
-  }),
-});
-
 const radar = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/radar' }),
   schema: z.object({
@@ -26,4 +13,4 @@ const radar = defineCollection({
   }),
 });
 
-export const collections = { guias, radar };
+export const collections = { radar };

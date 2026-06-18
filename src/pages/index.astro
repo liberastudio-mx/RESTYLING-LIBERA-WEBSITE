@@ -7,7 +7,7 @@ const solucionesHome = [
     label: 'Operación Interna',
     promise: 'Para operar con orden, no con memoria.',
     description: 'PAOS, CRM simple, dashboards internos y automatización de procesos. Cada mensaje, lead y tarea en su lugar.',
-    href: '/soluciones/operacion-inteligente',
+    href: '/soluciones/operacion-interna',
     accent: '#003049',
     image: '/images/sol-operacion.png',
     services: ['PAOS', 'CRM y leads', 'Dashboards', 'Integraciones'],
@@ -128,6 +128,17 @@ const solucionesHome = [
         </p>
       </div>
 
+      <div class="problem-mobile-visual">
+        <img
+          src="/images/problemas.png"
+          alt="Sistemas digitales integrados"
+          width="720"
+          height="1280"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+
       <div class="problem-stats">
         {[
           {
@@ -225,6 +236,16 @@ const solucionesHome = [
               data-solution-card={sol.id}
               style={`--solution-accent: ${sol.accent};`}
             >
+              <div class="solution-card-mobile-visual" aria-hidden="true">
+                <img
+                  src={sol.image}
+                  width="1340"
+                  height="1340"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
               <div class="solution-card-glow" aria-hidden="true"></div>
               <span class="solution-card-index" aria-hidden="true">0{i + 1}</span>
 
@@ -477,94 +498,14 @@ const solucionesHome = [
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       6. GUÍAS + RADAR, Editoriale chiaro/scuro split
+       6. RADAR, editoriale full-width
        ═══════════════════════════════════════════════════════════════════ -->
   <div class="conocimiento-pin-stage">
   <section
     id="conocimiento"
-    aria-label="Guías y Radar"
+    aria-label="Radar"
   >
-    <!-- ── TOP: Guías ── -->
-    <div class="conocimiento-half" style="background: var(--surface);">
-      <div class="container-libera w-full">
-        <div class="conocimiento-half-grid">
-
-          <!-- Heading -->
-          <div data-reveal class="flex flex-col justify-center pr-4" style="padding-block: 2.5rem;">
-            <p class="eyebrow mb-3" style="color: var(--text-secondary); font-family: var(--font-mono);">Guías</p>
-            <h2 class="display-md mb-6" style="color: var(--text-primary);">
-              Conocimiento abierto para decidir mejor.
-            </h2>
-            <a href="/guias" class="inline-flex items-center gap-2 text-sm font-medium transition-opacity duration-150 hover:opacity-60 group" style="color: var(--text-primary);">
-              Ver todas las guías
-              <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
-            </a>
-          </div>
-
-          <!-- 3 Guías cards -->
-          {[
-            {
-              categoria: 'PAOS',
-              bg: '#f77f00',
-              pos: 'first',
-              title: 'Qué es un PAOS y por qué tu empresa necesita uno',
-              href: '/guias/paos/que-es-un-paos',
-              image: '/images/LS%20-%20guia%20prima.png',
-            },
-            {
-              categoria: 'IA',
-              bg: '#003049',
-              pos: 'mid',
-              title: 'Qué puede hacer un agente de IA en una empresa real',
-              href: '/guias/inteligencia-artificial/agentes-ia-empresa',
-              image: '/images/LS%20-%20guia%202.png',
-            },
-            {
-              categoria: 'Presencia',
-              bg: '#d62828',
-              pos: 'last',
-              title: 'Cómo saber si tu presencia digital está funcionando',
-              href: '/guias/presencia-digital/como-saber-si-tu-web-convierte',
-              image: '/images/LS%20-%20guia%20ultima.png',
-            },
-          ].map((guia) => (
-            <a
-              href={guia.href}
-              class={`conocimiento-card conocimiento-card--${guia.pos} group`}
-              style={`background: ${guia.bg};`}
-              data-reveal
-            >
-              <img
-                src={guia.image}
-                alt=""
-                aria-hidden="true"
-                width="1254"
-                height="1254"
-                loading="lazy"
-                class="conocimiento-guide-image"
-              />
-              <span
-                class="conocimiento-card-content text-xs font-mono tracking-wider uppercase block"
-                style="color: rgba(255,255,255,0.6); font-family: var(--font-mono);"
-              >
-                {guia.categoria}
-              </span>
-              <p class="conocimiento-card-content conocimiento-guide-title font-semibold leading-snug" style="color: #ffffff;">
-                {guia.title}
-              </p>
-              <span
-                class="conocimiento-arrow text-sm transition-transform duration-200 group-hover:translate-x-1"
-                style="color: rgba(255,255,255,0.7);"
-                aria-hidden="true"
-              >→</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    <!-- ── BOTTOM: Radar ── -->
-    <div class="conocimiento-half" style="background: var(--ink); position: relative; overflow: hidden;">
+    <div class="conocimiento-half radar-feature" style="background: var(--ink); position: relative; overflow: hidden;">
       <img
         src="/images/radar-bg.png"
         alt=""
@@ -581,7 +522,7 @@ const solucionesHome = [
           <!-- Heading -->
           <div data-reveal class="flex flex-col justify-center pr-4" style="padding-block: 2.5rem;">
             <p class="eyebrow mb-3" style="color: #fcbf49; font-family: var(--font-mono);">Radar</p>
-            <h2 class="display-md mb-4" style="color: #ffffff;">
+            <h2 class="display-lg mb-4" style="color: #ffffff;">
               Blog del equipo
             </h2>
             <p class="text-sm mb-6 leading-relaxed" style="color: oklch(72% 0.025 235);">
@@ -828,6 +769,10 @@ const solucionesHome = [
     box-sizing: border-box;
   }
 
+  .problem-mobile-visual {
+    display: none;
+  }
+
   .problem-img {
     width: 100%;
     height: 100%;
@@ -982,7 +927,7 @@ const solucionesHome = [
       position: relative;
       top: auto;
       height: auto;
-      grid-template-rows: auto auto;
+      grid-template-rows: auto;
     }
 
     .conocimiento-half > .container-libera {
@@ -1106,7 +1051,7 @@ const solucionesHome = [
 
   /* ── Conocimiento pin + CTA overlap ───────────────────────── */
   .conocimiento-pin-stage {
-    height: 280dvh;
+    height: 180dvh;
     position: relative;
     z-index: 6;
     margin-top: -100dvh;
@@ -1118,7 +1063,7 @@ const solucionesHome = [
     height: calc(100dvh - var(--nav-height, 72px));
     overflow: hidden;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
   }
 
   .conocimiento-half {
@@ -1139,6 +1084,7 @@ const solucionesHome = [
     gap: 0;
     align-items: stretch;
     width: 100%;
+    min-width: 0;
   }
 
   .conocimiento-card--first { border-radius: 0; }
@@ -1155,6 +1101,7 @@ const solucionesHome = [
     overflow: hidden;
     isolation: isolate;
     transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    min-width: 0;
   }
   .conocimiento-card:hover {
     opacity: 0.88;
@@ -1200,6 +1147,8 @@ const solucionesHome = [
 
   .conocimiento-card--dark {
     justify-content: flex-end;
+    aspect-ratio: auto;
+    min-height: clamp(360px, 56vh, 590px);
   }
 
   .conocimiento-radar-image {
@@ -1234,6 +1183,12 @@ const solucionesHome = [
     flex-direction: column;
     justify-content: flex-end;
     gap: 0.625rem;
+    min-width: 0;
+  }
+
+  .conocimiento-radar-content > div {
+    min-width: 0;
+    flex-wrap: wrap;
   }
 
   .cta-overlap {
@@ -1433,6 +1388,10 @@ const solucionesHome = [
   }
 
   .solution-card-glow {
+    display: none;
+  }
+
+  .solution-card-mobile-visual {
     display: none;
   }
 
@@ -2009,6 +1968,186 @@ const solucionesHome = [
       opacity: 1;
       transform: none;
       background: var(--ink-mid);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .conocimiento-pin-stage {
+      height: auto;
+      margin-top: 0;
+    }
+
+    #conocimiento {
+      position: relative;
+      top: auto;
+      height: auto;
+      overflow: visible;
+      grid-template-rows: auto;
+    }
+
+    .conocimiento-half {
+      padding-block: 5rem;
+    }
+
+    .conocimiento-half > .container-libera {
+      height: auto;
+    }
+
+    .conocimiento-half-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      height: auto;
+    }
+
+    .conocimiento-half-grid > div:first-child {
+      padding-block: 0 1.5rem !important;
+    }
+
+    .conocimiento-card--dark {
+      min-height: 320px;
+      aspect-ratio: 16 / 10;
+    }
+
+    .cta-overlap {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .conocimiento-card--dark {
+      min-height: 280px;
+      aspect-ratio: auto;
+    }
+  }
+
+  /* Mobile source-of-truth: no desktop overlap or detached solution imagery. */
+  @media (max-width: 1023px) {
+    .problem-pin-stage {
+      min-height: auto;
+      margin-top: 0;
+    }
+
+    .problem-overlap {
+      position: relative;
+      top: auto;
+      height: auto;
+      min-height: auto;
+      overflow: visible;
+    }
+
+    .problem-left {
+      overflow: visible;
+    }
+
+    .problem-mobile-visual {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 2.5rem 0;
+    }
+
+    .problem-mobile-visual img {
+      display: block;
+      width: min(100%, 34rem);
+      height: auto;
+      object-fit: contain;
+    }
+
+    .problem-right {
+      display: none;
+    }
+
+    .solutions-overlap {
+      margin-top: 0;
+      min-height: auto;
+      padding-block: 5rem;
+    }
+
+    .solutions-image-col {
+      display: none;
+    }
+
+    .solutions-layout {
+      gap: 0;
+    }
+
+    .solutions-intro {
+      margin-bottom: 2.5rem;
+    }
+
+    .solutions-card-rail {
+      gap: 3.5rem;
+    }
+
+    .solution-card {
+      display: block;
+      padding: 0 0 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .solution-card:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .solution-card-mobile-visual {
+      display: block;
+      width: 70%;
+      aspect-ratio: 4 / 3;
+      margin: 0 auto 1.75rem;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .solution-card-mobile-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .solution-card .flex.items-center.justify-end {
+      justify-content: flex-start;
+      margin-bottom: 1.25rem;
+    }
+
+    .solution-card-title,
+    .solution-card-copy {
+      max-width: 42rem;
+      text-align: left;
+    }
+
+    .solution-card .flex.flex-wrap.justify-end {
+      justify-content: flex-start;
+    }
+
+    .solution-card > .relative.mt-10 {
+      justify-content: flex-start;
+      margin-top: 1.75rem;
+    }
+
+    .solution-card-index {
+      top: auto;
+      right: 0;
+      bottom: 3.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .problem-left {
+      padding-bottom: 2.5rem;
+    }
+
+    .solutions-overlap {
+      padding-block: 4rem;
+    }
+
+    .solutions-title {
+      text-align: left;
+    }
+
+    .solution-card-mobile-visual {
+      margin-bottom: 1.5rem;
     }
   }
 </style>

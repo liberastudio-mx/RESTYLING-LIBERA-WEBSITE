@@ -1,14 +1,6 @@
 ---
 const currentPath = Astro.url.pathname;
 
-const navLinks = [
-  { label: 'Soluciones', href: '/soluciones', type: 'mega-large' },
-  { label: 'Trabajo',    href: '/trabajo',    type: 'dropdown-visual' },
-  { label: 'Guías',      href: '/guias',      type: 'mega-editorial' },
-  { label: 'Radar',      href: '/radar',      type: 'dropdown-simple' },
-  { label: 'Nosotros', href: '/nosotros', type: 'link' },
-];
-
 const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
 ---
 
@@ -48,14 +40,14 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
           </svg>
         </button>
 
-        <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[840px] rounded-2xl opacity-0 invisible translate-y-2 transition-all duration-200 pointer-events-none"
+        <div class="dropdown solutions-dropdown rounded-2xl opacity-0 invisible transition-all duration-200 pointer-events-none"
           style="background: #ffffff; border: 1px solid rgba(0,48,73,0.1); box-shadow: 0 24px 60px rgba(0,48,73,0.1);"
           role="region" aria-label="Soluciones"
         >
           <div class="grid grid-cols-4 p-5 gap-1">
             {[
-              { heading: 'Operación Interna', accent: BRAND_COLORS[0], href: '/soluciones/operacion-inteligente',
-                links: [['PAOS','/soluciones/operacion-inteligente/paos'],['Automatización','/soluciones/operacion-inteligente/automatizacion'],['CRM y seguimiento','/soluciones/operacion-inteligente/crm-seguimiento'],['Dashboards','/soluciones/operacion-inteligente/dashboards'],['Integraciones','/soluciones/operacion-inteligente/integraciones']] },
+              { heading: 'Operación Interna', accent: BRAND_COLORS[0], href: '/soluciones/operacion-interna',
+                links: [['PAOS','/soluciones/operacion-interna/paos'],['Automatización','/soluciones/operacion-interna/automatizacion'],['CRM y seguimiento','/soluciones/operacion-interna/crm-seguimiento'],['Dashboards','/soluciones/operacion-interna/dashboards'],['Integraciones','/soluciones/operacion-interna/integraciones']] },
               { heading: 'Presencia Digital',     accent: BRAND_COLORS[1], href: '/soluciones/presencia-digital',
                 links: [['Sitios web premium','/soluciones/presencia-digital/sitios-web-premium'],['Landing pages','/soluciones/presencia-digital/landing-pages'],['Google Business Profile','/soluciones/presencia-digital/google-business-profile'],['WhatsApp Business','/soluciones/presencia-digital/whatsapp-business'],['Redes sociales','/soluciones/presencia-digital/redes-sociales']] },
               { heading: 'IA y automatización',   accent: BRAND_COLORS[2], href: '/soluciones/ai-automation',
@@ -248,6 +240,19 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
     visibility: visible !important;
     transform: translateY(0) !important;
     pointer-events: auto !important;
+  }
+  .solutions-dropdown {
+    position: fixed;
+    top: calc(var(--nav-height) + 0.75rem);
+    left: 50%;
+    width: min(840px, calc(100vw - 2rem));
+    max-height: calc(100dvh - var(--nav-height) - 1.5rem);
+    overflow-y: auto;
+    transform: translate(-50%, 0.5rem);
+  }
+  .solutions-dropdown.kb-open,
+  .solutions-dropdown.hover-open {
+    transform: translate(-50%, 0) !important;
   }
 </style>
 
