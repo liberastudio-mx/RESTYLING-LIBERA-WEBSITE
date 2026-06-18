@@ -1,21 +1,192 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 ---
-<Layout title="Prototipos | Productos Digitales" description="Prototipos funcionales para presentar, validar y iterar antes de construir el producto completo.">
-  <main class="ph-page">
-    <div class="container-libera ph-inner">
-      <nav class="ph-bc"><a href="/soluciones">Soluciones</a><span>›</span><a href="/soluciones/productos-digitales">Productos Digitales</a><span>›</span><span aria-current="page">Prototipos</span></nav>
-      <span class="ph-kicker">05 · Prototipos</span>
-      <h1 class="display-hero ph-title">Próximamente</h1>
-    </div>
-  </main>
+
+<Layout
+  title="Prototipos | Productos Digitales"
+  description="Prototipos funcionales y navegables para validar ideas con usuarios reales antes de construir el producto completo."
+>
+  <!-- Design: Hybrid | Vibe: Soft Structuralism | Layout: Editorial Split | Color: Restrained -->
+  <div class="proto-page">
+    <nav class="proto-breadcrumb container-libera" aria-label="Navegación de migas de pan">
+      <a href="/soluciones">Soluciones</a>
+      <span aria-hidden="true">›</span>
+      <a href="/soluciones/productos-digitales">Productos digitales</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Prototipos</span>
+    </nav>
+
+    <section class="proto-hero">
+      <div class="container-libera proto-hero-grid">
+        <div class="proto-hero-copy" data-reveal>
+          <p class="proto-eyebrow">05 · Prototipos</p>
+          <h1 class="proto-title">
+            Ver cómo funciona
+            <em>antes de construirlo</em>
+          </h1>
+          <p class="proto-lead">
+            Antes de escribir código, conviene saber si la idea tiene sentido en la pantalla. Un prototipo muestra el flujo, la lógica y la experiencia de uso sin el costo de construir algo completo. Sirve para validar con usuarios reales, para alinear al equipo antes de empezar y para descubrir los problemas de diseño en el momento más barato posible: antes.
+          </p>
+          <ul class="proto-hero-points" aria-label="Ventajas principales">
+            <li><span aria-hidden="true">✓</span> Menos riesgo, más claridad</li>
+            <li><span aria-hidden="true">✓</span> Decisiones basadas en evidencia</li>
+            <li><span aria-hidden="true">✓</span> Alineación total del equipo</li>
+            <li><span aria-hidden="true">✓</span> Ahorro de tiempo y recursos</li>
+          </ul>
+        </div>
+
+        <div class="proto-visual" data-reveal>
+          <aside class="proto-mock" aria-hidden="true">
+            <p class="proto-mock-title">De idea a experiencia validada.</p>
+            <div class="proto-journey">
+              <div><span>⌁</span><b>1. Idea</b></div>
+              <i></i>
+              <div><span>▣</span><b>2. Prototipo</b></div>
+              <i></i>
+              <div><span>○</span><b>3. Pruebas</b></div>
+              <i></i>
+              <div><span>✓</span><b>4. Decisión</b></div>
+            </div>
+
+            <div class="proto-devices">
+              <div class="proto-phone">
+                <i></i>
+                <b></b>
+                <span></span><span></span><span></span>
+              </div>
+              <div class="proto-wire"></div>
+              <div class="proto-desktop">
+                <div class="proto-window-bar"><i></i><i></i><i></i></div>
+                <div class="proto-window-body">
+                  <nav><span></span><span></span><span></span><span></span></nav>
+                  <section>
+                    <div class="proto-placeholder"></div>
+                    <div class="proto-copy-lines"><i></i><i></i><i></i></div>
+                    <svg viewBox="0 0 180 65" preserveAspectRatio="none">
+                      <polyline points="0,55 30,50 58,26 88,44 118,18 150,36 180,7"></polyline>
+                    </svg>
+                  </section>
+                  <aside><i></i><i></i><i></i><i></i></aside>
+                </div>
+              </div>
+            </div>
+
+            <div class="proto-results">
+              <div class="is-valid"><span>✓</span><strong>Funciona para<br />los usuarios</strong></div>
+              <div class="is-adjust"><span>×</span><strong>No funciona,<br />ajustamos</strong></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="proto-content">
+      <div class="container-libera proto-content-grid">
+        <article class="proto-card proto-when" data-reveal>
+          <div class="proto-card-heading"><span aria-hidden="true">▦</span><h2>Cuándo un <em>prototipo</em> es el paso correcto</h2></div>
+          <ul>
+            <li><span aria-hidden="true">✓</span>Tienes una idea pero no estás seguro de cómo debería funcionar.</li>
+            <li><span aria-hidden="true">✓</span>Necesitas mostrarle algo concreto a un inversionista, socio o cliente antes de comprometer meses de desarrollo.</li>
+            <li><span aria-hidden="true">✓</span>El equipo tiene visiones distintas y necesita un referente común.</li>
+            <li><span aria-hidden="true">✓</span>Quieres probar con usuarios reales antes de apostar al desarrollo completo.</li>
+          </ul>
+        </article>
+
+        <article class="proto-card proto-delivery" data-reveal>
+          <div class="proto-card-heading"><span aria-hidden="true">◇</span><h2>Lo que <em>entregamos</em></h2></div>
+          <div class="proto-card-copy">
+            <p>Un prototipo funcional navegable: pantallas reales, flujos reales, interacciones reales.</p>
+            <p>No maquetas estáticas que solo muestran cómo se ve. Algo que se puede poner frente a un usuario, pedirle que complete una tarea y observar dónde se atasca.</p>
+          </div>
+          <p class="proto-note"><span aria-hidden="true">✣</span>Junto con el prototipo entregamos las conclusiones de las pruebas con usuarios y las recomendaciones para la siguiente fase.</p>
+        </article>
+
+        <article class="proto-card proto-product" data-reveal>
+          <div class="proto-card-heading"><span aria-hidden="true">↗</span><h2>Del <em>prototipo</em> al producto</h2></div>
+          <div class="proto-card-copy">
+            <p>Si el prototipo se valida, la base de diseño y la lógica de flujo aceleran el desarrollo real.</p>
+            <p>No empiezas de cero: empiezas con claridad.</p>
+            <p>El equipo que construya el producto, seamos nosotros u otro equipo, trabaja sobre decisiones ya tomadas y probadas.</p>
+          </div>
+        </article>
+
+        <article class="proto-card proto-evidence" data-reveal>
+          <div class="proto-card-heading"><span aria-hidden="true">◎</span><h2>De la intuición a la <em>evidencia</em></h2></div>
+          <div class="proto-evidence-flow" aria-hidden="true">
+            <div><span>01</span><b>Hipótesis</b></div><i></i>
+            <div><span>02</span><b>Prueba</b></div><i></i>
+            <div><span>03</span><b>Aprendizaje</b></div>
+          </div>
+          <p class="proto-note"><span aria-hidden="true">✓</span>Las decisiones importantes se toman con usuarios y tareas reales, antes de invertir en desarrollo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="proto-features">
+      <div class="container-libera" data-reveal>
+        <h2>Puntos clave</h2>
+        <div class="proto-features-grid">
+          <article class="proto-feature"><span aria-hidden="true">↖</span><div><strong>Prototipo navegable, no presentación estática</strong><p>Pantallas, flujos e interacciones reales.</p></div></article>
+          <article class="proto-feature"><span aria-hidden="true">○</span><div><strong>Pruebas con usuarios reales incluidas</strong><p>Validamos problemas reales, no supuestos.</p></div></article>
+          <article class="proto-feature"><span aria-hidden="true">▦</span><div><strong>Documentación de flujos y decisiones</strong><p>Claridad para el equipo que construya el producto.</p></div></article>
+          <article class="proto-feature"><span aria-hidden="true">◷</span><div><strong>Entrega rápida: semanas, no meses</strong><p>Iteramos pronto y mejoramos antes de desarrollar.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="proto-cta">
+      <div class="container-libera proto-cta-card" data-reveal>
+        <div class="proto-cta-visual" aria-hidden="true">
+          <div class="proto-cta-window">
+            <i></i><i></i><i></i>
+            <div class="proto-cta-image"></div>
+            <span></span><span></span>
+            <b></b>
+          </div>
+          <div class="proto-cta-flow">
+            <i></i><span></span><i></i><span></span><i class="is-done">✓</i>
+          </div>
+        </div>
+        <div class="proto-cta-copy">
+          <h2>
+            Si tienes algo en la cabeza que necesitas hacer concreto antes de comprometer recursos,
+            <em>un prototipo es el primer paso.</em>
+          </h2>
+          <p>Convertimos tu idea en una experiencia que puedas probar, validar y mejorar antes de construir.</p>
+          <div class="proto-cta-actions">
+            <a href="/diagnostico" class="btn btn-primary">Solicitar diagnóstico <span aria-hidden="true">→</span></a>
+            <small><span aria-hidden="true">✓</span> Sin compromiso. Respuesta en 24–48 h.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <style>
-    .ph-page{background:#fff;padding-block:calc(var(--nav-height) + 4rem) 6rem}
-    .ph-inner{display:flex;flex-direction:column;gap:1.5rem}
-    .ph-bc{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--text-secondary)}
-    .ph-bc a{color:var(--text-secondary);transition:color .2s}.ph-bc a:hover{color:var(--orange)}
-    .ph-bc [aria-current="page"]{color:var(--orange);font-weight:600}
-    .ph-kicker{display:inline-block;padding:.3rem .75rem;border:1px solid var(--border);border-radius:999px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;color:var(--text-secondary)}
-    .ph-title{color:var(--text-primary)}
+    .proto-page{overflow:clip;background:#fff;color:var(--text-primary)}
+    .proto-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;padding-top:calc(var(--nav-height) + 1.25rem);color:var(--text-secondary);font-size:.78rem}
+    .proto-breadcrumb a{color:inherit}.proto-breadcrumb a:hover,.proto-breadcrumb [aria-current="page"]{color:var(--orange)}
+    .proto-hero{padding:clamp(3.25rem,6vw,5.25rem) 0 clamp(3rem,5vw,4.5rem)}
+    .proto-hero-grid{display:grid;grid-template-columns:minmax(18rem,.82fr) minmax(30rem,1.35fr);gap:clamp(2.5rem,5vw,5rem);align-items:center}
+    .proto-eyebrow{width:fit-content;margin-bottom:1.35rem;padding:.32rem .65rem;border:1px solid var(--orange);border-radius:999px;color:var(--orange);font-family:var(--font-mono);font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .proto-title{max-width:12ch;margin:0 0 1.25rem;font-family:var(--font-display);font-size:clamp(2rem,4vw,3.15rem);font-weight:700;line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
+    .proto-title em{display:block;color:var(--orange);font-style:normal}.proto-lead{max-width:48ch;color:var(--text-secondary);font-size:clamp(.88rem,1vw,.98rem);line-height:1.68;text-wrap:pretty}
+    .proto-hero-points{display:grid;gap:.6rem;margin:1.65rem 0 0;padding:0;list-style:none;font-size:.82rem}.proto-hero-points li{display:flex;align-items:center;gap:.65rem}
+    .proto-hero-points span,.proto-feature>span{display:grid;width:1.75rem;height:1.75rem;flex:0 0 auto;place-items:center;border:1px solid oklch(84% .11 50);border-radius:50%;color:var(--orange);font-family:var(--font-mono)}
+    .proto-visual{min-width:0}.proto-mock{min-height:28rem;padding:1.5rem;border:1px solid var(--border);border-radius:.55rem;background:#fff;box-shadow:0 14px 36px oklch(20% .03 240/.11)}
+    .proto-mock-title{margin:0 0 1.15rem;text-align:center;font-family:var(--font-display);font-size:1rem;font-weight:700}.proto-journey{display:grid;grid-template-columns:1fr 2rem 1fr 2rem 1fr 2rem 1fr;align-items:center;max-width:30rem;margin:0 auto 1.25rem}.proto-journey>div{display:grid;justify-items:center;gap:.35rem}.proto-journey span{display:grid;width:2.8rem;height:2.8rem;place-items:center;border:1px solid var(--border);border-radius:50%;color:#0b4f8a;font-size:1rem}.proto-journey div:first-child span{color:var(--orange)}.proto-journey b{font-size:.48rem}.proto-journey>i{border-top:1px dashed #85a5bd}
+    .proto-devices{display:flex;align-items:center;justify-content:center;margin-top:1rem}.proto-phone{width:5.3rem;height:10.5rem;padding:.55rem;border:1px solid #0b4f8a;border-radius:.8rem;background:#fff}.proto-phone>i{display:block;width:1.5rem;height:.18rem;margin:0 auto .7rem;border-radius:1rem;background:#0b4f8a}.proto-phone>b{display:block;height:3rem;border-radius:.25rem;background:#e6ebef}.proto-phone>span{display:block;width:70%;height:.35rem;margin-top:.65rem;background:#dce3e8}.proto-wire{width:1.2rem;border-top:1px dashed #0b4f8a}
+    .proto-desktop{width:min(28rem,72%);height:13.5rem;border:1px solid #0b4f8a;border-radius:.45rem;background:#fff}.proto-window-bar{height:1.6rem;padding:.45rem .65rem;border-bottom:1px solid var(--border)}.proto-window-bar i{display:inline-block;width:.35rem;height:.35rem;margin-right:.2rem;border-radius:50%;background:#0b4f8a}.proto-window-body{display:grid;grid-template-columns:2.7rem 1fr 5rem;height:calc(100% - 1.6rem)}.proto-window-body nav{display:grid;align-content:start;gap:.75rem;padding:.75rem;background:#f2f5f7}.proto-window-body nav span{width:1rem;height:1rem;border-radius:.2rem;background:#cbd5dc}.proto-window-body section{padding:.8rem}.proto-placeholder{width:45%;height:3.5rem;float:left;margin-right:.75rem;border-radius:.2rem;background:#e4e9ed}.proto-copy-lines{display:grid;gap:.4rem;padding-top:.35rem}.proto-copy-lines i{height:.3rem;background:#dce3e8}.proto-window-body svg{width:100%;height:3.8rem;margin-top:.8rem}.proto-window-body polyline{fill:none;stroke:#6d9fd4;stroke-width:1.5}.proto-window-body aside{display:grid;align-content:start;gap:.7rem;padding:.85rem .65rem;border-left:1px solid var(--border)}.proto-window-body aside i{height:.38rem;background:#dce3e8}
+    .proto-results{display:flex;justify-content:center;gap:2.5rem;margin-top:1.5rem}.proto-results>div{display:flex;align-items:center;gap:.7rem;min-width:10rem;padding:.75rem 1rem;border:1px solid oklch(88% .07 150);border-radius:.4rem;background:oklch(97% .025 150);color:#15945a;font-size:.65rem}.proto-results .is-adjust{border-color:oklch(88% .07 35);background:oklch(97% .025 35);color:#e94235}.proto-results span{display:grid;width:2rem;height:2rem;place-items:center;border:1px solid currentColor;border-radius:50%;font-size:1rem}
+    .proto-content{padding:clamp(3.5rem,6vw,5.5rem) 0;background:var(--surface-alt)}.proto-content-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}.proto-card{padding:1.5rem;border:1px solid var(--border);border-radius:.45rem;background:#fff}.proto-card-heading{display:grid;grid-template-columns:3.3rem 1fr;gap:1rem;align-items:center;margin-bottom:1.35rem}.proto-card-heading>span{display:grid;width:3.3rem;height:3.3rem;place-items:center;border:1px solid oklch(84% .11 50);border-radius:50%;color:var(--orange);font-size:1.2rem}.proto-card h2,.proto-features h2{margin:0;font-family:var(--font-display);font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.2}.proto-card h2 em{color:var(--orange);font-style:normal}
+    .proto-card ul{display:grid;gap:1rem;margin:0;padding:0;list-style:none}.proto-card li{display:grid;grid-template-columns:1rem 1fr;gap:.65rem;color:var(--text-secondary);font-size:.82rem;line-height:1.55}.proto-card li>span{color:var(--orange)}.proto-card-copy{display:grid;gap:1rem;padding-left:4.3rem}.proto-card-copy p{color:var(--text-secondary);font-size:.84rem;line-height:1.62}.proto-note{display:flex;align-items:center;gap:.8rem;margin-top:1.25rem;padding:.9rem 1rem;border:1px solid oklch(89% .065 50);border-radius:.35rem;background:oklch(98% .018 50);font-size:.78rem;font-weight:600;line-height:1.5}.proto-note span{color:var(--orange);font-size:1.25rem}.proto-evidence-flow{display:grid;grid-template-columns:1fr 1.5rem 1fr 1.5rem 1fr;align-items:center;margin:1.2rem 0}.proto-evidence-flow>div{display:grid;justify-items:center;gap:.35rem;padding:.75rem;border:1px solid var(--border);border-radius:.3rem}.proto-evidence-flow span{color:var(--orange);font-family:var(--font-mono);font-size:.65rem}.proto-evidence-flow b{font-size:.72rem}.proto-evidence-flow>i{border-top:1px dashed #0b4f8a}
+    .proto-features{padding:clamp(3.5rem,6vw,5rem) 0}.proto-features h2{margin-bottom:1.5rem}.proto-features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.proto-feature{display:flex;min-width:0;gap:.85rem;padding:1rem;border:1px solid var(--border);border-radius:.35rem;background:#fff}.proto-feature>span{width:2.1rem;height:2.1rem;font-size:.85rem}.proto-feature strong{display:block;margin-bottom:.28rem;font-size:.82rem;line-height:1.35}.proto-feature p{color:var(--text-secondary);font-size:.73rem;line-height:1.5}
+    .proto-cta{padding:0 0 clamp(4rem,7vw,6rem)}.proto-cta-card{display:grid;grid-template-columns:minmax(18rem,.85fr) minmax(24rem,1.15fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding:clamp(1.5rem,3vw,2.5rem);border:1px solid oklch(89% .065 50);border-radius:.45rem;background:oklch(98% .018 50)}
+    .proto-cta-visual{display:flex;align-items:center;justify-content:center;min-height:10rem}.proto-cta-window{position:relative;width:15rem;height:9rem;padding:.65rem;border:1px solid #0b4f8a;border-radius:.3rem;background:#fff}.proto-cta-window>i{display:inline-block;width:.35rem;height:.35rem;margin-right:.15rem;border-radius:50%;background:#0b4f8a}.proto-cta-image{width:48%;height:3.8rem;margin-top:.7rem;border:1px solid #8ca7b9;background:linear-gradient(135deg,transparent 49%,#9db2bf 50% 51%,transparent 52%),linear-gradient(45deg,transparent 49%,#9db2bf 50% 51%,transparent 52%)}.proto-cta-window>span{display:block;width:45%;height:.35rem;margin-top:.55rem;background:#dce3e8}.proto-cta-window>b{position:absolute;right:1rem;bottom:1rem;width:3rem;height:1.2rem;border-radius:.2rem;background:var(--orange)}.proto-cta-flow{display:grid;align-items:center;gap:.45rem}.proto-cta-flow>span{width:2rem;border-top:1px solid #0b4f8a}.proto-cta-flow>i{display:grid;width:2rem;height:1.6rem;place-items:center;border:1px solid #0b4f8a;background:#fff}.proto-cta-flow>i.is-done{border-radius:50%;border-color:#15945a;color:#15945a;font-style:normal}
+    .proto-cta-copy h2{max-width:27ch;margin:0 0 .8rem;font-family:var(--font-display);font-size:clamp(1.25rem,2.3vw,1.8rem);line-height:1.16;text-wrap:balance}.proto-cta-copy h2 em{color:var(--orange);font-style:normal}.proto-cta-copy>p{max-width:55ch;color:var(--text-secondary);font-size:.88rem;line-height:1.6}.proto-cta-actions{display:flex;align-items:center;gap:1rem;margin-top:1.25rem}.proto-cta-actions .btn{padding:.75rem 1.15rem;font-size:.84rem;white-space:nowrap}.proto-cta-actions small{color:var(--text-secondary);font-size:.7rem}.proto-cta-actions small span{color:var(--orange)}
+    @media(max-width:1024px){.proto-hero-grid{grid-template-columns:1fr}.proto-title{max-width:15ch}.proto-lead{max-width:65ch}.proto-hero-points{grid-template-columns:1fr 1fr}.proto-features-grid{grid-template-columns:1fr 1fr}.proto-cta-card{grid-template-columns:1fr 1fr}}
+    @media(max-width:760px){.proto-content-grid,.proto-cta-card{grid-template-columns:1fr}.proto-devices{transform:scale(.9)}.proto-features-grid{grid-template-columns:1fr 1fr}.proto-card-copy{padding-left:0}}
+    @media(max-width:520px){.proto-hero{padding-top:2.75rem}.proto-hero-points{grid-template-columns:1fr}.proto-mock{min-height:auto;padding:1rem}.proto-journey{grid-template-columns:repeat(4,1fr);gap:.45rem}.proto-journey>i{display:none}.proto-journey span{width:2.3rem;height:2.3rem}.proto-devices{transform:none}.proto-phone,.proto-wire{display:none}.proto-desktop{width:100%;height:11rem}.proto-window-body{grid-template-columns:2.2rem 1fr 3.8rem}.proto-results{gap:.5rem}.proto-results>div{min-width:0;padding:.6rem;font-size:.55rem}.proto-results span{width:1.5rem;height:1.5rem}.proto-card{padding:1.15rem}.proto-card-heading{grid-template-columns:2.7rem 1fr}.proto-card-heading>span{width:2.7rem;height:2.7rem}.proto-features-grid{grid-template-columns:1fr}.proto-evidence-flow{grid-template-columns:1fr}.proto-evidence-flow>i{width:1px;height:.7rem;margin:auto;border-top:0;border-left:1px dashed #0b4f8a}.proto-cta-card{background:#fff}.proto-cta-visual{transform:scale(.88)}.proto-cta-actions{align-items:flex-start;flex-direction:column}.proto-cta-actions .btn{width:100%;justify-content:center}}
+    @media(prefers-reduced-motion:reduce){.proto-page *{scroll-behavior:auto!important}}
   </style>
 </Layout>

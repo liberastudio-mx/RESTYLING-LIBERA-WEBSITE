@@ -1,21 +1,447 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 ---
-<Layout title="Asistentes internos | IA y automatización" description="Asistentes de IA para tu equipo: responden preguntas, buscan información y ejecutan tareas internas.">
-  <main class="ph-page">
-    <div class="container-libera ph-inner">
-      <nav class="ph-bc"><a href="/soluciones">Soluciones</a><span>›</span><a href="/soluciones/ai-automation">IA y automatización</a><span>›</span><span aria-current="page">Asistentes internos</span></nav>
-      <span class="ph-kicker">02 · Asistentes internos</span>
-      <h1 class="display-hero ph-title">Próximamente</h1>
-    </div>
+<Layout title="Asistentes internos | IA y automatización" description="Un asistente entrenado con tu información real: productos, precios, procesos, guías operativas. Tu equipo lo usa de verdad porque las respuestas son realmente útiles.">
+
+  <main class="asi-page">
+
+    <!-- BREADCRUMB -->
+    <nav class="asi-breadcrumb container-libera" aria-label="breadcrumb">
+      <a href="/soluciones">Soluciones</a>
+      <span>›</span>
+      <a href="/soluciones/ai-automation">IA y automatización</a>
+      <span>›</span>
+      <span aria-current="page">Asistentes internos</span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="asi-hero">
+      <div class="container-libera asi-hero-grid">
+
+        <div class="asi-hero-copy" data-reveal>
+          <h1 class="asi-title">
+            Un asistente que conoce <em>tu negocio</em>, no el de todos
+          </h1>
+          <p class="asi-lead">
+            ChatGPT no sabe cómo trabajas tú. No conoce tus productos, tus precios, tu forma de responder clientes, tus procesos internos. Un asistente interno sí. Lo entrenamos con tu información real: manuales, catálogos, guías operativas, conversaciones frecuentes. El resultado es una herramienta que tu equipo usa de verdad porque las respuestas son realmente útiles.
+          </p>
+          <div class="asi-usecases">
+            <div class="asi-uc">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span>Ventas y preventa</span>
+            </div>
+            <div class="asi-uc">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+              <span>Soporte interno</span>
+            </div>
+            <div class="asi-uc">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>Redacción de documentos</span>
+            </div>
+            <div class="asi-uc">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Onboarding de equipo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mock: interfaz de asistente interno -->
+        <aside class="asi-mock" aria-hidden="true" data-reveal>
+          <div class="asi-mock-header">
+            <div class="asi-mock-title-row">
+              <div class="asi-mock-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/><path d="M15 3l1.5 1.5L20 1"/></svg>
+              </div>
+              <div>
+                <p class="asi-mock-name">Asistente ACME</p>
+                <p class="asi-mock-status"><span class="asi-dot-green"></span>Conectado a tu base de conocimiento</p>
+              </div>
+            </div>
+            <div class="asi-mock-pills">
+              <span class="asi-pill">Catálogo</span>
+              <span class="asi-pill">Procesos</span>
+              <span class="asi-pill">Precios</span>
+              <span class="asi-pill">Scripts</span>
+            </div>
+          </div>
+
+          <div class="asi-mock-chat">
+            <!-- Mensaje usuario -->
+            <div class="asi-msg asi-msg--user">
+              <p>¿Cuál es el plazo de entrega para pedidos de más de 50 unidades?</p>
+            </div>
+            <!-- Respuesta asistente -->
+            <div class="asi-msg asi-msg--bot">
+              <div class="asi-bot-row">
+                <span class="asi-bot-avatar">A</span>
+                <div class="asi-bot-bubble">
+                  <p>Según el catálogo actualizado <strong>(v3.2, oct 2024)</strong>, pedidos mayores a 50 unidades tienen un plazo de <strong>7 días hábiles</strong> desde la confirmación del pago.</p>
+                  <p>Si el pedido incluye personalización, se agregan <strong>3 días adicionales</strong>.</p>
+                  <div class="asi-source">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span>Fuente: Manual de ventas · Sección 4.2</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mensaje usuario 2 -->
+            <div class="asi-msg asi-msg--user">
+              <p>¿Y si el cliente pide descuento por volumen?</p>
+            </div>
+            <!-- Respuesta asistente 2 -->
+            <div class="asi-msg asi-msg--bot">
+              <div class="asi-bot-row">
+                <span class="asi-bot-avatar">A</span>
+                <div class="asi-bot-bubble">
+                  <p>A partir de <strong>100 unidades</strong> puedes ofrecer hasta un <strong>8% de descuento</strong> sin aprobación. Para descuentos mayores, escala con Gerencia Comercial.</p>
+                  <div class="asi-source">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span>Fuente: Política comercial · Sección 2.1</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="asi-mock-input">
+            <div class="asi-input-box">
+              <span class="asi-input-placeholder">Pregunta algo sobre tus procesos...</span>
+              <div class="asi-input-send">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="asi-content">
+      <div class="container-libera asi-content-grid">
+
+        <div class="asi-body" data-reveal>
+          <div class="asi-hl-block">
+            <div class="asi-hl-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <p>El asistente reduce el tiempo que tu equipo dedica a buscar información, responder preguntas repetidas o redactar desde cero.</p>
+              <p class="asi-orange"><strong>Un vendedor que necesita saber si hay stock. Un coordinador que quiere el proceso correcto para cierto tipo de queja. Alguien que debe redactar una propuesta con el tono de tu marca.</strong></p>
+            </div>
+          </div>
+
+          <p>No reemplaza el criterio de las personas. Libera el tiempo que gastan en lo que el sistema puede hacer perfectamente.</p>
+
+          <div class="asi-quote-block">
+            <div class="asi-q-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <p><strong>Definimos contigo qué sabe el asistente, qué no debe responder y cuándo debe derivar. Configuramos los permisos. Conectamos las fuentes. <em>Entregamos algo que el equipo usa el primer día.</em></strong></p>
+          </div>
+
+          <p>Con documentación para que puedas actualizar el conocimiento sin pedírselo a nadie.</p>
+        </div>
+
+        <div class="asi-panel" data-reveal>
+          <h2 class="asi-panel-title">Puntos clave</h2>
+          <ul class="asi-steps">
+            <li>
+              <span class="asi-ex-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+              </span>
+              <div>
+                <p class="asi-ex-ttl">Alimentado con tu información real</p>
+                <p class="asi-ex-ds">No respuestas genéricas. El asistente habla con el contexto de tu empresa, tus productos y tu forma de trabajar.</p>
+              </div>
+            </li>
+            <li>
+              <span class="asi-ex-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11v6M19 14h6"/></svg>
+              </span>
+              <div>
+                <p class="asi-ex-ttl">Acceso configurable por rol</p>
+                <p class="asi-ex-ds">Ventas ve lo que ventas necesita. Operaciones accede a sus guías. Cada equipo tiene su contexto.</p>
+              </div>
+            </li>
+            <li>
+              <span class="asi-ex-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </span>
+              <div>
+                <p class="asi-ex-ttl">Integrable con tu stack</p>
+                <p class="asi-ex-ds">WhatsApp, Slack o interfaz web, según cómo trabaja tu equipo. Sin cambiar de herramienta.</p>
+              </div>
+            </li>
+            <li>
+              <span class="asi-ex-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+              <div>
+                <p class="asi-ex-ttl">Sin dependencia técnica</p>
+                <p class="asi-ex-ds">Puedes actualizar el conocimiento del asistente sin pasar por nosotros. Documentación incluida desde el primer día.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LO QUE CONSTRUIMOS -->
+    <section class="asi-features">
+      <div class="container-libera" data-reveal>
+        <h2 class="asi-features-title">Lo que construimos</h2>
+        <div class="asi-grid">
+          <div class="asi-fi">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <div><strong>Base de conocimiento</strong> construida con tus documentos reales.</div>
+          </div>
+          <div class="asi-fi">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11v6M19 14h6"/></svg>
+            <div><strong>Permisos por rol:</strong> cada equipo ve solo lo que necesita.</div>
+          </div>
+          <div class="asi-fi">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <div><strong>Integración con Slack,</strong> WhatsApp o interfaz web propia.</div>
+          </div>
+          <div class="asi-fi">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <div><strong>Trazabilidad de consultas:</strong> qué se pregunta, qué no tiene respuesta.</div>
+          </div>
+          <div class="asi-fi">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            <div><strong>Derivación automática</strong> cuando la pregunta sale del alcance definido.</div>
+          </div>
+          <div class="asi-fi">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <div><strong>Actualizable sin técnicos:</strong> tú agregas, editas y eliminas contenido.</div>
+          </div>
+          <div class="asi-fi">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+            <div><strong>Documentación incluida</strong> para operar y mantener sin dependencia.</div>
+          </div>
+          <div class="asi-fi">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12h6M12 9v6"/></svg>
+            <div><strong>Piloto en 2 semanas</strong> con un área de tu empresa antes del despliegue general.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="asi-cta">
+      <div class="container-libera asi-cta-inner" data-reveal>
+        <div class="asi-cta-left">
+          <div class="asi-cta-icon" aria-hidden="true">
+            <svg width="52" height="52" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="24" r="10" stroke="var(--orange)" stroke-width="1.5"/>
+              <path d="M16 52c0-8.8 7.2-16 16-16s16 7.2 16 16" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M40 12l3 3 6-6" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="asi-cta-text">
+            <p>Si tu equipo pierde tiempo buscando lo que ya existe, hay un asistente que puede resolver eso.</p>
+            <p class="asi-orange">Lo construimos con tu información real y lo dejamos listo para usar desde el primer día.</p>
+          </div>
+        </div>
+        <a href="/diagnostico" class="btn-primary asi-cta-btn">Solicitar diagnóstico <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
   </main>
+
   <style>
-    .ph-page{background:#fff;padding-block:calc(var(--nav-height) + 4rem) 6rem}
-    .ph-inner{display:flex;flex-direction:column;gap:1.5rem}
-    .ph-bc{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--text-secondary)}
-    .ph-bc a{color:var(--text-secondary);transition:color .2s}.ph-bc a:hover{color:var(--orange)}
-    .ph-bc [aria-current="page"]{color:var(--orange);font-weight:600}
-    .ph-kicker{display:inline-block;padding:.3rem .75rem;border:1px solid var(--border);border-radius:999px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;color:var(--text-secondary)}
-    .ph-title{color:var(--text-primary)}
+    .asi-page { background: #fff; color: var(--text-primary); }
+
+    /* BREADCRUMB */
+    .asi-breadcrumb {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding-top: calc(var(--nav-height) + 1.25rem);
+      font-size: 0.8rem; color: var(--text-secondary); flex-wrap: wrap;
+    }
+    .asi-breadcrumb a { color: var(--text-secondary); transition: color .2s; }
+    .asi-breadcrumb a:hover { color: var(--orange); }
+    .asi-breadcrumb [aria-current="page"] { color: var(--orange); font-weight: 600; }
+
+    /* HERO */
+    .asi-hero { padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+    .asi-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .asi-title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.1; margin-bottom: 1.5rem; }
+    .asi-title em { font-style: normal; color: var(--orange); }
+
+    .asi-lead { color: var(--text-secondary); font-size: clamp(0.9rem, 1.15vw, 1rem); line-height: 1.75; max-width: 46ch; margin-bottom: 1.75rem; }
+
+    .asi-usecases { display: flex; flex-wrap: wrap; gap: 1.25rem 1.75rem; }
+    .asi-uc { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-align: center; }
+    .asi-uc svg { color: var(--orange); }
+    .asi-uc span { font-size: 0.68rem; color: var(--text-secondary); line-height: 1.3; max-width: 5.5rem; }
+
+    /* MOCK */
+    .asi-mock {
+      border-radius: 0.5rem; overflow: hidden;
+      box-shadow: 0 8px 40px oklch(0% 0 0 / 0.15);
+      border: 1px solid rgba(0,48,73,0.08);
+      display: flex; flex-direction: column;
+      background: #fff;
+    }
+
+    .asi-mock-header {
+      background: #003049; padding: 0.9rem 1rem 0.75rem;
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .asi-mock-title-row { display: flex; align-items: center; gap: 0.65rem; }
+    .asi-mock-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--orange); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .asi-mock-name { font-size: 0.8rem; font-weight: 700; color: #fff; margin: 0; }
+    .asi-mock-status { font-size: 0.58rem; color: rgba(255,255,255,0.55); margin: 0.15rem 0 0; display: flex; align-items: center; gap: 0.35rem; }
+    .asi-dot-green { width: 6px; height: 6px; border-radius: 50%; background: #1a9e5c; flex-shrink: 0; }
+    .asi-mock-pills { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .asi-pill {
+      padding: 0.18rem 0.55rem; border-radius: 999px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.56rem; color: rgba(255,255,255,0.7); font-family: var(--font-mono);
+    }
+
+    .asi-mock-chat {
+      flex: 1; padding: 0.85rem 0.9rem; display: flex; flex-direction: column; gap: 0.75rem;
+      background: #f8f9fa;
+    }
+
+    .asi-msg--user {
+      align-self: flex-end; max-width: 75%;
+      background: var(--orange); border-radius: 0.75rem 0.75rem 0.1rem 0.75rem;
+      padding: 0.5rem 0.75rem;
+    }
+    .asi-msg--user p { font-size: 0.68rem; color: #fff; margin: 0; line-height: 1.45; }
+
+    .asi-bot-row { display: flex; align-items: flex-start; gap: 0.45rem; }
+    .asi-bot-avatar {
+      width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+      background: #003049; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 0.6rem; font-weight: 800; color: var(--orange);
+      margin-top: 0.1rem;
+    }
+    .asi-bot-bubble {
+      background: #fff; border-radius: 0.1rem 0.75rem 0.75rem 0.75rem;
+      padding: 0.55rem 0.7rem; display: flex; flex-direction: column; gap: 0.35rem;
+      border: 1px solid rgba(0,48,73,0.07); max-width: calc(100% - 30px);
+    }
+    .asi-bot-bubble p { font-size: 0.65rem; color: rgba(0,48,73,0.75); margin: 0; line-height: 1.5; }
+    .asi-bot-bubble strong { color: #003049; }
+    .asi-source {
+      display: flex; align-items: center; gap: 0.3rem; margin-top: 0.15rem;
+      font-size: 0.54rem; color: rgba(0,48,73,0.4); font-family: var(--font-mono);
+    }
+
+    .asi-mock-input { padding: 0.6rem 0.9rem; border-top: 1px solid rgba(0,48,73,0.07); }
+    .asi-input-box {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #f0f2f4; border-radius: 0.4rem; padding: 0.45rem 0.5rem 0.45rem 0.75rem;
+    }
+    .asi-input-placeholder { font-size: 0.6rem; color: rgba(0,48,73,0.35); }
+    .asi-input-send {
+      width: 22px; height: 22px; border-radius: 0.25rem; flex-shrink: 0;
+      background: var(--orange); display: flex; align-items: center; justify-content: center;
+    }
+
+    /* CONTENT */
+    .asi-content { padding-block: clamp(2.5rem, 5vw, 4rem); background: #fff; }
+    .asi-content-grid {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 5rem); align-items: start;
+    }
+
+    .asi-body { display: flex; flex-direction: column; gap: 1.1rem; }
+    .asi-body p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; margin: 0; }
+    .asi-orange { color: var(--orange) !important; font-weight: 600 !important; }
+
+    .asi-hl-block {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.9rem 1rem; border-left: 3px solid var(--orange);
+      background: oklch(98.5% 0.008 55);
+    }
+    .asi-hl-icon { flex-shrink: 0; margin-top: 0.1rem; }
+    .asi-hl-block p { font-size: 0.92rem !important; line-height: 1.6 !important; margin: 0; }
+
+    .asi-quote-block {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.9rem 1rem; border: 1px solid var(--border); border-radius: 0.4rem;
+    }
+    .asi-q-icon { flex-shrink: 0; margin-top: 0.1rem; }
+    .asi-quote-block p { font-size: 0.9rem; line-height: 1.65; color: var(--text-secondary); margin: 0; }
+    .asi-quote-block em { font-style: normal; color: var(--orange); font-weight: 600; }
+
+    /* Panel destra */
+    .asi-panel-title {
+      font-family: var(--font-display); font-size: clamp(1rem, 1.6vw, 1.25rem);
+      font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem;
+    }
+    .asi-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .asi-steps li { display: flex; align-items: flex-start; gap: 0.75rem; }
+    .asi-ex-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 2rem; height: 2rem; border-radius: 0.375rem; flex-shrink: 0;
+      background: oklch(98.5% 0.008 55); margin-top: 0.05rem;
+    }
+    .asi-ex-ttl { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.2rem; }
+    .asi-ex-ds { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+
+    /* FEATURES */
+    .asi-features { padding-block: clamp(2rem, 4vw, 3.5rem); background: var(--surface-alt); }
+    .asi-features-title {
+      font-family: var(--font-display); font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      font-weight: 700; color: var(--orange); margin-bottom: 1.75rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .asi-features-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .asi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem 2rem; }
+    .asi-fi { display: flex; align-items: flex-start; gap: 0.65rem; }
+    .asi-fi svg { flex-shrink: 0; margin-top: 0.1rem; }
+    .asi-fi div { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
+    .asi-fi strong { color: var(--text-primary); }
+
+    /* CTA */
+    .asi-cta { padding-block: clamp(2rem, 4vw, 3.5rem); background: #fff; }
+    .asi-cta-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; padding: clamp(1.25rem, 2.5vw, 2rem);
+      border: 1px solid var(--border); border-radius: 0.5rem;
+    }
+    .asi-cta-left { display: flex; align-items: center; gap: 1.5rem; }
+    .asi-cta-icon { flex-shrink: 0; }
+    .asi-cta-text { display: flex; flex-direction: column; gap: 0.3rem; }
+    .asi-cta-text p {
+      font-family: var(--font-display); font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+      font-weight: 700; color: var(--text-primary); line-height: 1.35; margin: 0;
+    }
+    .asi-cta-btn {
+      white-space: nowrap; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.5rem; font-size: 0.92rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .asi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .asi-hero-grid, .asi-content-grid { grid-template-columns: 1fr; }
+      .asi-cta-inner { flex-direction: column; align-items: flex-start; }
+      .asi-cta-btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 640px) {
+      .asi-grid { grid-template-columns: 1fr; }
+    }
   </style>
+
 </Layout>

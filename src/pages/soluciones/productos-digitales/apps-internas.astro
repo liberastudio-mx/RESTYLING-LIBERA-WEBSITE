@@ -1,21 +1,707 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 ---
-<Layout title="Apps internas | Productos Digitales" description="Herramientas internas a medida para que tu equipo trabaje más rápido y con menos errores.">
-  <main class="ph-page">
-    <div class="container-libera ph-inner">
-      <nav class="ph-bc"><a href="/soluciones">Soluciones</a><span>›</span><a href="/soluciones/productos-digitales">Productos Digitales</a><span>›</span><span aria-current="page">Apps internas</span></nav>
-      <span class="ph-kicker">03 · Apps internas</span>
-      <h1 class="display-hero ph-title">Próximamente</h1>
-    </div>
-  </main>
+
+<Layout
+  title="Apps internas | Productos Digitales"
+  description="Herramientas internas diseñadas alrededor del flujo real de tu equipo, con roles, permisos y sin licencias por usuario."
+>
+  <div class="apps-page">
+    <nav class="apps-breadcrumb container-libera" aria-label="Navegación de migas de pan">
+      <a href="/soluciones">Soluciones</a>
+      <span aria-hidden="true">›</span>
+      <a href="/soluciones/productos-digitales">Productos digitales</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Apps internas</span>
+    </nav>
+
+    <section class="apps-hero">
+      <div class="container-libera apps-hero-grid">
+        <div class="apps-hero-copy" data-reveal>
+          <p class="apps-eyebrow">03 · Apps internas</p>
+          <h1 class="apps-title">
+            Herramientas para tu equipo,
+            <em>no para el mercado</em>
+          </h1>
+          <p class="apps-lead">
+            No toda app tiene que venderse. Algunas de las herramientas más valiosas de una empresa son las que usa su propio equipo: para registrar, revisar, aprobar, coordinar, consultar. Cuando esas herramientas no existen, el trabajo se hace en WhatsApp, en hojas compartidas o de memoria. El costo no aparece en ninguna factura, pero está ahí.
+          </p>
+
+          <ul class="apps-hero-points" aria-label="Ventajas principales">
+            <li><span aria-hidden="true">✓</span> Registros, aprobaciones y coordinación</li>
+            <li><span aria-hidden="true">↗</span> Diseñada para tu flujo real</li>
+            <li><span aria-hidden="true">◇</span> Roles y permisos</li>
+            <li><span aria-hidden="true">○</span> Sin licencias por usuario</li>
+          </ul>
+        </div>
+
+        <div class="apps-visual" data-reveal>
+          <aside class="apps-mock" aria-hidden="true">
+            <div class="apps-browser-bar">
+              <div class="apps-dots"><i></i><i></i><i></i></div>
+              <strong>Operaciones internas</strong>
+              <span>Admin⌄</span>
+            </div>
+
+            <div class="apps-app">
+              <div class="apps-sidebar">
+                <b>Inicio</b>
+                <span>Solicitudes</span>
+                <span>Aprobaciones</span>
+                <span>Tareas</span>
+                <span>Registros</span>
+                <span>Equipo</span>
+                <span>Reportes</span>
+              </div>
+
+              <div class="apps-workspace">
+                <div class="apps-kpis">
+                  <div><span>Solicitudes pendientes</span><strong>12</strong><small>↑ 20%</small></div>
+                  <div><span>Aprobaciones pendientes</span><strong>6</strong><small>↑ 17%</small></div>
+                  <div><span>Tareas en curso</span><strong>28</strong><small>↑ 12%</small></div>
+                  <div><span>Registros hoy</span><strong>47</strong><small>↑ 9%</small></div>
+                </div>
+
+                <div class="apps-panels">
+                  <div class="apps-panel">
+                    <strong>Solicitudes recientes</strong>
+                    <p><span>Compra de equipo<small>Marketing</small></span><b>Pendiente</b></p>
+                    <p><span>Viáticos<small>Operaciones</small></span><b class="approved">Aprobada</b></p>
+                    <p><span>Acceso a sistema<small>IT</small></span><b>Pendiente</b></p>
+                  </div>
+
+                  <div class="apps-panel">
+                    <strong>Aprobaciones pendientes</strong>
+                    <p><span>Carla Méndez<small>Gastos de viaje</small></span><b>$2,450</b></p>
+                    <p><span>Luis Herrera<small>Compra de licencias</small></span><b>$1,120</b></p>
+                    <p><span>Ana Torres<small>Contratación</small></span><b>$3,200</b></p>
+                  </div>
+
+                  <div class="apps-panel apps-chart-panel">
+                    <strong>Tareas por estado</strong>
+                    <div class="apps-chart">
+                      <i></i>
+                      <ul>
+                        <li><span class="blue"></span>Por hacer <b>14</b></li>
+                        <li><span class="orange"></span>En progreso <b>10</b></li>
+                        <li><span class="green"></span>Completadas <b>21</b></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="apps-panel apps-activity">
+                    <strong>Actividad reciente</strong>
+                    <p><span>María aprobó “Compra de equipo”</span><small>10 min</small></p>
+                    <p><span>Se creó la solicitud “Viáticos”</span><small>35 min</small></p>
+                    <p><span>Juan completó “Reporte semanal”</span><small>1 h</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <p class="apps-visual-caption">
+            <span aria-hidden="true">▣</span>
+            Tu operación interna, en una sola herramienta.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="apps-process">
+      <div class="container-libera apps-process-grid">
+        <article class="apps-process-column" data-reveal>
+          <h2>Qué reemplazamos</h2>
+          <ul class="apps-replace-list">
+            <li><span aria-hidden="true">X</span><p>El Excel que tiene dueño y nadie más puede tocar.</p></li>
+            <li><span aria-hidden="true">◔</span><p>El grupo de WhatsApp donde se mezclan aprobaciones, dudas y avisos.</p></li>
+            <li><span aria-hidden="true">▦</span><p>La hoja compartida que alguien rompe cada semana sin querer.</p></li>
+            <li><span aria-hidden="true">♙</span><p>El proceso que vive en la cabeza de una sola persona.</p></li>
+          </ul>
+          <p class="apps-principle">
+            Una app interna no tiene que ser compleja. Tiene que hacer bien las tres o cuatro cosas que el equipo necesita hacer todos los días.
+          </p>
+        </article>
+
+        <article class="apps-process-column" data-reveal>
+          <h2>Cómo las construimos</h2>
+          <ol class="apps-steps">
+            <li><span>1</span><div><strong>Hablamos con el equipo</strong><p>Escuchamos a las personas que van a usarla, no solo a quien la encarga.</p></div></li>
+            <li><span>2</span><div><strong>Entendemos el flujo real</strong><p>Diseñamos para el trabajo real, no para el proceso ideal del manual.</p></div></li>
+            <li><span>3</span><div><strong>Construimos lo esencial</strong><p>La interfaz más simple posible para cubrir el proceso.</p></div></li>
+            <li><span>4</span><div><strong>Probamos con el equipo</strong><p>Validamos la herramienta antes de dar por terminada la entrega.</p></div></li>
+          </ol>
+          <p class="apps-verdict">
+            <span aria-hidden="true">◎</span>
+            El equipo que la usa decide si funciona, no nosotros.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="apps-features">
+      <div class="container-libera" data-reveal>
+        <h2>Puntos clave</h2>
+        <div class="apps-features-grid">
+          <article class="apps-feature">
+            <span aria-hidden="true">▣</span>
+            <div><strong>Interfaz pensada para el flujo real</strong><p>Diseño funcional para usar todos los días.</p></div>
+          </article>
+          <article class="apps-feature">
+            <span aria-hidden="true">♙</span>
+            <div><strong>Roles y permisos</strong><p>Cada persona ve y hace lo que le corresponde.</p></div>
+          </article>
+          <article class="apps-feature">
+            <span aria-hidden="true">◇</span>
+            <div><strong>Sin licencias por usuario</strong><p>La herramienta es tuya, sin depender de asientos por equipo.</p></div>
+          </article>
+          <article class="apps-feature">
+            <span aria-hidden="true">◎</span>
+            <div><strong>Acompañamiento inicial incluido</strong><p>El equipo sabe usarla desde el primer día.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="apps-manifesto">
+      <div class="container-libera">
+        <p data-reveal>
+          <span aria-hidden="true">◇</span>
+          Menos caos operativo. <em>Más claridad para el equipo.</em>
+        </p>
+      </div>
+    </section>
+
+    <section class="apps-cta">
+      <div class="container-libera apps-cta-card" data-reveal>
+        <div class="apps-flow" aria-hidden="true">
+          <div class="apps-flow-window">
+            <i></i><i></i><i></i>
+            <span></span>
+          </div>
+          <div class="apps-flow-line"></div>
+          <div class="apps-flow-states">
+            <span><i>✓</i> Solicitud creada</span>
+            <span><i>○</i> En revisión</span>
+            <span><i>✓</i> Aprobada</span>
+          </div>
+        </div>
+
+        <div class="apps-cta-copy">
+          <h2>
+            Si hay algo que tu equipo hace todos los días de forma manual, probablemente hay una
+            <em>herramienta que puede simplificarlo.</em>
+          </h2>
+          <p>Exploramos tu operación, identificamos qué conviene centralizar y te mostramos cómo una app interna puede ayudar.</p>
+          <div class="apps-cta-actions">
+            <a href="/diagnostico" class="btn btn-primary">Solicitar diagnóstico <span aria-hidden="true">→</span></a>
+            <small><span aria-hidden="true">✓</span> Sin compromiso. Respuesta en 24–48 h.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <style>
-    .ph-page{background:#fff;padding-block:calc(var(--nav-height) + 4rem) 6rem}
-    .ph-inner{display:flex;flex-direction:column;gap:1.5rem}
-    .ph-bc{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--text-secondary)}
-    .ph-bc a{color:var(--text-secondary);transition:color .2s}.ph-bc a:hover{color:var(--orange)}
-    .ph-bc [aria-current="page"]{color:var(--orange);font-weight:600}
-    .ph-kicker{display:inline-block;padding:.3rem .75rem;border:1px solid var(--border);border-radius:999px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;color:var(--text-secondary)}
-    .ph-title{color:var(--text-primary)}
+    .apps-page {
+      overflow: clip;
+      background: #fff;
+      color: var(--text-primary);
+    }
+
+    .apps-breadcrumb {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .45rem;
+      padding-top: calc(var(--nav-height) + 1.25rem);
+      color: var(--text-secondary);
+      font-size: .78rem;
+    }
+
+    .apps-breadcrumb a { color: inherit; }
+    .apps-breadcrumb a:hover,
+    .apps-breadcrumb [aria-current="page"] { color: var(--orange); }
+
+    .apps-hero {
+      padding: clamp(3.25rem, 6vw, 5.25rem) 0 clamp(3rem, 5vw, 4.5rem);
+    }
+
+    .apps-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(18rem, .82fr) minmax(30rem, 1.35fr);
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .apps-eyebrow {
+      width: fit-content;
+      margin-bottom: 1.35rem;
+      padding: .32rem .65rem;
+      border: 1px solid var(--orange);
+      border-radius: 999px;
+      color: var(--orange);
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .apps-title {
+      max-width: 12ch;
+      margin: 0 0 1.25rem;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -.035em;
+    }
+
+    .apps-title em {
+      display: block;
+      color: var(--orange);
+      font-style: normal;
+    }
+
+    .apps-lead {
+      max-width: 48ch;
+      color: var(--text-secondary);
+      font-size: clamp(.88rem, 1vw, .98rem);
+      line-height: 1.68;
+    }
+
+    .apps-hero-points {
+      display: grid;
+      gap: .6rem;
+      margin: 1.65rem 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--text-primary);
+      font-size: .82rem;
+    }
+
+    .apps-hero-points li {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+    }
+
+    .apps-hero-points span,
+    .apps-feature > span {
+      display: grid;
+      width: 1.75rem;
+      height: 1.75rem;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid oklch(84% .11 50);
+      border-radius: 50%;
+      color: var(--orange);
+      font-family: var(--font-mono);
+    }
+
+    .apps-visual { min-width: 0; }
+
+    .apps-mock {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: .55rem;
+      background: #f7f8fa;
+      box-shadow: 0 14px 36px oklch(20% .03 240 / .11);
+    }
+
+    .apps-browser-bar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      min-height: 2.45rem;
+      padding: 0 .85rem;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      color: var(--text-primary);
+      font-size: .58rem;
+    }
+
+    .apps-browser-bar > span { justify-self: end; }
+    .apps-dots { display: flex; gap: .32rem; }
+    .apps-dots i { width: .48rem; height: .48rem; border-radius: 50%; background: #ff4d4d; }
+    .apps-dots i:nth-child(2) { background: #ffad16; }
+    .apps-dots i:nth-child(3) { background: #1dbb66; }
+
+    .apps-app {
+      display: grid;
+      grid-template-columns: 6rem 1fr;
+      min-height: 21.5rem;
+    }
+
+    .apps-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: .15rem;
+      padding: 1rem .55rem;
+      background: #003b59;
+      color: oklch(92% .02 230);
+      font-size: .52rem;
+    }
+
+    .apps-sidebar span,
+    .apps-sidebar b {
+      padding: .48rem .55rem;
+      border-radius: .25rem;
+      font-weight: 500;
+    }
+
+    .apps-sidebar b { background: #07599a; color: #fff; }
+
+    .apps-workspace {
+      min-width: 0;
+      padding: .85rem;
+    }
+
+    .apps-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .5rem;
+      margin-bottom: .55rem;
+    }
+
+    .apps-kpis > div,
+    .apps-panel {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: .3rem;
+      background: #fff;
+    }
+
+    .apps-kpis > div {
+      display: flex;
+      min-height: 4rem;
+      flex-direction: column;
+      padding: .55rem;
+    }
+
+    .apps-kpis span { min-height: 1.35rem; color: var(--text-secondary); font-size: .47rem; line-height: 1.25; }
+    .apps-kpis strong { margin-top: .15rem; font-size: 1rem; line-height: 1; }
+    .apps-kpis small { margin-top: auto; color: #15945a; font-size: .42rem; }
+
+    .apps-panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .55rem;
+    }
+
+    .apps-panel {
+      min-height: 6.2rem;
+      padding: .62rem;
+    }
+
+    .apps-panel > strong { display: block; margin-bottom: .4rem; font-size: .54rem; }
+    .apps-panel p { display: flex; justify-content: space-between; gap: .4rem; padding: .26rem 0; border-bottom: 1px solid var(--border); font-size: .45rem; }
+    .apps-panel p:last-child { border: 0; }
+    .apps-panel p span { min-width: 0; font-weight: 600; }
+    .apps-panel p small { display: block; margin-top: .1rem; color: var(--text-secondary); font-weight: 400; }
+    .apps-panel p b { flex: 0 0 auto; color: var(--orange); font-size: .41rem; }
+    .apps-panel p b.approved { color: #15945a; }
+
+    .apps-chart {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+    }
+
+    .apps-chart > i {
+      width: 3.1rem;
+      height: 3.1rem;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: conic-gradient(#0b75d1 0 32%, var(--orange) 32% 55%, #1bb968 55% 100%);
+      box-shadow: inset 0 0 0 .75rem #fff;
+    }
+
+    .apps-chart ul { display: grid; width: 100%; gap: .24rem; margin: 0; padding: 0; list-style: none; font-size: .42rem; }
+    .apps-chart li { display: flex; align-items: center; gap: .25rem; }
+    .apps-chart li > span { width: .38rem; height: .38rem; border-radius: 50%; background: #0b75d1; }
+    .apps-chart li > .orange { background: var(--orange); }
+    .apps-chart li > .green { background: #1bb968; }
+    .apps-chart li b { margin-left: auto; }
+    .apps-activity p { align-items: center; }
+    .apps-activity p > small { flex: 0 0 auto; }
+
+    .apps-visual-caption {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .7rem;
+      margin: .75rem 0 0;
+      padding: .7rem 1rem;
+      border: 1px solid oklch(90% .06 50);
+      border-radius: .4rem;
+      background: oklch(98% .018 50);
+      color: var(--text-primary);
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    .apps-visual-caption span { color: var(--orange); font-size: 1rem; }
+
+    .apps-process {
+      padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+      background: var(--surface-alt);
+    }
+
+    .apps-process-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 7vw, 7rem);
+    }
+
+    .apps-process-column h2,
+    .apps-features h2 {
+      margin: 0 0 1.5rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      line-height: 1.2;
+    }
+
+    .apps-replace-list,
+    .apps-steps {
+      display: grid;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .apps-replace-list li {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      align-items: start;
+      gap: .85rem;
+    }
+
+    .apps-replace-list li > span,
+    .apps-steps li > span {
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border: 1px solid oklch(84% .11 50);
+      border-radius: 50%;
+      color: var(--orange);
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    .apps-replace-list p,
+    .apps-steps p {
+      color: var(--text-secondary);
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+
+    .apps-principle,
+    .apps-verdict {
+      margin-top: 1.5rem;
+      padding: 1rem 1.15rem;
+      border: 1px solid oklch(89% .065 50);
+      border-radius: .4rem;
+      background: oklch(98% .018 50);
+      color: var(--text-primary);
+      font-size: .88rem;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    .apps-steps li {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: .85rem;
+    }
+
+    .apps-steps strong { display: block; margin: .05rem 0 .18rem; font-size: .92rem; }
+    .apps-verdict { display: flex; align-items: center; gap: .75rem; }
+    .apps-verdict span { color: var(--orange); font-size: 1.35rem; }
+
+    .apps-features { padding: clamp(3.5rem, 6vw, 5rem) 0; }
+
+    .apps-features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .apps-feature {
+      display: flex;
+      min-width: 0;
+      gap: .85rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: .35rem;
+      background: #fff;
+    }
+
+    .apps-feature > span { width: 2.1rem; height: 2.1rem; font-size: .85rem; }
+    .apps-feature strong { display: block; margin-bottom: .28rem; font-size: .84rem; line-height: 1.35; }
+    .apps-feature p { color: var(--text-secondary); font-size: .74rem; line-height: 1.5; }
+
+    .apps-manifesto {
+      padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .apps-manifesto p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 0;
+      padding: 1.15rem 1.5rem;
+      border: 1px solid oklch(89% .065 50);
+      background: oklch(98% .018 50);
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .apps-manifesto span,
+    .apps-manifesto em { color: var(--orange); font-style: normal; }
+
+    .apps-cta {
+      padding: 0 0 clamp(4rem, 7vw, 6rem);
+    }
+
+    .apps-cta-card {
+      display: grid;
+      grid-template-columns: minmax(18rem, .85fr) minmax(24rem, 1.15fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid var(--border);
+      border-radius: .45rem;
+      background: #fff;
+    }
+
+    .apps-flow {
+      display: grid;
+      grid-template-columns: 1fr 2rem 1fr;
+      align-items: center;
+      min-height: 8rem;
+    }
+
+    .apps-flow-window {
+      position: relative;
+      height: 6.5rem;
+      padding: .55rem;
+      border: 1px solid #7891a2;
+      border-radius: .25rem;
+      background: linear-gradient(90deg, #073e5e 18%, #f7f8fa 18%);
+    }
+
+    .apps-flow-window > i {
+      display: inline-block;
+      width: .3rem;
+      height: .3rem;
+      margin-right: .12rem;
+      border-radius: 50%;
+      background: #fff;
+      opacity: .8;
+    }
+
+    .apps-flow-window > span {
+      display: block;
+      width: 62%;
+      height: 2.5rem;
+      margin: 1rem 0 0 28%;
+      border-radius: .25rem;
+      background: #e8ebee;
+      box-shadow: 0 1.15rem 0 -.35rem #dfe4e8;
+    }
+
+    .apps-flow-line {
+      height: 1px;
+      border-top: 1px dashed #0b75d1;
+    }
+
+    .apps-flow-states {
+      display: grid;
+      gap: .48rem;
+    }
+
+    .apps-flow-states span {
+      padding: .48rem .55rem;
+      border: 1px solid var(--border);
+      border-radius: .25rem;
+      background: #fff;
+      font-size: .55rem;
+      box-shadow: 0 4px 12px oklch(20% .03 240 / .06);
+    }
+
+    .apps-flow-states i { margin-right: .3rem; color: var(--orange); font-style: normal; }
+    .apps-flow-states span:last-child i { color: #15945a; }
+
+    .apps-cta-copy h2 {
+      max-width: 26ch;
+      margin: 0 0 .8rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.3vw, 1.8rem);
+      line-height: 1.16;
+    }
+
+    .apps-cta-copy h2 em { color: var(--orange); font-style: normal; }
+    .apps-cta-copy > p { max-width: 55ch; color: var(--text-secondary); font-size: .88rem; line-height: 1.6; }
+
+    .apps-cta-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .apps-cta-actions .btn { padding: .75rem 1.15rem; font-size: .84rem; white-space: nowrap; }
+    .apps-cta-actions small { color: var(--text-secondary); font-size: .7rem; }
+    .apps-cta-actions small span { color: var(--orange); }
+
+    @media (max-width: 1024px) {
+      .apps-hero-grid { grid-template-columns: 1fr; }
+      .apps-title { max-width: 15ch; }
+      .apps-lead { max-width: 65ch; }
+      .apps-hero-points { grid-template-columns: 1fr 1fr; }
+      .apps-features-grid { grid-template-columns: 1fr 1fr; }
+      .apps-cta-card { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .apps-process-grid,
+      .apps-cta-card { grid-template-columns: 1fr; }
+      .apps-process-grid { gap: 3rem; }
+      .apps-app { grid-template-columns: 4.8rem 1fr; }
+      .apps-kpis { grid-template-columns: 1fr 1fr; }
+      .apps-features-grid { grid-template-columns: 1fr; }
+      .apps-flow { max-width: 28rem; }
+    }
+
+    @media (max-width: 520px) {
+      .apps-hero { padding-top: 2.75rem; }
+      .apps-hero-points { grid-template-columns: 1fr; }
+      .apps-browser-bar strong { display: none; }
+      .apps-browser-bar { grid-template-columns: 1fr auto; }
+      .apps-sidebar { display: none; }
+      .apps-app { grid-template-columns: 1fr; min-height: auto; }
+      .apps-workspace { padding: .55rem; }
+      .apps-panels { grid-template-columns: 1fr; }
+      .apps-chart-panel,
+      .apps-activity { display: none; }
+      .apps-visual-caption { justify-content: flex-start; font-size: .72rem; }
+      .apps-manifesto p { align-items: flex-start; text-align: left; }
+      .apps-flow { grid-template-columns: 1fr; gap: .65rem; }
+      .apps-flow-line { width: 1px; height: 1rem; margin: 0 auto; border-top: 0; border-left: 1px dashed #0b75d1; }
+      .apps-cta-actions { align-items: flex-start; flex-direction: column; }
+      .apps-cta-actions .btn { width: 100%; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .apps-page * { scroll-behavior: auto !important; }
+    }
   </style>
 </Layout>
