@@ -748,7 +748,8 @@ const solucionesHome = [
   .problem-left {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: clamp(2rem, 4dvh, 3.5rem);
     padding-top: calc(var(--nav-height, 4rem) + 3rem);
     padding-bottom: clamp(1.5rem, 3dvh, 2.5rem);
     padding-right: clamp(1.25rem, 4vw, 3.5rem);
@@ -757,7 +758,6 @@ const solucionesHome = [
   }
 
   .problem-content {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

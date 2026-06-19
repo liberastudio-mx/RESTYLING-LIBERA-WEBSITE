@@ -33,117 +33,76 @@ import Layout from '@/layouts/Layout.astro';
           </p>
         </div>
 
-        <!-- Mock integration diagram -->
+        <!-- Mock: integration network -->
         <aside class="int-mock" aria-hidden="true" data-reveal>
-          <!-- Top row -->
-          <div class="int-diagram">
-            <div class="int-diagram-top">
-              <div class="int-tool int-tool--web">
-                <div class="int-tool-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="14" rx="2"/><line x1="3" y1="8" x2="21" y2="8"/><circle cx="6" cy="5.5" r="0.8" fill="currentColor"/><circle cx="9" cy="5.5" r="0.8" fill="currentColor"/></svg>
-                </div>
-                <span>Formulario web</span>
-              </div>
-              <div class="int-tool int-tool--wa">
-                <div class="int-tool-icon int-tool-icon--wa">
-                  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.985-1.398A9.961 9.961 0 0 0 12 22c5.523 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
-                </div>
-                <span>WhatsApp</span>
-              </div>
-              <div class="int-tool int-tool--crm">
-                <div class="int-tool-icon int-tool-icon--crm">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <span>CRM</span>
-              </div>
-            </div>
 
-            <!-- Middle row -->
-            <div class="int-diagram-middle">
-              <div class="int-tool int-tool--sheets">
-                <div class="int-tool-icon int-tool-icon--sheets">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-                </div>
-                <span>Google Sheets</span>
-              </div>
+          <div class="int-orbit-scene">
 
-              <!-- Hub -->
-              <div class="int-hub">
-                <div class="int-hub-icon">
-                  <svg viewBox="0 0 32 32" fill="none"><path d="M16 4l4 6h-3v6h6v-3l6 4-6 4v-3h-6v6h3l-4 6-4-6h3v-6H9v3l-6-4 6-4v3h6V10h-3z" stroke="var(--orange)" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                </div>
-                <span class="int-hub-label">Motor de flujos</span>
-                <span class="int-hub-sub">APIs & Webhooks</span>
-              </div>
+            <!-- Ring tracks (static, decorative) -->
+            <div class="int-ring-track int-ring-track--1"></div>
+            <div class="int-ring-track int-ring-track--2"></div>
 
-              <div class="int-tool int-tool--email">
-                <div class="int-tool-icon int-tool-icon--email">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
-                <span>Email</span>
-              </div>
-            </div>
-
-            <!-- Second middle row -->
-            <div class="int-diagram-middle">
-              <div class="int-tool int-tool--airtable">
-                <div class="int-tool-icon int-tool-icon--airtable">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M3 6l9-3 9 3-9 3z"/><path d="M3 6v6l9 3 9-3V6"/><path d="M3 15v3l9 3 9-3v-3"/></svg>
-                </div>
-                <span>Airtable</span>
-              </div>
-
-              <div class="int-hub-spacer"></div>
-
-              <div class="int-tool int-tool--billing">
-                <div class="int-tool-icon int-tool-icon--billing">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="10" y1="15" x2="14" y2="15"/></svg>
-                </div>
-                <span>Facturación</span>
-              </div>
-            </div>
-
-            <!-- Bottom row -->
-            <div class="int-diagram-bottom">
-              <div class="int-tool int-tool--pay">
-                <div class="int-tool-icon int-tool-icon--pay">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                </div>
-                <span>Pasarela de pagos</span>
-              </div>
-              <div class="int-tool int-tool--db">
-                <div class="int-tool-icon int-tool-icon--db">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-                </div>
-                <span>Base de datos</span>
-              </div>
-              <div class="int-tool int-tool--api">
-                <div class="int-tool-icon int-tool-icon--api">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                </div>
-                <span>Webhooks / API</span>
-              </div>
-            </div>
-
-            <!-- Connector lines overlay -->
-            <div class="int-connectors" aria-hidden="true">
-              <svg viewBox="0 0 320 280" preserveAspectRatio="none">
-                <!-- Top to hub -->
-                <path d="M53 58 L53 140 L120 140" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3" marker-end="url(#arr)"/>
-                <path d="M160 58 L160 110" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
-                <path d="M267 58 L267 140 L200 140" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
-                <!-- Left/right mid to hub -->
-                <path d="M80 140 L120 140" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
-                <path d="M200 140 L240 140" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
-                <path d="M80 175 L120 155" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
-                <path d="M200 155 L240 175" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
-                <!-- Hub to bottom -->
-                <path d="M80 222 L120 175" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
-                <path d="M160 170 L160 200" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
-                <path d="M240 222 L200 175" fill="none" stroke="#003049" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+            <!-- Center hub -->
+            <div class="int-orbit-hub">
+              <div class="int-orbit-hub-glow"></div>
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+                <circle cx="6"  cy="16" r="4" fill="#FF6D5A"/>
+                <circle cx="26" cy="8"  r="4" fill="#FF6D5A" opacity="0.8"/>
+                <circle cx="26" cy="24" r="4" fill="#FF6D5A" opacity="0.6"/>
+                <line x1="10" y1="16" x2="22" y2="9"  stroke="#FF6D5A" stroke-width="1.5" opacity="0.5"/>
+                <line x1="10" y1="16" x2="22" y2="23" stroke="#FF6D5A" stroke-width="1.5" opacity="0.5"/>
               </svg>
+              <span>n8n</span>
             </div>
+
+            <!-- Inner orbit: 3 icons, clockwise 22s, r=88px -->
+            <div class="int-oi" style="--s:10deg;  --r:88px; --d:22s">
+              <div class="int-oi-chip" style="--bg:#FF6D5A">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 7l9-3 9 3-9 3z" fill="white"/><path d="M3 7v5l9 3 9-3V7" stroke="white" stroke-width="1.4" fill="none"/><path d="M3 16v2l9 3 9-3v-2" stroke="white" stroke-width="1.4" fill="none" opacity="0.7"/></svg>
+              </div>
+            </div>
+            <div class="int-oi" style="--s:130deg; --r:88px; --d:22s">
+              <div class="int-oi-chip" style="--bg:#25D366">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372C4.425 8.14 3.5 9.16 3.5 10.623c0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.985-1.398A9.961 9.961 0 0 0 12 22c5.523 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+              </div>
+            </div>
+            <div class="int-oi" style="--s:250deg; --r:88px; --d:22s">
+              <div class="int-oi-chip" style="--bg:#4A154B">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="6" height="6" rx="1.5" fill="white"/><rect x="14" y="4" width="6" height="6" rx="1.5" fill="white" opacity="0.7"/><rect x="4" y="14" width="6" height="6" rx="1.5" fill="white" opacity="0.7"/><rect x="14" y="14" width="6" height="6" rx="1.5" fill="white" opacity="0.5"/></svg>
+              </div>
+            </div>
+
+            <!-- Outer orbit: 5 icons, counter-clockwise 40s, r=148px -->
+            <div class="int-oi int-oi--ccw" style="--s:0deg;   --r:148px; --d:40s">
+              <div class="int-oi-chip" style="--bg:#0F9D58">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+              </div>
+            </div>
+            <div class="int-oi int-oi--ccw" style="--s:72deg;  --r:148px; --d:40s">
+              <div class="int-oi-chip" style="--bg:#1a1a1a">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="white" stroke-width="1.4" fill="none"/><path d="M8 7l8 10M8 17V7" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div class="int-oi int-oi--ccw" style="--s:144deg; --r:148px; --d:40s">
+              <div class="int-oi-chip" style="--bg:#635BFF">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15" stroke-linecap="round" stroke-width="2"/></svg>
+              </div>
+            </div>
+            <div class="int-oi int-oi--ccw" style="--s:216deg; --r:148px; --d:40s">
+              <div class="int-oi-chip" style="--bg:#FF7A59">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
+              </div>
+            </div>
+            <div class="int-oi int-oi--ccw" style="--s:288deg; --r:148px; --d:40s">
+              <div class="int-oi-chip" style="--bg:#0891b2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+            </div>
+
           </div>
+
+          <p class="int-orbit-caption">Motor de flujos · APIs · Webhooks</p>
+
         </aside>
 
       </div>
@@ -343,123 +302,134 @@ import Layout from '@/layouts/Layout.astro';
       max-width: 44ch;
     }
 
-    /* ── INTEGRATION DIAGRAM ── */
+    /* ── ORBITAL INTEGRATION MOCK ── */
     .int-mock {
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      padding: clamp(1.25rem, 2.5vw, 2rem);
-      box-shadow: 0 4px 28px oklch(0% 0 0 / 0.07);
+      border: none;
+      border-radius: 0.75rem;
+      padding: 1.5rem 1.5rem 1.25rem;
       background: #fff;
-    }
-
-    .int-diagram {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
-      position: relative;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .int-connectors {
+    .int-orbit-scene {
+      position: relative;
+      width: min(310px, 100%);
+      aspect-ratio: 1;
+    }
+
+    /* static dashed ring tracks */
+    .int-ring-track {
       position: absolute;
-      inset: 0;
+      top: 50%;
+      left: 50%;
+      border: 1px dashed var(--border);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
       pointer-events: none;
     }
 
-    .int-connectors svg {
-      width: 100%;
-      height: 100%;
+    .int-ring-track--1 {
+      width: 176px;
+      height: 176px;
     }
 
-    .int-diagram-top,
-    .int-diagram-bottom {
-      display: flex;
-      justify-content: space-around;
-      gap: 1rem;
+    .int-ring-track--2 {
+      width: 296px;
+      height: 296px;
     }
 
-    .int-diagram-middle {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .int-hub-spacer {
-      flex: 1;
-    }
-
-    .int-tool {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      flex: 1;
-    }
-
-    .int-tool span {
-      font-size: 0.65rem;
-      color: var(--text-secondary);
-      text-align: center;
-      line-height: 1.2;
-    }
-
-    .int-tool-icon {
-      width: 2.75rem;
-      height: 2.75rem;
-      border-radius: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-    }
-
-    .int-tool-icon svg { width: 1.2rem; height: 1.2rem; color: var(--text-secondary); }
-
-    .int-tool-icon--wa    { background: #25d366; border-color: #25d366; }
-    .int-tool-icon--crm   { background: #3b82f6; border-color: #3b82f6; }
-    .int-tool-icon--sheets { background: #16a34a; border-color: #16a34a; }
-    .int-tool-icon--email  { background: #3b82f6; border-color: #3b82f6; }
-    .int-tool-icon--airtable { background: #f43f5e; border-color: #f43f5e; }
-    .int-tool-icon--billing  { background: #f77f00; border-color: #f77f00; }
-    .int-tool-icon--pay   { background: #003049; border-color: #003049; }
-    .int-tool-icon--db    { background: #7c3aed; border-color: #7c3aed; }
-    .int-tool-icon--api   { background: #0891b2; border-color: #0891b2; }
-
-    .int-hub {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
-      flex-shrink: 0;
-    }
-
-    .int-hub-icon {
-      width: 3.5rem;
-      height: 3.5rem;
+    /* center hub */
+    .int-orbit-hub {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       background: #fff;
       border: 2px solid var(--orange);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 0 4px oklch(70% 0.19 55 / 0.1);
+      gap: 2px;
+      z-index: 10;
     }
 
-    .int-hub-icon svg { width: 1.5rem; height: 1.5rem; }
-
-    .int-hub-label {
-      font-family: var(--font-display);
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      text-align: center;
+    .int-orbit-hub-glow {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,109,90,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      animation: int-glow 3s ease-in-out infinite;
     }
 
-    .int-hub-sub {
+    @keyframes int-glow {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.12); }
+    }
+
+    .int-orbit-hub span {
+      font-family: var(--font-mono, monospace);
       font-size: 0.55rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* orbiting icon elements */
+    @keyframes int-orbit-cw {
+      from { transform: rotate(var(--s)) translateX(var(--r)) rotate(calc(-1 * var(--s))); }
+      to   { transform: rotate(calc(var(--s) + 360deg)) translateX(var(--r)) rotate(calc(-1 * var(--s) - 360deg)); }
+    }
+
+    @keyframes int-orbit-ccw {
+      from { transform: rotate(var(--s)) translateX(var(--r)) rotate(calc(-1 * var(--s))); }
+      to   { transform: rotate(calc(var(--s) - 360deg)) translateX(var(--r)) rotate(calc(-1 * var(--s) + 360deg)); }
+    }
+
+    .int-oi {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 42px;
+      height: 42px;
+      margin: -21px;
+      animation: int-orbit-cw var(--d) linear infinite;
+      z-index: 5;
+    }
+
+    .int-oi--ccw {
+      animation-name: int-orbit-ccw;
+    }
+
+    .int-oi-chip {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg, #333);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .int-orbit-caption {
+      font-size: 0.6rem;
       color: var(--text-secondary);
       text-align: center;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin: 0;
     }
 
     /* ── CONTENT ── */
