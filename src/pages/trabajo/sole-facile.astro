@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import logoImg from '@/assets/images/logo sole facile per linkedin.png';
 
-const stack = ['Webflow', 'Next.js', 'TypeScript', 'Google Analytics 4', 'Search Console', 'Airtable'];
+const stack = ['Webflow CMS', 'Google Analytics 4', 'Search Console', 'Airtable', 'Nuevo sitio en desarrollo'];
 
 const stats = [
   { value: '2007', label: 'Anno di fondazione' },
@@ -99,33 +99,33 @@ const stats = [
             class="display-lg mb-8"
             style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.08;"
           >
-            Da Webflow a Next.js. Un sito costruito per crescere.
+            Webflow oggi. Nuovo sito domani. Più veloce, più leggero, senza dipendenze.
           </h2>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-secondary);">
-            Il sito live <strong style="color: var(--text-primary);">solefacilesrl.com</strong> gira su Webflow CMS con 81 articoli pubblicati, pagine ottimizzate e blog attivo. Gestione contenuti, redirect tecnici e indicizzazione: tutto monitorato.
+            Il sito live <strong style="color: var(--text-primary);">solefacilesrl.com</strong> gira su Webflow CMS con 81 articoli pubblicati, pagine ottimizzate e blog attivo. Funziona. Ma ha i limiti di qualsiasi piattaforma in affitto: ogni funzione extra richiede un piano più caro o un'integrazione fragile.
           </p>
           <p class="text-base leading-relaxed" style="color: var(--text-secondary);">
-            In parallelo costruiamo il restyling completo in <strong style="color: var(--text-primary);">Next.js 16 + TypeScript + Tailwind CSS</strong>: calcolatore del risparmio fotovoltaico, portfolio cantieri, guida acquisto e form contatti avanzati.
+            Stiamo costruendo un nuovo sito da zero. Più performante sui Core Web Vitals, con gestione email interna su Airtable senza dipendere da piattaforme terze, e un sistema di contenuti che il cliente può gestire senza passare da noi.
           </p>
         </div>
 
         <div class="grid gap-7">
           {[
             {
-              label: 'Webflow CMS',
-              text: 'Sito live con gestione contenuti autonoma. 81 articoli nel blog, pagine di servizio, prodotti e FAQ. Slug, redirect e collection gestiti internamente.',
+              label: 'Webflow CMS — sito live',
+              text: 'Gestione contenuti autonoma. 81 articoli nel blog, pagine di servizio, prodotti e FAQ. Slug, redirect e collection gestiti internamente.',
             },
             {
-              label: 'Restyling Next.js',
-              text: 'Nuovo sito in sviluppo: Next.js 16 con App Router, TypeScript, Tailwind CSS. Calcolatore risparmio fotovoltaico integrato, portfolio cantieri con filtri, routing ottimizzato.',
+              label: 'Nuovo sito — in sviluppo',
+              text: 'Codice originale, zero dipendenze da piattaforme CMS. Pagine più leggere, caricamento più rapido, struttura pensata per scalare senza costi crescenti.',
             },
             {
-              label: 'Struttura SEO-ready',
-              text: 'Canonical URL, Open Graph, breadcrumb e dati strutturati JSON-LD (Organization, LocalBusiness, FAQPage, Article, Service) su ogni pagina.',
+              label: 'Email marketing su Airtable',
+              text: 'Nessun Mailchimp, nessun costo per contatto. Il database dei lead è già in Airtable: costruiamo il flusso email direttamente sopra, senza esportare dati.',
             },
             {
-              label: 'Font e performance',
-              text: 'Bebas Neue + Source Sans 3 con font-display: swap. Nessuna risorsa bloccante. Caricamento ottimizzato per Core Web Vitals.',
+              label: 'SEO e performance',
+              text: 'Canonical URL, Open Graph, breadcrumb e JSON-LD su ogni pagina. Font ottimizzati, nessuna risorsa bloccante, Core Web Vitals come requisito di progetto.',
             },
           ].map((item) => (
             <div class="border-t pt-6" style="border-color: var(--border);">

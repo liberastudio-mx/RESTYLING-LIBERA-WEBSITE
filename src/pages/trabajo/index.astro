@@ -1,12 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logoCenotesImg from '@/assets/images/logo cenotes.png';
+import logoSoleFacileImg from '@/assets/images/logo sole facile per linkedin.png';
+import logoMorozzoImg from '@/assets/images/logo morozzo.png';
+import logoPaosImg from '@/assets/images/Logo paos.png';
 
 const projects = [
   {
     name: 'Cenote Scout',
     category: 'Producto',
     href: '/trabajo/cenote-scout',
-    image: '/images/logo-cenotes.png',
+    image: logoCenotesImg,
   },
   {
     name: 'LIBERA AI Automation',
@@ -18,19 +23,19 @@ const projects = [
     name: 'Sole Facile',
     category: 'Cliente',
     href: '/trabajo/sole-facile',
-    image: '/images/logo-sole-facile.png',
+    image: logoSoleFacileImg,
   },
   {
     name: 'Morozzo Padel',
     category: 'Cliente',
     href: '/trabajo/morozzo-padel',
-    image: '/images/logo-morozzo.png',
+    image: logoMorozzoImg,
   },
   {
     name: 'PAOS Framework',
     category: 'Sistema interno',
     href: '/trabajo/paos',
-    image: '/images/logo-paos.png',
+    image: logoPaosImg,
   },
 ];
 ---
@@ -70,10 +75,12 @@ const projects = [
             data-reveal
           >
             {p.image ? (
-              <img
+              <Image
                 src={p.image}
                 alt=""
                 aria-hidden="true"
+                widths={[400, 800]}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="lazy"
               />
@@ -90,12 +97,12 @@ const projects = [
 
             <!-- Hover content -->
             <div class="relative z-10 flex flex-col justify-end h-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 p-8">
-              <h3
+              <h2
                 class="font-display font-semibold text-2xl mb-4"
                 style="font-family: var(--font-display); color: #ffffff; line-height: 1.2;"
               >
                 {p.name}
-              </h3>
+              </h2>
               <div class="flex items-center justify-between gap-4">
                 <span
                   class="text-xs font-mono tracking-wide"

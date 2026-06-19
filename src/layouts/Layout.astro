@@ -1,6 +1,7 @@
 ---
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import CookieConsent from '@/components/CookieConsent.astro';
 import '@/styles/global.css';
 
 interface Props {
@@ -30,18 +31,53 @@ const fullTitle = title === 'LIBERA Studio'
 const jsonLdOrg = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
   "name": "LIBERA Studio",
   "url": siteUrl,
   "logo": {
     "@type": "ImageObject",
+    "@id": `${siteUrl}/#logo`,
     "url": `${siteUrl}/images/logo-blu.png`,
     "width": 923,
     "height": 162
   },
   "description": "Estudio de sistemas digitales, automatización e inteligencia artificial para empresas que quieren operar mejor.",
   "address": { "@type": "PostalAddress", "addressLocality": "Mérida", "addressCountry": "MX" },
-  "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "url": `${siteUrl}/diagnostico` },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "hola@liberastudio.tech",
+    "url": `${siteUrl}/diagnostico`,
+    "availableLanguage": ["es", "it", "en"]
+  },
+  "areaServed": ["MX", "IT"],
   "sameAs": ["https://www.linkedin.com/company/libera-studio"]
+});
+
+const jsonLdWebsite = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "url": `${siteUrl}/`,
+  "name": "LIBERA Studio",
+  "inLanguage": "es-MX",
+  "publisher": { "@id": `${siteUrl}/#organization` }
+});
+
+const jsonLdWebPage = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${canonicalUrl}#webpage`,
+  "url": canonicalUrl,
+  "name": fullTitle,
+  "description": description,
+  "inLanguage": "es-MX",
+  "isPartOf": { "@id": `${siteUrl}/#website` },
+  "about": { "@id": `${siteUrl}/#organization` },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": `${siteUrl}${ogImage}`
+  }
 });
 
 // Auto BreadcrumbList from URL path
@@ -76,7 +112,9 @@ const slugToLabel: Record<string, string> = {
   trabajo: 'Trabajo',
   nosotros: 'Nosotros',
   diagnostico: 'Solicitar diagnóstico',
-  laboratorio: 'Laboratorio',
+  'cenote-scout': 'Cenote Scout',
+  'sole-facile': 'Sole Facile',
+  'morozzo-padel': 'Morozzo Padel',
 };
 
 const breadcrumbLd = segments.length > 0 ? JSON.stringify({
@@ -130,20 +168,48 @@ const breadcrumbLd = segments.length > 0 ? JSON.stringify({
     <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
 
+    <!-- Google Consent Mode v2: defaults denied before GTM loads -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500,
+      });
+      gtag('js', new Date());
+    </script>
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KD87L7NQ');</script>
+
     <!-- JSON-LD Organization -->
     <script type="application/ld+json" set:html={jsonLdOrg} />
+    <!-- JSON-LD WebSite and current WebPage -->
+    <script type="application/ld+json" set:html={jsonLdWebsite} />
+    <script type="application/ld+json" set:html={jsonLdWebPage} />
     <!-- JSON-LD BreadcrumbList -->
     {breadcrumbLd && <script type="application/ld+json" set:html={breadcrumbLd} />}
     <!-- JSON-LD page-specific -->
     {jsonLdExtra && <script type="application/ld+json" set:html={jsonLdExtra} />}
   </head>
   <body>
+    <!-- Google Tag Manager (noscript fallback) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KD87L7NQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     <a href="#main" class="skip-link">Ir al contenido principal</a>
     <Header />
     <main id="main">
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
 
     <!-- Scroll reveal observer -->
     <script>
@@ -190,6 +256,65 @@ const breadcrumbLd = segments.length > 0 ? JSON.stringify({
 
       initMagnetic();
       document.addEventListener('astro:page-load', initMagnetic);
+    </script>
+
+    <!-- Consent update + Meta Pixel -->
+    <script>
+      const PIXEL_ID = '1021679673642512';
+
+      function readStoredConsent() {
+        const c = document.cookie.split('; ').find(r => r.startsWith('libera_cookie_consent='));
+        if (!c) return null;
+        try {
+          const v = JSON.parse(decodeURIComponent(c.split('=').slice(1).join('=')));
+          return v?.version === 1 ? v : null;
+        } catch { return null; }
+      }
+
+      function applyGtmConsent(analytics: boolean) {
+        const state = analytics ? 'granted' : 'denied';
+        window.gtag?.('consent', 'update', { analytics_storage: state });
+      }
+
+      function loadMetaPixel() {
+        if ((window as any).fbq) {
+          (window as any).fbq('track', 'PageView');
+          return;
+        }
+        /* eslint-disable */
+        (function(f: any,b: any,e: any,v: any,n?: any,t?: any,s?: any){
+          if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)
+        })(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        /* eslint-enable */
+        (window as any).fbq('init', PIXEL_ID);
+        (window as any).fbq('track', 'PageView');
+      }
+
+      function applyConsent(prefs: { analytics: boolean; marketing: boolean }) {
+        applyGtmConsent(prefs.analytics);
+        if (prefs.marketing) loadMetaPixel();
+      }
+
+      // Apply stored consent on page load
+      const stored = readStoredConsent();
+      if (stored) applyConsent(stored);
+
+      // Apply consent when user interacts with the banner
+      window.addEventListener('libera:consent', (e: Event) => {
+        const detail = (e as CustomEvent).detail;
+        applyConsent({ analytics: detail.analytics, marketing: detail.marketing ?? false });
+      });
+
+      // Re-apply on Astro page transitions
+      document.addEventListener('astro:page-load', () => {
+        const s = readStoredConsent();
+        if (s) applyConsent(s);
+      });
     </script>
   </body>
 </html>

@@ -1,0 +1,42 @@
+# Security Headers — liberastudio.tech
+# Hostinger reads this file automatically from public_html
+
+<IfModule mod_headers.c>
+
+  # Prevent the site from being embedded in iframes on other domains (anti-clickjacking)
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Stop browsers from guessing the content type (prevents MIME-sniffing attacks)
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Control how much referrer info is sent when navigating to external links
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Disable legacy browser features not needed on this site
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+
+  # Content Security Policy — allows: self, Google Tag Manager, Google Analytics, Meta Pixel
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://www.facebook.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://www.facebook.com; font-src 'self'; frame-src https://www.googletagmanager.com https://www.facebook.com; object-src 'none'; base-uri 'self';"
+
+  # Force HTTPS (only active once SSL cert is confirmed on Hostinger)
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+</IfModule>
+
+# Redirect www to non-www (canonical domain is liberastudio.tech without www)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.liberastudio\.tech$ [NC]
+  RewriteRule ^(.*)$ https://liberastudio.tech/$1 [R=301,L]
+</IfModule>
+
+# Cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css   "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

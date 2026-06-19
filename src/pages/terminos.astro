@@ -1,16 +1,243 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+
+const sections = [
+  ['aceptacion', '1. Aceptación'],
+  ['sitio', '2. Uso del sitio'],
+  ['contenido', '3. Contenido y propiedad intelectual'],
+  ['servicios', '4. Servicios profesionales'],
+  ['terceros', '5. Servicios de terceros'],
+  ['responsabilidad', '6. Limitación de responsabilidad'],
+  ['privacidad', '7. Privacidad, cookies y comunicaciones'],
+  ['ley', '8. Legislación aplicable'],
+  ['cambios', '9. Modificaciones'],
+];
 ---
-<Layout title="Términos de Servicio" description="Términos de servicio de LIBERA Studio.">
-  <section style="background: var(--surface);" class="pt-40 pb-20">
-    <div class="container-libera max-w-2xl">
-      <h1 class="font-display mb-8" style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; letter-spacing: -0.04em; color: var(--text-primary);">Términos de Servicio</h1>
-      <p class="text-base leading-relaxed mb-6" style="color: var(--text-secondary);">
-        Al contratar los servicios de LIBERA Studio, aceptas que los proyectos se desarrollan con base en un acuerdo previo de alcance, plazos y costos. Cualquier modificación fuera del alcance acordado puede generar costos adicionales.
-      </p>
-      <p class="text-base leading-relaxed" style="color: var(--text-secondary);">
-        Para más información, escríbenos a <a href="mailto:hola@liberastudio.tech" style="color: var(--orange);">hola@liberastudio.tech</a>.
-      </p>
+
+<Layout
+  title="Términos de Uso"
+  description="Términos de uso del sitio de LIBERA Studio y condiciones generales aplicables a contenidos, enlaces, servicios y comunicaciones comerciales."
+>
+  <!-- Design: Product | Density: Comfortable | Color: Restrained -->
+  <article class="legal-page">
+    <header class="legal-hero">
+      <div class="container-libera">
+        <p class="legal-eyebrow">Condiciones del sitio</p>
+        <h1>Términos de Uso</h1>
+        <p class="legal-intro">
+          Estas condiciones regulan el acceso y uso de liberastudio.tech. Los proyectos contratados se rigen
+          además por su propia propuesta, alcance y acuerdo escrito.
+        </p>
+        <p class="legal-date">Última actualización: 19 de junio de 2026</p>
+      </div>
+    </header>
+
+    <div class="container-libera legal-layout">
+      <nav class="legal-index" aria-label="Contenido de los términos">
+        <p>Contenido</p>
+        <ol>
+          {sections.map(([id, label]) => (
+            <li><a href={`#${id}`}>{label}</a></li>
+          ))}
+        </ol>
+      </nav>
+
+      <div class="legal-content">
+        <section id="aceptacion">
+          <h2>1. Aceptación</h2>
+          <p>
+            Al navegar por <strong>liberastudio.tech</strong> aceptas estos Términos de Uso y la
+            <a href="/privacidad">Política de Privacidad</a>. Si no estás de acuerdo, puedes dejar de utilizar el
+            sitio.
+          </p>
+          <p>
+            Este sitio pertenece y es operado por <strong>LIBERA Studio</strong>, con operación en Mérida,
+            Yucatán, México. Para cualquier consulta puedes escribir a
+            <a href="mailto:hola@liberastudio.tech">hola@liberastudio.tech</a>.
+          </p>
+        </section>
+
+        <section id="sitio">
+          <h2>2. Uso del sitio</h2>
+          <p>
+            Puedes utilizar el sitio para conocer nuestro trabajo, consultar contenidos, leer el Radar y
+            comunicarte con nosotros.
+          </p>
+          <p>No está permitido:</p>
+          <ul>
+            <li>Usar el sitio para actividades ilícitas, fraudulentas o que afecten derechos de terceros.</li>
+            <li>Intentar acceder sin autorización a sistemas, cuentas, datos o infraestructura.</li>
+            <li>Introducir código malicioso, automatizar solicitudes abusivas o interferir con el funcionamiento del sitio.</li>
+            <li>Copiar, revender o presentar el contenido de LIBERA Studio como propio.</li>
+            <li>Extraer contenido de forma masiva cuando afecte el servicio o evada medidas técnicas de protección.</li>
+          </ul>
+        </section>
+
+        <section id="contenido">
+          <h2>3. Contenido y propiedad intelectual</h2>
+          <p>
+            Salvo que se indique otra cosa, textos, diseño, código, identidad visual, ilustraciones, sistemas,
+            metodologías y materiales publicados son propiedad de LIBERA Studio o se utilizan con autorización
+            de sus titulares.
+          </p>
+          <p>
+            Puedes compartir enlaces y citar fragmentos breves con atribución clara. Cualquier reproducción,
+            adaptación, distribución o uso comercial sustancial requiere autorización previa y por escrito.
+          </p>
+          <p>
+            Las marcas, logotipos y materiales de clientes mostrados en los casos de trabajo pertenecen a sus
+            respectivos titulares y se presentan únicamente para describir proyectos reales realizados.
+          </p>
+        </section>
+
+        <section id="servicios">
+          <h2>4. Servicios profesionales</h2>
+          <p>
+            La información publicada en el sitio es de carácter general y no constituye por sí misma una oferta
+            vinculante, cotización, garantía de resultados ni relación contractual.
+          </p>
+          <p>
+            Cada proyecto se formaliza mediante una propuesta, orden de trabajo o contrato que define alcance,
+            entregables, calendario, responsabilidades, precio, impuestos, propiedad intelectual, soporte y
+            condiciones de pago. En caso de contradicción entre estos Términos y el acuerdo específico de
+            proyecto, prevalece el acuerdo de proyecto.
+          </p>
+          <p>
+            Los calendarios y estimaciones dependen de la entrega oportuna de información, accesos, decisiones y
+            aprobaciones por parte del cliente. Cambios fuera del alcance acordado pueden requerir una nueva
+            estimación y propuesta.
+          </p>
+        </section>
+
+        <section id="terceros">
+          <h2>5. Servicios y enlaces de terceros</h2>
+          <p>
+            El sitio puede enlazar a plataformas, herramientas, fuentes externas o redes administradas por
+            terceros. LIBERA Studio no controla su disponibilidad, seguridad, contenido ni políticas de privacidad.
+            Acceder a ellas queda sujeto a sus propios términos y condiciones.
+          </p>
+          <p>
+            La mención o reseña de una herramienta en el Radar u otras publicaciones no implica garantía
+            permanente ni recomendación universal. Evaluamos tecnologías según el contexto y las condiciones
+            disponibles al momento de publicar; éstas pueden cambiar después de la publicación.
+          </p>
+        </section>
+
+        <section id="responsabilidad">
+          <h2>6. Disponibilidad y limitación de responsabilidad</h2>
+          <p>
+            Procuramos mantener información precisa y el sitio disponible, pero no garantizamos que todo
+            contenido esté libre de errores, que sea adecuado para cualquier caso específico o que el servicio
+            funcione sin interrupciones.
+          </p>
+          <p>
+            Los contenidos del Radar y otras publicaciones son análisis informativos elaborados con las fuentes
+            y condiciones disponibles al momento de escribir. No sustituyen asesoría legal, fiscal, financiera,
+            médica ni de seguridad especializada.
+          </p>
+          <p>
+            En la medida permitida por la legislación aplicable, LIBERA Studio no será responsable por daños
+            indirectos, pérdida de datos o perjuicios derivados del uso del sitio, de decisiones tomadas
+            únicamente con base en su contenido, o del acceso a servicios externos enlazados desde él.
+          </p>
+        </section>
+
+        <section id="privacidad">
+          <h2>7. Privacidad, cookies y comunicaciones</h2>
+          <p>
+            El tratamiento de datos personales, el uso de almacenamiento en el navegador y el funcionamiento
+            de la analítica del sitio se explican en detalle en nuestra
+            <a href="/privacidad">Política de Privacidad</a>.
+          </p>
+          <p>
+            Puedes cambiar tus preferencias de cookies en cualquier momento desde <strong>"Preferencias de
+            cookies"</strong> en el Footer. Las cookies analíticas (Google Analytics 4) solo se activan si las
+            aceptas expresamente; rechazarlas no limita el acceso al sitio.
+          </p>
+          <p>
+            Si te suscribes a nuestras comunicaciones comerciales, puedes darte de baja en cualquier momento
+            mediante el enlace incluido en cada correo o escribiéndonos directamente. Las comunicaciones
+            comerciales solo se envían a quienes han dado su consentimiento explícito.
+          </p>
+        </section>
+
+        <section id="ley">
+          <h2>8. Legislación aplicable</h2>
+          <p>
+            Estos términos se interpretan conforme a las leyes aplicables de los Estados Unidos Mexicanos. Los
+            usuarios ubicados en la Unión Europea o el Espacio Económico Europeo conservan los derechos
+            reconocidos por el Reglamento General de Protección de Datos (GDPR) y la legislación local aplicable,
+            que prevalecen en lo que respecta al tratamiento de sus datos personales.
+          </p>
+          <p>
+            Cualquier controversia derivada de estos términos se procurará resolver primero de buena fe mediante
+            comunicación directa. Cuando no exista un acuerdo específico que establezca otra jurisdicción válida,
+            las partes se someten a las autoridades competentes de Mérida, Yucatán, renunciando a cualquier otro
+            fuero que pudiera corresponderles por domicilio presente o futuro, en la medida permitida por la ley.
+          </p>
+        </section>
+
+        <section id="cambios">
+          <h2>9. Modificaciones</h2>
+          <p>
+            Podemos actualizar estos términos para reflejar cambios en el sitio, los servicios o la normativa
+            aplicable. La versión vigente se publicará aquí con la fecha de actualización. El uso continuado del
+            sitio tras la publicación de una nueva versión implica la aceptación de los términos vigentes en ese
+            momento.
+          </p>
+        </section>
+
+        <aside class="legal-note">
+          <p>
+            Estos términos cubren el uso general del sitio y las condiciones marco de los servicios. No reemplazan
+            el contrato o propuesta específica de cada proyecto contratado, ni una revisión jurídica adaptada a
+            la estructura comercial de LIBERA Studio.
+          </p>
+        </aside>
+      </div>
     </div>
-  </section>
+  </article>
 </Layout>
+
+<style>
+  .legal-page { background: var(--surface); color: var(--text-primary); }
+  .legal-hero { padding: 10rem 0 5rem; background: #003049; color: #fff; }
+  .legal-eyebrow { margin-bottom: 1rem; color: #f77f00; font: 600 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+  .legal-hero h1 { max-width: 11ch; font: 700 clamp(2.8rem, 7vw, 6.5rem)/.95 var(--font-display); letter-spacing: -.05em; }
+  .legal-intro { max-width: 44rem; margin-top: 1.75rem; color: rgb(255 255 255 / .68); font-size: 1.12rem; line-height: 1.7; }
+  .legal-date { margin-top: 2rem; color: rgb(255 255 255 / .48); font: .75rem var(--font-mono); }
+  .legal-layout { display: grid; grid-template-columns: 15rem minmax(0, 45rem); gap: clamp(3rem, 8vw, 8rem); padding-top: 6rem; padding-bottom: 8rem; }
+  .legal-content { min-width: 0; }
+  .legal-index { position: sticky; top: calc(var(--nav-height) + 2rem); align-self: start; }
+  .legal-index > p { margin-bottom: 1rem; color: var(--text-secondary); font: 600 .7rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+  .legal-index ol { display: grid; gap: .7rem; }
+  .legal-index a { color: var(--text-secondary); font-size: .82rem; line-height: 1.35; }
+  .legal-index a:hover { color: var(--orange); }
+  .legal-content section { scroll-margin-top: calc(var(--nav-height) + 2rem); padding-top: 3.5rem; border-top: 1px solid var(--border); }
+  .legal-content section:first-child { padding-top: 0; border-top: 0; }
+  .legal-content section + section { margin-top: 3.5rem; }
+  .legal-content h2 { margin-bottom: 1.5rem; font: 700 clamp(1.6rem, 3vw, 2.35rem)/1.1 var(--font-display); letter-spacing: -.035em; }
+  .legal-content h3 { margin: 2rem 0 .75rem; font: 650 1.08rem var(--font-display); }
+  .legal-content p, .legal-content li { color: var(--text-secondary); line-height: 1.75; }
+  .legal-content p + p { margin-top: 1rem; }
+  .legal-content ul { display: grid; gap: .65rem; margin: 1rem 0; padding-left: 1.25rem; list-style: disc; }
+  .legal-content a { color: #b75b00; text-decoration: underline; text-underline-offset: .18em; }
+  .legal-table-wrap { margin: 1.5rem 0; overflow-x: auto; border: 1px solid var(--border); }
+  .legal-table-wrap table { width: 100%; min-width: 38rem; border-collapse: collapse; }
+  .legal-table-wrap th, .legal-table-wrap td { padding: 1rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+  .legal-table-wrap th { color: var(--text-primary); background: oklch(95% .01 80); font: 650 .75rem var(--font-mono); }
+  .legal-table-wrap td { color: var(--text-secondary); font-size: .88rem; line-height: 1.55; }
+  .legal-table-wrap tr:last-child td { border-bottom: 0; }
+  .legal-note { margin-top: 4rem; padding: 1.5rem; border: 1px solid var(--border); background: oklch(96% .01 80); }
+  .legal-note p { font-size: .82rem; }
+  @media (max-width: 860px) {
+    .legal-layout { grid-template-columns: 1fr; padding-top: 4rem; }
+    .legal-index { position: static; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .legal-index ol { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 540px) {
+    .legal-hero { padding-top: 8rem; padding-bottom: 4rem; }
+    .legal-layout { padding-bottom: 6rem; }
+    .legal-index ol { grid-template-columns: 1fr; }
+  }
+</style>

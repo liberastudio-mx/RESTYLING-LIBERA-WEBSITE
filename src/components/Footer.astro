@@ -14,7 +14,6 @@ const footerLinks = {
   estudio: [
     { label: 'Trabajo', href: '/trabajo' },
     { label: 'Radar', href: '/radar' },
-    { label: 'Laboratorio', href: '/laboratorio' },
     { label: 'Nosotros', href: '/nosotros' },
   ],
 };
@@ -65,9 +64,9 @@ const footerLinks = {
 
       <!-- Link columns -->
       <div>
-        <h3 class="text-xs font-semibold tracking-widest uppercase mb-5" style="color: rgba(255,255,255,0.6);">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-5" style="color: rgba(255,255,255,0.6);">
           Soluciones
-        </h3>
+        </p>
         <ul class="space-y-3">
           {footerLinks.soluciones.map((link) => (
             <li>
@@ -84,9 +83,9 @@ const footerLinks = {
       </div>
 
       <div>
-        <h3 class="text-xs font-semibold tracking-widest uppercase mb-5" style="color: rgba(255,255,255,0.6);">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-5" style="color: rgba(255,255,255,0.6);">
           Estudio
-        </h3>
+        </p>
         <ul class="space-y-3">
           {footerLinks.estudio.map((link) => (
             <li>
@@ -111,7 +110,7 @@ const footerLinks = {
       <p class="text-xs" style="color: rgba(255,255,255,0.5);">
         © {year} LIBERA Studio. Todos los derechos reservados.
       </p>
-      <div class="flex items-center gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
         <a href="/privacidad" class="text-xs transition-colors duration-150 hover:text-white" style="color: rgba(255,255,255,0.5);">
           Privacidad
         </a>
@@ -121,6 +120,14 @@ const footerLinks = {
         <a href="/contacto" class="text-xs transition-colors duration-150 hover:text-white" style="color: rgba(255,255,255,0.5);">
           Contacto
         </a>
+        <button
+          type="button"
+          data-cookie-settings
+          class="text-xs transition-colors duration-150 hover:text-white"
+          style="color: rgba(255,255,255,0.5);"
+        >
+          Preferencias de cookies
+        </button>
       </div>
     </div>
   </div>

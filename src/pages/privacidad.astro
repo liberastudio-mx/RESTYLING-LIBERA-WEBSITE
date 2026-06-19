@@ -1,16 +1,414 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+
+const sections = [
+  ['responsable', '1. Responsable del tratamiento'],
+  ['datos', '2. Datos que tratamos'],
+  ['finalidades', '3. Para qué usamos tus datos'],
+  ['base', '4. Base legal del tratamiento'],
+  ['conservacion', '5. Conservación y seguridad'],
+  ['transferencias', '6. Proveedores y transferencias'],
+  ['derechos', '7. Tus derechos'],
+  ['comunicaciones', '8. Comunicaciones comerciales'],
+  ['cookies', '9. Cookies y tecnologías similares'],
+  ['cambios', '10. Cambios a este aviso'],
+];
 ---
-<Layout title="Política de Privacidad" description="Política de privacidad de LIBERA Studio.">
-  <section style="background: var(--surface);" class="pt-40 pb-20">
-    <div class="container-libera max-w-2xl">
-      <h1 class="font-display mb-8" style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; letter-spacing: -0.04em; color: var(--text-primary);">Política de Privacidad</h1>
-      <p class="text-base leading-relaxed mb-6" style="color: var(--text-secondary);">
-        En LIBERA Studio respetamos tu privacidad. Los datos que nos proporciones a través de nuestros formularios se utilizan únicamente para responder a tus consultas y mejorar nuestros servicios. No compartimos tu información con terceros sin tu consentimiento.
-      </p>
-      <p class="text-base leading-relaxed" style="color: var(--text-secondary);">
-        Para cualquier consulta sobre privacidad, escríbenos a <a href="mailto:hola@liberastudio.tech" style="color: var(--orange);">hola@liberastudio.tech</a>.
-      </p>
+
+<Layout
+  title="Política de Privacidad"
+  description="Aviso de privacidad de LIBERA Studio: datos tratados, finalidades, cookies, conservación, derechos ARCO y GDPR, email marketing."
+>
+  <!-- Design: Product | Density: Comfortable | Color: Restrained -->
+  <article class="legal-page">
+    <header class="legal-hero">
+      <div class="container-libera">
+        <p class="legal-eyebrow">Aviso integral de privacidad</p>
+        <h1>Política de Privacidad</h1>
+        <p class="legal-intro">
+          Te explicamos qué información puede recibir LIBERA Studio, para qué la usa, con quién la comparte
+          y cómo puedes ejercer control total sobre tus datos personales.
+        </p>
+        <p class="legal-date">Última actualización: 19 de junio de 2026</p>
+      </div>
+    </header>
+
+    <div class="container-libera legal-layout">
+      <nav class="legal-index" aria-label="Contenido de la política">
+        <p>Contenido</p>
+        <ol>
+          {sections.map(([id, label]) => (
+            <li><a href={`#${id}`}>{label}</a></li>
+          ))}
+        </ol>
+      </nav>
+
+      <div class="legal-content">
+        <section id="responsable">
+          <h2>1. Responsable del tratamiento</h2>
+          <p>
+            <strong>LIBERA Studio</strong>, con operación en Mérida, Yucatán, México, es responsable del tratamiento
+            de los datos personales recibidos mediante este sitio web (<strong>liberastudio.tech</strong>).
+          </p>
+          <p>
+            Para cualquier asunto relacionado con privacidad, protección de datos o ejercicio de derechos, puedes
+            escribir a <a href="mailto:hola@liberastudio.tech">hola@liberastudio.tech</a>. Respondemos en los plazos
+            previstos por la legislación aplicable y, en todo caso, en un máximo de 30 días naturales.
+          </p>
+        </section>
+
+        <section id="datos">
+          <h2>2. Datos que tratamos</h2>
+          <p>Podemos recibir las siguientes categorías de información:</p>
+          <ul>
+            <li><strong>Identificación y contacto:</strong> nombre y dirección de correo electrónico.</li>
+            <li><strong>Datos profesionales:</strong> empresa, ciudad, sitio web, servicio de interés y contexto del proyecto.</li>
+            <li><strong>Información económica aproximada</strong> cuando eliges un rango de presupuesto en el formulario.</li>
+            <li><strong>Preferencias de comunicación:</strong> si has dado consentimiento para recibir nuestras comunicaciones comerciales.</li>
+            <li><strong>Información técnica básica</strong> necesaria para servir el sitio y protegerlo: dirección IP, fecha, hora y registros del proveedor de alojamiento.</li>
+            <li><strong>Datos analíticos agregados</strong> sobre uso del sitio, únicamente si aceptas las cookies analíticas.</li>
+          </ul>
+          <p>
+            No solicitamos datos personales sensibles. Te pedimos no incluir información médica, biométrica,
+            financiera detallada, contraseñas ni documentos de identidad en los campos abiertos del formulario.
+          </p>
+        </section>
+
+        <section id="finalidades">
+          <h2>3. Para qué usamos tus datos</h2>
+
+          <h3>Finalidades necesarias para la relación contigo</h3>
+          <ul>
+            <li>Responder solicitudes, preguntas y mensajes enviados a través del formulario o por correo.</li>
+            <li>Preparar un diagnóstico inicial y evaluar si podemos ayudarte.</li>
+            <li>Dar seguimiento a una relación comercial o contractual.</li>
+            <li>Administrar proyectos, propuestas, pagos y obligaciones derivadas de un servicio contratado.</li>
+            <li>Proteger el sitio, prevenir abuso y resolver fallas técnicas.</li>
+            <li>Cumplir obligaciones legales y atender solicitudes válidas de autoridad competente.</li>
+          </ul>
+
+          <h3>Finalidades opcionales (requieren tu consentimiento)</h3>
+          <ul>
+            <li>
+              <strong>Analítica del sitio:</strong> si aceptas las cookies analíticas, medimos de forma agregada el
+              uso y rendimiento del sitio mediante Google Analytics 4. Puedes retirar este consentimiento en cualquier
+              momento desde "Preferencias de cookies" en el Footer.
+            </li>
+            <li>
+              <strong>Comunicaciones comerciales:</strong> si te suscribes a nuestra lista o marcas la casilla
+              correspondiente, te enviaremos contenido sobre servicios, novedades, artículos del Radar y recursos
+              útiles para tu negocio. Puedes darte de baja en cualquier momento. Ver sección 8.
+            </li>
+          </ul>
+
+          <p>No usamos tus datos para publicidad de terceros ni los vendemos bajo ninguna circunstancia.</p>
+        </section>
+
+        <section id="base">
+          <h2>4. Base legal del tratamiento</h2>
+
+          <p>
+            Tratamos tus datos con base en los fundamentos legales que aplican según el tipo de tratamiento y la
+            legislación de tu país de residencia. Los principales son:
+          </p>
+
+          <div class="legal-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Finalidad</th>
+                  <th>Base legal (México — LFPDPPP)</th>
+                  <th>Base legal equivalente (UE — GDPR)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Responder mensajes y solicitudes</td>
+                  <td>Consentimiento implícito al enviar</td>
+                  <td>Ejecución de medidas precontractuales (art. 6.1.b)</td>
+                </tr>
+                <tr>
+                  <td>Gestión de proyectos contratados</td>
+                  <td>Relación contractual</td>
+                  <td>Ejecución del contrato (art. 6.1.b)</td>
+                </tr>
+                <tr>
+                  <td>Cumplimiento de obligaciones legales</td>
+                  <td>Disposición legal</td>
+                  <td>Obligación legal (art. 6.1.c)</td>
+                </tr>
+                <tr>
+                  <td>Seguridad del sitio y prevención de abuso</td>
+                  <td>Interés legítimo</td>
+                  <td>Interés legítimo (art. 6.1.f)</td>
+                </tr>
+                <tr>
+                  <td>Analítica del sitio (cookies)</td>
+                  <td>Consentimiento explícito (banner)</td>
+                  <td>Consentimiento (art. 6.1.a)</td>
+                </tr>
+                <tr>
+                  <td>Comunicaciones comerciales (email marketing)</td>
+                  <td>Consentimiento explícito</td>
+                  <td>Consentimiento (art. 6.1.a)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Cuando el tratamiento se base en el consentimiento, tienes derecho a retirarlo en cualquier momento sin
+            que ello afecte la licitud del tratamiento realizado con anterioridad. El retiro del consentimiento no
+            limita el acceso al sitio ni a los servicios ya contratados.
+          </p>
+        </section>
+
+        <section id="conservacion">
+          <h2>5. Conservación y seguridad</h2>
+          <p>
+            Conservamos los datos durante el tiempo razonablemente necesario para cada finalidad:
+          </p>
+          <ul>
+            <li><strong>Mensajes sin relación comercial posterior:</strong> hasta 12 meses desde la última comunicación.</li>
+            <li><strong>Datos de proyectos contratados:</strong> durante la vigencia del servicio y hasta 5 años después, para atender posibles responsabilidades.</li>
+            <li><strong>Lista de correo (email marketing):</strong> mientras el consentimiento esté activo. Al darte de baja, eliminamos o anonimizamos tus datos en un plazo máximo de 30 días.</li>
+            <li><strong>Datos analíticos:</strong> según la retención configurada en Google Analytics (máximo 14 meses por defecto).</li>
+          </ul>
+          <p>
+            Aplicamos medidas administrativas y técnicas razonables para reducir riesgos de pérdida, acceso no
+            autorizado, alteración o divulgación. Los accesos están restringidos a quienes los necesitan para su trabajo.
+            Ningún sistema conectado a internet puede garantizar seguridad absoluta.
+          </p>
+        </section>
+
+        <section id="transferencias">
+          <h2>6. Proveedores y transferencias</h2>
+          <p>
+            Trabajamos con proveedores externos que actúan como encargados del tratamiento por cuenta de LIBERA Studio.
+            Reciben únicamente la información necesaria para prestar su servicio y quedan sujetos a obligaciones
+            contractuales de confidencialidad y seguridad. Los proveedores principales son:
+          </p>
+          <ul>
+            <li><strong>Alojamiento web:</strong> Hostinger International Ltd. (Chipre / infraestructura global).</li>
+            <li><strong>Analítica web:</strong> Google LLC — Google Analytics 4 (solo si aceptas cookies analíticas). Procesa datos en servidores de Google, que puede incluir infraestructura en EE. UU.</li>
+            <li><strong>Gestión de etiquetas:</strong> Google LLC — Google Tag Manager (cargado únicamente bajo consentimiento analítico).</li>
+            <li><strong>Email marketing:</strong> proveedor de envío de correo electrónico utilizado para gestionar la lista de suscriptores y el envío de comunicaciones. El nombre del proveedor activo se indicará en el primer correo que recibas.</li>
+            <li><strong>Correo electrónico operativo:</strong> proveedor de correo utilizado para gestionar comunicaciones internas y con clientes.</li>
+          </ul>
+          <p>
+            Algunos de estos proveedores procesan datos fuera de México y del Espacio Económico Europeo. Para las
+            transferencias a países sin nivel de protección equivalente, nos apoyamos en las <strong>Cláusulas
+            Contractuales Tipo (CCT)</strong> aprobadas por la Comisión Europea u otros mecanismos reconocidos, según
+            el proveedor y el destino de los datos.
+          </p>
+          <p>
+            No vendemos, rentamos ni cedemos datos personales a terceros con fines propios. Podemos revelar información
+            cuando una disposición legal o una solicitud válida de autoridad competente lo requiera, o cuando sea
+            necesario para proteger derechos y seguridad.
+          </p>
+        </section>
+
+        <section id="derechos">
+          <h2>7. Tus derechos</h2>
+
+          <h3>Derechos ARCO (aplicables en México)</h3>
+          <p>
+            Puedes solicitar el <strong>acceso</strong>, <strong>rectificación</strong>,
+            <strong>cancelación</strong> u <strong>oposición</strong> al tratamiento de tus datos. También puedes
+            revocar el consentimiento otorgado o limitar el uso de tus datos.
+          </p>
+
+          <h3>Derechos bajo el GDPR (aplicables en la Unión Europea y el EEE)</h3>
+          <p>Si resides en la Unión Europea o el Espacio Económico Europeo, tienes además los siguientes derechos:</p>
+          <ul>
+            <li><strong>Derecho de acceso</strong> (art. 15): obtener confirmación de si tratamos tus datos y una copia de ellos.</li>
+            <li><strong>Derecho de rectificación</strong> (art. 16): corregir datos inexactos o incompletos.</li>
+            <li><strong>Derecho de supresión</strong> (art. 17): solicitar la eliminación de tus datos cuando ya no sean necesarios o hayas retirado el consentimiento.</li>
+            <li><strong>Derecho a la limitación del tratamiento</strong> (art. 18): solicitar que suspendamos el tratamiento en determinadas circunstancias.</li>
+            <li><strong>Derecho a la portabilidad</strong> (art. 20): recibir los datos que nos proporcionaste en formato estructurado y de uso común.</li>
+            <li><strong>Derecho de oposición</strong> (art. 21): oponerte al tratamiento basado en interés legítimo o a la recepción de comunicaciones comerciales.</li>
+            <li><strong>Derecho a retirar el consentimiento</strong> (art. 7.3): en cualquier momento, sin efecto retroactivo.</li>
+            <li>
+              <strong>Derecho a presentar una reclamación</strong> ante la autoridad de control de tu país. Para
+              España: la <a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">Agencia Española de Protección de Datos (AEPD)</a>.
+              Para otros países de la UE, puedes encontrar la autoridad competente en el directorio del
+              <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_es" rel="noopener noreferrer" target="_blank">Comité Europeo de Protección de Datos</a>.
+            </li>
+          </ul>
+
+          <h3>Cómo ejercer tus derechos</h3>
+          <p>
+            Envía tu solicitud a <a href="mailto:hola@liberastudio.tech">hola@liberastudio.tech</a> indicando:
+          </p>
+          <ul>
+            <li>Tu nombre y un medio para recibir respuesta.</li>
+            <li>El derecho que deseas ejercer y los datos afectados.</li>
+            <li>Cuando sea necesario, información que permita verificar tu identidad.</li>
+          </ul>
+          <p>
+            Responderemos dentro del plazo previsto por la legislación aplicable (máximo 20 días hábiles en México,
+            30 días naturales bajo GDPR, prorrogables en casos complejos con notificación previa).
+          </p>
+        </section>
+
+        <section id="comunicaciones">
+          <h2>8. Comunicaciones comerciales</h2>
+          <p>
+            Si te suscribes a nuestra lista de correo o marcas la casilla de consentimiento en el formulario de
+            contacto, podremos enviarte:
+          </p>
+          <ul>
+            <li>Contenido sobre servicios, metodologías y proyectos de LIBERA Studio.</li>
+            <li>Artículos y análisis publicados en el Radar.</li>
+            <li>Recursos, herramientas y materiales relevantes para tu negocio.</li>
+            <li>Novedades sobre IA, automatización y sistemas digitales.</li>
+          </ul>
+          <p>
+            <strong>La suscripción es siempre voluntaria.</strong> Nunca añadimos direcciones a la lista sin
+            consentimiento explícito previo.
+          </p>
+          <p>
+            <strong>Puedes darte de baja en cualquier momento</strong> haciendo clic en el enlace que incluimos
+            al pie de cada correo, o escribiéndonos a <a href="mailto:hola@liberastudio.tech">hola@liberastudio.tech</a>.
+            Procesaremos la baja en un máximo de 10 días hábiles y no volveremos a enviarte comunicaciones
+            comerciales sin un nuevo consentimiento.
+          </p>
+          <p>
+            Los datos de la lista (correo electrónico y nombre) se transfieren a nuestro proveedor de email
+            marketing, que actúa como encargado del tratamiento. El proveedor activo se identifica en el pie de cada
+            correo que enviamos.
+          </p>
+        </section>
+
+        <section id="cookies">
+          <h2>9. Cookies y tecnologías similares</h2>
+          <p>
+            Una cookie es un pequeño archivo que el navegador guarda para recordar información entre visitas.
+            Este sitio utiliza el siguiente almacenamiento:
+          </p>
+          <div class="legal-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Categoría</th>
+                  <th>Proveedor</th>
+                  <th>Finalidad</th>
+                  <th>Duración</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>libera_cookie_consent</code></td>
+                  <td>Necesaria</td>
+                  <td>LIBERA Studio</td>
+                  <td>Guarda tu elección de cookies (aceptar o rechazar analítica) para no volver a preguntarte.</td>
+                  <td>180 días</td>
+                </tr>
+                <tr>
+                  <td><code>_ga</code></td>
+                  <td>Analítica</td>
+                  <td>Google LLC</td>
+                  <td>Distingue usuarios únicos para medir visitas de forma anónima.</td>
+                  <td>2 años</td>
+                </tr>
+                <tr>
+                  <td><code>_ga_M2XK46VDZ8</code></td>
+                  <td>Analítica</td>
+                  <td>Google LLC</td>
+                  <td>Mantiene el estado de la sesión en Google Analytics 4.</td>
+                  <td>2 años</td>
+                </tr>
+                <tr>
+                  <td><code>_gid</code></td>
+                  <td>Analítica</td>
+                  <td>Google LLC</td>
+                  <td>Distingue usuarios por día para estadísticas de uso.</td>
+                  <td>24 horas</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Las cookies analíticas (Google Analytics 4, gestionadas a través de Google Tag Manager) <strong>solo
+            se cargan si aceptas la categoría "Analítica"</strong> en el banner de privacidad. Si rechazas o
+            no interactúas con el banner, no se instala ninguna cookie de terceros.
+          </p>
+          <p>
+            Google puede procesar los datos analíticos en servidores ubicados en EE. UU. y otros países. Operamos
+            con la función de anonimización de IP activada. Para más información, consulta la
+            <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Política de Privacidad de Google</a>.
+          </p>
+          <p>
+            Puedes modificar o retirar tu elección en cualquier momento con el botón <strong>"Preferencias de
+            cookies"</strong> disponible en el Footer. También puedes eliminar o bloquear cookies desde la
+            configuración de tu navegador; ten en cuenta que esto puede afectar el funcionamiento de algunos sitios.
+          </p>
+        </section>
+
+        <section id="cambios">
+          <h2>10. Cambios a este aviso</h2>
+          <p>
+            Podemos actualizar esta política cuando cambien el sitio, los servicios, los proveedores o las
+            obligaciones legales aplicables. La versión vigente se publicará en esta página con su fecha de
+            actualización. Si un cambio altera de manera relevante las finalidades del tratamiento o la base legal
+            aplicable, te lo comunicaremos de forma directa cuando sea posible, y solicitaremos nuevamente el
+            consentimiento cuando corresponda.
+          </p>
+        </section>
+
+        <aside class="legal-note">
+          <p>
+            Este aviso está redactado considerando la operación actual del sitio, la legislación mexicana
+            (LFPDPPP) y el Reglamento General de Protección de Datos de la UE (GDPR). Para una validación
+            jurídica adaptada a la estructura comercial específica de LIBERA Studio, conviene obtener revisión
+            de un profesional del derecho.
+          </p>
+        </aside>
+      </div>
     </div>
-  </section>
+  </article>
 </Layout>
+
+<style>
+  .legal-page { background: var(--surface); color: var(--text-primary); }
+  .legal-hero { padding: 10rem 0 5rem; background: #eae2b7; }
+  .legal-eyebrow { margin-bottom: 1rem; color: #b75b00; font: 600 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+  .legal-hero h1 { max-width: 13ch; font: 700 clamp(2.8rem, 7vw, 6.5rem)/.95 var(--font-display); letter-spacing: -.05em; }
+  .legal-intro { max-width: 44rem; margin-top: 1.75rem; color: rgb(0 48 73 / .72); font-size: 1.12rem; line-height: 1.7; }
+  .legal-date { margin-top: 2rem; color: rgb(0 48 73 / .58); font: .75rem var(--font-mono); }
+  .legal-layout { display: grid; grid-template-columns: 15rem minmax(0, 45rem); gap: clamp(3rem, 8vw, 8rem); padding-top: 6rem; padding-bottom: 8rem; }
+  .legal-content { min-width: 0; }
+  .legal-index { position: sticky; top: calc(var(--nav-height) + 2rem); align-self: start; }
+  .legal-index > p { margin-bottom: 1rem; color: var(--text-secondary); font: 600 .7rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+  .legal-index ol { display: grid; gap: .7rem; }
+  .legal-index a { color: var(--text-secondary); font-size: .82rem; line-height: 1.35; }
+  .legal-index a:hover { color: var(--orange); }
+  .legal-content section { scroll-margin-top: calc(var(--nav-height) + 2rem); padding-top: 3.5rem; border-top: 1px solid var(--border); }
+  .legal-content section:first-child { padding-top: 0; border-top: 0; }
+  .legal-content section + section { margin-top: 3.5rem; }
+  .legal-content h2 { margin-bottom: 1.5rem; font: 700 clamp(1.6rem, 3vw, 2.35rem)/1.1 var(--font-display); letter-spacing: -.035em; }
+  .legal-content h3 { margin: 2rem 0 .75rem; font: 650 1.08rem var(--font-display); }
+  .legal-content p, .legal-content li { color: var(--text-secondary); line-height: 1.75; }
+  .legal-content p + p { margin-top: 1rem; }
+  .legal-content ul { display: grid; gap: .65rem; margin: 1rem 0; padding-left: 1.25rem; list-style: disc; }
+  .legal-content a { color: #b75b00; text-decoration: underline; text-underline-offset: .18em; }
+  .legal-table-wrap { margin: 1.5rem 0; overflow-x: auto; border: 1px solid var(--border); }
+  .legal-table-wrap table { width: 100%; min-width: 38rem; border-collapse: collapse; }
+  .legal-table-wrap th, .legal-table-wrap td { padding: 1rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+  .legal-table-wrap th { color: var(--text-primary); background: oklch(95% .01 80); font: 650 .75rem var(--font-mono); }
+  .legal-table-wrap td { color: var(--text-secondary); font-size: .88rem; line-height: 1.55; }
+  .legal-table-wrap tr:last-child td { border-bottom: 0; }
+  .legal-note { margin-top: 4rem; padding: 1.5rem; border: 1px solid var(--border); background: oklch(96% .01 80); }
+  .legal-note p { font-size: .82rem; }
+  @media (max-width: 860px) {
+    .legal-layout { grid-template-columns: 1fr; padding-top: 4rem; }
+    .legal-index { position: static; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .legal-index ol { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 540px) {
+    .legal-hero { padding-top: 8rem; padding-bottom: 4rem; }
+    .legal-layout { padding-bottom: 6rem; }
+    .legal-index ol { grid-template-columns: 1fr; }
+  }
+</style>

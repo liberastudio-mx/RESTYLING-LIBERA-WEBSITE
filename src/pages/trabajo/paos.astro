@@ -1,14 +1,192 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logoImg from '@/assets/images/Logo paos.png';
+
+const stack = ['Obsidian', 'Agentes de IA', 'n8n', 'Plantillas operativas'];
+
+const projectLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'PAOS Framework',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description: 'Sistema operativo interno de conocimiento, procesos y agentes de LIBERA Studio.',
+  url: 'https://www.liberastudio.tech/trabajo/paos',
+  inLanguage: 'es-MX',
+  author: { '@id': 'https://www.liberastudio.tech/#organization' },
+});
 ---
-<Layout title="PAOS Framework" description="Sistema operativo de conocimiento del estudio. Agentes, plantillas, workflows y base de datos estructurada.">
-  <section style="background: var(--surface); min-height: calc(100dvh - var(--nav-height));" class="flex items-center">
-    <div class="container-libera py-40">
-      <p class="eyebrow mb-6" style="color: var(--presencia); font-family: var(--font-mono);">Sistema interno</p>
-      <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">PAOS Framework</h1>
-      <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;">El sistema operativo de conocimiento del estudio. Base de conocimiento, agentes de IA, plantillas de proceso y workflows n8n integrados en una sola infraestructura.</p>
-      <p class="eyebrow mb-8" style="color: var(--text-secondary); font-family: var(--font-mono);">Stack: Obsidian · n8n · Claude API</p>
-      <a href="/trabajo" style="color: var(--orange); font-size: 0.875rem; font-weight: 500;">← Volver a Trabajo</a>
-    </div>
-  </section>
+
+<Layout
+  title="PAOS Framework — Trabajo"
+  description="PAOS es el sistema operativo interno de LIBERA Studio: conocimiento, procesos, agentes de IA y automatizaciones en una infraestructura mantenible."
+  jsonLdExtra={projectLd}
+>
+  <!-- Design: Brand | Vibe: Clinical Precision | Layout: Editorial Split | Color: Restrained -->
+  <article class="paos-page">
+    <section class="paos-hero" aria-labelledby="paos-title">
+      <div class="paos-grid" aria-hidden="true"></div>
+      <div class="paos-logo-wrap" aria-hidden="true">
+        <Image src={logoImg} alt="" widths={[400, 800]} sizes="36vw" class="paos-logo" />
+      </div>
+      <div class="container-libera hero-inner">
+        <a href="/trabajo" class="back-link">&larr; Trabajo</a>
+        <p class="eyebrow">Sistema interno · En evolución</p>
+        <h1 id="paos-title">PAOS<br />Framework</h1>
+        <p class="lead">
+          Un sistema para que el conocimiento del estudio no viva en la memoria de una persona, una conversación o
+          una carpeta imposible de encontrar.
+        </p>
+        <div class="stack-list" aria-label="Tecnologías y componentes">
+          {stack.map((item) => <span>{item}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-section" aria-labelledby="origen-title">
+      <div class="container-libera intro-grid">
+        <div>
+          <p class="section-index">01 · El origen</p>
+          <h2 id="origen-title">Cuando el estudio crece, recordar deja de ser un sistema.</h2>
+        </div>
+        <div class="body-copy">
+          <p>
+            Briefs, decisiones, procesos, investigación y aprendizajes aparecían en herramientas distintas. Encontrar
+            algo dependía de saber quién lo había hecho y dónde lo había guardado.
+          </p>
+          <p>
+            PAOS convierte ese conocimiento disperso en una infraestructura consultable, conectada y preparada para
+            trabajar con personas y agentes de IA.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="architecture-section" aria-labelledby="arquitectura-title">
+      <div class="container-libera">
+        <p class="section-index orange">02 · Arquitectura</p>
+        <h2 id="arquitectura-title">Una fuente de verdad. Cuatro capas de trabajo.</h2>
+        <div class="architecture-list">
+          {[
+            ['Conocimiento', 'Notas conectadas, decisiones, contexto de clientes y documentación viva en una base legible.'],
+            ['Procesos', 'Checklists y plantillas que convierten la experiencia del equipo en una forma repetible de trabajar.'],
+            ['Agentes', 'Instrucciones y contexto reutilizable para investigar, escribir, revisar y ejecutar con criterios compartidos.'],
+            ['Automatización', 'Flujos que mueven información entre herramientas sin duplicar trabajo ni perder trazabilidad.'],
+          ].map(([title, text], index) => (
+            <div class="architecture-row">
+              <span>0{index + 1}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="principles-section" aria-labelledby="principios-title">
+      <div class="container-libera">
+        <p class="section-index">03 · Principios</p>
+        <h2 id="principios-title">Construido para seguir funcionando cuando cambia la herramienta.</h2>
+        <div class="principles-grid">
+          {[
+            ['Portable', 'El contenido importante usa formatos abiertos y puede salir de la plataforma.'],
+            ['Trazable', 'Cada decisión conserva contexto, fuente y relación con el trabajo que produjo.'],
+            ['Mantenible', 'El equipo puede entender, corregir y extender el sistema sin depender de una caja negra.'],
+          ].map(([title, text]) => (
+            <div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-section" aria-labelledby="prueba-title">
+      <div class="container-libera proof-grid">
+        <p class="section-index orange">04 · La prueba</p>
+        <div>
+          <h2 id="prueba-title">Primero lo usamos nosotros.</h2>
+          <p>
+            PAOS organiza el trabajo real de LIBERA: comunicación, producto, proyectos, investigación y operaciones.
+            Es la base desde la que probamos nuevas automatizaciones antes de recomendarlas a un cliente.
+          </p>
+          <p class="proof-line">Construimos antes de prometer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-cta" aria-label="Siguiente paso">
+      <div class="container-libera cta-layout">
+        <div>
+          <p class="cta-meta">PAOS · Sistema interno · En evolución</p>
+          <p>Si tu operación depende de memoria, chats y archivos sueltos, podemos empezar por ordenarla.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="/trabajo" class="btn btn-ghost-light">&larr; Ver todo el trabajo</a>
+          <a href="/diagnostico" class="btn btn-primary">
+            Solicitar diagnóstico <span class="btn-icon" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
 </Layout>
+
+<style>
+  .paos-page { background: #f6f7f5; }
+  .paos-hero { position: relative; min-height: 100dvh; overflow: hidden; background: #f6f7f5; }
+  .paos-grid { position: absolute; inset: 0; opacity: .55; background-image: linear-gradient(rgb(0 48 73 / .07) 1px, transparent 1px), linear-gradient(90deg, rgb(0 48 73 / .07) 1px, transparent 1px); background-size: 4rem 4rem; mask-image: linear-gradient(to bottom, #000, transparent 92%); }
+  .paos-logo-wrap { position: absolute; right: 3vw; top: 50%; width: min(38vw, 34rem); transform: translateY(-50%); opacity: .12; }
+  .paos-logo { width: 100%; height: auto; }
+  .hero-inner { position: relative; z-index: 1; padding-top: 11rem; padding-bottom: 6rem; }
+  .back-link { display: inline-flex; margin-bottom: 3.5rem; color: rgb(0 48 73 / .5); font: .8rem var(--font-mono); }
+  .eyebrow, .orange { color: #c55f00; }
+  h1 { margin-top: 1.25rem; color: #003049; font: 700 clamp(4rem, 10vw, 8.5rem)/.88 var(--font-display); letter-spacing: -.05em; }
+  .lead { max-width: 43rem; margin-top: 2.25rem; color: rgb(0 48 73 / .68); font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.7; }
+  .stack-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 3rem; }
+  .stack-list span { padding: .45rem .8rem; border: 1px solid rgb(0 48 73 / .16); border-radius: 999px; color: rgb(0 48 73 / .65); font: .72rem var(--font-mono); background: rgb(255 255 255 / .45); }
+  .intro-section, .principles-section { padding: 7rem 0; }
+  .intro-grid { display: grid; grid-template-columns: 1fr .72fr; gap: clamp(3rem, 9vw, 9rem); }
+  .section-index { margin-bottom: 1.5rem; color: rgb(0 48 73 / .54); font: .72rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+  h2 { max-width: 18ch; color: #003049; font: 700 clamp(2.3rem, 5vw, 4.6rem)/1 var(--font-display); letter-spacing: -.045em; text-wrap: balance; }
+  .body-copy { padding-top: 2.5rem; }
+  .body-copy p, .proof-grid > div p { color: rgb(0 48 73 / .68); font-size: 1.05rem; line-height: 1.75; }
+  .body-copy p + p { margin-top: 1.5rem; }
+  .architecture-section { padding: 7rem 0; background: #003049; }
+  .architecture-section h2, .proof-section h2 { color: #fff; }
+  .architecture-list { margin-top: 4rem; border-top: 1px solid rgb(255 255 255 / .16); }
+  .architecture-row { display: grid; grid-template-columns: 5rem .55fr 1fr; gap: 2rem; align-items: start; padding: 2.2rem 0; border-bottom: 1px solid rgb(255 255 255 / .16); }
+  .architecture-row span { color: #f77f00; font: .72rem var(--font-mono); }
+  .architecture-row h3 { color: #fff; font: 600 1.4rem var(--font-display); }
+  .architecture-row p { max-width: 42rem; color: rgb(255 255 255 / .58); line-height: 1.7; }
+  .principles-section { background: #eae2b7; }
+  .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 4rem; background: rgb(0 48 73 / .18); }
+  .principles-grid > div { min-height: 15rem; padding: 2rem; background: #eae2b7; }
+  .principles-grid h3 { color: #003049; font: 600 1.35rem var(--font-display); }
+  .principles-grid p { margin-top: 1rem; color: rgb(0 48 73 / .68); line-height: 1.7; }
+  .proof-section { padding: 7rem 0; background: #081f2c; }
+  .proof-grid { display: grid; grid-template-columns: .4fr 1.2fr; gap: 3rem; }
+  .proof-grid > div p { max-width: 43rem; margin-top: 2rem; color: rgb(255 255 255 / .6); }
+  .proof-line { color: #f77f00 !important; font: 600 1rem var(--font-display) !important; }
+  .project-cta { padding: 4rem 0; border-top: 1px solid var(--border); background: var(--surface); }
+  .cta-layout { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+  .cta-meta { margin-bottom: .5rem; color: var(--text-secondary); font: .72rem var(--font-mono); }
+  .cta-layout > div > p:last-child { max-width: 42rem; color: var(--text-secondary); }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  @media (max-width: 800px) {
+    .paos-logo-wrap { width: 65vw; opacity: .07; }
+    .intro-grid, .proof-grid { grid-template-columns: 1fr; }
+    .body-copy { padding-top: 0; }
+    .architecture-row { grid-template-columns: 3rem 1fr; }
+    .architecture-row p { grid-column: 2; }
+    .principles-grid { grid-template-columns: 1fr; }
+    .principles-grid > div { min-height: auto; }
+    .cta-layout { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 560px) {
+    .hero-inner { padding-top: 9rem; }
+    .intro-section, .architecture-section, .principles-section, .proof-section { padding: 5rem 0; }
+  }
+</style>

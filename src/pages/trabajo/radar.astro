@@ -1,14 +1,216 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '@/assets/images/3 robots ai agents.png';
+
+const stack = ['n8n', 'Claude API', 'Airtable', 'APIs', 'Revisión humana'];
+
+const projectLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'LIBERA AI Automation',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description: 'Infraestructura interna de agentes y automatizaciones usada por LIBERA Studio en operaciones reales.',
+  url: 'https://www.liberastudio.tech/trabajo/radar',
+  inLanguage: 'es-MX',
+  author: { '@id': 'https://www.liberastudio.tech/#organization' },
+});
 ---
-<Layout title="LIBERA AI Automation" description="Infraestructura de agentes y automatizaciones para la operación interna del estudio.">
-  <section style="background: var(--surface); min-height: calc(100dvh - var(--nav-height));" class="flex items-center">
-    <div class="container-libera py-40">
-      <p class="eyebrow mb-6" style="color: var(--ai); font-family: var(--font-mono);">Sistema interno</p>
-      <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">LIBERA AI Automation</h1>
-      <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;">Infraestructura de agentes y automatizaciones para la operación interna del estudio. Publicación, análisis, CRM y flujos n8n integrados.</p>
-      <p class="eyebrow mb-8" style="color: var(--text-secondary); font-family: var(--font-mono);">Stack: n8n · Claude API · Airtable</p>
-      <a href="/trabajo" style="color: var(--orange); font-size: 0.875rem; font-weight: 500;">← Volver a Trabajo</a>
-    </div>
-  </section>
+
+<Layout
+  title="LIBERA AI Automation — Trabajo"
+  description="Infraestructura interna de agentes y automatizaciones para investigación, contenido, CRM y operaciones reales de LIBERA Studio."
+  jsonLdExtra={projectLd}
+>
+  <!-- Design: Hybrid | Vibe: Motion Studio | Layout: Editorial Split | Color: Committed -->
+  <article class="automation-page">
+    <section class="automation-hero" aria-labelledby="automation-title">
+      <div class="hero-image-wrap" aria-hidden="true">
+        <Image src={heroImg} alt="" widths={[640, 960, 1280]} sizes="55vw" class="hero-image" />
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="container-libera hero-inner">
+        <a href="/trabajo" class="back-link">&larr; Trabajo</a>
+        <p class="eyebrow">Sistema interno · En producción</p>
+        <h1 id="automation-title">AI<br />Automation</h1>
+        <p class="lead">
+          Agentes y flujos que hacen trabajo real dentro del estudio. Investigan, clasifican, conectan datos y
+          preparan decisiones. Las personas conservan el criterio.
+        </p>
+        <div class="stack-list" aria-label="Tecnologías y controles">
+          {stack.map((item) => <span>{item}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="purpose-section" aria-labelledby="proposito-title">
+      <div class="container-libera purpose-grid">
+        <div>
+          <p class="section-index">01 · El propósito</p>
+          <h2 id="proposito-title">Automatizar donde hay fricción, no donde hay moda.</h2>
+        </div>
+        <div class="purpose-copy">
+          <p>
+            La infraestructura nació para resolver tareas concretas del estudio: revisar fuentes, organizar
+            información, preparar publicaciones y mover datos entre herramientas.
+          </p>
+          <p>
+            Cada flujo tiene una entrada clara, una salida verificable y un punto donde una persona puede revisar,
+            corregir o detener el proceso.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="flows-section" aria-labelledby="flujos-title">
+      <div class="container-libera">
+        <p class="section-index pale">02 · Flujos en producción</p>
+        <h2 id="flujos-title">Trabajo repetible, con contexto y control.</h2>
+        <div class="flows-grid">
+          {[
+            {
+              title: 'Investigación',
+              text: 'Reúne fuentes, separa hechos de inferencias y deja material listo para una revisión humana.',
+            },
+            {
+              title: 'Contenido',
+              text: 'Transforma investigación aprobada en borradores y variantes sin publicar de forma autónoma.',
+            },
+            {
+              title: 'Clasificación',
+              text: 'Ordena mensajes, solicitudes y documentos para que cada elemento llegue al proceso correcto.',
+            },
+            {
+              title: 'Operación',
+              text: 'Conecta formularios, bases de datos y notificaciones para reducir copiado manual y pérdidas.',
+            },
+          ].map((flow, index) => (
+            <div class="flow-item">
+              <span>0{index + 1}</span>
+              <h3>{flow.title}</h3>
+              <p>{flow.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="controls-section" aria-labelledby="controles-title">
+      <div class="container-libera controls-grid">
+        <div>
+          <p class="section-index">03 · Controles</p>
+          <h2 id="controles-title">La automatización no elimina responsabilidad.</h2>
+        </div>
+        <div class="control-list">
+          {[
+            ['Revisión humana', 'Las salidas sensibles no se publican ni se envían sin aprobación.'],
+            ['Fuentes visibles', 'La investigación conserva enlaces y contexto para poder verificarla.'],
+            ['Errores recuperables', 'Los flujos registran fallos y permiten reintentar sin duplicar acciones.'],
+            ['Acceso limitado', 'Cada agente recibe sólo las herramientas y datos necesarios para su tarea.'],
+          ].map(([title, text]) => (
+            <div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="learning-section" aria-labelledby="aprendizaje-title">
+      <div class="container-libera learning-grid">
+        <p class="section-index pale">04 · Prueba interna</p>
+        <div>
+          <h2 id="aprendizaje-title">Lo que funciona entra en producción. Lo demás se descarta.</h2>
+          <p>
+            Esta infraestructura es nuestro campo de prueba. Antes de proponer un agente o una automatización,
+            comprobamos si ahorra trabajo, si puede mantenerse y qué ocurre cuando falla.
+          </p>
+          <a href="/trabajo">Ver otros sistemas construidos &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-cta" aria-label="Siguiente paso">
+      <div class="container-libera cta-layout">
+        <div>
+          <p class="cta-meta">LIBERA AI Automation · Sistema interno · En producción</p>
+          <p>Si un proceso se repite, consume tiempo y tiene reglas claras, vale la pena diagnosticarlo.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="/trabajo" class="btn btn-ghost-light">&larr; Ver todo el trabajo</a>
+          <a href="/diagnostico" class="btn btn-primary">
+            Solicitar diagnóstico <span class="btn-icon" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
 </Layout>
+
+<style>
+  .automation-page { background: var(--surface); }
+  .automation-hero { position: relative; min-height: 100dvh; overflow: hidden; background: #071b28; color: #fff; }
+  .hero-image-wrap { position: absolute; inset: 0 0 0 42%; }
+  .hero-image { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .52; }
+  .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, #071b28 0%, #071b28 38%, rgb(7 27 40 / .76) 58%, rgb(7 27 40 / .18) 100%); }
+  .hero-inner { position: relative; z-index: 1; padding-top: 11rem; padding-bottom: 5rem; }
+  .back-link { display: inline-flex; margin-bottom: 3.5rem; color: rgb(255 255 255 / .45); font: .8rem var(--font-mono); }
+  .eyebrow { color: #f77f00; }
+  h1 { margin-top: 1.25rem; color: #fff; font: 700 clamp(4rem, 10vw, 8.5rem)/.88 var(--font-display); letter-spacing: -.05em; }
+  .lead { max-width: 42rem; margin-top: 2.25rem; color: rgb(255 255 255 / .68); font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.7; }
+  .stack-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 3rem; }
+  .stack-list span { padding: .45rem .8rem; border: 1px solid rgb(255 255 255 / .14); border-radius: 999px; color: rgb(255 255 255 / .58); font: .72rem var(--font-mono); background: rgb(7 27 40 / .35); }
+  .purpose-section, .controls-section { padding: 7rem 0; }
+  .purpose-grid, .controls-grid { display: grid; grid-template-columns: 1fr .72fr; gap: clamp(3rem, 9vw, 9rem); }
+  .section-index { margin-bottom: 1.5rem; color: #b75b00; font: .72rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+  h2 { max-width: 18ch; color: #003049; font: 700 clamp(2.3rem, 5vw, 4.6rem)/1 var(--font-display); letter-spacing: -.045em; text-wrap: balance; }
+  .purpose-copy { padding-top: 2.5rem; }
+  .purpose-copy p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.75; }
+  .purpose-copy p + p { margin-top: 1.5rem; }
+  .flows-section { padding: 7rem 0; background: #f77f00; }
+  .pale { color: rgb(0 48 73 / .62); }
+  .flows-section h2 { color: #003049; }
+  .flows-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 4rem; border-top: 1px solid rgb(0 48 73 / .28); }
+  .flow-item { min-height: 18rem; padding: 2rem; border-right: 1px solid rgb(0 48 73 / .28); }
+  .flow-item:first-child { padding-left: 0; }
+  .flow-item:last-child { border-right: 0; }
+  .flow-item > span { color: rgb(0 48 73 / .58); font: .72rem var(--font-mono); }
+  .flow-item h3 { margin-top: 4rem; color: #003049; font: 600 1.35rem var(--font-display); }
+  .flow-item p { margin-top: 1rem; color: rgb(0 48 73 / .72); line-height: 1.65; }
+  .control-list { display: grid; gap: 0; border-top: 1px solid var(--border); }
+  .control-list > div { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .control-list h3 { color: #003049; font: 600 1.2rem var(--font-display); }
+  .control-list p { margin-top: .5rem; color: var(--text-secondary); line-height: 1.65; }
+  .learning-section { padding: 7rem 0; background: #071b28; }
+  .learning-grid { display: grid; grid-template-columns: .4fr 1.2fr; gap: 3rem; }
+  .learning-section h2 { color: #fff; }
+  .learning-section p { max-width: 43rem; margin-top: 2rem; color: rgb(255 255 255 / .6); font-size: 1.05rem; line-height: 1.75; }
+  .learning-section a { display: inline-block; margin-top: 2rem; color: #f77f00; font-weight: 600; }
+  .project-cta { padding: 4rem 0; border-top: 1px solid var(--border); }
+  .cta-layout { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+  .cta-meta { margin-bottom: .5rem; color: var(--text-secondary); font: .72rem var(--font-mono); }
+  .cta-layout > div > p:last-child { max-width: 42rem; color: var(--text-secondary); }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  @media (max-width: 900px) {
+    .hero-image-wrap { left: 25%; }
+    .hero-shade { background: linear-gradient(90deg, #071b28 0%, rgb(7 27 40 / .94) 52%, rgb(7 27 40 / .46) 100%); }
+    .purpose-grid, .controls-grid, .learning-grid { grid-template-columns: 1fr; }
+    .purpose-copy { padding-top: 0; }
+    .flows-grid { grid-template-columns: 1fr 1fr; }
+    .flow-item:nth-child(2) { border-right: 0; }
+    .flow-item { border-bottom: 1px solid rgb(0 48 73 / .28); }
+    .flow-item:first-child { padding-left: 2rem; }
+    .cta-layout { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 560px) {
+    .hero-image-wrap { inset: 0; opacity: .55; }
+    .hero-shade { background: rgb(7 27 40 / .84); }
+    .hero-inner { padding-top: 9rem; }
+    .purpose-section, .flows-section, .controls-section, .learning-section { padding: 5rem 0; }
+    .flows-grid { grid-template-columns: 1fr; }
+    .flow-item { min-height: auto; border-right: 0; }
+    .flow-item h3 { margin-top: 2.5rem; }
+  }
+</style>
