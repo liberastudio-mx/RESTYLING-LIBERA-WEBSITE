@@ -1933,9 +1933,6 @@ const solucionesHome = [
     padding-inline: 0;
     opacity: var(--method-clone-step-opacity);
     transform: translate3d(var(--method-clone-step-x), var(--method-clone-step-y), 0);
-    transition:
-      opacity 0.34s var(--ease-out-expo),
-      transform 0.34s var(--ease-out-expo);
     will-change: transform, opacity;
     pointer-events: none;
   }
@@ -2537,6 +2534,66 @@ const solucionesHome = [
 
     if ('ResizeObserver' in window && methodTitle) {
       new ResizeObserver(onResize).observe(methodTitle);
+    }
+
+    // Scroll magnetism: snap to nearest title line or step when user pauses
+    if (!reduceMethodMotion && methodSteps.length > 0) {
+      const TITLE_END  = 0.22;
+      const LINE_WIN   = TITLE_END / Math.max(1, methodTitleLines.length);
+      const STEP_START = 0.3;
+      const STEP_END   = 0.88;
+
+      const scrollable = () => Math.max(1, sectionHeight - window.innerHeight);
+
+      // Each title line peaks visually at local ≈ 0.36 (midpoint of 0–0.72 visible window)
+      const getTitleSnapY = (i) =>
+        sectionTop + (i + 0.36) * LINE_WIN * scrollable();
+
+      // Each step peaks at local ≈ 0.47 (midpoint of 0.16–0.78 fully-visible window)
+      const getStepSnapY = (i) => {
+        const p = STEP_START + ((i + 0.47) / methodSteps.length) * (STEP_END - STEP_START);
+        return sectionTop + p * scrollable();
+      };
+
+      // Find nearest Y from a list of candidates
+      const nearestY = (candidates) =>
+        candidates.reduce((best, y) =>
+          Math.abs(window.scrollY - y) < Math.abs(window.scrollY - best) ? y : best,
+          candidates[0]
+        );
+
+      let isSnapping = false;
+      let snapTimer;
+
+      const doSnap = () => {
+        if (isSnapping) return;
+        const sp = (window.scrollY - sectionTop) / scrollable();
+        let targetY = null;
+
+        if (sp >= LINE_WIN * 0.5 && sp < TITLE_END) {
+          // Title zone: snap to nearest of the 3 lines
+          // Lower bound (LINE_WIN*0.5) lets user exit the section freely at the top
+          // Upper bound (TITLE_END=0.22) leaves the gap 0.22→0.30 as a free zone
+          targetY = nearestY(methodTitleLines.map((_, i) => getTitleSnapY(i)));
+        } else if (sp >= STEP_START && sp <= STEP_END) {
+          // Step zone: snap to nearest of the 6 steps
+          const t = ((sp - STEP_START) / (STEP_END - STEP_START)) * methodSteps.length;
+          const idx = Math.min(methodSteps.length - 1, Math.max(0, Math.round(t - 0.47)));
+          targetY = getStepSnapY(idx);
+        }
+
+        if (targetY === null || Math.abs(window.scrollY - targetY) < 30) return;
+
+        isSnapping = true;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+        setTimeout(() => { isSnapping = false; }, 700);
+      };
+
+      window.addEventListener('wheel', () => {
+        if (isSnapping) return;
+        clearTimeout(snapTimer);
+        snapTimer = setTimeout(doSnap, 300);
+      }, { passive: true });
     }
   }
 
