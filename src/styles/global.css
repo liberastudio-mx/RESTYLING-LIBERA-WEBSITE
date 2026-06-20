@@ -7,6 +7,7 @@
   font-family: "Pliant";
   src: url("/fonts/Pliant-Variable.woff2") format("woff2");
   font-weight: 100 900;
+  font-stretch: 100% 125%;
   font-style: normal;
   font-display: swap;
 }
@@ -70,6 +71,22 @@
     --font-body:    "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-mono:    "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
 
+    /* Type scale: one source of truth for readable text and display roles */
+    --text-caption: 0.75rem;
+    --text-small:   0.875rem;
+    --text-body:    1rem;
+    --text-lead:    clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem);
+
+    --leading-caption: 1.4;
+    --leading-small:   1.5;
+    --leading-body:    1.65;
+    --leading-lead:    1.6;
+
+    --display-md:   clamp(1.5rem, 2.5vw, 2.25rem);
+    --display-lg:   clamp(1.75rem, 3.5vw, 2.75rem);
+    --display-xl:   clamp(2rem, 4.5vw, 3.75rem);
+    --display-hero: clamp(2.5rem, 5.2vw, 5rem);
+
     /* ── Easing tokens ────────────────────────────────────── */
     --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
     --ease-premium:    cubic-bezier(0.32, 0.72, 0, 1);
@@ -90,6 +107,7 @@
   html {
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
+    font-synthesis: none;
   }
 
   body,
@@ -109,13 +127,14 @@
   body {
     background-color: var(--surface);
     color: var(--text-primary);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
   }
 
   /* ── Typography ─────────────────────────────────────────────────────  */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    font-stretch: 100%;
     line-height: 1.05;
     text-wrap: balance;
   }
@@ -191,11 +210,32 @@
   .font-body    { font-family: var(--font-body); }
   .font-mono    { font-family: var(--font-mono); }
 
+  /* Semantic text roles. Use these instead of introducing page-local sizes. */
+  .text-lead {
+    font-size: var(--text-lead);
+    line-height: var(--leading-lead);
+    max-width: 65ch;
+  }
+  .text-body {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    max-width: 72ch;
+  }
+  .text-small {
+    font-size: var(--text-small);
+    line-height: var(--leading-small);
+  }
+  .text-caption {
+    font-size: var(--text-caption);
+    line-height: var(--leading-caption);
+  }
+
   /* Eyebrow label */
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.2em;
+    font-size: var(--text-caption);
+    line-height: var(--leading-caption);
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     font-weight: 500;
     opacity: 0.6;
@@ -207,8 +247,9 @@
     align-items: center;
     gap: 0.875rem;
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.18em;
+    font-size: var(--text-caption);
+    line-height: var(--leading-caption);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     font-weight: 500;
   }
@@ -224,87 +265,247 @@
   .display-hero {
     font-family: var(--font-display);
     font-weight: 700;
+    font-stretch: 104%;
     letter-spacing: -0.02em;
     line-height: 1.02;
-    font-size: clamp(2.5rem, 5.2vw, 5rem);
+    font-size: var(--display-hero);
   }
   .display-xl {
     font-family: var(--font-display);
     font-weight: 700;
+    font-stretch: 103%;
     letter-spacing: -0.02em;
     line-height: 1.05;
-    font-size: clamp(2rem, 4.5vw, 3.75rem);
+    font-size: var(--display-xl);
   }
   .display-lg {
     font-family: var(--font-display);
     font-weight: 700;
+    font-stretch: 102%;
     letter-spacing: -0.015em;
     line-height: 1.08;
-    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-size: var(--display-lg);
   }
   .display-md {
     font-family: var(--font-display);
     font-weight: 700;
+    font-stretch: 101%;
     letter-spacing: -0.01em;
     line-height: 1.12;
-    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    font-size: var(--display-md);
   }
 
-  /* Buttons, shared vocabulary (Button-in-Button on primary) */
-  .btn {
+  /* Buttons: compact split-button inspired by the LIBERA reference */
+  .btn,
+  .btn-primary {
+    --button-bg: oklch(98% 0.004 70);
+    --button-fg: var(--ink);
+    --button-border: var(--orange);
+    --button-icon-bg: var(--orange);
+    --button-icon-fg: oklch(99% 0.002 70);
     display: inline-flex;
+    position: relative;
     align-items: center;
-    gap: 0.75rem;
-    border-radius: 0.625rem;
-    font-weight: 600;
+    justify-content: center;
+    gap: 0;
+    width: max-content;
+    max-width: 100%;
+    min-height: 3.375rem;
+    padding: 0.3rem 4.5rem 0.3rem 1.45rem;
+    border: 1px solid var(--button-border);
+    border-radius: 0.5rem;
+    background: var(--button-bg);
+    color: var(--button-fg);
+    font-weight: 650;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+    text-decoration: none;
+    box-shadow: 0 0.5rem 1.4rem oklch(15% 0.025 235 / 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    isolation: isolate;
     transition:
-      transform 0.25s var(--ease-premium),
-      background-color 0.25s var(--ease-premium),
-      border-color 0.25s var(--ease-premium),
-      color 0.25s var(--ease-premium);
+      background-color 0.5s var(--ease-premium),
+      border-color 0.5s var(--ease-premium),
+      color 0.5s var(--ease-premium);
   }
-  .btn:active { transform: scale(0.98); }
+  .btn:hover,
+  .btn-primary:hover {
+    box-shadow: 0 0.5rem 1.4rem oklch(15% 0.025 235 / 0.1);
+  }
+  .btn:active,
+  .btn-primary:active {
+    transform: none;
+  }
 
   .btn-primary {
-    background: var(--orange);
-    color: #ffffff;
-    padding: 1rem 1.75rem;
+    background: var(--button-bg);
+    color: var(--button-fg);
   }
-  .btn-primary:hover { background: oklch(62% 0.19 55); }
 
   .btn-ghost-dark {
-    background: transparent;
-    color: var(--text-light);
-    border: 1px solid oklch(28% 0.01 25);
-    padding: 1rem 1.75rem;
+    --button-bg: oklch(18% 0.045 235);
+    --button-fg: var(--text-light);
+    --button-border: oklch(40% 0.04 235);
+    --button-icon-bg: oklch(27% 0.04 235);
+    --button-icon-fg: var(--text-light);
   }
   .btn-ghost-dark:hover {
-    border-color: oklch(44% 0.01 25);
-    background: oklch(96% 0.005 60 / 0.04);
+    background: oklch(22% 0.05 235);
   }
 
   .btn-ghost-light {
-    background: transparent;
-    color: #003049;
-    border: 1px solid #003049;
-    padding: 1rem 1.75rem;
+    --button-bg: oklch(98% 0.004 70);
+    --button-fg: var(--ink);
+    --button-border: oklch(85% 0.18 85);
+    --button-icon-bg: oklch(85% 0.18 85);
+    --button-icon-fg: oklch(99% 0.002 70);
   }
   .btn-ghost-light:hover {
-    background: oklch(22% 0.07 235 / 0.06);
+    background: oklch(96% 0.008 70);
   }
 
-  .btn-icon {
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 0.625rem;
+  .btn-icon,
+  .btn-primary > span[aria-hidden="true"],
+  .about-btn > span[aria-hidden="true"] {
+    position: absolute;
+    z-index: 2;
+    top: 0.25rem;
+    right: 0.25rem;
+    bottom: 0.25rem;
+    width: 3.75rem;
+    min-width: 3.75rem;
+    height: auto;
+    border-radius: 0.35rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--orange-dark);
-    color: var(--ink);
-    transition: transform 0.25s var(--ease-premium);
+    margin: 0;
+    background: var(--button-icon-bg);
+    color: var(--button-icon-fg);
+    font-size: 0;
+    line-height: 1;
+    transition:
+      width 0.5s var(--ease-premium),
+      transform 0.15s var(--ease-premium);
   }
-  .btn:hover .btn-icon { transform: translateX(2px) translateY(-1px) scale(1.05); }
+  .btn-icon::before,
+  .btn-primary > span[aria-hidden="true"]::before,
+  .about-btn > span[aria-hidden="true"]::before {
+    content: "›";
+    font-size: 1.35rem;
+    font-weight: 500;
+  }
+  .btn-icon > svg,
+  .btn-primary > span[aria-hidden="true"] > svg {
+    display: none;
+  }
+  .btn:hover .btn-icon,
+  .btn-primary:hover > span[aria-hidden="true"],
+  .about-btn:hover > span[aria-hidden="true"] {
+    width: calc(100% - 0.5rem);
+    transform: none;
+  }
+  .btn:active .btn-icon,
+  .btn-primary:active > span[aria-hidden="true"],
+  .about-btn:active > span[aria-hidden="true"] {
+    transform: scale(0.95);
+  }
+
+  /* Page-local CTA classes may define their own padding later: this keeps
+     every primary action on the same split-button geometry. */
+  .btn-primary[class] {
+    gap: 0 !important;
+    width: max-content;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 3.375rem !important;
+    padding: 0.3rem 4.5rem 0.3rem 1.45rem !important;
+    border: 1px solid var(--button-border) !important;
+    border-radius: 0.5rem !important;
+    background: var(--button-bg) !important;
+    color: var(--button-fg) !important;
+    text-align: center;
+    white-space: normal !important;
+  }
+
+  .btn:not(.btn-primary):not(:has(> .btn-icon))::after {
+    content: "›";
+    position: absolute;
+    z-index: 2;
+    top: 0.25rem;
+    right: 0.25rem;
+    bottom: 0.25rem;
+    display: inline-flex;
+    width: 3.75rem;
+    min-width: 3.75rem;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.35rem;
+    background: var(--button-icon-bg);
+    color: var(--button-icon-fg);
+    font-size: 1.25rem;
+    line-height: 1;
+    transition:
+      width 0.5s var(--ease-premium),
+      transform 0.15s var(--ease-premium);
+  }
+  .btn:not(.btn-primary):hover::after {
+    width: calc(100% - 0.5rem);
+  }
+  .btn:not(.btn-primary):active::after {
+    transform: scale(0.95);
+  }
+
+  .btn > :not(.btn-icon):not([aria-hidden="true"]),
+  .btn-primary > :not(.btn-icon):not([aria-hidden="true"]) {
+    transition: opacity 0.5s var(--ease-premium);
+  }
+  .btn:hover > :not(.btn-icon):not([aria-hidden="true"]),
+  .btn-primary:hover > :not(.btn-icon):not([aria-hidden="true"]) {
+    opacity: 0;
+  }
+
+  @media (hover: none) {
+    .btn:hover .btn-icon,
+    .btn-primary:hover > span[aria-hidden="true"],
+    .about-btn:hover > span[aria-hidden="true"],
+    .btn:not(.btn-primary):hover::after {
+      width: 3.75rem;
+    }
+    .btn:hover > :not(.btn-icon):not([aria-hidden="true"]),
+    .btn-primary:hover > :not(.btn-icon):not([aria-hidden="true"]) {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .btn,
+    .btn-primary {
+      width: 100%;
+      min-width: 0;
+      padding-left: 1rem;
+      padding-right: 4.25rem;
+    }
+    .btn-primary[class] {
+      width: 100%;
+      padding-left: 1rem !important;
+      padding-right: 4.25rem !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn,
+    .btn-primary,
+    .btn-icon,
+    .btn-primary > span[aria-hidden="true"],
+    .about-btn > span[aria-hidden="true"],
+    .btn:not(.btn-primary)::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
 
   /* Section color accents */
   .accent-presencia  { color: var(--presencia); }
@@ -379,5 +580,270 @@
       animation-duration: 0.01ms !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+/* ─── Soluciones: shared page rhythm ─────────────────────────────── */
+:root {
+  --solutions-breadcrumb-top: calc(var(--nav-height) + 1.25rem);
+  --solutions-hero-top: clamp(4rem, calc(3vw + 2.5rem), 5rem);
+  --solutions-hero-bottom: clamp(2.5rem, 5vw, 4rem);
+  --solutions-section-space: clamp(2.5rem, 5vw, 4rem);
+  --solutions-cta-space: clamp(2rem, 4vw, 3.5rem);
+  --solutions-grid-gap: clamp(2rem, 4vw, 4rem);
+}
+
+:is(
+  .aia-page,
+  .asi-page,
+  .ad-page,
+  .cm-page,
+  .n8n-page,
+  .auto-page,
+  .crm-page,
+  .dash-page,
+  .int-page,
+  .paos-page,
+  .gbp-page,
+  .lp-page,
+  .rs-page,
+  .swp-page,
+  .wa-page,
+  .apps-page,
+  .mvp-page,
+  .admin-page,
+  .proto-page,
+  .webapp-page
+) > nav:first-child {
+  padding-top: var(--solutions-breadcrumb-top) !important;
+}
+
+:is(
+  .aia-page,
+  .asi-page,
+  .ad-page,
+  .cm-page,
+  .n8n-page,
+  .auto-page,
+  .crm-page,
+  .dash-page,
+  .int-page,
+  .paos-page,
+  .gbp-page,
+  .lp-page,
+  .rs-page,
+  .swp-page,
+  .wa-page,
+  .apps-page,
+  .mvp-page,
+  .admin-page,
+  .proto-page,
+  .webapp-page
+) > section:first-of-type {
+  padding-top: var(--solutions-hero-top) !important;
+  padding-bottom: var(--solutions-hero-bottom) !important;
+}
+
+:is(
+  .aia-page,
+  .asi-page,
+  .ad-page,
+  .cm-page,
+  .n8n-page,
+  .auto-page,
+  .crm-page,
+  .dash-page,
+  .int-page,
+  .paos-page,
+  .gbp-page,
+  .lp-page,
+  .rs-page,
+  .swp-page,
+  .wa-page,
+  .apps-page,
+  .mvp-page,
+  .admin-page,
+  .proto-page,
+  .webapp-page
+) > section:first-of-type > .container-libera {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) !important;
+  gap: var(--solutions-grid-gap) !important;
+  align-items: start !important;
+}
+
+/* Soluciones detail pages share one readable hero hierarchy.
+   Mockup typography remains page-local because it represents scaled interfaces. */
+:is(
+  .aia-page,
+  .asi-page,
+  .ad-page,
+  .cm-page,
+  .n8n-page,
+  .auto-page,
+  .crm-page,
+  .dash-page,
+  .int-page,
+  .paos-page,
+  .gbp-page,
+  .lp-page,
+  .rs-page,
+  .swp-page,
+  .wa-page,
+  .apps-page,
+  .mvp-page,
+  .admin-page,
+  .proto-page,
+  .webapp-page
+) > nav:first-child {
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+}
+
+:is(
+  .aia-page,
+  .asi-page,
+  .ad-page,
+  .cm-page,
+  .n8n-page,
+  .auto-page,
+  .crm-page,
+  .dash-page,
+  .int-page,
+  .paos-page,
+  .gbp-page,
+  .lp-page,
+  .rs-page,
+  .swp-page,
+  .wa-page,
+  .apps-page,
+  .mvp-page,
+  .admin-page,
+  .proto-page,
+  .webapp-page
+) > section:first-of-type > .container-libera > :first-child > h1 {
+  font-family: var(--font-display);
+  font-size: var(--display-lg);
+  font-weight: 700;
+  font-stretch: 102%;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+
+:is(
+  .aia-page,
+  .asi-page,
+  .ad-page,
+  .cm-page,
+  .n8n-page,
+  .auto-page,
+  .crm-page,
+  .dash-page,
+  .int-page,
+  .paos-page,
+  .gbp-page,
+  .lp-page,
+  .rs-page,
+  .swp-page,
+  .wa-page,
+  .apps-page,
+  .mvp-page,
+  .admin-page,
+  .proto-page,
+  .webapp-page
+) > section:first-of-type > .container-libera > :first-child > [class$="-lead"] {
+  max-width: 60ch;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+:is(
+  .aia-page,
+  .asi-page,
+  .ad-page,
+  .cm-page,
+  .n8n-page,
+  .auto-page,
+  .crm-page,
+  .dash-page,
+  .int-page,
+  .paos-page,
+  .gbp-page,
+  .lp-page,
+  .rs-page,
+  .swp-page,
+  .wa-page,
+  .apps-page,
+  .mvp-page,
+  .admin-page,
+  .proto-page,
+  .webapp-page
+) > section:not(:first-of-type) {
+  padding-block: var(--solutions-section-space) !important;
+}
+
+:is(
+  .aia-page,
+  .asi-page,
+  .ad-page,
+  .cm-page,
+  .n8n-page,
+  .auto-page,
+  .crm-page,
+  .dash-page,
+  .int-page,
+  .paos-page,
+  .gbp-page,
+  .lp-page,
+  .rs-page,
+  .swp-page,
+  .wa-page,
+  .apps-page,
+  .mvp-page,
+  .admin-page,
+  .proto-page,
+  .webapp-page
+) > section:last-of-type {
+  padding-block: var(--solutions-cta-space) !important;
+}
+
+main > .solution-page > .solution-hero,
+main > .operation-page > .operation-hero {
+  min-height: auto !important;
+  padding:
+    calc(var(--nav-height) + var(--solutions-hero-top))
+    0
+    var(--solutions-hero-bottom) !important;
+}
+
+.solutions-index {
+  padding-top: calc(var(--nav-height) + var(--solutions-hero-top)) !important;
+  padding-bottom: var(--solutions-hero-bottom) !important;
+}
+
+@media (max-width: 1024px) {
+  :is(
+    .aia-page,
+    .asi-page,
+    .ad-page,
+    .cm-page,
+    .n8n-page,
+    .auto-page,
+    .crm-page,
+    .dash-page,
+    .int-page,
+    .paos-page,
+    .gbp-page,
+    .lp-page,
+    .rs-page,
+    .swp-page,
+    .wa-page,
+    .apps-page,
+    .mvp-page,
+    .admin-page,
+    .proto-page,
+    .webapp-page
+  ) > section:first-of-type > .container-libera {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }

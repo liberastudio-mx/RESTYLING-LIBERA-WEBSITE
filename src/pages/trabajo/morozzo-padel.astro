@@ -133,8 +133,8 @@ const projectLd = JSON.stringify({
 
 <style>
   .morozzo-page { --project: #d62828; background: var(--surface); }
-  .project-hero { position: relative; min-height: 100dvh; overflow: hidden; background: #003049; color: #fff; }
-  .hero-content { position: relative; z-index: 2; padding-top: 11rem; padding-bottom: 5rem; }
+  .project-hero { position: relative; overflow: hidden; background: #003049; color: #fff; }
+  .hero-content { position: relative; z-index: 2; padding-top: 8rem; padding-bottom: 3rem; }
   .hero-mark { position: absolute; inset: 0 0 0 auto; width: min(50vw, 44rem); display: grid; place-items: center; opacity: 0.14; }
   .padel-court { position: relative; width: min(80%, 30rem); aspect-ratio: 1.4; border: 2px solid var(--project); transform: rotate(-4deg); }
   .padel-court::before, .padel-court::after { content: ""; position: absolute; background: var(--project); }
@@ -151,7 +151,7 @@ const projectLd = JSON.stringify({
   .hero-copy { max-width: 42rem; margin-top: 2rem; color: rgb(255 255 255 / 0.68); font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.65; }
   .stack-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 3rem; }
   .stack-list span { padding: 0.45rem 0.8rem; border: 1px solid rgb(255 255 255 / 0.14); border-radius: 999px; color: rgb(255 255 255 / 0.58); font: 0.72rem var(--font-mono); }
-  .light-section { padding: 7rem 0; }
+  .light-section { padding: 6rem 0; }
   .split-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr); gap: clamp(3rem, 9vw, 9rem); }
   .section-index { margin-bottom: 1.5rem; color: #b75b00; font: 0.72rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
   h2 { max-width: 18ch; color: var(--text-primary); font: 700 clamp(2.2rem, 5vw, 4.5rem)/1 var(--font-display); letter-spacing: -0.04em; text-wrap: balance; }
@@ -159,7 +159,7 @@ const projectLd = JSON.stringify({
   .prose p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.75; }
   .prose p + p { margin-top: 1.5rem; }
   .prose blockquote { margin-top: 2rem; padding-left: 1.25rem; border-left: 2px solid var(--project); color: var(--text-primary); font-style: italic; line-height: 1.65; }
-  .dark-section { padding: 7rem 0; background: #081f2c; color: #fff; }
+  .dark-section { padding: 6rem 0; background: #081f2c; color: #fff; }
   .muted { color: rgb(255 255 255 / 0.42); }
   .section-heading { color: #fff; max-width: 22ch; margin-bottom: 4rem; }
   .system-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgb(255 255 255 / 0.13); }
@@ -169,11 +169,11 @@ const projectLd = JSON.stringify({
   .system-item > span { color: var(--project); font: 0.72rem var(--font-mono); }
   .system-item h3 { margin-top: 4rem; color: #fff; font: 600 1.25rem var(--font-display); }
   .system-item p { margin-top: 1rem; color: rgb(255 255 255 / 0.55); line-height: 1.65; }
-  .sand-section { padding: 7rem 0; background: #eae2b7; }
+  .sand-section { padding: 6rem 0; background: #eae2b7; }
   .statement-layout { display: grid; grid-template-columns: 0.45fr 1.2fr 0.65fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
   .statement-layout h2 { color: #003049; }
   .statement-layout > p:last-child { padding-top: 0.35rem; color: rgb(0 48 73 / 0.72); font-size: 1.05rem; line-height: 1.75; }
-  .project-cta { padding: 4rem 0; border-top: 1px solid var(--border); }
+  .project-cta { padding: 3.5rem 0; border-top: 1px solid var(--border); }
   .cta-layout { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
   .cta-meta { margin-bottom: 0.5rem; color: var(--text-secondary); font: 0.72rem var(--font-mono); }
   .cta-layout > div > p:last-child { color: var(--text-secondary); }
@@ -190,8 +190,8 @@ const projectLd = JSON.stringify({
     .cta-layout { flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 560px) {
-    .hero-content { padding-top: 9rem; }
-    .light-section, .sand-section, .dark-section { padding: 5rem 0; }
+    .hero-content { padding-top: 5.5rem; }
+    .light-section, .sand-section, .dark-section { padding: 4rem 0; }
     .system-grid { grid-template-columns: 1fr; }
     .system-item { min-height: auto; border-right: 0; }
     .system-item h3 { margin-top: 2.5rem; }

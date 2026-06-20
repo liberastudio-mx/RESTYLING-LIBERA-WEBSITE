@@ -1,5 +1,7 @@
-﻿---
+---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import paosImg from '@/assets/images/LS - Second brain PAOS.png';
 ---
 
 <Layout
@@ -14,14 +16,14 @@ import Layout from '@/layouts/Layout.astro';
       <span aria-hidden="true">›</span>
       <a href="/soluciones/operacion-interna">Operación Interna</a>
       <span aria-hidden="true">›</span>
-      <span aria-current="page">PAOS</span>
+      <span aria-current="page">Second Brain/PAOS</span>
     </nav>
 
     <!-- HERO -->
     <section class="paos-hero">
       <div class="container-libera paos-hero-grid">
 
-        <div class="paos-hero-copy" data-reveal>
+        <div class="paos-hero-copy">
           <h1 class="paos-title display-hero">
             Tu operación funciona mientras alguien lo recuerda todo.
             <em>El problema empieza cuando ya no alcanza.</em>
@@ -31,8 +33,65 @@ import Layout from '@/layouts/Layout.astro';
           </p>
         </div>
 
+        <aside class="paos-hero-img-wrap">
+          <Image
+            src={paosImg}
+            alt="Second Brain / PAOS — LIBERA Studio"
+            widths={[600, 1000]}
+            sizes="(max-width: 960px) 100vw, 50vw"
+            format="webp"
+            quality={78}
+            loading="eager"
+            fetchpriority="high"
+            class="paos-hero-img"
+          />
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- SISTEMA OPERATIVO -->
+    <section class="paos-what">
+      <div class="container-libera paos-what-grid">
+
+        <div class="paos-what-copy">
+          <h2 class="paos-what-title">
+            <strong>PAOS</strong> es el sistema operativo interno de tu negocio.
+          </h2>
+          <p class="paos-what-lead">
+            No es una app más, ni una carpeta llena de documentos. Es una estructura diseñada para conectar tu información, tus procesos y tu equipo en un solo lugar, adaptada a la forma real en la que trabajas.
+          </p>
+
+          <p class="paos-what-subtitle">Lo que construimos</p>
+
+          <ul class="paos-list">
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+              Sistema de gestión de información adaptado a tu flujo operativo.
+            </li>
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Clasificación de mensajes entrantes desde WhatsApp, correo y formularios del sitio.
+            </li>
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Tableros de estado por área: ventas, operación, atención al cliente y seguimiento.
+            </li>
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              Base de conocimiento interna para que el equipo pueda decidir sin preguntar cada vez.
+            </li>
+            <li>
+              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Protocolos de actualización simples, para que el sistema se mantenga vivo sin depender de nosotros.
+            </li>
+          </ul>
+        </div>
+
+        <div class="paos-what-mocks" aria-hidden="true">
+
         <!-- Mock dashboard 1 -->
-        <aside class="paos-mock paos-mock--hero" aria-hidden="true" data-reveal>
+        <aside class="paos-mock paos-mock--hero">
           <div class="mock-sidebar">
             <div class="mock-logo-dot">A</div>
             <div class="mock-nav-icons">
@@ -112,49 +171,8 @@ import Layout from '@/layouts/Layout.astro';
           </div>
         </aside>
 
-      </div>
-    </section>
-
-    <!-- SISTEMA OPERATIVO -->
-    <section class="paos-what">
-      <div class="container-libera paos-what-grid">
-
-        <div class="paos-what-copy" data-reveal>
-          <h2 class="paos-what-title">
-            <strong>PAOS</strong> es el sistema operativo interno de tu negocio.
-          </h2>
-          <p class="paos-what-lead">
-            No es una app más, ni una carpeta llena de documentos. Es una estructura diseñada para conectar tu información, tus procesos y tu equipo en un solo lugar, adaptada a la forma real en la que trabajas.
-          </p>
-
-          <p class="paos-what-subtitle">Lo que construimos</p>
-
-          <ul class="paos-list">
-            <li>
-              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
-              Sistema de gestión de información adaptado a tu flujo operativo.
-            </li>
-            <li>
-              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Clasificación de mensajes entrantes desde WhatsApp, correo y formularios del sitio.
-            </li>
-            <li>
-              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              Tableros de estado por área: ventas, operación, atención al cliente y seguimiento.
-            </li>
-            <li>
-              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              Base de conocimiento interna para que el equipo pueda decidir sin preguntar cada vez.
-            </li>
-            <li>
-              <svg class="paos-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Protocolos de actualización simples, para que el sistema se mantenga vivo sin depender de nosotros.
-            </li>
-          </ul>
-        </div>
-
         <!-- Mock dashboard 2 -->
-        <aside class="paos-mock paos-mock--pipeline" aria-hidden="true" data-reveal>
+        <aside class="paos-mock paos-mock--pipeline" aria-hidden="true">
           <p class="mock-heading">Pipeline de ventas</p>
           <div class="mock-pipeline-cols">
             <div class="mock-pipeline-col">
@@ -230,12 +248,14 @@ import Layout from '@/layouts/Layout.astro';
           </div>
         </aside>
 
+        </div><!-- /paos-what-mocks -->
+
       </div>
     </section>
 
     <!-- QUOTE -->
     <section class="paos-quote">
-      <div class="container-libera paos-quote-inner" data-reveal>
+      <div class="container-libera paos-quote-inner">
         <p class="paos-quote-text">
           Cuando el sistema está en su lugar, incorporar a una persona nueva toma días, no meses. Un lead no se pierde entre herramientas. Una tarea no depende de la memoria de alguien. Y si una persona no está, la operación no se detiene.
         </p>
@@ -247,7 +267,7 @@ import Layout from '@/layouts/Layout.astro';
 
     <!-- CTA BANNER -->
     <section class="paos-cta">
-      <div class="container-libera paos-cta-inner" data-reveal>
+      <div class="container-libera paos-cta-inner">
         <div class="paos-cta-copy">
           <div class="paos-cta-rocket" aria-hidden="true">
             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -332,6 +352,19 @@ import Layout from '@/layouts/Layout.astro';
       font-size: clamp(0.95rem, 1.2vw, 1.05rem);
       line-height: 1.75;
       max-width: 56ch;
+    }
+
+    /* ── HERO IMAGE ── */
+    .paos-hero-img-wrap {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .paos-hero-img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      display: block;
     }
 
     /* ── MOCK HERO ── */
@@ -586,6 +619,13 @@ import Layout from '@/layouts/Layout.astro';
       margin-top: 0.2rem;
     }
 
+    /* ── WHAT MOCKS WRAPPER ── */
+    .paos-what-mocks {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
     /* ── MOCK PIPELINE ── */
     .paos-mock--pipeline {
       background: #fff;
@@ -785,11 +825,6 @@ import Layout from '@/layouts/Layout.astro';
       .paos-hero-grid,
       .paos-what-grid {
         grid-template-columns: 1fr;
-      }
-
-      .paos-mock--hero {
-        max-height: 320px;
-        overflow: hidden;
       }
 
       .mock-stats-row {

@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import logoImg from '@/assets/images/LIBERA - Logo Blu.png';
+import logoImg from '@/assets/images/LIBERA-Logo-dark.png';
 
 const currentPath = Astro.url.pathname;
 
@@ -22,9 +22,15 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
   <div class="container-libera relative h-full flex items-center justify-between gap-8">
 
     <!-- Logo -->
-    <a href="/" class="flex-shrink-0 flex items-center gap-2 z-10" aria-label="LIBERA Studio, Inicio">
-      <span class="nav-dot" aria-hidden="true"></span>
-      <Image src={logoImg} alt="LIBERA Studio" height={32} width={182} class="block" style="width: auto; height: 32px;" />
+    <a href="/" class="site-logo flex-shrink-0 flex items-center z-10" aria-label="LIBERA Studio, Inicio">
+      <Image
+        src={logoImg}
+        alt="LIBERA Studio"
+        width={214}
+        height={40}
+        class="block"
+        style="width: auto; height: 32px;"
+      />
     </a>
 
     <!-- Desktop nav -->
@@ -50,7 +56,7 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
           <div class="grid grid-cols-4 p-5 gap-1">
             {[
               { heading: 'Operación Interna', accent: BRAND_COLORS[0], href: '/soluciones/operacion-interna',
-                links: [['PAOS','/soluciones/operacion-interna/paos'],['Automatización','/soluciones/operacion-interna/automatizacion'],['CRM y seguimiento','/soluciones/operacion-interna/crm-seguimiento'],['Dashboards','/soluciones/operacion-interna/dashboards'],['Integraciones','/soluciones/operacion-interna/integraciones']] },
+                links: [['Second Brain/PAOS','/soluciones/operacion-interna/paos'],['Automatización','/soluciones/operacion-interna/automatizacion'],['CRM y seguimiento','/soluciones/operacion-interna/crm-seguimiento'],['Dashboards','/soluciones/operacion-interna/dashboards'],['Integraciones','/soluciones/operacion-interna/integraciones']] },
               { heading: 'Presencia Digital',     accent: BRAND_COLORS[1], href: '/soluciones/presencia-digital',
                 links: [['Sitios web premium','/soluciones/presencia-digital/sitios-web-premium'],['Landing pages','/soluciones/presencia-digital/landing-pages'],['Google Business Profile','/soluciones/presencia-digital/google-business-profile'],['WhatsApp Business','/soluciones/presencia-digital/whatsapp-business'],['Redes sociales','/soluciones/presencia-digital/redes-sociales']] },
               { heading: 'IA y automatización',   accent: BRAND_COLORS[2], href: '/soluciones/ai-automation',
@@ -141,12 +147,10 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
     <div class="flex items-center gap-3 flex-shrink-0">
       <a
         href="/diagnostico"
-        class="hidden md:flex items-center gap-2.5 px-5 py-2.5 text-sm font-semibold"
-        style="background: var(--orange); color: #ffffff; border-radius: 0.625rem;"
-        data-magnetic
+        class="btn btn-primary hidden md:flex text-sm"
       >
         Solicitar diagnóstico
-        <span class="w-5 h-5 flex items-center justify-center" style="background: var(--orange-dark); border-radius: 0.375rem;" aria-hidden="true">
+        <span class="btn-icon" aria-hidden="true">
           <svg width="7" height="7" viewBox="0 0 8 8" fill="currentColor"><path d="M1 7L7 1M7 1H2M7 1v5"/></svg>
         </span>
       </a>
@@ -190,9 +194,9 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
         </a>
       ))}
       <div class="mt-8">
-        <a href="/diagnostico" class="inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold" style="background: var(--orange); color: var(--ink);">
+        <a href="/diagnostico" class="btn btn-primary">
           Solicitar diagnóstico
-          <span class="w-6 h-6 rounded-full flex items-center justify-center text-sm" style="background: var(--orange-dark);" aria-hidden="true">→</span>
+          <span class="btn-icon" aria-hidden="true">›</span>
         </a>
       </div>
     </div>
@@ -213,18 +217,15 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
   nav .group:has(.dropdown.hover-open) .chevron {
     transform: rotate(180deg);
   }
-  .nav-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #f77f00;
-    box-shadow: 0 0 14px #f77f00;
-    flex-shrink: 0;
-    animation: nav-breathe 2.8s ease-in-out infinite;
+  .site-logo {
+    min-height: 44px;
+    transition: opacity 0.2s var(--ease-premium), transform 0.2s var(--ease-premium);
   }
-  @keyframes nav-breathe {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: .42; transform: scale(.76); }
+  .site-logo:hover {
+    opacity: 0.78;
+  }
+  .site-logo:active {
+    transform: scale(0.98);
   }
   .nav-btn {
     color: #003049 !important;

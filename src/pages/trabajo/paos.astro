@@ -136,25 +136,25 @@ const projectLd = JSON.stringify({
 
 <style>
   .paos-page { background: #f6f7f5; }
-  .paos-hero { position: relative; min-height: 100dvh; overflow: hidden; background: #f6f7f5; }
+  .paos-hero { position: relative; overflow: hidden; background: #f6f7f5; }
   .paos-grid { position: absolute; inset: 0; opacity: .55; background-image: linear-gradient(rgb(0 48 73 / .07) 1px, transparent 1px), linear-gradient(90deg, rgb(0 48 73 / .07) 1px, transparent 1px); background-size: 4rem 4rem; mask-image: linear-gradient(to bottom, #000, transparent 92%); }
   .paos-logo-wrap { position: absolute; right: 3vw; top: 50%; width: min(38vw, 34rem); transform: translateY(-50%); opacity: .12; }
   .paos-logo { width: 100%; height: auto; }
-  .hero-inner { position: relative; z-index: 1; padding-top: 11rem; padding-bottom: 6rem; }
+  .hero-inner { position: relative; z-index: 1; padding-top: 8rem; padding-bottom: 3rem; }
   .back-link { display: inline-flex; margin-bottom: 3.5rem; color: rgb(0 48 73 / .5); font: .8rem var(--font-mono); }
   .eyebrow, .orange { color: #c55f00; }
   h1 { margin-top: 1.25rem; color: #003049; font: 700 clamp(4rem, 10vw, 8.5rem)/.88 var(--font-display); letter-spacing: -.05em; }
   .lead { max-width: 43rem; margin-top: 2.25rem; color: rgb(0 48 73 / .68); font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.7; }
   .stack-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 3rem; }
   .stack-list span { padding: .45rem .8rem; border: 1px solid rgb(0 48 73 / .16); border-radius: 999px; color: rgb(0 48 73 / .65); font: .72rem var(--font-mono); background: rgb(255 255 255 / .45); }
-  .intro-section, .principles-section { padding: 7rem 0; }
+  .intro-section, .principles-section { padding: 6rem 0; }
   .intro-grid { display: grid; grid-template-columns: 1fr .72fr; gap: clamp(3rem, 9vw, 9rem); }
   .section-index { margin-bottom: 1.5rem; color: rgb(0 48 73 / .54); font: .72rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
   h2 { max-width: 18ch; color: #003049; font: 700 clamp(2.3rem, 5vw, 4.6rem)/1 var(--font-display); letter-spacing: -.045em; text-wrap: balance; }
   .body-copy { padding-top: 2.5rem; }
   .body-copy p, .proof-grid > div p { color: rgb(0 48 73 / .68); font-size: 1.05rem; line-height: 1.75; }
   .body-copy p + p { margin-top: 1.5rem; }
-  .architecture-section { padding: 7rem 0; background: #003049; }
+  .architecture-section { padding: 6rem 0; background: #003049; }
   .architecture-section h2, .proof-section h2 { color: #fff; }
   .architecture-list { margin-top: 4rem; border-top: 1px solid rgb(255 255 255 / .16); }
   .architecture-row { display: grid; grid-template-columns: 5rem .55fr 1fr; gap: 2rem; align-items: start; padding: 2.2rem 0; border-bottom: 1px solid rgb(255 255 255 / .16); }
@@ -166,11 +166,11 @@ const projectLd = JSON.stringify({
   .principles-grid > div { min-height: 15rem; padding: 2rem; background: #eae2b7; }
   .principles-grid h3 { color: #003049; font: 600 1.35rem var(--font-display); }
   .principles-grid p { margin-top: 1rem; color: rgb(0 48 73 / .68); line-height: 1.7; }
-  .proof-section { padding: 7rem 0; background: #081f2c; }
+  .proof-section { padding: 6rem 0; background: #081f2c; }
   .proof-grid { display: grid; grid-template-columns: .4fr 1.2fr; gap: 3rem; }
   .proof-grid > div p { max-width: 43rem; margin-top: 2rem; color: rgb(255 255 255 / .6); }
   .proof-line { color: #f77f00 !important; font: 600 1rem var(--font-display) !important; }
-  .project-cta { padding: 4rem 0; border-top: 1px solid var(--border); background: var(--surface); }
+  .project-cta { padding: 3.5rem 0; border-top: 1px solid var(--border); background: var(--surface); }
   .cta-layout { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
   .cta-meta { margin-bottom: .5rem; color: var(--text-secondary); font: .72rem var(--font-mono); }
   .cta-layout > div > p:last-child { max-width: 42rem; color: var(--text-secondary); }
@@ -186,7 +186,7 @@ const projectLd = JSON.stringify({
     .cta-layout { flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 560px) {
-    .hero-inner { padding-top: 9rem; }
-    .intro-section, .architecture-section, .principles-section, .proof-section { padding: 5rem 0; }
+    .hero-inner { padding-top: 5.5rem; }
+    .intro-section, .architecture-section, .principles-section, .proof-section { padding: 4rem 0; }
   }
 </style>

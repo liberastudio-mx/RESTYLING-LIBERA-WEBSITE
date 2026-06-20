@@ -14,7 +14,7 @@ const serviceSchema = JSON.stringify({
 
 const structureCards = [
   {
-    title: 'PAOS',
+    title: 'Second Brain/PAOS',
     href: '/soluciones/operacion-interna/paos',
   },
   {
@@ -44,7 +44,7 @@ const structureCards = [
   <section class="operation-page">
     <div class="operation-hero">
       <div class="container-libera operation-layout">
-        <div class="operation-copy-block" data-reveal>
+        <div class="operation-copy-block">
           <h1 class="display-hero operation-title">Operación Interna</h1>
           <div class="operation-hero-text">
             <p>
@@ -56,7 +56,7 @@ const structureCards = [
           </div>
         </div>
 
-        <div id="estructura" class="operation-stack" aria-label="Estructura de Operación Interna" data-reveal>
+        <div id="estructura" class="operation-stack" aria-label="Estructura de Operación Interna">
           {structureCards.map((card) => (
             <a href={card.href} class="operation-card">
               <h2>{card.title}</h2>

@@ -37,9 +37,9 @@ const jsonLdOrg = JSON.stringify({
   "logo": {
     "@type": "ImageObject",
     "@id": `${siteUrl}/#logo`,
-    "url": `${siteUrl}/images/logo-blu.png`,
-    "width": 923,
-    "height": 162
+    "url": `${siteUrl}/images/LIBERA-Logo-dark.png`,
+    "width": 1530,
+    "height": 286
   },
   "description": "Estudio de sistemas digitales, automatización e inteligencia artificial para empresas que quieren operar mejor.",
   "address": { "@type": "PostalAddress", "addressLocality": "Mérida", "addressCountry": "MX" },
@@ -93,7 +93,7 @@ const slugToLabel: Record<string, string> = {
   'google-business-profile': 'Google Business Profile',
   'whatsapp-business': 'WhatsApp Business',
   'redes-sociales': 'Redes sociales',
-  paos: 'PAOS',
+  paos: 'Second Brain/PAOS',
   automatizacion: 'Automatización',
   'crm-seguimiento': 'CRM y seguimiento',
   dashboards: 'Dashboards',
@@ -166,7 +166,6 @@ const breadcrumbLd = segments.length > 0 ? JSON.stringify({
     <!-- Fonts: self-hosted (preload critical path) -->
     <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Google Consent Mode v2: defaults denied before GTM loads -->
     <script is:inline>
@@ -228,34 +227,6 @@ const breadcrumbLd = segments.length > 0 ? JSON.stringify({
       document.querySelectorAll('[data-reveal]').forEach((el) => {
         observer.observe(el);
       });
-    </script>
-
-    <script>
-      function initMagnetic() {
-        document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach((btn) => {
-          let raf = 0;
-
-          btn.addEventListener('mousemove', (e: MouseEvent) => {
-            cancelAnimationFrame(raf);
-            raf = requestAnimationFrame(() => {
-              const r = btn.getBoundingClientRect();
-              const dx = e.clientX - (r.left + r.width  / 2);
-              const dy = e.clientY - (r.top  + r.height / 2);
-              btn.style.transform = `translate(${dx * 0.22}px, ${dy * 0.28}px)`;
-              btn.style.transition = 'transform 0.12s ease';
-            });
-          });
-
-          btn.addEventListener('mouseleave', () => {
-            cancelAnimationFrame(raf);
-            btn.style.transform = 'translate(0,0)';
-            btn.style.transition = 'transform 0.55s cubic-bezier(0.16,1,0.3,1)';
-          });
-        });
-      }
-
-      initMagnetic();
-      document.addEventListener('astro:page-load', initMagnetic);
     </script>
 
     <!-- Consent update + Meta Pixel -->

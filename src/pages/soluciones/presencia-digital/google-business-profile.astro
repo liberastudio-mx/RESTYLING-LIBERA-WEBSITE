@@ -1,5 +1,7 @@
-﻿---
+---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import gbpImg from '@/assets/images/LS - google business.png';
 ---
 
 <Layout
@@ -21,7 +23,7 @@ import Layout from '@/layouts/Layout.astro';
     <section class="gbp-hero">
       <div class="container-libera gbp-hero-grid">
 
-        <div class="gbp-hero-copy" data-reveal>
+        <div class="gbp-hero-copy">
           <h1 class="gbp-title">
             Google Business Profile: <em>que te encuentren cuando alguien ya está buscando</em> lo que haces.
           </h1>
@@ -30,122 +32,18 @@ import Layout from '@/layouts/Layout.astro';
           </p>
         </div>
 
-        <!-- Mock GBP: card + phone -->
-        <aside class="gbp-mock" aria-hidden="true" data-reveal>
-
-          <!-- Ficha GBP -->
-          <div class="gbp-card">
-            <div class="gbp-card-photos">
-              <div class="gbp-photo-main"></div>
-              <div class="gbp-photo-col">
-                <div class="gbp-photo-sm"></div>
-                <div class="gbp-photo-more"><span>Ver más fotos</span></div>
-              </div>
-            </div>
-            <div class="gbp-card-body">
-              <p class="gbp-biz-name">Tu Negocio</p>
-              <div class="gbp-stars-row">
-                <span class="gbp-rating">4.8</span>
-                <span class="gbp-stars">★★★★★</span>
-                <span class="gbp-reviews">(127)</span>
-              </div>
-              <p class="gbp-category">Tu categoría · Mérida, Yucatán</p>
-              <div class="gbp-actions">
-                <div class="gbp-action">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                  <span>Sitio web</span>
-                </div>
-                <div class="gbp-action">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="1.5"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-                  <span>Cómo llegar</span>
-                </div>
-                <div class="gbp-action">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.81A16 16 0 0 0 16 16.91l1.91-1.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 24 17z"/></svg>
-                  <span>Llamar</span>
-                </div>
-                <div class="gbp-action">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-                  <span>Guardar</span>
-                </div>
-              </div>
-              <div class="gbp-info">
-                <div class="gbp-info-row">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#188038" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <span class="gbp-open">Abierto</span><span class="gbp-hours"> · Cierra a las 7:00 p.m.</span>
-                </div>
-                <div class="gbp-info-row">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5f6368" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <span>Calle 61 #499, Centro, 97000 Mérida, Yuc.</span>
-                </div>
-                <div class="gbp-info-row">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5f6368" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.81A16 16 0 0 0 16 16.91l1.91-1.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 24 17z"/></svg>
-                  <span>999 123 4567</span>
-                </div>
-                <div class="gbp-info-row">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5f6368" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                  <span>tunegocio.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Phone SERP -->
-          <div class="gbp-phone">
-            <div class="gbp-phone-frame">
-              <div class="gbp-phone-notch"></div>
-              <div class="gbp-phone-screen">
-                <div class="gbp-serp-bar">
-                  <span class="gbp-g">G</span>
-                  <div class="gbp-serp-input">
-                    <span>diseño gráfico en mérida</span>
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                  </div>
-                </div>
-                <div class="gbp-serp-tabs">
-                  <span class="gbp-tab-a">Todo</span>
-                  <span class="gbp-tab-i">Maps</span>
-                  <span class="gbp-tab-i">Imágenes</span>
-                  <span class="gbp-tab-i">Noticias</span>
-                </div>
-                <p class="gbp-serp-label">Negocios</p>
-                <div class="gbp-serp-map">
-                  <div class="gbp-smap-road gbp-smap-h"></div>
-                  <div class="gbp-smap-road gbp-smap-v"></div>
-                  <div class="gbp-smap-pin gbp-smap-pin-r">
-                    <svg width="9" height="11" viewBox="0 0 18 22" fill="#d62828"><path d="M9 0C4 0 0 4 0 9c0 6.4 9 13 9 13s9-6.6 9-13C18 4 14 0 9 0z"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg>
-                  </div>
-                  <div class="gbp-smap-pin gbp-smap-pin-g">
-                    <svg width="7" height="9" viewBox="0 0 18 22" fill="#888"><path d="M9 0C4 0 0 4 0 9c0 6.4 9 13 9 13s9-6.6 9-13C18 4 14 0 9 0z"/></svg>
-                  </div>
-                  <div class="gbp-smap-pin gbp-smap-pin-g2">
-                    <svg width="7" height="9" viewBox="0 0 18 22" fill="#888"><path d="M9 0C4 0 0 4 0 9c0 6.4 9 13 9 13s9-6.6 9-13C18 4 14 0 9 0z"/></svg>
-                  </div>
-                </div>
-                <div class="gbp-lr gbp-lr-active">
-                  <div class="gbp-lr-info">
-                    <p class="gbp-lr-name">Tu Negocio</p>
-                    <div class="gbp-lr-stars2">★★★★★ <span>4.8</span></div>
-                    <p class="gbp-lr-meta">Abierto · Mérida</p>
-                    <div class="gbp-lr-btns">
-                      <span>Llamar</span>
-                      <span>Cómo llegar</span>
-                      <span>Sitio web</span>
-                    </div>
-                  </div>
-                  <div class="gbp-lr-thumb"></div>
-                </div>
-                <div class="gbp-lr">
-                  <div class="gbp-lr-info">
-                    <p class="gbp-lr-name">Competidor A</p>
-                    <div class="gbp-lr-stars2 gbp-lr-stars2-g">★★★☆☆ <span>3.2</span></div>
-                    <p class="gbp-lr-meta">Cierra pronto</p>
-                  </div>
-                  <div class="gbp-lr-thumb gbp-lr-thumb-g"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <aside class="gbp-mock">
+          <Image
+            src={gbpImg}
+            alt="Google Business Profile — LIBERA Studio"
+            widths={[600, 1000]}
+            sizes="(max-width: 960px) 100vw, 50vw"
+            format="webp"
+            quality={78}
+            loading="eager"
+            fetchpriority="high"
+            class="gbp-hero-img"
+          />
         </aside>
       </div>
     </section>
@@ -154,7 +52,7 @@ import Layout from '@/layouts/Layout.astro';
     <section class="gbp-content">
       <div class="container-libera gbp-content-grid">
 
-        <div class="gbp-body" data-reveal>
+        <div class="gbp-body">
           <div class="gbp-hl-block">
             <div class="gbp-hl-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -177,7 +75,7 @@ import Layout from '@/layouts/Layout.astro';
           <p>Configuramos tu perfil desde cero o auditamos el que ya tienes. Identificamos qué está faltando, qué puede mejorar y lo dejamos listo para competir mejor en búsquedas locales. Después te enseñamos a mantenerlo o lo gestionamos nosotros como parte de tu presencia digital.</p>
         </div>
 
-        <div class="gbp-checklist" data-reveal>
+        <div class="gbp-checklist">
           <h2 class="gbp-cl-title">Lo que hacemos</h2>
           <ul class="gbp-cl-list">
             <li class="gbp-cl-item">
@@ -220,7 +118,7 @@ import Layout from '@/layouts/Layout.astro';
 
     <!-- CTA -->
     <section class="gbp-cta">
-      <div class="container-libera gbp-cta-inner" data-reveal>
+      <div class="container-libera gbp-cta-inner">
         <div class="gbp-cta-left">
           <div class="gbp-pin-icon" aria-hidden="true">
             <svg width="52" height="52" viewBox="0 0 64 64" fill="none">
@@ -290,13 +188,18 @@ import Layout from '@/layouts/Layout.astro';
 
     /* ── MOCK ── */
     .gbp-mock {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      align-items: start;
+      display: flex;
+      align-items: flex-start;
     }
 
-    /* GBP Card */
+    .gbp-hero-img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      display: block;
+    }
+
+    /* GBP Card (unused — kept as dead code; will be removed) */
     .gbp-card {
       background: #ffffff;
       border: 1px solid #dadce0;
@@ -604,16 +507,11 @@ import Layout from '@/layouts/Layout.astro';
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .gbp-hero-grid { grid-template-columns: 1fr; }
-      .gbp-mock { max-width: 36rem; }
       .gbp-content-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 900px) {
       .gbp-cta-inner { flex-direction: column; align-items: flex-start; }
       .gbp-cta-btn { width: 100%; justify-content: center; }
-    }
-    @media (max-width: 640px) {
-      .gbp-mock { grid-template-columns: 1fr; max-width: 20rem; }
-      .gbp-phone { display: none; }
     }
   </style>
 </Layout>

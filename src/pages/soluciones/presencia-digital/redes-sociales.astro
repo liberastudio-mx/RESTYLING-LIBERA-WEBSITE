@@ -1,5 +1,7 @@
-﻿---
+---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import socialImage from '@/assets/images/LS - Social networks.png';
 ---
 
 <Layout
@@ -21,7 +23,7 @@ import Layout from '@/layouts/Layout.astro';
     <section class="rs-hero">
       <div class="container-libera rs-hero-grid">
 
-        <div class="rs-hero-copy" data-reveal>
+        <div class="rs-hero-copy">
           <h1 class="rs-title">
             Gestión de redes sociales: <em>presencia constante, contenido con intención</em>
           </h1>
@@ -48,11 +50,22 @@ import Layout from '@/layouts/Layout.astro';
           </div>
         </div>
 
-        <!-- Mock social media -->
-        <aside class="rs-mock" aria-hidden="true" data-reveal>
+        <!-- Social media visual -->
+        <figure class="rs-mock">
+          <Image
+            class="rs-hero-image"
+            src={socialImage}
+            alt="Robots con iconos de redes sociales y herramientas de comunicación digital"
+            widths={[600, 1000]}
+            sizes="(max-width: 960px) 100vw, 50vw"
+            format="webp"
+            quality={78}
+            loading="eager"
+            fetchpriority="high"
+          />
 
           <!-- Platform icons row -->
-          <div class="rs-platforms">
+          <div class="rs-platforms" hidden>
             <div class="rs-plat rs-plat-ig">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
             </div>
@@ -68,7 +81,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
 
           <!-- Post cards -->
-          <div class="rs-posts">
+          <div class="rs-posts" hidden>
 
             <!-- Instagram post -->
             <div class="rs-post">
@@ -156,7 +169,7 @@ import Layout from '@/layouts/Layout.astro';
             </div>
 
           </div>
-        </aside>
+        </figure>
       </div>
     </section>
 
@@ -164,7 +177,7 @@ import Layout from '@/layouts/Layout.astro';
     <section class="rs-content">
       <div class="container-libera rs-content-grid">
 
-        <div class="rs-body" data-reveal>
+        <div class="rs-body">
           <div class="rs-row">
             <div class="rs-row-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f77f00" stroke-width="1.5" aria-hidden="true"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3z"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -191,7 +204,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
         </div>
 
-        <div class="rs-checklist" data-reveal>
+        <div class="rs-checklist">
           <h2 class="rs-cl-title">Lo que hacemos</h2>
           <ul class="rs-cl-list">
             <li class="rs-cl-item">
@@ -234,7 +247,7 @@ import Layout from '@/layouts/Layout.astro';
 
     <!-- CTA -->
     <section class="rs-cta">
-      <div class="container-libera rs-cta-inner" data-reveal>
+      <div class="container-libera rs-cta-inner">
         <div class="rs-cta-left">
           <div class="rs-cta-icon" aria-hidden="true">
             <svg width="72" height="72" viewBox="0 0 96 96" fill="none">
@@ -283,11 +296,14 @@ import Layout from '@/layouts/Layout.astro';
     }
     .rs-hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-      gap: clamp(2rem, 4vw, 4rem);
-      align-items: start;
+      grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.82fr) !important;
+      gap: clamp(3rem, 6vw, 6rem) !important;
+      align-items: center !important;
     }
 
+    .rs-hero-copy {
+      max-width: 38rem;
+    }
 
     .rs-title {
       font-family: var(--font-display);
@@ -313,7 +329,24 @@ import Layout from '@/layouts/Layout.astro';
     .rs-benefit span { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.3; }
 
     /* MOCK */
-    .rs-mock { display: flex; flex-direction: column; gap: 0.75rem; }
+    .rs-mock {
+      display: grid;
+      width: 100%;
+      max-width: 32.5rem;
+      justify-self: center;
+      place-items: center;
+      margin: 0;
+    }
+    .rs-hero-image {
+      display: block;
+      width: 100%;
+      max-width: 32.5rem;
+      height: auto;
+      max-height: 32.5rem;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 0.5rem;
+    }
 
     .rs-platforms {
       display: flex;
@@ -532,8 +565,16 @@ import Layout from '@/layouts/Layout.astro';
     }
 
     @media (max-width: 1024px) {
-      .rs-hero-grid { grid-template-columns: 1fr; }
-      .rs-mock { max-width: 40rem; }
+      .rs-hero-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 2.5rem !important;
+        align-items: start !important;
+      }
+      .rs-hero-copy { max-width: 44rem; }
+      .rs-mock,
+      .rs-hero-image {
+        max-width: min(100%, 34rem);
+      }
       .rs-content-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 900px) {
@@ -541,6 +582,13 @@ import Layout from '@/layouts/Layout.astro';
       .rs-cta-btn { width: 100%; justify-content: center; }
     }
     @media (max-width: 600px) {
+      .rs-hero {
+        padding-top: 2.75rem !important;
+      }
+      .rs-mock,
+      .rs-hero-image {
+        max-width: min(100%, 26rem);
+      }
       .rs-posts { grid-template-columns: 1fr; }
       .rs-plat { width: 2rem; height: 2rem; }
     }
