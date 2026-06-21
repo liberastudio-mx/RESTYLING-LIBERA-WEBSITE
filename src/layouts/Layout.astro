@@ -218,35 +218,47 @@ const breadcrumbLd = segments.length > 0 ? JSON.stringify({
       aria-label="Escríbenos por WhatsApp"
       class="wa-fab"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" aria-hidden="true" focusable="false">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true" focusable="false">
         <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.77L0 32l8.465-2.003A15.938 15.938 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.77-1.851l-.485-.289-5.024 1.188 1.215-4.897-.318-.504A13.263 13.263 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.273-9.92c-.398-.2-2.356-1.163-2.72-1.295-.365-.133-.63-.2-.895.2-.265.397-1.028 1.295-1.26 1.561-.232.265-.465.298-.863.1-.398-.2-1.68-.619-3.2-1.975-1.183-1.055-1.982-2.358-2.214-2.756-.232-.398-.025-.613.174-.812.179-.178.398-.465.597-.697.2-.233.265-.399.398-.665.133-.265.066-.498-.033-.697-.1-.2-.895-2.157-1.227-2.953-.323-.773-.651-.668-.895-.68-.232-.012-.498-.015-.763-.015-.265 0-.697.1-1.062.498-.365.398-1.393 1.361-1.393 3.318s1.426 3.847 1.625 4.112c.2.265 2.807 4.286 6.803 5.87.951.366 1.693.584 2.272.748.955.27 1.824.232 2.51.14.766-.1 2.356-.963 2.688-1.893.333-.93.333-1.727.232-1.893-.1-.165-.365-.265-.763-.465z"/>
       </svg>
-      <span>WhatsApp</span>
     </a>
 
     <style>
       .wa-fab {
         position: fixed;
-        bottom: 1.25rem;
-        right: 1.25rem;
+        bottom: max(1.25rem, env(safe-area-inset-bottom));
+        right: max(
+          clamp(1.25rem, 4vw, 3.5rem),
+          calc((100vw - var(--container-max)) / 2 + 3.5rem)
+        );
         z-index: 9000;
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 0.4rem;
-        padding: 0.5rem 0.85rem 0.5rem 0.65rem;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
         border: 1px solid rgba(0, 120, 60, 0.35);
-        border-radius: 999px;
+        border-radius: 50%;
         background: #25d366;
         color: #ffffff;
-        font: 600 0.72rem/1 var(--font-mono);
-        letter-spacing: 0.04em;
         text-decoration: none;
         box-shadow: 0 2px 12px rgba(37, 211, 102, 0.28);
-        transition: background-color 0.2s, box-shadow 0.2s;
+        transition:
+          background-color 0.2s var(--ease-smooth),
+          box-shadow 0.2s var(--ease-smooth),
+          transform 0.2s var(--ease-smooth);
       }
       .wa-fab:hover {
         background: #1ebe5d;
         box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+        transform: translateY(-2px);
+      }
+      .wa-fab:active {
+        transform: translateY(0) scale(0.96);
+      }
+      .wa-fab:focus-visible {
+        outline: 3px solid #ffffff;
+        outline-offset: 3px;
       }
       .wa-fab svg {
         fill: #ffffff;

@@ -24,15 +24,15 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
 
   <div class="container-libera relative h-full flex items-center justify-between gap-8">
 
-    <!-- Logo -->
-    <a href="/" class="site-logo flex-shrink-0 flex items-center z-10" aria-label="LIBERA Studio, Inicio">
+    <!-- Logo: mobile only (on desktop the logo lives inside the nav pill) -->
+    <a href="/" class="site-logo lg:hidden flex-shrink-0 flex items-center z-10" aria-label="LIBERA Studio, Inicio">
       <Image
         src={logoDarkImg}
         alt="LIBERA Studio"
         width={214}
         height={40}
         class="site-logo-image site-logo-image--dark block"
-        style="width: auto; height: 32px;"
+        style="width: auto; height: 29px;"
       />
       <Image
         src={logoWhiteImg}
@@ -41,12 +41,18 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
         width={214}
         height={40}
         class="site-logo-image site-logo-image--white block"
-        style="width: auto; height: 32px;"
+        style="width: auto; height: 29px;"
       />
     </a>
 
     <!-- Desktop nav -->
     <nav class="central-nav hidden lg:flex items-center gap-0.5 justify-center" aria-label="Navegación principal">
+
+      <!-- Logo inside pill: desktop only (pill is hidden on mobile) -->
+      <a href="/" class="nav-logo flex items-center pl-2 pr-4 flex-shrink-0" aria-label="LIBERA Studio">
+        <Image src={logoWhiteImg} alt="" aria-hidden="true" width={214} height={40} class="nav-logo-img nav-logo-img--white" style="width: auto; height: 26px;" />
+        <Image src={logoDarkImg}  alt="" aria-hidden="true" width={214} height={40} class="nav-logo-img nav-logo-img--dark"  style="width: auto; height: 26px;" />
+      </a>
 
       <!-- ── Soluciones, MEGA LARGE ───────────────────────────────── -->
       <div class="relative group">
@@ -193,6 +199,20 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
 </header>
 
 <style>
+  /* ── Logo inside the nav pill ── */
+  .nav-logo {
+    transition: opacity 0.2s var(--ease-premium);
+  }
+  .nav-logo:hover { opacity: 0.78; }
+
+  /* Default: pill is dark (brand-navy) → show white logo */
+  .nav-logo-img--dark  { display: none; }
+  .nav-logo-img--white { display: block; }
+
+  /* Dark header theme: pill becomes light → show dark logo */
+  #site-header[data-header-theme="dark"] .nav-logo-img--dark  { display: block; }
+  #site-header[data-header-theme="dark"] .nav-logo-img--white { display: none; }
+
   nav .group::after {
     content: '';
     position: absolute;

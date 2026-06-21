@@ -5,19 +5,6 @@
   data-state="closed"
   aria-live="polite"
 >
-  <button
-    id="cookie-fab"
-    class="cookie-fab"
-    data-cookie-settings
-    aria-label="Preferencias de cookies"
-    hidden
-  >
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-      <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
-    </svg>
-    <span>Cookies</span>
-  </button>
-
   <section
     id="cookie-banner"
     class="cookie-banner"
@@ -117,34 +104,6 @@
     --cookie-muted: oklch(45% 0.035 235);
     position: relative;
     z-index: var(--z-cookie, 1100);
-  }
-
-  .cookie-fab {
-    position: fixed;
-    bottom: 1.25rem;
-    left: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem 0.85rem 0.5rem 0.65rem;
-    border: 1px solid oklch(30% 0.04 235 / 0.18);
-    border-radius: 999px;
-    background: var(--cookie-surface);
-    color: var(--cookie-muted);
-    font: 600 0.72rem/1 var(--font-mono);
-    letter-spacing: 0.04em;
-    cursor: pointer;
-    box-shadow: 0 2px 12px oklch(20% 0.04 235 / 0.1);
-    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
-    z-index: var(--z-cookie, 1100);
-  }
-
-  .cookie-fab[hidden] { display: none; }
-
-  .cookie-fab:hover {
-    background: #fff;
-    color: var(--cookie-text);
-    box-shadow: 0 4px 20px oklch(20% 0.04 235 / 0.18);
   }
 
   .cookie-banner {
@@ -496,13 +455,10 @@
   };
 
   const initCookieConsent = () => {
-    const fab = document.querySelector<HTMLElement>('#cookie-fab');
     const banner = document.querySelector<HTMLElement>('#cookie-banner');
     const dialog = document.querySelector<HTMLDialogElement>('#cookie-dialog');
     const analyticsInput = document.querySelector<HTMLInputElement>('#cookie-analytics');
     const marketingInput = document.querySelector<HTMLInputElement>('#cookie-marketing');
-    const settingsButton = document.querySelector<HTMLButtonElement>('[data-cookie-settings]');
-
     if (!banner || !dialog || !analyticsInput || !marketingInput) return;
 
     const current = readConsent();
@@ -512,10 +468,8 @@
       document.documentElement.dataset.analyticsConsent = String(current.analytics);
       document.documentElement.dataset.marketingConsent = String(current.marketing ?? false);
       banner.hidden = true;
-      if (fab) fab.hidden = false;
     } else {
       banner.hidden = false;
-      if (fab) fab.hidden = true;
     }
 
     const closeDialog = () => {
@@ -527,7 +481,6 @@
       analyticsInput.checked = analytics;
       marketingInput.checked = marketing;
       banner.hidden = true;
-      if (fab) fab.hidden = false;
       closeDialog();
     };
 
