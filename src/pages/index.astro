@@ -1948,14 +1948,13 @@ const solucionesHome = [
   .method-clone-stage {
     min-height: clamp(390px, 48dvh, 560px);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .method-clone-step {
-    --method-clone-step-x: 0vw;
-    --method-clone-step-y: 5.5rem;
     --method-clone-step-opacity: 0;
     --method-clone-step-focus: 0%;
+    --method-clone-step-copy-opacity: 0;
     position: absolute;
     inset: 0;
     display: flex;
@@ -1965,12 +1964,15 @@ const solucionesHome = [
     padding-block: clamp(0.5rem, 2vw, 1.5rem);
     padding-inline: 0;
     opacity: var(--method-clone-step-opacity);
-    transform: translate3d(var(--method-clone-step-x), var(--method-clone-step-y), 0);
-    will-change: transform, opacity;
+    transform: none;
+    will-change: opacity;
     pointer-events: none;
   }
 
   .method-clone-step h3 {
+    --method-clone-step-title-x: 0px;
+    --method-clone-step-title-y: 0px;
+    --method-clone-step-title-scale: 1;
     color: #003049;
     font-size: calc(clamp(4.5rem, 14vw, 15rem) * var(--method-clone-step-title-fit, 1));
     font-style: normal;
@@ -1981,6 +1983,9 @@ const solucionesHome = [
     letter-spacing: 0.015em;
     max-width: 100%;
     white-space: nowrap;
+    transform: translate3d(var(--method-clone-step-title-x), var(--method-clone-step-title-y), 0) scale(var(--method-clone-step-title-scale));
+    transform-origin: right top;
+    will-change: transform;
   }
 
   .method-clone-step p {
@@ -1989,6 +1994,7 @@ const solucionesHome = [
     line-height: 1.35;
     max-width: 58rem;
     text-align: right;
+    opacity: var(--method-clone-step-copy-opacity);
   }
 
   @media (max-width: 1023px) {
@@ -2057,10 +2063,15 @@ const solucionesHome = [
 
     .method-clone-step {
       --method-clone-step-focus: 100%;
+      --method-clone-step-copy-opacity: 1;
       position: relative;
       opacity: 1;
       transform: none;
-      background: var(--ink-mid);
+      background: transparent;
+    }
+
+    .method-clone-step h3 {
+      transform: none;
     }
   }
 
@@ -2422,6 +2433,7 @@ const solucionesHome = [
   {
     const methodSection = document.querySelector('[data-method-clone-section]');
     const methodFrame = document.querySelector('.method-clone-sticky');
+    const methodStage = document.querySelector('[data-method-clone-stage]');
     const methodSteps = [...document.querySelectorAll('[data-method-clone-step]')];
     const methodTitle = document.querySelector('[data-method-clone-title]');
     const methodTitleLines = [...document.querySelectorAll('[data-method-clone-title-line]')];
@@ -2478,9 +2490,12 @@ const solucionesHome = [
 
         methodSteps.forEach((step) => {
           step.style.setProperty('--method-clone-step-opacity', '0');
-          step.style.setProperty('--method-clone-step-x', '0vw');
-          step.style.setProperty('--method-clone-step-y', '5.5rem');
           step.style.setProperty('--method-clone-step-focus', '0%');
+          step.style.setProperty('--method-clone-step-copy-opacity', '0');
+          const stepTitle = step.querySelector('[data-method-clone-step-title]');
+          stepTitle?.style.setProperty('--method-clone-step-title-x', '0px');
+          stepTitle?.style.setProperty('--method-clone-step-title-y', '0px');
+          stepTitle?.style.setProperty('--method-clone-step-title-scale', '1');
           step.setAttribute('aria-hidden', 'true');
         });
       };
@@ -2567,41 +2582,68 @@ const solucionesHome = [
         line.style.setProperty('--method-clone-line-accent', `${Math.round(accent * 100)}%`);
       });
 
+      const stageRect = methodStage?.getBoundingClientRect();
+      const upperLineRects = methodTitleLines.map((line) => line.getBoundingClientRect());
+      const settledStartTop = upperLineRects[0]?.top ?? navHeight;
+      const settledStride = upperLineRects.length > 1
+        ? upperLineRects[1].top - upperLineRects[0].top
+        : upperLineRects[0]?.height ?? 48;
+      const upperReferenceLine = methodTitleLines[0];
+      const upperReferenceStyle = upperReferenceLine ? getComputedStyle(upperReferenceLine) : null;
+      const upperReferenceFontSize = upperReferenceStyle
+        ? parseFloat(upperReferenceStyle.fontSize) || 1
+        : 1;
+      const upperReferenceScale = upperReferenceLine
+        ? parseFloat(upperReferenceLine.style.getPropertyValue('--method-clone-line-scale')) || 0.66
+        : 0.66;
+      const settledFontSize = upperReferenceFontSize * upperReferenceScale;
+
       methodSteps.forEach((step, index) => {
         const local = stepsEnabled ? timeline - index : -1;
+        const stepTitle = methodStepTitles[index];
+        const stepTitleFontSize = stepTitle
+          ? parseFloat(getComputedStyle(stepTitle).fontSize) || 1
+          : 1;
+        const settledScale = settledFontSize / stepTitleFontSize;
+        const naturalTitleTop = (stageRect?.top ?? 0) + (stepTitle?.offsetTop ?? 0);
+        const settledY = settledStartTop + index * settledStride - naturalTitleTop;
         let opacity = 0;
-        let translateX = 0;
-        let translateY = 5.5;
+        let titleY = 0;
+        let titleScale = 1;
+        let copyOpacity = 0;
         let focus = 0;
 
-        if (local >= 0 && local < 0.16) {
-          const progress = ease(local / 0.16);
-          opacity = progress;
-          translateY = 5.5 * (1 - progress);
-          focus = progress;
-        } else if (local >= 0.16 && local < 0.78) {
+        if (local >= 0 && local < 0.72) {
           opacity = 1;
-          translateY = 0;
+          titleY = 0;
+          titleScale = 1;
+          copyOpacity = 1;
           focus = 1;
-        } else if (local >= 0.78 && local < 0.92) {
-          const progress = ease((local - 0.78) / 0.14);
-          opacity = 1 - progress;
-          translateX = -46 * progress;
-          translateY = 0;
+        } else if (local >= 0.72 && local < 1) {
+          const settle = ease((local - 0.72) / 0.28);
+          opacity = 1;
+          titleY = settledY * settle;
+          titleScale = 1 + (settledScale - 1) * settle;
+          copyOpacity = 1 - settle;
           focus = 1;
-        } else {
-          opacity = 0;
-          translateX = local < 0 ? 0 : -46;
-          translateY = local < 0 ? 5.5 : 0;
-          focus = local < 0 ? 0 : 1;
+        } else if (local >= 1) {
+          opacity = 1;
+          titleY = settledY;
+          titleScale = settledScale;
+          copyOpacity = 0;
+          focus = 1;
         }
 
-        const active = opacity > 0.5;
+        const fadedOpacity = opacity * titleFade;
+        const fadedCopyOpacity = copyOpacity * titleFade;
+        const active = fadedOpacity > 0.5;
 
-        step.style.setProperty('--method-clone-step-opacity', opacity.toFixed(3));
-        step.style.setProperty('--method-clone-step-x', `${translateX.toFixed(1)}vw`);
-        step.style.setProperty('--method-clone-step-y', `${translateY.toFixed(2)}rem`);
+        step.style.setProperty('--method-clone-step-opacity', fadedOpacity.toFixed(3));
         step.style.setProperty('--method-clone-step-focus', `${Math.round(focus * 100)}%`);
+        step.style.setProperty('--method-clone-step-copy-opacity', fadedCopyOpacity.toFixed(3));
+        stepTitle?.style.setProperty('--method-clone-step-title-x', '0px');
+        stepTitle?.style.setProperty('--method-clone-step-title-y', `${titleY.toFixed(1)}px`);
+        stepTitle?.style.setProperty('--method-clone-step-title-scale', titleScale.toFixed(3));
         step.setAttribute('aria-hidden', String(!active));
       });
     };
@@ -2648,9 +2690,9 @@ const solucionesHome = [
       const getTitleSnapY = (i) =>
         sectionTop + (i + 0.36) * LINE_WIN * scrollable();
 
-      // Each step peaks at local ≈ 0.47 (midpoint of 0.16–0.78 fully-visible window)
+      // Lower titles now use the same 0–0.72 hero window as the three upper lines.
       const getStepSnapY = (i) => {
-        const p = STEP_START + ((i + 0.47) / methodSteps.length) * (STEP_END - STEP_START);
+        const p = STEP_START + ((i + 0.36) / methodSteps.length) * (STEP_END - STEP_START);
         return sectionTop + p * scrollable();
       };
 
@@ -2677,7 +2719,7 @@ const solucionesHome = [
         } else if (sp >= STEP_START && sp <= STEP_END) {
           // Step zone: snap to nearest of the 6 steps
           const t = ((sp - STEP_START) / (STEP_END - STEP_START)) * methodSteps.length;
-          const idx = Math.min(methodSteps.length - 1, Math.max(0, Math.round(t - 0.47)));
+          const idx = Math.min(methodSteps.length - 1, Math.max(0, Math.round(t - 0.36)));
           targetY = getStepSnapY(idx);
         }
 
