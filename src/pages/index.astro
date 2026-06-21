@@ -22,11 +22,17 @@ const solucionesHome = [
     id: 'operacion',
     label: 'Operación Interna',
     promise: 'Para operar con orden, no con memoria.',
-    description: 'PAOS, CRM simple, dashboards internos y automatización de procesos. Cada mensaje, lead y tarea en su lugar.',
+    description: 'Second Brain/PAOS, CRM simple, dashboards internos y automatización de procesos. Cada mensaje, lead y tarea en su lugar.',
     href: '/soluciones/operacion-interna',
     accent: '#003049',
     image: solOperacionImg,
-    services: ['Second Brain/PAOS', 'CRM y leads', 'Dashboards', 'Integraciones'],
+    services: [
+      { label: 'Second Brain/PAOS', href: '/soluciones/operacion-interna/paos' },
+      { label: 'Automatización', href: '/soluciones/operacion-interna/automatizacion' },
+      { label: 'CRM y seguimiento', href: '/soluciones/operacion-interna/crm-seguimiento' },
+      { label: 'Dashboards', href: '/soluciones/operacion-interna/dashboards' },
+      { label: 'Integraciones', href: '/soluciones/operacion-interna/integraciones' },
+    ],
   },
   {
     id: 'presencia',
@@ -36,17 +42,29 @@ const solucionesHome = [
     href: '/soluciones/presencia-digital',
     accent: '#d62828',
     image: solPresenciaImg,
-    services: ['Sitios web premium', 'Landing pages', 'Redes sociales', 'Google Business'],
+    services: [
+      { label: 'Sitios web premium', href: '/soluciones/presencia-digital/sitios-web-premium' },
+      { label: 'Landing pages', href: '/soluciones/presencia-digital/landing-pages' },
+      { label: 'Google Business Profile', href: '/soluciones/presencia-digital/google-business-profile' },
+      { label: 'WhatsApp Business', href: '/soluciones/presencia-digital/whatsapp-business' },
+      { label: 'Redes sociales', href: '/soluciones/presencia-digital/redes-sociales' },
+    ],
   },
   {
     id: 'ai',
-    label: 'AI & Automation',
+    label: 'IA y automatización',
     promise: 'IA aplicada a procesos reales, no a demos.',
-    description: 'Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. Automatizamos donde hay fricción, no donde hay moda.',
+    description: 'Agentes de IA, asistentes internos, clasificación de mensajes y flujos con n8n. Automatizamos donde hay fricción.',
     href: '/soluciones/ai-automation',
     accent: '#f77f00',
     image: solAiImg,
-    services: ['Agentes de IA', 'Asistentes internos', 'n8n & APIs', 'Automatización documental'],
+    services: [
+      { label: 'Agentes de IA', href: '/soluciones/ai-automation/agentes-ia' },
+      { label: 'Asistentes internos', href: '/soluciones/ai-automation/asistentes-internos' },
+      { label: 'Flujos con n8n', href: '/soluciones/ai-automation/flujos-n8n' },
+      { label: 'Clasificación de mensajes', href: '/soluciones/ai-automation/clasificacion-mensajes' },
+      { label: 'Automatización documental', href: '/soluciones/ai-automation/automatizacion-documental' },
+    ],
   },
   {
     id: 'productos',
@@ -56,7 +74,13 @@ const solucionesHome = [
     href: '/soluciones/productos-digitales',
     accent: '#fcbf49',
     image: solProductosImg,
-    services: ['Web apps', 'MVPs', 'Apps internas', 'Prototipos'],
+    services: [
+      { label: 'Web apps', href: '/soluciones/productos-digitales/web-apps' },
+      { label: 'MVPs', href: '/soluciones/productos-digitales/mvps' },
+      { label: 'Apps internas', href: '/soluciones/productos-digitales/apps-internas' },
+      { label: 'Paneles admin', href: '/soluciones/productos-digitales/paneles-admin' },
+      { label: 'Prototipos', href: '/soluciones/productos-digitales/prototipos' },
+    ],
   },
 ];
 ---
@@ -216,7 +240,7 @@ const solucionesHome = [
 
         <!-- Left: full-height sticky image -->
         <div class="solutions-image-col">
-          <figure class="solution-visual-shell" data-reveal>
+          <figure class="solution-visual-shell">
             <div class="solution-visual-frame">
               {solucionesHome.map((sol, i) => (
                 <Image
@@ -226,7 +250,8 @@ const solucionesHome = [
                   sizes="(max-width: 1023px) 100vw, 50vw"
                   class={`solution-visual-image ${i === 0 ? 'is-active' : ''}`}
                   data-solution-image={sol.id}
-                  loading={i === 0 ? 'eager' : 'lazy'}
+                  loading="eager"
+                  decoding="async"
                 />
               ))}
             </div>
@@ -235,7 +260,7 @@ const solucionesHome = [
 
         <!-- Right: title + cards -->
         <div class="solutions-sticky">
-          <div class="solutions-intro" data-reveal>
+          <div class="solutions-intro">
             <h2 class="display-lg solutions-title" style="color: var(--text-primary);">
               Diseñamos <em style="color: var(--orange); font-style: italic;">los sistemas que conectan</em> presencia, operación e inteligencia.
             </h2>
@@ -243,8 +268,7 @@ const solucionesHome = [
 
           <div class="solutions-card-rail" aria-label="Lista de soluciones">
           {solucionesHome.map((sol, i) => (
-            <a
-              href={sol.href}
+            <article
               class={`solution-card group ${i === 0 ? 'is-active is-visible' : ''}`}
               data-solution-card={sol.id}
               style={`--solution-accent: ${sol.accent};`}
@@ -277,20 +301,17 @@ const solucionesHome = [
                   {sol.description}
                 </p>
 
-                <div class="flex flex-wrap justify-end gap-2">
-                  {sol.services.map((s) => (
-                    <span class="solution-service-tag">
-                      {s}
-                    </span>
+                <div class="solution-service-list">
+                  {sol.services.map((service) => (
+                    <a href={service.href} class="solution-service-tag">
+                      <span>{service.label}</span>
+                      <span class="solution-service-arrow" aria-hidden="true">→</span>
+                    </a>
                   ))}
                 </div>
               </div>
 
-              <div class="relative mt-10 flex items-center justify-end gap-3 text-sm font-semibold" style={`color: ${sol.accent};`}>
-                <span>Ver solución</span>
-                <span class="solution-card-arrow" aria-hidden="true">→</span>
-              </div>
-            </a>
+            </article>
           ))}
           </div>
         </div>
@@ -1027,7 +1048,7 @@ const solucionesHome = [
     position: relative;
     z-index: 3;
     margin-top: -100dvh;
-    min-height: 560dvh;
+    min-height: 420dvh;
     padding-block: 0;
   }
 
@@ -1362,7 +1383,7 @@ const solucionesHome = [
     height: 100%;
     overflow: hidden;
     border-radius: 1.25rem;
-    background: var(--surface);
+    background: #ffffff;
     border: none;
     box-shadow: none;
   }
@@ -1377,19 +1398,13 @@ const solucionesHome = [
     width: 100%;
     height: 100%;
     object-fit: contain;
-    opacity: var(--solution-image-opacity, 0);
-    transform: scale(var(--solution-image-scale, 0.985));
-    transition:
-      opacity 0.44s var(--ease-out-expo),
-      filter 0.44s var(--ease-out-expo),
-      transform 0.44s var(--ease-out-expo);
-    filter: saturate(0.84) brightness(0.9);
+    opacity: 0;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   .solution-visual-image.is-active {
-    --solution-image-opacity: 1;
-    --solution-image-scale: 1;
-    filter: saturate(1) brightness(1);
+    opacity: 1;
   }
 
   .solution-visual-caption {
@@ -1435,10 +1450,7 @@ const solucionesHome = [
     color: var(--text-primary);
     opacity: var(--solution-card-opacity);
     transform: translate3d(0, -50%, 0);
-    transition:
-      opacity 0.3s var(--ease-out-expo),
-      color 0.3s var(--ease-premium);
-    will-change: opacity;
+    transition: color 0.3s var(--ease-premium);
     pointer-events: none;
   }
 
@@ -1500,36 +1512,53 @@ const solucionesHome = [
     color: var(--text-secondary);
   }
 
+  .solution-service-list {
+    display: grid;
+    width: max-content;
+    max-width: 100%;
+    margin-left: auto;
+  }
+
   .solution-service-tag {
-    position: relative;
-    display: inline-flex;
+    --solution-list-color: var(--solution-accent);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    width: 100%;
     align-items: center;
-    min-height: 2rem;
-    padding: 0.15rem 0;
+    column-gap: 0.75rem;
+    min-height: 2.25rem;
+    padding: 0.25rem 0;
     background: transparent;
     border: 0;
-    color: var(--text-secondary);
-    font-size: 0.8125rem;
+    color: var(--solution-list-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: opacity 0.2s var(--ease-premium);
   }
 
-  .solution-service-tag::before {
-    content: '';
-    width: 0.35rem;
-    height: 0.35rem;
-    margin-right: 0.55rem;
-    border-radius: 9999px;
-    background: var(--solution-accent);
-    opacity: 0.7;
+  .solution-service-tag:hover {
+    opacity: 0.72;
   }
 
-  .solution-card-arrow {
-    display: inline-flex;
-    transform: translate3d(0, 0, 0);
-    transition: transform 0.25s var(--ease-premium);
+  .solution-service-tag:focus-visible {
+    outline: 2px solid var(--solution-list-color);
+    outline-offset: 3px;
   }
 
-  .solution-card:hover .solution-card-arrow {
-    transform: translate3d(0.25rem, -0.0625rem, 0);
+  .solution-service-arrow {
+    flex: 0 0 auto;
+    color: var(--solution-list-color);
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.2s var(--ease-premium);
+  }
+
+  .solution-service-tag:hover .solution-service-arrow,
+  .solution-service-tag:focus-visible .solution-service-arrow {
+    transform: translateX(0.2rem);
   }
 
   @media (max-width: 1023px) {
@@ -1604,17 +1633,22 @@ const solucionesHome = [
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .solutions-overlap {
+      min-height: 100dvh;
+    }
+
     .solution-card,
     .solution-visual-image,
     .solution-visual-label,
-    .solution-card-arrow,
     .solution-card-glow {
       transform: none !important;
       transition-duration: 0.01ms !important;
     }
 
     .solution-card {
-      opacity: 1;
+      inset: 0;
+      justify-content: center;
+      opacity: var(--solution-card-opacity, 0);
       transform: none;
       will-change: auto;
     }
@@ -2178,13 +2212,12 @@ const solucionesHome = [
       text-align: left;
     }
 
-    .solution-card .flex.flex-wrap.justify-end {
-      justify-content: flex-start;
+    .solution-service-list {
+      margin-left: 0;
     }
 
-    .solution-card > .relative.mt-10 {
-      justify-content: flex-start;
-      margin-top: 1.75rem;
+    .solution-service-tag {
+      text-align: left;
     }
 
     .solution-card-index {
@@ -2245,10 +2278,7 @@ const solucionesHome = [
     });
 
     solutionImages.forEach((image) => {
-      const isActive = image.dataset.solutionImage === id;
-      image.classList.toggle('is-active', isActive);
-      image.style.setProperty('--solution-image-opacity', isActive ? intensity.toFixed(3) : '0');
-      image.style.setProperty('--solution-image-scale', isActive ? (0.985 + intensity * 0.015).toFixed(3) : '0.985');
+      image.classList.toggle('is-active', image.dataset.solutionImage === id);
     });
 
     solutionLabels.forEach((label) => {
@@ -2263,14 +2293,26 @@ const solucionesHome = [
     const ease = (value: number) => value * value * (3 - 2 * value);
     const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
     let solutionTicking = false;
+    let scheduleSolutionsSnap = () => {};
 
     const updateSolutions = () => {
       solutionTicking = false;
 
-      if (window.innerWidth < 1024 || reduceSolutionsMotion) {
+      if (window.innerWidth < 1024) {
         solutionCards.forEach((card) => {
           card.classList.add('is-active');
           card.style.removeProperty('--solution-card-opacity');
+          card.removeAttribute('aria-hidden');
+        });
+        setActiveSolution(solutionCards[0]?.dataset.solutionCard ?? '', 1);
+        return;
+      }
+
+      if (reduceSolutionsMotion) {
+        solutionCards.forEach((card, index) => {
+          card.classList.toggle('is-active', index === 0);
+          card.style.setProperty('--solution-card-opacity', index === 0 ? '1' : '0');
+          card.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
         });
         setActiveSolution(solutionCards[0]?.dataset.solutionCard ?? '', 1);
         return;
@@ -2282,34 +2324,25 @@ const solucionesHome = [
       const endPause = 0.04;
       const progress = clamp((rawProgress - startPause) / (1 - startPause - endPause));
       const maxIndex = Math.max(1, solutionCards.length - 1);
-      const revealWindow = 0.085;
-      let activeId = solutionCards[0]?.dataset.solutionCard ?? '';
-      let activeIntensity = 0;
-      let activeVisualOpacity = 0;
+      const cardPosition = progress * maxIndex;
+      const previousIndex = Math.floor(cardPosition);
+      const nextIndex = Math.min(solutionCards.length - 1, previousIndex + 1);
+      const blend = ease(cardPosition - previousIndex);
+      const activeIndex = blend < 0.5 ? previousIndex : nextIndex;
+      const activeId = solutionCards[activeIndex]?.dataset.solutionCard ?? '';
 
       solutionCards.forEach((card, index) => {
-        const center = index / maxIndex;
-        const distance = Math.abs(progress - center);
-        const intensity = ease(clamp(1 - distance / revealWindow));
-        const textOpacity = progress <= center
-          ? (distance <= revealWindow ? 1 : 0)
-          : ease(clamp(1 - (progress - center) / revealWindow));
-
-        card.style.setProperty('--solution-card-opacity', textOpacity.toFixed(3));
-        card.classList.toggle('is-active', textOpacity > 0.56);
-        card.setAttribute('aria-hidden', textOpacity > 0.18 ? 'false' : 'true');
-
-        if (intensity > activeIntensity) {
-          activeIntensity = intensity;
-          activeVisualOpacity = textOpacity;
-          activeId = card.dataset.solutionCard ?? activeId;
-        }
+        const isActive = index === activeIndex;
+        card.style.setProperty('--solution-card-opacity', isActive ? '1' : '0');
+        card.classList.toggle('is-active', isActive);
+        card.setAttribute('aria-hidden', isActive ? 'false' : 'true');
       });
 
-      setActiveSolution(activeId, activeVisualOpacity);
+      setActiveSolution(activeId, 1);
     };
 
     const requestSolutionsUpdate = () => {
+      scheduleSolutionsSnap();
       if (solutionTicking) return;
       solutionTicking = true;
       window.requestAnimationFrame(updateSolutions);
@@ -2318,6 +2351,73 @@ const solucionesHome = [
     updateSolutions();
     window.addEventListener('scroll', requestSolutionsUpdate, { passive: true });
     window.addEventListener('resize', requestSolutionsUpdate, { passive: true });
+
+    // Scroll magnetism: settle on the nearest complete solution after a short wheel pause.
+    if (!reduceSolutionsMotion) {
+      const SOL_START = 0.04;
+      const SOL_END   = 0.96;
+
+      const getCardSnapY = (i: number) => {
+        const scrollable = Math.max(1, solutionsSection.offsetHeight - window.innerHeight);
+        const rawP = SOL_START + (i / Math.max(1, solutionCards.length - 1)) * (SOL_END - SOL_START);
+        return solutionsSection.offsetTop + rawP * scrollable;
+      };
+
+      let solSnapping = false;
+      let solSnapTimer: ReturnType<typeof setTimeout>;
+      let solSnapFrame = 0;
+
+      const doSolSnap = () => {
+        if (solSnapping || window.innerWidth < 1024) return;
+        const scrollable = Math.max(1, solutionsSection.offsetHeight - window.innerHeight);
+        const rawP = (window.scrollY - solutionsSection.offsetTop) / scrollable;
+        if (rawP < SOL_START || rawP > SOL_END) return;
+
+        const snapYs = solutionCards.map((_, i) => getCardSnapY(i));
+        const targetY = snapYs.reduce((best, y) =>
+          Math.abs(window.scrollY - y) < Math.abs(window.scrollY - best) ? y : best,
+          snapYs[0]
+        );
+        if (Math.abs(window.scrollY - targetY) < 12) return;
+
+        solSnapping = true;
+        const startY = window.scrollY;
+        const distance = targetY - startY;
+        const duration = Math.min(420, Math.max(240, Math.abs(distance) * 0.45));
+        const startTime = performance.now();
+
+        const animateSnap = (now: number) => {
+          if (!solSnapping) return;
+          const progress = clamp((now - startTime) / duration);
+          const eased = 1 - Math.pow(1 - progress, 4);
+          window.scrollTo({ top: startY + distance * eased, behavior: 'instant' });
+
+          if (progress < 1) {
+            solSnapFrame = window.requestAnimationFrame(animateSnap);
+          } else {
+            solSnapping = false;
+          }
+        };
+
+        solSnapFrame = window.requestAnimationFrame(animateSnap);
+      };
+
+      scheduleSolutionsSnap = () => {
+        if (solSnapping || window.innerWidth < 1024) return;
+        clearTimeout(solSnapTimer);
+        solSnapTimer = setTimeout(doSolSnap, 140);
+      };
+
+      window.addEventListener('scrollend', doSolSnap, { passive: true });
+
+      window.addEventListener('wheel', () => {
+        if (solSnapping) {
+          solSnapping = false;
+          window.cancelAnimationFrame(solSnapFrame);
+        }
+        scheduleSolutionsSnap();
+      }, { passive: true });
+    }
   }
 
   {
