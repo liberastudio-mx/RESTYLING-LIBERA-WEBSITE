@@ -224,9 +224,90 @@ const solucionesHome = [
   </section>
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════════════════
+       3. MÉTODO, secuencia editorial sobre fondo claro
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    id="metodo"
+    data-method-clone-section
+    class="method-clone-scroll"
+    aria-label="Nuestro método"
+  >
+    <div class="container-libera method-clone-sticky">
+      <div class="method-clone-layout">
+        <div class="method-clone-copy">
+          <h2
+            class="font-display method-clone-title mb-8"
+            data-method-clone-title
+            style="
+              font-family: var(--font-display);
+              font-weight: 700;
+              letter-spacing: 0.015em;
+            "
+          >
+            <span class="method-clone-title-line" data-method-clone-title-line><span>Primero </span><span class="method-clone-title-action">ordenamos</span><span>.</span></span>
+            <span class="method-clone-title-line" data-method-clone-title-line><span>Después </span><span class="method-clone-title-action">diseñamos</span><span>.</span></span>
+            <span class="method-clone-title-line" data-method-clone-title-line><span>Luego </span><span class="method-clone-title-action">automatizamos</span><span>.</span></span>
+          </h2>
+        </div>
+
+        <div class="method-clone-stage" data-method-clone-stage>
+          {[
+            {
+              title: 'Diagnóstico',
+              description: 'Revisamos cómo te encuentran, cómo respondes y dónde se pierde valor. Sin compromiso y sin jerga.',
+              accent: 'var(--presencia)',
+            },
+            {
+              title: 'Arquitectura',
+              description: 'Definimos qué construir, en qué orden y por qué. Lo que no aporta, no entra.',
+              accent: 'var(--operacion)',
+            },
+            {
+              title: 'Diseño',
+              description: 'Claridad antes que decoración. Cada pantalla existe para explicar, convencer o convertir.',
+              accent: 'var(--orange)',
+            },
+            {
+              title: 'Desarrollo',
+              description: 'Código original, stack moderno, sistemas probados. Nada de templates disfrazados.',
+              accent: 'var(--ai)',
+            },
+            {
+              title: 'Integración',
+              description: 'Conectamos la solución con tu operación real: WhatsApp, CRM, formularios, analytics.',
+              accent: 'var(--productos)',
+            },
+            {
+              title: 'Evolución',
+              description: 'Medimos, ajustamos y crecemos el sistema. Un sistema vivo no se entrega: se cultiva.',
+              accent: 'var(--operacion)',
+            },
+          ].map((step) => (
+            <div
+              class="method-clone-step"
+              style={`--step-accent: ${step.accent};`}
+              data-method-clone-step
+            >
+              <h3
+                class="font-display mb-4"
+                style="font-family: var(--font-display);"
+                data-method-clone-step-title
+              >
+                {step.title}
+              </h3>
+              <p class="text-base leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       3. SOLUCIONES, Full-bleed con 4 bloques colorati
+       4. SOLUCIONES, Full-bleed con 4 bloques colorati
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="soluciones"
@@ -319,89 +400,6 @@ const solucionesHome = [
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       4. MÉTODO, Editorial Split, sfondo scuro
-       ═══════════════════════════════════════════════════════════════════ -->
-  <section
-    id="metodo"
-    data-method-clone-section
-    style="background: #120F17;"
-    class="method-clone-scroll"
-    aria-label="Nuestro método"
-  >
-    <div class="container-libera method-clone-sticky">
-      <div class="method-clone-layout">
-        <div class="method-clone-copy">
-          <h2
-            class="font-display method-clone-title mb-8"
-            data-method-clone-title
-            style="
-              font-family: var(--font-display);
-              font-weight: 700;
-              letter-spacing: 0.015em;
-            "
-          >
-            <span class="method-clone-title-line" data-method-clone-title-line><span>Primero </span><span class="method-clone-title-action">ordenamos</span><span>.</span></span>
-            <span class="method-clone-title-line" data-method-clone-title-line><span>Después </span><span class="method-clone-title-action">diseñamos</span><span>.</span></span>
-            <span class="method-clone-title-line" data-method-clone-title-line><span>Luego </span><span class="method-clone-title-action">automatizamos</span><span>.</span></span>
-          </h2>
-        </div>
-
-        <div class="method-clone-stage" data-method-clone-stage>
-          {[
-            {
-              title: 'Diagnóstico',
-              description: 'Revisamos cómo te encuentran, cómo respondes y dónde se pierde valor. Sin compromiso y sin jerga.',
-              accent: 'var(--presencia)',
-            },
-            {
-              title: 'Arquitectura',
-              description: 'Definimos qué construir, en qué orden y por qué. Lo que no aporta, no entra.',
-              accent: 'var(--operacion)',
-            },
-            {
-              title: 'Diseño',
-              description: 'Claridad antes que decoración. Cada pantalla existe para explicar, convencer o convertir.',
-              accent: 'var(--orange)',
-            },
-            {
-              title: 'Desarrollo',
-              description: 'Código original, stack moderno, sistemas probados. Nada de templates disfrazados.',
-              accent: 'var(--ai)',
-            },
-            {
-              title: 'Integración',
-              description: 'Conectamos la solución con tu operación real: WhatsApp, CRM, formularios, analytics.',
-              accent: 'var(--productos)',
-            },
-            {
-              title: 'Evolución',
-              description: 'Medimos, ajustamos y crecemos el sistema. Un sistema vivo no se entrega: se cultiva.',
-              accent: 'var(--operacion)',
-            },
-          ].map((step) => (
-            <div
-              class="method-clone-step"
-              style={`--step-accent: ${step.accent};`}
-              data-method-clone-step
-            >
-              <h3
-                class="font-display mb-4"
-                style="font-family: var(--font-display);"
-                data-method-clone-step-title
-              >
-                {step.title}
-              </h3>
-              <p class="text-base leading-relaxed">
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════
        5. TRABAJO, Eyebrow 2 di 3, card grid su sfondo chiaro
@@ -1047,7 +1045,7 @@ const solucionesHome = [
   .solutions-overlap {
     position: relative;
     z-index: 3;
-    margin-top: -100dvh;
+    margin-top: 0;
     min-height: 420dvh;
     padding-block: 0;
   }
@@ -1884,6 +1882,7 @@ const solucionesHome = [
     min-height: 900dvh;
     margin-bottom: 0;
     position: relative;
+    background: var(--surface);
   }
 
   .method-clone-sticky {
@@ -1914,7 +1913,7 @@ const solucionesHome = [
     --method-clone-title-fit: 1;
     --method-clone-title-opacity: 1;
     text-transform: uppercase;
-    color: var(--text-light);
+    color: #003049;
     font-size: clamp(1.05rem, calc(4.6vw * var(--method-clone-title-fit)), 4.65rem);
     line-height: 1.12;
     max-width: 100%;
@@ -1933,7 +1932,7 @@ const solucionesHome = [
     display: block;
     width: max-content;
     max-width: none;
-    color: var(--text-light);
+    color: #003049;
     opacity: var(--method-clone-line-opacity);
     transform: translate3d(var(--method-clone-line-x), var(--method-clone-line-y), 0) scale(var(--method-clone-line-scale));
     transform-origin: left top;
@@ -1943,7 +1942,7 @@ const solucionesHome = [
   }
 
   .method-clone-title-action {
-    color: color-mix(in oklch, var(--orange) var(--method-clone-line-accent), var(--text-light));
+    color: color-mix(in oklch, var(--orange) var(--method-clone-line-accent), #003049);
   }
 
   .method-clone-stage {
@@ -1972,7 +1971,7 @@ const solucionesHome = [
   }
 
   .method-clone-step h3 {
-    color: var(--text-light);
+    color: #003049;
     font-size: calc(clamp(4.5rem, 14vw, 15rem) * var(--method-clone-step-title-fit, 1));
     font-style: normal;
     font-weight: 900;
@@ -1985,7 +1984,7 @@ const solucionesHome = [
   }
 
   .method-clone-step p {
-    color: oklch(86% 0.012 60);
+    color: #003049;
     font-size: clamp(1.35rem, 2.4vw, 2rem);
     line-height: 1.35;
     max-width: 58rem;
@@ -2867,8 +2866,4 @@ const solucionesHome = [
   })();
 
 
-</script>
-
-<script>
-  import '../scripts/method-aurora.js';
 </script>
