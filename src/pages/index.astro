@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import DiagnosticForm from '@/components/DiagnosticForm.astro';
 
 import problemasImg    from '@/assets/images/LS - problemas.png';
 import solOperacionImg from '@/assets/images/LS - 2 - operacion inteligente.png';
@@ -96,6 +97,7 @@ const solucionesHome = [
   <div class="hero-pin-stage">
   <section
     id="hero"
+    data-header-theme="light"
     class="hero-panel relative flex flex-col justify-center min-h-[100dvh] overflow-hidden"
     style="background: #ffffff;"
     aria-label="Hero"
@@ -109,7 +111,7 @@ const solucionesHome = [
       <!-- Headline -->
       <h1
         class="mb-8"
-        style="color: #003049; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(1.75rem, 2.8vw, 3rem);"
+        style="color: #003049; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(3.5rem, 7.5vw, 9rem);"
         data-reveal
         data-hero-headline
       >
@@ -120,24 +122,24 @@ const solucionesHome = [
 
       <!-- Subheadline -->
       <p
-        class="mb-10 max-w-xl text-lg leading-relaxed"
-        style="color: #003049; opacity: 0.7; transition-delay: 110ms;"
+        class="mb-10 max-w-2xl leading-relaxed"
+        style="color: #003049; opacity: 0.7; transition-delay: 110ms; font-size: clamp(1.35rem, 2.2vw, 2rem);"
         data-reveal
       >
         Presencia digital, automatización e inteligencia artificial.
       </p>
 
-    </div>
+      <!-- CTAs -->
+      <div class="flex flex-wrap items-center gap-4" data-reveal style="transition-delay: 180ms;">
+        <a href="#diagnostico" class="btn btn-primary">
+          Solicitar diagnóstico
+          <span class="btn-icon" aria-hidden="true">→</span>
+        </a>
+        <a href="/trabajo" class="btn btn-ghost-light">
+          Trabajos
+        </a>
+      </div>
 
-    <!-- CTAs — anchored to bottom -->
-    <div class="container-libera absolute bottom-10 left-0 right-0 flex flex-wrap items-center gap-4" data-reveal style="transition-delay: 180ms;">
-      <a href="/diagnostico" class="btn btn-primary">
-        Solicitar diagnóstico
-        <span class="btn-icon" aria-hidden="true">→</span>
-      </a>
-      <a href="/trabajo" class="btn btn-ghost-light">
-        Trabajos
-      </a>
     </div>
 
   </section>
@@ -150,6 +152,7 @@ const solucionesHome = [
   <div class="problem-pin-stage">
   <section
     id="problema"
+    data-header-theme="light"
     style="background: #ffffff;"
     class="problem-overlap"
     aria-label="El problema que resolvemos"
@@ -229,6 +232,7 @@ const solucionesHome = [
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="metodo"
+    data-header-theme="light"
     data-method-clone-section
     class="method-clone-scroll"
     aria-label="Nuestro método"
@@ -312,6 +316,7 @@ const solucionesHome = [
   <section
     id="soluciones"
     data-solutions-section
+    data-header-theme="light"
     style="background: var(--surface);"
     class="solutions-overlap pb-24 lg:pb-32"
     aria-label="Nuestras soluciones"
@@ -407,6 +412,7 @@ const solucionesHome = [
   <div class="work-pin-stage">
   <section
     id="trabajo"
+    data-header-theme="light"
     style="background: var(--surface); background-image: radial-gradient(oklch(10% 0.01 25 / 0.045) 1px, transparent 1px); background-size: 22px 22px;"
     class="work-overlap"
     aria-label="Nuestro trabajo"
@@ -536,6 +542,7 @@ const solucionesHome = [
   <div class="conocimiento-pin-stage">
   <section
     id="conocimiento"
+    data-header-theme="dark"
     aria-label="Radar"
   >
     <div class="conocimiento-half radar-feature" style="background: var(--ink); position: relative; overflow: hidden;">
@@ -659,8 +666,9 @@ const solucionesHome = [
        ═══════════════════════════════════════════════════════════════════ -->
   <section
     id="cta"
+    data-header-theme="light"
     class="relative overflow-hidden flex items-center cta-overlap"
-    style="background: var(--ink); min-height: 100dvh;"
+    style="background: var(--surface); min-height: 100dvh;"
     aria-label="Llamada a la acción"
   >
     <!-- Background image -->
@@ -671,14 +679,14 @@ const solucionesHome = [
       widths={[800, 1440, 1920]}
       sizes="100vw"
       class="absolute inset-0 w-full h-full pointer-events-none select-none"
-      style="object-fit: cover; object-position: center; opacity: 0.18;"
+      style="object-fit: cover; object-position: center; opacity: 0.045;"
       loading="lazy"
     />
 
     <!-- Glow -->
     <div
       class="absolute inset-0 pointer-events-none"
-      style="background: radial-gradient(ellipse at center, var(--orange-glow) 0%, transparent 60%);"
+      style="background: radial-gradient(ellipse at center, oklch(92% 0.045 55 / 0.42) 0%, transparent 62%);"
       aria-hidden="true"
     ></div>
 
@@ -689,38 +697,32 @@ const solucionesHome = [
       aria-hidden="true"
     >
       <svg viewBox="0 0 400 440" fill="none" class="w-full h-full" aria-hidden="true">
-        <path d="M40 444 L200 36 L360 444" stroke="oklch(96% 0.005 60 / 0.05)" stroke-width="1.5" />
-        <line x1="128" y1="312" x2="272" y2="312" stroke="oklch(96% 0.005 60 / 0.05)" stroke-width="1.5" />
+        <path d="M40 444 L200 36 L360 444" stroke="oklch(36% 0.08 235 / 0.07)" stroke-width="1.5" />
+        <line x1="128" y1="312" x2="272" y2="312" stroke="oklch(36% 0.08 235 / 0.07)" stroke-width="1.5" />
         <circle cx="200" cy="36" r="4" fill="oklch(70% 0.19 55 / 0.4)" />
       </svg>
     </div>
 
-    <div class="container-libera relative z-10 text-center" data-reveal>
+    <div class="container-libera relative z-10 text-center cta-content" data-reveal>
       <h2
         class="display-hero mb-8 mx-auto max-w-5xl"
-        style="font-size: clamp(2.5rem, 6vw, 5.5rem); color: var(--text-light);"
+        style="font-size: clamp(2.5rem, 6vw, 5.5rem); color: var(--brand-navy);"
       >
         Tu negocio ya funciona.
         <span style="color: var(--orange);"> Imagínalo funcionando en orden.</span>
       </h2>
 
-      <p class="text-lg mb-12 max-w-xl mx-auto" style="color: var(--text-light);">
+      <p class="text-lg mb-12 max-w-xl mx-auto" style="color: var(--brand-navy);">
         Empecemos por un diagnóstico: revisamos cómo te encuentran, cómo respondes
         y qué parte de tu sistema digital necesita orden primero. Sin costo y sin compromiso.
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/diagnostico" class="btn btn-primary text-lg">
-          Solicitar diagnóstico
-          <span class="btn-icon" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M1 11L11 1M11 1H2M11 1v9"/>
-            </svg>
-          </span>
-        </a>
-        <a href="/contacto" class="btn btn-ghost-dark text-lg">
-          Hablar con el equipo
-        </a>
+      <div class="cta-form-wrap" id="diagnostico">
+        <DiagnosticForm
+          idPrefix="home-diagnostico"
+          theme="light"
+          ariaLabel="Solicita un diagnóstico desde la página de inicio"
+        />
       </div>
     </div>
   </section>
@@ -1266,6 +1268,20 @@ const solucionesHome = [
     position: relative;
     z-index: 7;
     margin-top: calc(var(--nav-height, 72px) - 100dvh);
+    padding-block: clamp(7rem, 10vw, 10rem);
+  }
+
+  .cta-content {
+    width: 100%;
+  }
+
+  .cta-form-wrap {
+    width: min(100%, 64rem);
+    margin-inline: auto;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    border: 1px solid oklch(82% 0.025 235);
+    border-radius: 1.5rem;
+    background: oklch(98% 0.006 235 / 0.94);
   }
 
   @media (prefers-reduced-motion: reduce) {

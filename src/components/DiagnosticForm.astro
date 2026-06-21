@@ -1,0 +1,579 @@
+---
+interface Props {
+  idPrefix?: string;
+  ariaLabel?: string;
+  theme?: 'dark' | 'light';
+}
+
+const {
+  idPrefix = 'diagnostico',
+  ariaLabel = 'Formulario de diagnóstico',
+  theme = 'dark',
+} = Astro.props;
+
+const fieldId = (name: string) => `${idPrefix}-${name}`;
+---
+
+<form
+  data-diagnostic-form
+  name="diagnostico"
+  method="POST"
+  class="diagnostic-form"
+  data-theme={theme}
+  novalidate
+  aria-label={ariaLabel}
+>
+  <div class="diagnostic-grid diagnostic-grid--2">
+    <div class="diagnostic-field">
+      <label for={fieldId('nombre')}>Nombre <span aria-hidden="true">*</span></label>
+      <input
+        id={fieldId('nombre')}
+        name="nombre"
+        type="text"
+        required
+        autocomplete="name"
+        placeholder="Tu nombre"
+        aria-describedby={fieldId('nombre-error')}
+      />
+      <p id={fieldId('nombre-error')} class="diagnostic-error" data-error-for="nombre">
+        Escribe tu nombre para preparar el diagnóstico.
+      </p>
+    </div>
+
+    <div class="diagnostic-field">
+      <label for={fieldId('empresa')}>Empresa</label>
+      <input
+        id={fieldId('empresa')}
+        name="empresa"
+        type="text"
+        autocomplete="organization"
+        placeholder="Nombre de tu empresa"
+      />
+    </div>
+  </div>
+
+  <div class="diagnostic-grid diagnostic-grid--2">
+    <div class="diagnostic-field">
+      <label for={fieldId('email')}>Email <span aria-hidden="true">*</span></label>
+      <input
+        id={fieldId('email')}
+        name="email"
+        type="email"
+        required
+        autocomplete="email"
+        placeholder="tu@empresa.com"
+        aria-describedby={fieldId('email-error')}
+      />
+      <p id={fieldId('email-error')} class="diagnostic-error" data-error-for="email">
+        Escribe un email válido para poder responderte.
+      </p>
+    </div>
+
+    <div class="diagnostic-field">
+      <label for={fieldId('ciudad')}>Ciudad</label>
+      <input
+        id={fieldId('ciudad')}
+        name="ciudad"
+        type="text"
+        autocomplete="address-level2"
+        placeholder="Mérida, México"
+      />
+    </div>
+  </div>
+
+  <div class="diagnostic-field">
+    <label for={fieldId('web')}>Sitio web actual</label>
+    <input
+      id={fieldId('web')}
+      name="web"
+      type="url"
+      autocomplete="url"
+      placeholder="https://tuempresa.com"
+      aria-describedby={fieldId('web-error')}
+    />
+    <p id={fieldId('web-error')} class="diagnostic-error" data-error-for="web">
+      Usa una URL completa, por ejemplo https://tuempresa.com.
+    </p>
+  </div>
+
+  <div class="diagnostic-field">
+    <label for={fieldId('objetivo')}>
+      Principal problema u objetivo <span aria-hidden="true">*</span>
+    </label>
+    <select
+      id={fieldId('objetivo')}
+      name="objetivo"
+      required
+      aria-describedby={fieldId('objetivo-error')}
+    >
+      <option value="">Selecciona el más importante</option>
+      <option value="presencia">Mejorar mi presencia digital y web</option>
+      <option value="operacion">Ordenar la operación interna</option>
+      <option value="leads">Generar y dar seguimiento a leads</option>
+      <option value="automatizar">Automatizar procesos repetitivos</option>
+      <option value="ia">Implementar IA de forma útil</option>
+      <option value="app">Construir un producto digital / app</option>
+      <option value="otro">Otro</option>
+    </select>
+    <p id={fieldId('objetivo-error')} class="diagnostic-error" data-error-for="objetivo">
+      Selecciona el punto principal que quieres resolver.
+    </p>
+  </div>
+
+  <div class="diagnostic-grid diagnostic-grid--3">
+    <div class="diagnostic-field">
+      <label for={fieldId('servicio')}>Servicio de interés</label>
+      <select id={fieldId('servicio')} name="servicio">
+        <option value="">No estoy seguro</option>
+        <option value="web">Sitio web / landing page</option>
+        <option value="redes">Redes sociales / Google Business</option>
+        <option value="automatizacion">Automatización de procesos</option>
+        <option value="ia">Agente de IA / asistente</option>
+        <option value="paos">PAOS / sistema operativo digital</option>
+        <option value="producto">Producto digital / app</option>
+      </select>
+    </div>
+
+    <div class="diagnostic-field">
+      <label for={fieldId('presupuesto')}>Presupuesto aproximado</label>
+      <select id={fieldId('presupuesto')} name="presupuesto">
+        <option value="">Prefiero hablarlo</option>
+        <option value="menos-20k">Menos de $20,000 MXN</option>
+        <option value="20-50k">$20,000 – $50,000 MXN</option>
+        <option value="50-150k">$50,000 – $150,000 MXN</option>
+        <option value="mas-150k">Más de $150,000 MXN</option>
+      </select>
+    </div>
+
+    <div class="diagnostic-field">
+      <label for={fieldId('urgencia')}>Urgencia</label>
+      <select id={fieldId('urgencia')} name="urgencia">
+        <option value="">Solo estoy explorando</option>
+        <option value="ya">Lo antes posible</option>
+        <option value="semanas">Próximas semanas</option>
+        <option value="meses">Próximos meses</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="diagnostic-field">
+    <label for={fieldId('mensaje')}>Cuéntanos más</label>
+    <textarea
+      id={fieldId('mensaje')}
+      name="mensaje"
+      rows="4"
+      placeholder="¿Cuál es la situación actual y qué resultado esperas?"
+    ></textarea>
+  </div>
+
+  <fieldset class="diagnostic-consents">
+    <legend>Privacidad y comunicaciones</legend>
+
+    <label class="diagnostic-check" for={fieldId('privacidad')}>
+      <input
+        id={fieldId('privacidad')}
+        name="privacidad"
+        type="checkbox"
+        required
+        aria-describedby={fieldId('privacidad-error')}
+      />
+      <span>
+        He leído el <a href="/privacidad" target="_blank" rel="noopener">Aviso de Privacidad</a>
+        y autorizo el tratamiento de mis datos para que LIBERA Studio responda a mi solicitud.
+        <strong aria-hidden="true">*</strong>
+      </span>
+    </label>
+    <p id={fieldId('privacidad-error')} class="diagnostic-error" data-error-for="privacidad">
+      Debes aceptar el Aviso de Privacidad para enviar la solicitud.
+    </p>
+
+    <label class="diagnostic-check" for={fieldId('marketing')}>
+      <input
+        id={fieldId('marketing')}
+        name="marketing"
+        type="checkbox"
+      />
+      <span>
+        Quiero recibir novedades sobre estrategia digital, automatización, inteligencia artificial
+        y recursos útiles para mi negocio.
+      </span>
+    </label>
+  </fieldset>
+
+  <p class="diagnostic-status" data-form-status role="status" aria-live="polite" hidden></p>
+
+  <div class="diagnostic-submit-row">
+    <button type="submit" class="btn btn-primary text-base" data-form-submit>
+      <span data-submit-label>Preparar solicitud</span>
+      <span class="btn-icon" aria-hidden="true">›</span>
+    </button>
+    <p>Respondemos en menos de 48 horas. Sin llamadas insistentes, sin spam.</p>
+  </div>
+</form>
+
+<script>
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const urlPattern = /^https?:\/\/.+\..+/;
+
+  document.querySelectorAll<HTMLFormElement>('[data-diagnostic-form]').forEach((form) => {
+    if (form.dataset.ready === 'true') return;
+    form.dataset.ready = 'true';
+
+    const status = form.querySelector<HTMLElement>('[data-form-status]');
+    const submit = form.querySelector<HTMLButtonElement>('[data-form-submit]');
+    const submitLabel = submit?.querySelector<HTMLElement>('[data-submit-label]');
+
+    const setFieldState = (
+      field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement,
+      valid: boolean,
+    ) => {
+      const message = form.querySelector<HTMLElement>(`[data-error-for="${field.name}"]`);
+      field.setAttribute('aria-invalid', String(!valid));
+      message?.classList.toggle('is-visible', !valid);
+    };
+
+    const setStatus = (message: string, tone: 'success' | 'error') => {
+      if (!status) return;
+      status.hidden = false;
+      status.textContent = message;
+      status.dataset.tone = tone;
+    };
+
+    const validate = () => {
+      const nombre = form.elements.namedItem('nombre') as HTMLInputElement;
+      const email = form.elements.namedItem('email') as HTMLInputElement;
+      const web = form.elements.namedItem('web') as HTMLInputElement;
+      const objetivo = form.elements.namedItem('objetivo') as HTMLSelectElement;
+      const privacidad = form.elements.namedItem('privacidad') as HTMLInputElement;
+      const checks = [
+        [nombre, nombre.value.trim().length > 1],
+        [email, emailPattern.test(email.value.trim())],
+        [web, !web.value.trim() || urlPattern.test(web.value.trim())],
+        [objetivo, Boolean(objetivo.value)],
+        [privacidad, privacidad.checked],
+      ] as const;
+
+      checks.forEach(([field, valid]) => setFieldState(field, valid));
+      checks.find(([, valid]) => !valid)?.[0].focus();
+      return checks.every(([, valid]) => valid);
+    };
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (!validate()) {
+        setStatus('Revisa los campos marcados antes de preparar la solicitud.', 'error');
+        return;
+      }
+
+      if (submit) submit.disabled = true;
+      if (submitLabel) submitLabel.textContent = 'Preparando...';
+
+      const data = new FormData(form);
+      const subject = 'Solicitud de diagnóstico digital';
+      const body = [
+        `Nombre: ${data.get('nombre')}`,
+        `Empresa: ${data.get('empresa') || 'No indicada'}`,
+        `Email: ${data.get('email')}`,
+        `Ciudad: ${data.get('ciudad') || 'No indicada'}`,
+        `Sitio web: ${data.get('web') || 'No indicado'}`,
+        `Objetivo: ${data.get('objetivo')}`,
+        `Servicio de interés: ${data.get('servicio') || 'No está seguro'}`,
+        `Presupuesto: ${data.get('presupuesto') || 'Prefiere hablarlo'}`,
+        `Urgencia: ${data.get('urgencia') || 'Explorando'}`,
+        `Aviso de privacidad aceptado: ${data.get('privacidad') ? 'Sí' : 'No'}`,
+        `Comunicaciones comerciales: ${data.get('marketing') ? 'Sí' : 'No'}`,
+        '',
+        `Contexto: ${data.get('mensaje') || 'No indicado'}`,
+      ].join('\n');
+
+      window.location.href = `mailto:hola@liberastudio.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus(
+        'Se preparó un borrador de correo con tu diagnóstico. Revísalo y envíalo desde tu cliente de email.',
+        'success',
+      );
+
+      window.setTimeout(() => {
+        if (submit) submit.disabled = false;
+        if (submitLabel) submitLabel.textContent = 'Preparar solicitud';
+      }, 1200);
+    });
+  });
+</script>
+
+<style>
+  .diagnostic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    text-align: left;
+  }
+
+  .diagnostic-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .diagnostic-field {
+    min-width: 0;
+  }
+
+  .diagnostic-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: oklch(78% 0.008 25);
+    font-size: 0.875rem;
+    font-weight: 550;
+  }
+
+  .diagnostic-field label span {
+    color: var(--orange);
+  }
+
+  .diagnostic-field input,
+  .diagnostic-field select,
+  .diagnostic-field textarea {
+    width: 100%;
+    min-height: 3rem;
+    border: 1px solid var(--border-dark);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: oklch(14% 0.01 25 / 0.88);
+    color: var(--text-light);
+    font: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+    transition:
+      border-color 0.2s cubic-bezier(0.32, 0.72, 0, 1),
+      background-color 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .diagnostic-field textarea {
+    min-height: 7.5rem;
+    resize: vertical;
+  }
+
+  .diagnostic-field input::placeholder,
+  .diagnostic-field textarea::placeholder {
+    color: oklch(55% 0.008 25);
+  }
+
+  .diagnostic-field input:hover,
+  .diagnostic-field select:hover,
+  .diagnostic-field textarea:hover {
+    border-color: oklch(46% 0.02 45);
+  }
+
+  .diagnostic-field input:focus-visible,
+  .diagnostic-field select:focus-visible,
+  .diagnostic-field textarea:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+    border-color: var(--orange);
+    background: oklch(16% 0.012 25);
+  }
+
+  .diagnostic-field input[aria-invalid='true'],
+  .diagnostic-field select[aria-invalid='true'],
+  .diagnostic-field textarea[aria-invalid='true'] {
+    border-color: oklch(64% 0.16 35);
+  }
+
+  .diagnostic-error {
+    display: none;
+    margin-top: 0.5rem;
+    color: oklch(78% 0.13 35);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+
+  .diagnostic-error.is-visible {
+    display: block;
+  }
+
+  .diagnostic-status {
+    border: 1px solid var(--border-dark);
+    border-radius: 0.875rem;
+    padding: 1rem;
+    color: var(--text-muted-light);
+    background: oklch(12% 0.01 25);
+  }
+
+  .diagnostic-status[data-tone='success'] {
+    color: var(--text-light);
+    border-color: oklch(42% 0.08 145);
+    background: oklch(16% 0.035 145 / 0.72);
+  }
+
+  .diagnostic-status[data-tone='error'] {
+    color: var(--text-light);
+    border-color: oklch(48% 0.12 35);
+    background: oklch(16% 0.035 35 / 0.72);
+  }
+
+  .diagnostic-consents {
+    display: grid;
+    gap: 0.875rem;
+    min-width: 0;
+    margin: 0;
+    border: 0;
+    padding: 0;
+  }
+
+  .diagnostic-consents legend {
+    margin-bottom: 0.125rem;
+    color: oklch(78% 0.008 25);
+    font-size: 0.875rem;
+    font-weight: 650;
+  }
+
+  .diagnostic-check {
+    display: grid;
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: start;
+    min-height: 2.75rem;
+    cursor: pointer;
+    color: oklch(68% 0.008 25);
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+
+  .diagnostic-check input {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0.15rem 0 0;
+    accent-color: var(--orange);
+    cursor: pointer;
+  }
+
+  .diagnostic-check input:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+  }
+
+  .diagnostic-check a {
+    color: inherit;
+    font-weight: 650;
+    text-decoration: underline;
+    text-decoration-color: var(--orange);
+    text-underline-offset: 0.18em;
+  }
+
+  .diagnostic-check a:hover {
+    color: var(--orange);
+  }
+
+  .diagnostic-check strong {
+    color: var(--orange);
+  }
+
+  .diagnostic-check input[aria-invalid='true'] {
+    outline: 2px solid oklch(64% 0.16 35);
+    outline-offset: 2px;
+  }
+
+  .diagnostic-submit-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .diagnostic-submit-row p {
+    max-width: 30rem;
+    color: oklch(62% 0.008 25);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .diagnostic-submit-row button:disabled {
+    cursor: wait;
+    opacity: 0.55;
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-field label {
+    color: var(--brand-navy);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-field input,
+  .diagnostic-form[data-theme='light'] .diagnostic-field select,
+  .diagnostic-form[data-theme='light'] .diagnostic-field textarea {
+    border-color: oklch(82% 0.025 235);
+    background: var(--surface);
+    color: var(--brand-navy);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-field input::placeholder,
+  .diagnostic-form[data-theme='light'] .diagnostic-field textarea::placeholder {
+    color: oklch(56% 0.035 235);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-field input:hover,
+  .diagnostic-form[data-theme='light'] .diagnostic-field select:hover,
+  .diagnostic-form[data-theme='light'] .diagnostic-field textarea:hover {
+    border-color: oklch(58% 0.08 235);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-field input:focus-visible,
+  .diagnostic-form[data-theme='light'] .diagnostic-field select:focus-visible,
+  .diagnostic-form[data-theme='light'] .diagnostic-field textarea:focus-visible {
+    background: oklch(98% 0.008 235);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-error {
+    color: oklch(48% 0.16 35);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-consents legend,
+  .diagnostic-form[data-theme='light'] .diagnostic-check {
+    color: var(--brand-navy);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-status {
+    border-color: oklch(82% 0.025 235);
+    background: oklch(97% 0.008 235);
+    color: var(--brand-navy);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-status[data-tone='success'] {
+    border-color: oklch(62% 0.1 145);
+    background: oklch(95% 0.035 145);
+    color: oklch(32% 0.08 145);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-status[data-tone='error'] {
+    border-color: oklch(66% 0.12 35);
+    background: oklch(96% 0.035 35);
+    color: oklch(38% 0.12 35);
+  }
+
+  .diagnostic-form[data-theme='light'] .diagnostic-submit-row p {
+    color: oklch(42% 0.045 235);
+  }
+
+  @media (min-width: 768px) {
+    .diagnostic-grid--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .diagnostic-grid--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .diagnostic-submit-row {
+      align-items: stretch;
+      flex-direction: column;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .diagnostic-field input,
+    .diagnostic-field select,
+    .diagnostic-field textarea {
+      transition-duration: 0.01ms;
+    }
+  }
+</style>

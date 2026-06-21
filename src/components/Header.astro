@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import logoImg from '@/assets/images/LIBERA-Logo-dark.png';
+import logoDarkImg from '@/assets/images/LIBERA-Logo-dark.png';
+import logoWhiteImg from '@/assets/images/LIBERA-Logo-white.png';
 
 const currentPath = Astro.url.pathname;
 
@@ -10,13 +11,15 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
 <header
   id="site-header"
   class="fixed top-0 left-0 right-0"
+  data-header-theme="light"
   style="height: var(--nav-height); z-index: var(--z-header);"
 >
+  <!-- Design: Hybrid chrome | Product behavior | Minimal transparent surface | Adaptive contrast -->
   <!-- Backdrop -->
   <div
     id="header-bg"
-    class="absolute inset-0 transition-all duration-300"
-    style="background: #ffffff; border-bottom: none;"
+    class="absolute inset-0"
+    aria-hidden="true"
   ></div>
 
   <div class="container-libera relative h-full flex items-center justify-between gap-8">
@@ -24,17 +27,26 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
     <!-- Logo -->
     <a href="/" class="site-logo flex-shrink-0 flex items-center z-10" aria-label="LIBERA Studio, Inicio">
       <Image
-        src={logoImg}
+        src={logoDarkImg}
         alt="LIBERA Studio"
         width={214}
         height={40}
-        class="block"
+        class="site-logo-image site-logo-image--dark block"
+        style="width: auto; height: 32px;"
+      />
+      <Image
+        src={logoWhiteImg}
+        alt=""
+        aria-hidden="true"
+        width={214}
+        height={40}
+        class="site-logo-image site-logo-image--white block"
         style="width: auto; height: 32px;"
       />
     </a>
 
     <!-- Desktop nav -->
-    <nav class="hidden lg:flex items-center gap-0.5 flex-1 justify-center" aria-label="Navegación principal">
+    <nav class="central-nav hidden lg:flex items-center gap-0.5 justify-center" aria-label="Navegación principal">
 
       <!-- ── Soluciones, MEGA LARGE ───────────────────────────────── -->
       <div class="relative group">
@@ -78,12 +90,6 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
                 </ul>
               </div>
             ))}
-          </div>
-          <div class="mx-5 mb-5 px-4 py-3 rounded-xl flex items-center justify-between" style="background: rgba(0,48,73,0.04); border: 1px solid rgba(0,48,73,0.1);">
-            <p class="text-xs" style="color: rgba(0,48,73,0.5);">¿No sabes por dónde empezar?</p>
-            <a href="/diagnostico" class="text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-200 hover:bg-orange-500/10" style="color: var(--orange); border: 1px solid rgba(247,127,0,0.4);">
-              Solicitar diagnóstico →
-            </a>
           </div>
         </div>
       </div>
@@ -145,16 +151,6 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
 
     <!-- CTA + hamburger -->
     <div class="flex items-center gap-3 flex-shrink-0">
-      <a
-        href="/diagnostico"
-        class="btn btn-primary hidden md:flex text-sm"
-      >
-        Solicitar diagnóstico
-        <span class="btn-icon" aria-hidden="true">
-          <svg width="7" height="7" viewBox="0 0 8 8" fill="currentColor"><path d="M1 7L7 1M7 1H2M7 1v5"/></svg>
-        </span>
-      </a>
-
       <!-- Hamburger, mobile only -->
       <button
         id="menu-toggle"
@@ -162,7 +158,6 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
         aria-expanded="false"
         aria-controls="mobile-menu"
         aria-label="Abrir menú"
-        style="color: #003049;"
       >
         <span id="bar1" class="w-5 h-0.5 rounded-full transition-all duration-300 origin-center" style="background: currentColor;"></span>
         <span id="bar2" class="w-5 h-0.5 rounded-full transition-all duration-300" style="background: currentColor;"></span>
@@ -193,12 +188,6 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
           {link.label}
         </a>
       ))}
-      <div class="mt-8">
-        <a href="/diagnostico" class="btn btn-primary">
-          Solicitar diagnóstico
-          <span class="btn-icon" aria-hidden="true">›</span>
-        </a>
-      </div>
     </div>
   </div>
 </header>
@@ -218,8 +207,18 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
     transform: rotate(180deg);
   }
   .site-logo {
+    position: relative;
     min-height: 44px;
     transition: opacity 0.2s var(--ease-premium), transform 0.2s var(--ease-premium);
+  }
+  .site-logo-image {
+    transition: opacity 0.24s var(--ease-premium);
+  }
+  .site-logo-image--white {
+    position: absolute;
+    inset: 50% auto auto 0;
+    opacity: 0;
+    transform: translateY(-50%);
   }
   .site-logo:hover {
     opacity: 0.78;
@@ -228,11 +227,85 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
     transform: scale(0.98);
   }
   .nav-btn {
-    color: #003049 !important;
+    min-height: 2.25rem;
+    padding: 0.4rem 1rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: oklch(99% 0.002 70) !important;
+    transition:
+      color 0.24s var(--ease-premium),
+      background-color 0.2s var(--ease-premium),
+      border-color 0.2s var(--ease-premium);
   }
   .nav-btn:hover {
-    color: #003049 !important;
-    background: rgba(0,48,73,0.05);
+    background: oklch(100% 0 0 / 0.12);
+    color: oklch(99% 0.002 70) !important;
+  }
+  .nav-btn:active {
+    background: oklch(100% 0 0 / 0.18);
+  }
+  .nav-btn[aria-current="page"] {
+    background: oklch(100% 0 0 / 0.14);
+  }
+  .central-nav {
+    position: absolute;
+    left: 50%;
+    flex: 0 0 auto;
+    padding: 0.2rem;
+    border: 1px solid var(--brand-navy);
+    border-radius: 999px;
+    background: var(--brand-navy);
+    transform: translateX(-50%);
+    transition:
+      background-color 0.24s var(--ease-premium),
+      border-color 0.24s var(--ease-premium);
+  }
+  #site-header {
+    --header-foreground: #003049;
+    --header-hover: rgba(0,48,73,0.05);
+    color: var(--header-foreground);
+    transition: color 0.24s var(--ease-premium);
+  }
+  #header-bg {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    pointer-events: none;
+  }
+  #menu-toggle {
+    color: var(--header-foreground);
+    transition:
+      color 0.24s var(--ease-premium),
+      background-color 0.2s var(--ease-premium);
+  }
+  #menu-toggle:hover {
+    background: var(--header-hover);
+  }
+  #site-header[data-header-theme="dark"] {
+    --header-foreground: oklch(98% 0.004 70);
+    --header-hover: oklch(100% 0 0 / 0.12);
+  }
+  #site-header[data-header-theme="dark"] .central-nav {
+    border-color: oklch(98% 0.004 70);
+    background: oklch(98% 0.004 70);
+  }
+  #site-header[data-header-theme="dark"] .nav-btn {
+    color: var(--brand-navy) !important;
+  }
+  #site-header[data-header-theme="dark"] .nav-btn:hover {
+    background: oklch(22% 0.06 235 / 0.1);
+    color: var(--brand-navy) !important;
+  }
+  #site-header[data-header-theme="dark"] .nav-btn:active,
+  #site-header[data-header-theme="dark"] .nav-btn[aria-current="page"] {
+    background: oklch(22% 0.06 235 / 0.16);
+  }
+  #site-header[data-header-theme="dark"] .site-logo-image--dark {
+    opacity: 0;
+  }
+  #site-header[data-header-theme="dark"] .site-logo-image--white {
+    opacity: 1;
   }
   #mobile-menu.open {
     opacity: 1;
@@ -261,25 +334,76 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
 </style>
 
 <script>
-  const headerBg = document.getElementById('header-bg');
   const siteHeader = document.getElementById('site-header');
-  const updateHeader = () => {
-    const scrolled = window.scrollY > 40;
-    if (!headerBg) return;
-    headerBg.style.background    = '#ffffff';
-    headerBg.style.backdropFilter = 'none';
-    headerBg.style.borderBottom  = 'none';
-    siteHeader?.classList.toggle('scrolled', scrolled);
-  };
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader();
-
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const bar1 = document.getElementById('bar1');
   const bar2 = document.getElementById('bar2');
   const bar3 = document.getElementById('bar3');
   let menuOpen = false;
+
+  const themeCandidates = Array.from(
+    document.querySelectorAll<HTMLElement>('main section, main [data-header-theme]')
+  );
+
+  const colorIsDark = (color: string) => {
+    const match = color.match(/rgba?\(([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/i);
+    if (!match) return false;
+    const red = Number(match[1]);
+    const green = Number(match[2]);
+    const blue = Number(match[3]);
+    const luminance = (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255;
+    return luminance < 0.48;
+  };
+
+  const themeBelowHeader = (): 'light' | 'dark' => {
+    const sampleY = Math.max(1, Math.min(window.innerHeight - 1, (siteHeader?.offsetHeight ?? 72) / 2));
+    const sampleXs = [24, window.innerWidth / 2, window.innerWidth - 24];
+    let darkVotes = 0;
+
+    sampleXs.forEach((sampleX) => {
+      const stack = document.elementsFromPoint(sampleX, sampleY);
+      const underlying = stack.find((element) => !siteHeader?.contains(element));
+      if (!underlying) return;
+
+      const declaredSection = underlying.closest<HTMLElement>('[data-header-theme]');
+      if (declaredSection?.dataset.headerTheme === 'dark') {
+        darkVotes += 1;
+        return;
+      }
+      if (declaredSection?.dataset.headerTheme === 'light') return;
+
+      let node: HTMLElement | null = underlying as HTMLElement;
+      while (node && node !== document.body) {
+        const background = getComputedStyle(node).backgroundColor;
+        if (background && background !== 'transparent' && !background.endsWith(', 0)')) {
+          if (colorIsDark(background)) darkVotes += 1;
+          return;
+        }
+        node = node.parentElement;
+      }
+    });
+
+    return darkVotes >= 2 ? 'dark' : 'light';
+  };
+
+  const updateHeaderTheme = () => {
+    if (!siteHeader || menuOpen) return;
+    siteHeader.dataset.headerTheme = themeBelowHeader();
+  };
+
+  let contrastObserver: IntersectionObserver | null = null;
+  const observeHeaderLine = () => {
+    contrastObserver?.disconnect();
+    const sampleY = Math.round((siteHeader?.offsetHeight ?? 72) / 2);
+    const bottomMargin = Math.max(0, window.innerHeight - sampleY - 1);
+    contrastObserver = new IntersectionObserver(updateHeaderTheme, {
+      rootMargin: `-${sampleY}px 0px -${bottomMargin}px 0px`,
+      threshold: 0,
+    });
+    themeCandidates.forEach((candidate) => contrastObserver?.observe(candidate));
+    updateHeaderTheme();
+  };
 
   const setMenu = (open: boolean) => {
     menuOpen = open;
@@ -290,10 +414,13 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
     bar2!.style.opacity   = open ? '0' : '1';
     bar3!.style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
     document.body.style.overflow = open ? 'hidden' : '';
+    if (siteHeader) siteHeader.dataset.headerTheme = open ? 'dark' : themeBelowHeader();
   };
 
   menuToggle?.addEventListener('click', () => setMenu(!menuOpen));
   document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => setMenu(false)));
+  window.addEventListener('resize', observeHeaderLine, { passive: true });
+  observeHeaderLine();
 
   const CLOSE_DELAY = 250;
   const navGroups = document.querySelectorAll('nav .group');
