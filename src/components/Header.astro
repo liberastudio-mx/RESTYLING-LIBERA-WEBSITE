@@ -6,6 +6,57 @@ import logoWhiteImg from '@/assets/images/LIBERA-Logo-white.png';
 const currentPath = Astro.url.pathname;
 
 const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
+
+const MOBILE_SOLUTION_GROUPS = [
+  {
+    heading: 'Operación Interna',
+    accent: BRAND_COLORS[0],
+    href: '/soluciones/operacion-interna',
+    links: [
+      ['Second Brain/PAOS', '/soluciones/operacion-interna/paos'],
+      ['Automatización', '/soluciones/operacion-interna/automatizacion'],
+      ['CRM y seguimiento', '/soluciones/operacion-interna/crm-seguimiento'],
+      ['Dashboards', '/soluciones/operacion-interna/dashboards'],
+      ['Integraciones', '/soluciones/operacion-interna/integraciones'],
+    ],
+  },
+  {
+    heading: 'Presencia Digital',
+    accent: BRAND_COLORS[1],
+    href: '/soluciones/presencia-digital',
+    links: [
+      ['Sitios web premium', '/soluciones/presencia-digital/sitios-web-premium'],
+      ['Landing pages', '/soluciones/presencia-digital/landing-pages'],
+      ['Google Business Profile', '/soluciones/presencia-digital/google-business-profile'],
+      ['WhatsApp Business', '/soluciones/presencia-digital/whatsapp-business'],
+      ['Redes sociales', '/soluciones/presencia-digital/redes-sociales'],
+    ],
+  },
+  {
+    heading: 'IA y automatización',
+    accent: BRAND_COLORS[2],
+    href: '/soluciones/ai-automation',
+    links: [
+      ['Agentes de IA', '/soluciones/ai-automation/agentes-ia'],
+      ['Asistentes internos', '/soluciones/ai-automation/asistentes-internos'],
+      ['Flujos con n8n', '/soluciones/ai-automation/flujos-n8n'],
+      ['Clasificación de mensajes', '/soluciones/ai-automation/clasificacion-mensajes'],
+      ['Automatización documental', '/soluciones/ai-automation/automatizacion-documental'],
+    ],
+  },
+  {
+    heading: 'Productos Digitales',
+    accent: BRAND_COLORS[3],
+    href: '/soluciones/productos-digitales',
+    links: [
+      ['Web apps', '/soluciones/productos-digitales/web-apps'],
+      ['MVPs', '/soluciones/productos-digitales/mvps'],
+      ['Apps internas', '/soluciones/productos-digitales/apps-internas'],
+      ['Paneles admin', '/soluciones/productos-digitales/paneles-admin'],
+      ['Prototipos', '/soluciones/productos-digitales/prototipos'],
+    ],
+  },
+];
 ---
 
 <header
@@ -32,7 +83,7 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
         width={214}
         height={40}
         class="site-logo-image site-logo-image--dark block"
-        style="width: auto; height: 29px;"
+        style="width: auto; height: 24px;"
       />
       <Image
         src={logoWhiteImg}
@@ -41,7 +92,7 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
         width={214}
         height={40}
         class="site-logo-image site-logo-image--white block"
-        style="width: auto; height: 29px;"
+        style="width: auto; height: 24px;"
       />
     </a>
 
@@ -49,9 +100,9 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
     <nav class="central-nav hidden lg:flex items-center gap-0.5 justify-center" aria-label="Navegación principal">
 
       <!-- Logo inside pill: desktop only (pill is hidden on mobile) -->
-      <a href="/" class="nav-logo flex items-center pl-2 pr-4 flex-shrink-0" aria-label="LIBERA Studio">
-        <Image src={logoWhiteImg} alt="" aria-hidden="true" width={214} height={40} class="nav-logo-img nav-logo-img--white" style="width: auto; height: 26px;" />
-        <Image src={logoDarkImg}  alt="" aria-hidden="true" width={214} height={40} class="nav-logo-img nav-logo-img--dark"  style="width: auto; height: 26px;" />
+      <a href="/" class="nav-logo flex items-center pl-4 pr-4 flex-shrink-0" aria-label="LIBERA Studio">
+        <Image src={logoWhiteImg} alt="" aria-hidden="true" width={214} height={40} class="nav-logo-img nav-logo-img--white" style="width: auto; height: 20px;" />
+        <Image src={logoDarkImg}  alt="" aria-hidden="true" width={214} height={40} class="nav-logo-img nav-logo-img--dark"  style="width: auto; height: 20px;" />
       </a>
 
       <!-- ── Soluciones, MEGA LARGE ───────────────────────────────── -->
@@ -172,31 +223,46 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
     </div>
   </div>
 
-  <!-- ── Mobile menu ────────────────────────────────────────────────── -->
-  <div
-    id="mobile-menu"
-    class="lg:hidden fixed inset-x-0 bottom-0 opacity-0 invisible transition-all duration-300 overflow-y-auto"
-    style="top: var(--nav-height); background: var(--ink);"
-    aria-hidden="true"
-  >
-    <div class="container-libera py-8 flex flex-col gap-1">
-      {[
-        { label: 'Soluciones',  href: '/soluciones' },
-        { label: 'Trabajo',     href: '/trabajo' },
-        { label: 'Radar',       href: '/radar' },
-        { label: 'Nosotros',    href: '/nosotros' },
-      ].map((link, i) => (
-        <a
-          href={link.href}
-          class="py-4 text-2xl font-semibold border-b transition-colors duration-200 hover:text-white"
-          style={`font-family: var(--font-display); color: oklch(72% 0.008 60); border-color: var(--border-dark); transition-delay: ${i * 35}ms;`}
-        >
-          {link.label}
-        </a>
-      ))}
-    </div>
-  </div>
 </header>
+
+<!-- Mobile menu: SIBLING of header (not child) — fixed-inside-fixed breaks background on iOS Safari -->
+<div id="mobile-menu" aria-hidden="true">
+  <div class="container-libera mobile-menu-inner">
+    <details class="mobile-menu-section">
+      <summary class="mobile-menu-summary">
+        <span>Soluciones</span>
+        <span class="mobile-menu-summary-icon" aria-hidden="true"></span>
+      </summary>
+
+      <div class="mobile-solutions-list">
+        {MOBILE_SOLUTION_GROUPS.map((group, groupIndex) => (
+          <details class="mobile-solution-group">
+            <summary class="mobile-solution-summary">
+              <span class="mobile-solution-dot" style={`background:${group.accent};`} aria-hidden="true"></span>
+              <span>{group.heading}</span>
+              <span class="mobile-menu-summary-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="mobile-solution-panel">
+              {group.links.map(([label, href]) => (
+                <a href={href} class="mobile-solution-link">{label}</a>
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+    </details>
+
+    {[
+      { label: 'Trabajo', href: '/trabajo' },
+      { label: 'Radar', href: '/radar' },
+      { label: 'Nosotros', href: '/nosotros' },
+    ].map((link) => (
+      <a href={link.href} class="mobile-menu-link">
+        {link.label}
+      </a>
+    ))}
+  </div>
+</div>
 
 <style>
   /* ── Logo inside the nav pill ── */
@@ -327,9 +393,26 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
   #site-header[data-header-theme="dark"] .site-logo-image--white {
     opacity: 1;
   }
-  #mobile-menu.open {
-    opacity: 1;
-    visibility: visible;
+  @media (max-width: 1023px) {
+    #site-header {
+      --header-foreground: oklch(98% 0.004 70);
+      --header-hover: oklch(100% 0 0 / 0.12);
+      background: var(--brand-navy);
+      color: var(--header-foreground);
+      box-shadow: 0 0.75rem 2rem oklch(15% 0.025 235 / 0.14);
+    }
+    #header-bg {
+      background: var(--brand-navy);
+    }
+    #site-header .site-logo-image--dark {
+      opacity: 0;
+    }
+    #site-header .site-logo-image--white {
+      opacity: 1;
+    }
+    #menu-toggle {
+      color: var(--header-foreground);
+    }
   }
   .dropdown.kb-open,
   .dropdown.hover-open {
@@ -438,6 +521,12 @@ const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
   };
 
   menuToggle?.addEventListener('click', () => setMenu(!menuOpen));
+  document.addEventListener('pointerdown', (event: PointerEvent) => {
+    if (!menuOpen || window.innerWidth >= 1024) return;
+    const target = event.target as Node | null;
+    if (!target || mobileMenu?.contains(target) || menuToggle?.contains(target)) return;
+    setMenu(false);
+  });
   document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => setMenu(false)));
   window.addEventListener('resize', observeHeaderLine, { passive: true });
   observeHeaderLine();
