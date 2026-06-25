@@ -160,6 +160,7 @@ function initHost(host) {
 
   let currentMouse = [0.5, 0.5];
   let targetMouse  = [0.5, 0.5];
+  const staticTouchField = window.matchMedia('(max-width: 1023px), (hover: none), (pointer: coarse)').matches;
 
   function onMouseMove(e) {
     const rect = host.getBoundingClientRect();
@@ -169,8 +170,10 @@ function initHost(host) {
     ];
   }
   function onMouseLeave() { targetMouse = [0.5, 0.5]; }
-  host.addEventListener('mousemove', onMouseMove, { passive: true });
-  host.addEventListener('mouseleave', onMouseLeave);
+  if (!staticTouchField) {
+    host.addEventListener('mousemove', onMouseMove, { passive: true });
+    host.addEventListener('mouseleave', onMouseLeave);
+  }
 
   function resize() {
     renderer.setSize(window.innerWidth, host.offsetHeight);
@@ -216,8 +219,10 @@ function initHost(host) {
     rafId = requestAnimationFrame(tick);
     program.uniforms.uTime.value = time * 0.001;
 
-    currentMouse[0] += 0.05 * (targetMouse[0] - currentMouse[0]);
-    currentMouse[1] += 0.05 * (targetMouse[1] - currentMouse[1]);
+    if (!staticTouchField) {
+      currentMouse[0] += 0.05 * (targetMouse[0] - currentMouse[0]);
+      currentMouse[1] += 0.05 * (targetMouse[1] - currentMouse[1]);
+    }
     program.uniforms.uMouse.value[0] = currentMouse[0];
     program.uniforms.uMouse.value[1] = currentMouse[1];
 
@@ -228,8 +233,10 @@ function initHost(host) {
   document.addEventListener('astro:before-swap', () => {
     cancelAnimationFrame(rafId);
     window.removeEventListener('resize', resize);
-    host.removeEventListener('mousemove', onMouseMove);
-    host.removeEventListener('mouseleave', onMouseLeave);
+    if (!staticTouchField) {
+      host.removeEventListener('mousemove', onMouseMove);
+      host.removeEventListener('mouseleave', onMouseLeave);
+    }
     gl.getExtension('WEBGL_lose_context')?.loseContext();
   }, { once: true });
 }
