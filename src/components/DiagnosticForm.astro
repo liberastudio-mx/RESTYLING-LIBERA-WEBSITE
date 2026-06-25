@@ -70,88 +70,44 @@ const fieldId = (name: string) => `${idPrefix}-${name}`;
     </div>
 
     <div class="diagnostic-field">
-      <label for={fieldId('ciudad')}>Ciudad</label>
+      <label for={fieldId('telefono')}>Teléfono</label>
       <input
-        id={fieldId('ciudad')}
-        name="ciudad"
-        type="text"
-        autocomplete="address-level2"
-        placeholder="Mérida, México"
+        id={fieldId('telefono')}
+        name="telefono"
+        type="tel"
+        autocomplete="tel"
+        placeholder="+52 999 000 0000"
       />
     </div>
   </div>
 
-  <div class="diagnostic-field">
-    <label for={fieldId('web')}>Sitio web actual</label>
-    <input
-      id={fieldId('web')}
-      name="web"
-      type="url"
-      autocomplete="url"
-      placeholder="https://tuempresa.com"
-      aria-describedby={fieldId('web-error')}
-    />
-    <p id={fieldId('web-error')} class="diagnostic-error" data-error-for="web">
-      Usa una URL completa, por ejemplo https://tuempresa.com.
-    </p>
-  </div>
-
-  <div class="diagnostic-field">
-    <label for={fieldId('objetivo')}>
-      Principal problema u objetivo <span aria-hidden="true">*</span>
-    </label>
-    <select
-      id={fieldId('objetivo')}
-      name="objetivo"
-      required
-      aria-describedby={fieldId('objetivo-error')}
-    >
-      <option value="">Selecciona el más importante</option>
-      <option value="presencia">Mejorar mi presencia digital y web</option>
-      <option value="operacion">Ordenar la operación interna</option>
-      <option value="leads">Generar y dar seguimiento a leads</option>
-      <option value="automatizar">Automatizar procesos repetitivos</option>
-      <option value="ia">Implementar IA de forma útil</option>
-      <option value="app">Construir un producto digital / app</option>
-      <option value="otro">Otro</option>
-    </select>
-    <p id={fieldId('objetivo-error')} class="diagnostic-error" data-error-for="objetivo">
-      Selecciona el punto principal que quieres resolver.
-    </p>
-  </div>
-
-  <div class="diagnostic-grid diagnostic-grid--3">
+  <div class="diagnostic-grid diagnostic-grid--2">
     <div class="diagnostic-field">
-      <label for={fieldId('servicio')}>Servicio de interés</label>
-      <select id={fieldId('servicio')} name="servicio">
-        <option value="">No estoy seguro</option>
-        <option value="web">Sitio web / landing page</option>
-        <option value="redes">Redes sociales / Google Business</option>
-        <option value="automatizacion">Automatización de procesos</option>
-        <option value="ia">Agente de IA / asistente</option>
-        <option value="paos">PAOS / sistema operativo digital</option>
-        <option value="producto">Producto digital / app</option>
-      </select>
+      <label for={fieldId('web')}>Sitio web actual</label>
+      <input
+        id={fieldId('web')}
+        name="web"
+        type="url"
+        autocomplete="url"
+        placeholder="https://tuempresa.com"
+        aria-describedby={fieldId('web-error')}
+      />
+      <p id={fieldId('web-error')} class="diagnostic-error" data-error-for="web">
+        Usa una URL completa, por ejemplo https://tuempresa.com.
+      </p>
     </div>
 
     <div class="diagnostic-field">
-      <label for={fieldId('presupuesto')}>Presupuesto aproximado</label>
-      <select id={fieldId('presupuesto')} name="presupuesto">
-        <option value="">Prefiero hablarlo</option>
-        <option value="menos-20k">Menos de $20,000 MXN</option>
-        <option value="20-50k">$20,000 – $50,000 MXN</option>
-        <option value="50-150k">$50,000 – $150,000 MXN</option>
-        <option value="mas-150k">Más de $150,000 MXN</option>
-      </select>
-    </div>
-
-    <div class="diagnostic-field">
-      <label for={fieldId('urgencia')}>Urgencia</label>
-      <select id={fieldId('urgencia')} name="urgencia">
-        <option value="">Solo estoy explorando</option>
-        <option value="ya">Lo antes posible</option>
-        <option value="semanas">Próximas semanas</option>
-        <option value="meses">Próximos meses</option>
+      <label for={fieldId('objetivo')}>Principal problema y objetivo</label>
+      <select id={fieldId('objetivo')} name="objetivo">
+        <option value="">Selecciona el más importante</option>
+        <option value="presencia">Mejorar mi presencia digital y web</option>
+        <option value="operacion">Ordenar la operación interna</option>
+        <option value="leads">Generar y dar seguimiento a leads</option>
+        <option value="automatizar">Automatizar procesos repetitivos</option>
+        <option value="ia">Implementar IA de forma útil</option>
+        <option value="app">Construir un producto digital / app</option>
+        <option value="otro">Otro</option>
       </select>
     </div>
   </div>
@@ -180,7 +136,6 @@ const fieldId = (name: string) => `${idPrefix}-${name}`;
       <span>
         He leído el <a href="/privacidad" target="_blank" rel="noopener">Aviso de Privacidad</a>
         y autorizo el tratamiento de mis datos para que LIBERA Studio responda a mi solicitud.
-        <strong aria-hidden="true">*</strong>
       </span>
     </label>
     <p id={fieldId('privacidad-error')} class="diagnostic-error" data-error-for="privacidad">
@@ -207,11 +162,14 @@ const fieldId = (name: string) => `${idPrefix}-${name}`;
       <span data-submit-label>Preparar solicitud</span>
       <span class="btn-icon" aria-hidden="true">›</span>
     </button>
-    <p>Respondemos en menos de 48 horas. Sin llamadas insistentes, sin spam.</p>
   </div>
 </form>
 
 <script>
+  import emailjs from '@emailjs/browser';
+
+  emailjs.init(import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY);
+
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const urlPattern = /^https?:\/\/.+\..+/;
 
@@ -232,10 +190,10 @@ const fieldId = (name: string) => `${idPrefix}-${name}`;
       message?.classList.toggle('is-visible', !valid);
     };
 
-    const setStatus = (message: string, tone: 'success' | 'error') => {
+    const setStatus = (msg: string, tone: 'success' | 'error') => {
       if (!status) return;
       status.hidden = false;
-      status.textContent = message;
+      status.textContent = msg;
       status.dataset.tone = tone;
     };
 
@@ -243,13 +201,11 @@ const fieldId = (name: string) => `${idPrefix}-${name}`;
       const nombre = form.elements.namedItem('nombre') as HTMLInputElement;
       const email = form.elements.namedItem('email') as HTMLInputElement;
       const web = form.elements.namedItem('web') as HTMLInputElement;
-      const objetivo = form.elements.namedItem('objetivo') as HTMLSelectElement;
       const privacidad = form.elements.namedItem('privacidad') as HTMLInputElement;
       const checks = [
         [nombre, nombre.value.trim().length > 1],
         [email, emailPattern.test(email.value.trim())],
         [web, !web.value.trim() || urlPattern.test(web.value.trim())],
-        [objetivo, Boolean(objetivo.value)],
         [privacidad, privacidad.checked],
       ] as const;
 
@@ -258,7 +214,7 @@ const fieldId = (name: string) => `${idPrefix}-${name}`;
       return checks.every(([, valid]) => valid);
     };
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       if (!validate()) {
@@ -267,36 +223,52 @@ const fieldId = (name: string) => `${idPrefix}-${name}`;
       }
 
       if (submit) submit.disabled = true;
-      if (submitLabel) submitLabel.textContent = 'Preparando...';
+      if (submitLabel) submitLabel.textContent = 'Enviando...';
+      if (status) status.hidden = true;
 
       const data = new FormData(form);
-      const subject = 'Solicitud de diagnóstico digital';
-      const body = [
+
+      const message = [
+        'Nueva solicitud de diagnóstico digital desde LIBERA Studio',
+        '',
         `Nombre: ${data.get('nombre')}`,
         `Empresa: ${data.get('empresa') || 'No indicada'}`,
         `Email: ${data.get('email')}`,
-        `Ciudad: ${data.get('ciudad') || 'No indicada'}`,
+        `Teléfono: ${data.get('telefono') || 'No indicado'}`,
         `Sitio web: ${data.get('web') || 'No indicado'}`,
         `Objetivo: ${data.get('objetivo')}`,
-        `Servicio de interés: ${data.get('servicio') || 'No está seguro'}`,
-        `Presupuesto: ${data.get('presupuesto') || 'Prefiere hablarlo'}`,
-        `Urgencia: ${data.get('urgencia') || 'Explorando'}`,
-        `Aviso de privacidad aceptado: ${data.get('privacidad') ? 'Sí' : 'No'}`,
-        `Comunicaciones comerciales: ${data.get('marketing') ? 'Sí' : 'No'}`,
         '',
-        `Contexto: ${data.get('mensaje') || 'No indicado'}`,
+        'Contexto:',
+        String(data.get('mensaje') || 'No indicado'),
       ].join('\n');
 
-      window.location.href = `mailto:hola@liberastudio.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      setStatus(
-        'Se preparó un borrador de correo con tu diagnóstico. Revísalo y envíalo desde tu cliente de email.',
-        'success',
-      );
+      try {
+        await emailjs.send(
+          import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+          import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
+          {
+            from_name: String(data.get('nombre')),
+            from_email: String(data.get('email')),
+            phone: String(data.get('telefono') || ''),
+            message,
+          },
+        );
 
-      window.setTimeout(() => {
+        setStatus(
+          'Solicitud enviada correctamente. Te responderemos en menos de 48 horas.',
+          'success',
+        );
+        form.reset();
+      } catch (error) {
+        console.error('EmailJS send failed:', error);
+        setStatus(
+          'No se pudo enviar la solicitud. Escríbenos directo a hola@liberastudio.tech.',
+          'error',
+        );
+      } finally {
         if (submit) submit.disabled = false;
         if (submitLabel) submitLabel.textContent = 'Preparar solicitud';
-      }, 1200);
+      }
     });
   });
 </script>
@@ -477,6 +449,7 @@ const fieldId = (name: string) => `${idPrefix}-${name}`;
   .diagnostic-submit-row {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1.25rem;
   }
 

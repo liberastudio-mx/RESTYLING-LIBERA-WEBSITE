@@ -1,7 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import nosotrosImage from '@/assets/images/nosotros.jpg';
+import ctaImage from '@/assets/images/LS - nosotros cta.png';
+
+const ctaBg = await getImage({ src: ctaImage, format: 'webp', quality: 85 });
 
 const principles = [
   {
@@ -46,7 +49,6 @@ const principles = [
     <section class="hero-about">
       <div class="container-libera hero-grid">
         <div class="hero-copy" data-reveal>
-          <p class="about-kicker"><span></span>Nosotros</p>
           <h1>Un <em>laboratorio,</em><br />no una agencia.</h1>
           <p class="hero-intro">
             LIBERA es un laboratorio de tecnología, estrategia y automatización creado
@@ -74,38 +76,25 @@ const principles = [
     </section>
 
     <section class="why-section">
-      <div class="container-libera why-grid">
+      <div class="container-libera">
         <div class="why-copy" data-reveal>
           <h2>Por qué existimos</h2>
-          <p>Los negocios no fracasan por falta de tecnología. Fracasan porque la tecnología que adoptan no está conectada.</p>
-          <ul>
-            <li>Una web aquí.</li>
-            <li>Un WhatsApp allá.</li>
-            <li>Un Excel en el otro extremo.</li>
-            <li>Piezas sueltas que nadie unió.</li>
-          </ul>
-          <p>LIBERA nació para eso: escuchar el problema, diseñar el sistema, construirlo y quedarse hasta que funciona.</p>
-          <p>Trabajamos desde Mérida con proyectos en México y Europa. Y aprendimos algo en el camino: los mejores sistemas no son los más complejos. Son los que el equipo puede entender, usar y mantener sin depender de nadie.</p>
-        </div>
-
-        <blockquote class="manifesto" data-reveal>
-          <div class="manifesto-heading">
-            <span class="manifesto-mark" aria-hidden="true">
-              <svg viewBox="0 0 48 48">
-                <path d="M19 5h10M21 5v14L10 39h28L27 19V5" />
-                <path class="manifesto-liquid" d="M15 34h18l-4-9H19z" />
-                <circle class="manifesto-bubble" cx="25" cy="29" r="1.5" />
-              </svg>
-            </span>
-            <p class="manifesto-label">Nuestro método</p>
+          <div class="why-columns">
+            <div>
+              <p>Los negocios no fracasan por falta de tecnología. Fracasan porque la tecnología que adoptan no está conectada.</p>
+              <ul>
+                <li>Una web aquí.</li>
+                <li>Un WhatsApp allá.</li>
+                <li>Un Excel en el otro extremo.</li>
+                <li>Piezas sueltas que nadie unió.</li>
+              </ul>
+            </div>
+            <div>
+              <p>LIBERA nació para eso: escuchar el problema, diseñar el sistema, construirlo y quedarse hasta que funciona.</p>
+              <p>Trabajamos desde Mérida con proyectos en México y Europa. Y aprendimos algo en el camino: los mejores sistemas no son los más complejos. Son los que el equipo puede entender, usar y mantener sin depender de nadie.</p>
+            </div>
           </div>
-          <p class="manifesto-copy">
-            <span><b>01</b>Construimos antes de prometer.</span>
-            <span><b>02</b>Intentamos romper las soluciones antes de venderlas.</span>
-            <span><b>03</b>Lo que se rompe, lo documentamos.</span>
-            <span><b>04</b>Lo que resiste, <em>lo entregamos.</em></span>
-          </p>
-        </blockquote>
+        </div>
       </div>
     </section>
 
@@ -150,17 +139,7 @@ const principles = [
 
     <section class="about-cta">
       <div class="container-libera">
-        <div class="cta-panel">
-          <svg class="cta-diagram" viewBox="0 0 260 130" aria-hidden="true">
-            <path d="M23 34h55v37h49v35h58M78 34V15h55M127 71h58V35h47" />
-            <rect x="8" y="21" width="42" height="33" rx="4" class="solid-navy" />
-            <rect x="62" y="55" width="35" height="33" rx="4" />
-            <path d="m70 71 7 7 13-15" />
-            <rect x="111" y="14" width="42" height="33" rx="4" />
-            <rect x="111" y="89" width="42" height="33" rx="4" class="solid-navy" />
-            <rect x="174" y="18" width="42" height="33" rx="4" class="solid-orange" />
-            <circle cx="78" cy="34" r="3" /><circle cx="127" cy="71" r="3" /><circle cx="185" cy="71" r="3" />
-          </svg>
+        <div class="cta-panel" style={`background-image: url('${ctaBg.src}')`}>
           <div class="cta-copy">
             <h2>No vendemos <em>hype.</em></h2>
             <p>Construimos sistemas que se ven, se usan y se pueden mejorar.</p>
@@ -169,10 +148,6 @@ const principles = [
               <a href="/diagnostico" class="about-btn about-btn-orange">Solicitar diagnóstico <span aria-hidden="true">→</span></a>
             </div>
           </div>
-          <svg class="cta-flask" viewBox="0 0 130 150" aria-hidden="true">
-            <path d="M45 10h40M52 10v48L20 122c-5 10 2 20 13 20h64c11 0 18-10 13-20L78 58V10" />
-            <circle cx="67" cy="108" r="6" class="solid-orange" /><circle cx="83" cy="125" r="4" class="solid-orange" />
-          </svg>
         </div>
       </div>
     </section>
@@ -259,10 +234,6 @@ const principles = [
 
   .hero-lab {
     position: relative;
-    padding: .55rem;
-    border: 1px solid var(--about-line);
-    border-radius: 1.35rem;
-    background: oklch(99.4% .002 75);
   }
 
   .hero-lab::after {
@@ -276,33 +247,57 @@ const principles = [
     width: 100%;
     height: auto;
     aspect-ratio: 691 / 532;
-    border-radius: .95rem;
     object-fit: cover;
     object-position: center;
   }
 
   .why-section {
+    position: relative;
     padding: 5.5rem 0 5.75rem;
-    border-bottom: 1px solid var(--about-line);
+    background: var(--brand-navy);
+    color: oklch(97% .006 75);
+    overflow: hidden;
   }
 
-  .why-grid {
+  .why-section::before {
+    content: '';
+    position: absolute;
+    right: -3rem;
+    top: -3rem;
+    width: 18rem;
+    height: 18rem;
+    border: 1px solid oklch(80% .02 235 / .12);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 3.5rem oklch(80% .02 235 / .04),
+      0 0 0 7rem oklch(80% .02 235 / .025);
+    pointer-events: none;
+  }
+
+  .why-copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  .why-columns {
     display: grid;
-    grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
-    gap: clamp(3rem, 7vw, 8rem);
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
   }
 
-  .why-copy { max-width: 650px; }
   .why-copy h2, .principles-section h2, .team-section h2 {
     margin: 0 0 1rem;
     font-size: clamp(2.15rem, 3.3vw, 3.35rem);
     letter-spacing: -.035em;
   }
 
+  .why-copy h2 { color: var(--orange); }
+
   .why-copy p {
     margin: 0 0 1.4rem;
     line-height: 1.65;
+    color: oklch(82% .012 235);
   }
 
   .why-copy ul {
@@ -313,6 +308,7 @@ const principles = [
     list-style: none;
     font-size: 1.08rem;
     font-weight: 680;
+    color: oklch(97% .006 75);
   }
 
   .why-copy li::before {
@@ -575,43 +571,40 @@ const principles = [
   .cta-panel {
     position: relative;
     z-index: 1;
-    min-height: 270px;
-    display: grid;
-    grid-template-columns: 270px minmax(0, 1fr) 170px;
+    min-height: 320px;
+    display: flex;
     align-items: center;
-    gap: clamp(1.5rem, 4vw, 4rem);
-    padding: clamp(2rem, 4vw, 4rem);
-    border: 1px solid var(--about-line);
+    justify-content: center;
+    text-align: center;
+    padding: clamp(2.5rem, 5vw, 5rem) clamp(2rem, 6vw, 6rem);
     border-radius: 1.25rem;
-    background: linear-gradient(105deg, oklch(99% .006 75), oklch(97% .02 72));
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
   }
 
-  .cta-panel svg {
-    width: 100%;
-    fill: none;
-    stroke: var(--brand-navy);
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  .cta-copy {
+    position: relative;
+    z-index: 1;
   }
-  .cta-panel .solid-navy { fill: var(--brand-navy); }
-  .cta-panel .solid-orange { fill: var(--orange); stroke: var(--orange); }
 
   .cta-copy h2 {
     margin: 0 0 .4rem;
     font-size: clamp(2.3rem, 4vw, 4rem);
     letter-spacing: -.04em;
+    color: var(--brand-navy) !important;
   }
 
   .cta-copy > p {
     margin: 0 0 1.4rem;
     font-size: 1.15rem;
+    color: var(--brand-navy) !important;
   }
 
   .cta-actions {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: .75rem;
   }
 
@@ -659,34 +652,30 @@ const principles = [
     --button-icon-bg: oklch(82% .12 55);
   }
 
-  .cta-flask { max-height: 180px; }
 
   @media (max-width: 1180px) {
     .principles-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .principle-card { min-height: 340px; }
     .team-card { grid-template-columns: 48% 52%; }
-    .cta-panel { grid-template-columns: 210px minmax(0, 1fr) 120px; }
   }
 
   @media (max-width: 900px) {
     .hero-about { padding-top: calc(var(--nav-height) + 2.5rem); }
-    .hero-grid, .why-grid { grid-template-columns: 1fr; }
-    .hero-grid { gap: 2.5rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-lab { max-width: 680px; margin-inline: auto; }
-    .why-grid { gap: 2.5rem; }
-    .manifesto { min-height: 350px; }
     .principles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .team-grid { grid-template-columns: 1fr; }
-    .cta-panel { grid-template-columns: 1fr; text-align: center; }
-    .cta-diagram, .cta-flask { display: none; }
     .cta-actions { justify-content: center; }
+    .cta-copy { text-align: center; }
   }
 
   @media (max-width: 600px) {
     .hero-about { padding-bottom: 3.5rem; }
     .hero-copy h1 { font-size: clamp(2.8rem, 14vw, 4.4rem); }
     .about-kicker { margin-bottom: 1.5rem; }
-    .why-section, .principles-section { padding-block: 4rem; }
+    .why-section { padding-block: 4rem; }
+    .why-columns { grid-template-columns: 1fr; }
+    .principles-section { padding-block: 4rem; }
     .principles-grid { grid-template-columns: 1fr; }
     .principle-card { min-height: auto; }
     .principle-card h3 { min-height: 0; }
@@ -694,10 +683,7 @@ const principles = [
     .team-card { grid-template-columns: 1fr; }
     .team-image { min-height: 250px; aspect-ratio: 16 / 10; }
     .team-copy { padding: 1.75rem; }
-    .manifesto { min-height: auto; gap: 2rem; padding: 1.5rem; }
-    .manifesto-copy { font-size: 1.12rem; }
-    .manifesto-copy > span { grid-template-columns: 1.8rem 1fr; gap: .5rem; padding-block: .8rem; }
-    .cta-panel { padding: 2.5rem 1.25rem; }
+    .cta-panel { padding: 2.5rem 1.25rem; background-image: none !important; background: #fff; }
     .cta-actions { flex-direction: column; }
     .about-btn { width: 100%; }
   }
