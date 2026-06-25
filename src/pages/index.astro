@@ -1265,7 +1265,6 @@ const solucionesHome = [
   }
   .conocimiento-card:hover {
     opacity: 0.88;
-    transform: translateY(-2px);
   }
 
   .conocimiento-guide-image {
@@ -2858,6 +2857,19 @@ const solucionesHome = [
     margin-top: 1.1rem;
     margin-inline: auto;
     width: fit-content;
+  }
+
+  /* On desktop the rail becomes display:contents — explicitly reset scroll
+     behavior here (after the bare base rule at ~2812) so the cascade wins. */
+  @media (min-width: 1024px) {
+    .radar-scroll-rail {
+      display: contents;
+      overflow: visible;
+      overscroll-behavior: auto;
+      scroll-snap-type: none;
+      touch-action: auto;
+      cursor: auto;
+    }
   }
 
   .radar-dot {
