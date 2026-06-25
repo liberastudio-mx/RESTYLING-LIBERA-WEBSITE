@@ -744,7 +744,7 @@ const solucionesHome = [
     id="cta"
     data-header-theme="light"
     class="relative overflow-hidden flex items-center cta-overlap"
-    style="background: #ffffff; min-height: 100dvh;"
+    style="background: #ffffff; min-height: 100svh;"
     aria-label="Llamada a la acción"
   >
     <div class="container-libera relative z-10 text-center cta-content" data-reveal>
@@ -960,7 +960,7 @@ const solucionesHome = [
     }
 
     .problem-right {
-      height: 45dvh;
+      height: 45svh;
       padding-top: 0;
     }
 
@@ -2896,7 +2896,14 @@ const solucionesHome = [
     .radar-scroll-rail,
     .solutions-card-rail {
       scroll-behavior: auto;
+    }
+
+    .solutions-card-rail {
       touch-action: auto;
+    }
+
+    .radar-scroll-rail {
+      touch-action: pan-x pan-y pinch-zoom;
     }
   }
 
@@ -2932,7 +2939,7 @@ const solucionesHome = [
     }
 
     #cta {
-      min-height: 100svh !important;
+      min-height: 100svh;
     }
 
     .conocimiento-pin-stage,
