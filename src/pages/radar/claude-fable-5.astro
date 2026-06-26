@@ -1,7 +1,8 @@
----
+﻿---
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import heroImg from '@/assets/images/LS - radar 3.png';
+const siteUrl = 'https://www.liberastudio.tech';
 
 const articleSchema = JSON.stringify({
   "@context": "https://schema.org",
@@ -10,10 +11,10 @@ const articleSchema = JSON.stringify({
   "description": "Mismo núcleo que Mythos 5, safeguards activos para el público. En codificación agentica supera a todos los modelos disponibles.",
   "datePublished": "2026-06-09",
   "dateModified": "2026-06-09",
-  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
-  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
-  "image": "https://www.liberastudio.tech/images/LS%20-%20radar%203.png",
-  "url": "https://www.liberastudio.tech/radar/claude-fable-5",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "image": `${siteUrl}${heroImg.src}`,
+  "url": `${siteUrl}/radar/claude-fable-5`,
   "articleSection": "IA",
   "inLanguage": "es-MX"
 });
@@ -93,7 +94,7 @@ const articleSchema = JSON.stringify({
         <div class="radar-article-related">
           <p class="radar-related-label">Si esto te interesa</p>
           <div class="radar-related-links">
-            <a href="/soluciones/ai-automation">Cómo aplicamos IA en procesos reales →</a>
+            <a href="/soluciones/ai-automation/agentes-ia">Cómo aplicamos IA en procesos reales →</a>
             <a href="/soluciones/ai-automation/agentes-ia">Agentes de IA para tu negocio →</a>
             <a href="/soluciones/ai-automation/asistentes-internos">Asistentes internos con Claude →</a>
           </div>

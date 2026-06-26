@@ -7,29 +7,29 @@ const stack = ['Webflow CMS', 'Google Analytics 4', 'Search Console', 'Airtable'
 ---
 
 <Layout
-  title="Sole Facile — Trabajo — LIBERA Studio"
-  description="Gestione digitale completa per Sole Facile SRL, Torino: sito Webflow, SEO, GA4, social media e automazioni interne."
+  title="Sole Facile â€” Trabajo â€” LIBERA Studio"
+  description="Gestión digital completa para Sole Facile SRL, Turín: sitio en Webflow, SEO, GA4, redes sociales y automatizaciones internas."
 >
 
   <!-- HERO -->
   <section class="sf-project-hero" aria-labelledby="sf-title">
-    <img src={logoImg.src} alt="" class="sf-hero-bg" aria-hidden="true" />
+    <Image src={logoImg} alt="" class="sf-hero-bg" aria-hidden="true" widths={[400, 800]} sizes="100vw" />
     <div class="sf-hero-overlay" aria-hidden="true"></div>
     <div class="container-libera sf-hero-content">
       <a href="/trabajo" class="sf-back-link">&larr; Trabajo</a>
       <h1 id="sf-title">Sole Facile</h1>
       <p class="sf-hero-copy">
-        Fotovoltaico su misura per case e aziende in Piemonte. LIBERA Studio gestisce il digitale: sito, SEO, cookies e automazioni interne.
+        Energía solar fotovoltaica a la medida para casas y empresas en Piamonte. LIBERA Studio gestiona lo digital: sitio, SEO, cookies y automatizaciones internas.
       </p>
-      <div class="sf-stack-list" aria-label="Tecnologie del progetto">
+      <div class="sf-stack-list" aria-label="Tecnologías del proyecto">
         {stack.map((item) => <span>{item}</span>)}
       </div>
     </div>
   </section>
 
 
-  <!-- 01 SITO WEB -->
-  <section style="background: var(--surface);" aria-label="Sito web">
+  <!-- 01 SITIO WEB -->
+  <section style="background: var(--surface);" aria-label="Sitio web">
     <div class="container-libera py-16 lg:py-24">
       <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
@@ -38,37 +38,37 @@ const stack = ['Webflow CMS', 'Google Analytics 4', 'Search Console', 'Airtable'
             class="display-lg mb-8"
             style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.08;"
           >
-            Webflow oggi. Nuovo sito domani. Più veloce, più leggero, senza dipendenze.
+            Webflow hoy. Sitio nuevo mañana. Más rápido, más ligero, sin dependencias.
           </h2>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-secondary);">
-            Il sito live <strong style="color: var(--text-primary);">solefacilesrl.com</strong> gira su Webflow CMS con 81 articoli pubblicati, pagine ottimizzate e blog attivo. Funziona. Ma ha i limiti di qualsiasi piattaforma in affitto: ogni funzione extra richiede un piano più caro o un'integrazione fragile.
+            El sitio en línea <strong style="color: var(--text-primary);">solefacilesrl.com</strong> corre sobre Webflow CMS con 81 artículos publicados, páginas optimizadas y un blog activo. Funciona. Pero tiene los límites de cualquier plataforma rentada: cada función extra exige un plan más caro o una integración frágil.
           </p>
           <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
-            Stiamo costruendo un nuovo sito da zero. Più performante sui Core Web Vitals, con gestione email interna su Airtable senza dipendere da piattaforme terze, e un sistema di contenuti che il cliente può gestire senza passare da noi.
+            Estamos construyendo un sitio nuevo desde cero. Más sólido en Core Web Vitals, con gestión interna de correos sobre Airtable sin depender de plataformas de terceros, y con un sistema de contenidos que el cliente puede administrar sin pasar por nosotros.
           </p>
         </div>
 
         <div class="grid gap-7">
           {[
             {
-              label: 'Webflow CMS — sito live',
-              text: 'Gestione contenuti autonoma. 81 articoli nel blog, pagine di servizio, prodotti e FAQ. Slug, redirect e collection gestiti internamente.',
+              label: 'Webflow CMS â€” sitio en línea',
+              text: 'Gestión autónoma de contenidos. 81 artículos en el blog, páginas de servicios, productos y FAQ. Slugs, redirects y collections gestionados internamente.',
             },
             {
-              label: 'Cookies interni',
-              text: 'Il banner cookie è costruito direttamente nel sito: nessun CookieBot, nessun OneTrust. Evitiamo al cliente un abbonamento mensile a servizi esterni che non aggiungono nulla, e i dati degli utenti restano nella piattaforma del cliente.',
+              label: 'Cookies internos',
+              text: 'El banner de cookies está construido directamente dentro del sitio: sin CookieBot, sin OneTrust. Le evitamos al cliente una suscripción mensual a servicios externos que no aportan nada, y los datos de los usuarios se quedan dentro de su propia plataforma.',
             },
             {
-              label: 'Nuovo sito — in sviluppo',
-              text: 'Codice originale, zero dipendenze da piattaforme CMS. Pagine più leggere, caricamento più rapido, struttura pensata per scalare senza costi crescenti.',
+              label: 'Nuevo sitio â€” en desarrollo',
+              text: 'Código original, cero dependencias de plataformas CMS. Páginas más ligeras, carga más rápida y una estructura pensada para escalar sin costos crecientes.',
             },
             {
-              label: 'Email marketing su Airtable',
-              text: 'Nessun Mailchimp, nessun costo per contatto. Il database dei lead è già in Airtable: costruiamo il flusso email direttamente sopra, senza esportare dati.',
+              label: 'Email marketing en Airtable',
+              text: 'Sin Mailchimp, sin costo por contacto. La base de datos de leads ya vive en Airtable: construimos el flujo de correos directamente ahí, sin exportar datos.',
             },
             {
-              label: 'SEO e performance',
-              text: 'Canonical URL, Open Graph, breadcrumb e JSON-LD su ogni pagina. Font ottimizzati, nessuna risorsa bloccante, Core Web Vitals come requisito di progetto.',
+              label: 'SEO y performance',
+              text: 'Canonical URL, Open Graph, breadcrumbs y JSON-LD en cada página. Fuentes optimizadas, ningún recurso bloqueante, Core Web Vitals como requisito del proyecto.',
             },
           ].map((item) => (
             <div class="border-t pt-6" style="border-color: var(--border);">
@@ -85,31 +85,31 @@ const stack = ['Webflow CMS', 'Google Analytics 4', 'Search Console', 'Airtable'
   </section>
 
 
-  <!-- 02 ANALYTICS E COOKIE -->
-  <section style="background: var(--ink);" aria-label="Analytics e cookie">
+  <!-- 02 ANALYTICS Y COOKIES -->
+  <section style="background: var(--ink);" aria-label="Analytics y cookies">
     <div class="container-libera py-16 lg:py-24">
       <h2
         class="display-lg mb-6 max-w-3xl"
         style="font-family: var(--font-display); color: #ffffff; line-height: 1.08;"
       >
-        Tutto tracciato. Nessun servizio esterno che porta via i dati.
+        Todo medido. Sin servicios externos que se lleven los datos.
       </h2>
       <p class="text-lg mb-16 max-w-2xl leading-relaxed" style="color: rgba(255,255,255,0.55);">
-        Google Analytics 4 e Search Console configurati su misura. Il banner cookie &egrave; gestito direttamente nel sito: nessun CookieBot, nessun OneTrust, nessun script di terze parti che rallenta la pagina o raccoglie dati per altri.
+        Google Analytics 4 y Search Console configurados a la medida. El banner de cookies se gestiona directamente dentro del sitio: sin CookieBot, sin OneTrust, sin scripts de terceros que ralenticen la página o recojan datos para alguien más.
       </p>
       <div class="grid md:grid-cols-3 gap-10">
         {[
           {
             title: 'Google Analytics 4',
-            text: 'Configurazione GA4 da zero: eventi personalizzati per richieste preventivo e chiamate, conversioni tracciate, audience segmentate per area geografica (Torino e Piemonte).',
+            text: 'Configuración de GA4 desde cero: eventos personalizados para solicitudes de cotización y llamadas, conversiones registradas, audiencias segmentadas por zona geográfica (Turín y Piamonte).',
           },
           {
             title: 'Google Search Console',
-            text: 'Property verificata, redirect tecnici implementati, canonical corretti, articoli duplicati risolti. Monitoraggio copertura e performance query in corso.',
+            text: 'Propiedad verificada, redirects técnicos implementados, canonicals correctos, artículos duplicados resueltos. Monitoreo continuo de cobertura y rendimiento de consultas.',
           },
           {
-            title: 'Cookie gestiti internamente',
-            text: 'Banner di consenso costruito nel sito. Zero dipendenze esterne: nessun CookieBot, nessun script di terze parti. I dati degli utenti restano dentro la piattaforma del cliente.',
+            title: 'Cookies gestionadas internamente',
+            text: 'Banner de consentimiento construido dentro del sitio. Cero dependencias externas: sin CookieBot, sin scripts de terceros. Los datos de los usuarios permanecen dentro de la plataforma del cliente.',
           },
         ].map((item) => (
           <div>
@@ -125,40 +125,40 @@ const stack = ['Webflow CMS', 'Google Analytics 4', 'Search Console', 'Airtable'
   </section>
 
 
-  <!-- 03 AUTOMAZIONI -->
-  <section style="background: #003049;" aria-label="Automazioni">
+  <!-- 03 AUTOMATIZACIONES -->
+  <section style="background: #003049;" aria-label="Automatizaciones">
     <div class="container-libera py-16 lg:py-24">
-      <p class="eyebrow mb-6" style="color: rgba(255,255,255,0.35); font-family: var(--font-mono);">04 &middot; Automazioni interne</p>
+      <p class="eyebrow mb-6" style="color: rgba(255,255,255,0.35); font-family: var(--font-mono);">04 &middot; Automatizaciones internas</p>
       <h2
         class="display-lg mb-6 max-w-3xl"
         style="font-family: var(--font-display); color: #ffffff; line-height: 1.08;"
       >
-        Strumenti già usati. Connessi tra loro.
+        Herramientas que ya usaban. Ahora conectadas entre sí.
       </h2>
       <p class="text-lg mb-16 max-w-2xl leading-relaxed" style="color: rgba(255,255,255,0.55);">
-        Abbiamo costruito un sistema che collega gli strumenti che Sole Facile usava già: form del sito, database clienti, email e WhatsApp. Ogni nuova richiesta di preventivo arriva automaticamente al posto giusto, senza copiare dati a mano.
+        Construimos un sistema que conecta las herramientas que Sole Facile ya usaba: formularios del sitio, base de datos de clientes, correo y WhatsApp. Cada nueva solicitud de cotización llega automáticamente al lugar correcto, sin copiar datos a mano.
       </p>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px" style="background: rgba(255,255,255,0.08);">
         {[
           {
             num: '01',
-            label: 'Form del sito',
-            text: 'Ogni richiesta di preventivo compilata sul sito entra automaticamente nel database. Zero email perse, zero inserimento manuale.',
+            label: 'Formulario del sitio',
+            text: 'Cada solicitud de cotización enviada desde el sitio entra automáticamente a la base de datos. Cero correos perdidos, cero captura manual.',
           },
           {
             num: '02',
-            label: 'Database clienti',
-            text: 'Airtable come hub centrale: storico contatti, stato preventivi, follow-up. Filtri e viste per gestire il pipeline commerciale.',
+            label: 'Base de datos de clientes',
+            text: 'Airtable como hub central: historial de contactos, estado de cotizaciones y seguimiento. Filtros y vistas para gestionar el pipeline comercial.',
           },
           {
             num: '03',
-            label: 'Email automatizzate',
-            text: 'Conferma automatica al cliente appena invia la richiesta. Notifica interna al team. Nessun client di posta da controllare manualmente.',
+            label: 'Correos automatizados',
+            text: 'Confirmación automática al cliente apenas envía la solicitud. Notificación interna al equipo. Ningún cliente de correo que revisar manualmente.',
           },
           {
             num: '04',
             label: 'WhatsApp',
-            text: 'Notifica WhatsApp al team per ogni nuovo lead in entrata. Il commerciale riceve i dati direttamente sul telefono, in tempo reale.',
+            text: 'Notificación por WhatsApp al equipo por cada nuevo lead entrante. El área comercial recibe los datos directamente en el teléfono, en tiempo real.',
           },
         ].map((item) => (
           <div class="p-8 lg:p-10" style="background: #003049;">
@@ -177,7 +177,7 @@ const stack = ['Webflow CMS', 'Google Analytics 4', 'Search Console', 'Airtable'
     <div class="container-libera py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
       <div>
         <p class="text-xs mb-2" style="color: var(--text-secondary); font-family: var(--font-mono);">
-          Sole Facile SRL &middot; Cliente &middot; Torino, Italia
+          Sole Facile SRL &middot; Cliente &middot; Turín, Italia
         </p>
         <p class="text-base" style="color: var(--text-secondary);">
           Construimos algo así para tu empresa. El primer paso es el diagnóstico.

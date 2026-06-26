@@ -1,7 +1,71 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import radar1 from '@/assets/images/LS - radar 1.png';
+import radar2 from '@/assets/images/LS - radar 2.png';
+import radar3 from '@/assets/images/LS - radar 3.png';
+import radarVetoFable5 from '@/assets/images/LS - radar veto claude fable 5.png';
+import radarCopilotCredits from '@/assets/images/LS - radar github copilot credits.png';
+import radarCopilotTokens from '@/assets/images/LS - radar github copilot tokens.png';
+import radarMicrosoftMai from '@/assets/images/LS - radar microsoft mai.png';
+import radarClaudeOpus48 from '@/assets/images/LS - radar claude opus 4.8.png';
+import radarClaudeFable5 from '@/assets/images/LS - radar claude fable 5 mythos.png';
 
 const articles = [
+  {
+    category: 'Automatización',
+    date: 'Jun 2026',
+    read: '4 min',
+    title: 'Zapier cobra hasta 5x más por pasos de IA desde junio 15',
+    excerpt: 'El cambio ya aplica. Qué pasó con AI by Zapier y qué revisar si tus flujos usan IA.',
+    href: '/radar/zapier-ia-precios-5x-junio-2026',
+    image: radar1,
+  },
+  {
+    category: 'IA',
+    date: 'Jun 2026',
+    read: '4 min',
+    title: 'OpenAI sale a bolsa: $850B de valuación y posibles recortes en sus APIs',
+    excerpt: 'La solicitud confidencial de IPO y la presión competitiva pueden mover precios en la API.',
+    href: '/radar/openai-ipo-2026-precios-api',
+    image: radar2,
+  },
+  {
+    category: 'IA',
+    date: 'Jun 2026',
+    read: '4 min',
+    title: 'Gemini 2.0 Flash está muerto: qué pasó, qué lo reemplaza y cuánto cuesta ahora',
+    excerpt: 'Google apagó Gemini 2.0 Flash y la migración ya no se puede postergar.',
+    href: '/radar/gemini-35-flash-depreciacion-migracion-2026',
+    image: radar3,
+  },
+  {
+    category: 'IA',
+    date: 'Jun 2026',
+    read: '5 min',
+    title: 'Claude Fable 5 vetado: el modelo más potente de Anthropic llegó y se fue en 4 días para México',
+    excerpt: 'Qué cambió con el veto, qué modelos siguen activos y qué alternativas quedan para LATAM.',
+    href: '/radar/veto-claude-fable-5-eeuu',
+    image: radarVetoFable5,
+  },
+  {
+    category: 'Dev',
+    date: 'Jun 2026',
+    read: '5 min',
+    title: 'GitHub Copilot cobra por créditos desde junio: qué cambió y cómo calcular tu costo',
+    excerpt: 'El “todo incluido” terminó. Así funciona AI Credits y dónde se dispara el gasto.',
+    href: '/radar/github-copilot-creditos-billing-junio-2026',
+    image: radarCopilotCredits,
+  },
+  {
+    category: 'Dev',
+    date: 'Jun 2026',
+    read: '4 min',
+    title: 'GitHub Copilot abandona la tarifa fija: lo que cuesta ahora y qué hacer',
+    excerpt: 'Desde junio Copilot cobra por consumo. Qué implica para equipos que ya usan funciones agénticas.',
+    href: '/radar/github-copilot-billing-por-tokens-2026',
+    image: radarCopilotTokens,
+  },
   {
     category: 'Dev',
     date: 'Jun 2026',
@@ -9,7 +73,7 @@ const articles = [
     title: 'Microsoft lanza 7 modelos MAI: GitHub Copilot ya no depende de OpenAI',
     excerpt: 'Qué cambia para Copilot, Azure AI Foundry y equipos que desarrollan con IA en producción.',
     href: '/radar/microsoft-mai-modelos-build-2026',
-    image: '/images/LS%20-%20radar%201.png',
+    image: radarMicrosoftMai,
   },
   {
     category: 'IA',
@@ -18,7 +82,7 @@ const articles = [
     title: 'Claude Opus 4.8: qué cambió y por qué importa si automatizas procesos',
     excerpt: 'Menos errores silenciosos, más capacidad en tareas largas y mejor control para flujos de IA.',
     href: '/radar/claude-opus-4-8',
-    image: '/images/LS%20-%20radar%202.png',
+    image: radarClaudeOpus48,
   },
   {
     category: 'IA',
@@ -27,7 +91,7 @@ const articles = [
     title: 'Claude Fable 5: Anthropic libera su primer modelo de clase Mythos',
     excerpt: 'El primer modelo público de la familia Mythos llega con safeguards activos y más capacidad en código agentico.',
     href: '/radar/claude-fable-5',
-    image: '/images/LS%20-%20radar%203.png',
+    image: radarClaudeFable5,
   },
 ];
 ---
@@ -53,11 +117,11 @@ const articles = [
             style="background: oklch(10% 0.015 235); border: 1px solid oklch(28% 0.02 235 / 0.55);"
             data-reveal
           >
-            <img
+            <Image
               src={article.image}
               alt=""
-              width="1254"
-              height="1254"
+              widths={[400, 800, 1254]}
+              sizes="(max-width: 768px) 100vw, 33vw"
               loading="lazy"
               class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.035]"
               style="aspect-ratio: 1 / 1;"

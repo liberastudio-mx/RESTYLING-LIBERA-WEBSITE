@@ -1,0 +1,106 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '@/assets/images/LS - radar 1.png';
+const siteUrl = 'https://www.liberastudio.tech';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Fable 5 vetado: el modelo más potente de Anthropic llegó y se fue en 4 días para México",
+  "description": "EE.UU. suspendió el acceso a Claude Fable 5 para usuarios extranjeros. Qué pasó, qué sigue activo y qué alternativas quedan.",
+  "datePublished": "2026-06-21",
+  "dateModified": "2026-06-21",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "image": `${siteUrl}${heroImg.src}`,
+  "url": `${siteUrl}/radar/veto-claude-fable-5-eeuu`,
+  "articleSection": "IA",
+  "inLanguage": "es-MX"
+});
+---
+
+<Layout title="Claude Fable 5 vetado" description="Claude Fable 5 vetado: el modelo más potente de Anthropic llegó y se fue en 4 días para México." jsonLdExtra={articleSchema}>
+  <article class="radar-article-page">
+    <header class="radar-article-hero">
+      <Image src={heroImg} alt="" widths={[800, 1254]} sizes="100vw" class="radar-article-hero-image" />
+      <span class="radar-article-hero-overlay" aria-hidden="true"></span>
+      <div class="container-libera radar-article-hero-inner">
+        <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
+        <p class="eyebrow mt-10 mb-5" style="color: var(--orange); font-family: var(--font-mono);">IA · 21 junio 2026 · 5 min de lectura</p>
+        <h1 class="font-display radar-article-title">Claude Fable 5 vetado: el modelo más potente de Anthropic llegó y se fue en 4 días para México</h1>
+        <p class="radar-article-lead max-w-3xl">El modelo más fuerte de Anthropic duró cuatro días accesible antes de quedar suspendido por una orden de control de exportaciones de EE.UU.</p>
+      </div>
+    </header>
+
+    <div class="radar-article-body-wrapper">
+      <div class="container-libera pb-28" style="padding-top: 4rem;">
+        <div class="radar-article-body">
+          <p>Claude Fable 5 salió con números de benchmark muy por encima de Opus 4.8. Pero el 13 de junio de 2026, el gobierno de Estados Unidos ordenó suspender el acceso para ciudadanos extranjeros. Anthropic terminó apagándolo para todos.</p>
+
+          <h2>Qué pasó exactamente</h2>
+          <p>La directiva llegó desde el Departamento de Comercio. Según Anthropic, el argumento fue un posible riesgo de seguridad asociado a una técnica de jailbreak sobre Fable 5 y Mythos 5.</p>
+          <p>La compañía no podía segmentar acceso por nacionalidad con suficiente seguridad legal, así que cerró completamente el modelo.</p>
+          <aside class="radar-stat"><strong>4</strong><span>días pasaron entre el lanzamiento de Claude Fable 5 y su suspensión total.</span></aside>
+
+          <h2>Qué significa para México y LATAM</h2>
+          <p>Si dependías de Fable 5 por API, Claude Code o una plataforma de terceros, el acceso desapareció sin transición. No fue una deprecación técnica. Fue un corte regulatorio.</p>
+          <p>Los demás modelos de Anthropic siguen activos:</p>
+          <ul>
+            <li><strong>Claude Opus 4.8</strong></li>
+            <li><strong>Claude Sonnet 4.6</strong></li>
+            <li><strong>Claude Haiku 4.5</strong></li>
+          </ul>
+
+          <h2>Qué alternativas quedaron</h2>
+          <h3>Opus 4.8</h3>
+          <p>Es la ruta inmediata si ya estás dentro del stack Anthropic. Para la mayoría de flujos de negocio, la pérdida respecto a Fable 5 no cambia la operación diaria.</p>
+
+          <h3>DeepSeek V4 Pro</h3>
+          <p>El caso más fuerte por costo. Sigue siendo mucho más barato para cargas altas y código intensivo.</p>
+          <aside class="radar-stat"><strong>14×</strong><span>más barato puede resultar DeepSeek V4 Pro frente a Fable 5 en output por millón de tokens.</span></aside>
+
+          <h3>OpenRouter Fusion y modelos self-hosted</h3>
+          <p>Si no quieres depender de un solo proveedor estadounidense, este evento dejó una lección clara: necesitas fallback real, no teórico.</p>
+
+          <h2>La señal de fondo</h2>
+          <p>Lo relevante no es solo el veto a Fable 5. Lo relevante es el precedente: un modelo frontier ya puede quedar fuera de juego después de estar publicado, por razones regulatorias y no técnicas.</p>
+          <p>Si construyes con APIs frontier en México, la pregunta ya no es “qué modelo rinde más”. También es “qué hago si mañana desaparece”.</p>
+
+          <div class="radar-article-related">
+            <p class="radar-related-label">Si esto te interesa</p>
+            <div class="radar-related-links">
+              <a href="/radar/claude-fable-5">Leer el lanzamiento original de Fable 5 →</a>
+              <a href="/radar/claude-opus-4-8">Ver qué ofrece Opus 4.8 →</a>
+              <a href="/soluciones/ai-automation/agentes-ia">Diseñar flujos con fallback de proveedor →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .radar-article-page { background: var(--ink); color: var(--text-light); }
+    .radar-article-hero { position: relative; min-height: min(760px, 92dvh); overflow: hidden; display: flex; align-items: flex-end; padding-block: calc(var(--nav-height, 72px) + 6rem) calc(5.5rem + 70px); }
+    .radar-article-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .radar-article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.012 235 / 0.34), oklch(8% 0.012 235 / 0.78)), linear-gradient(90deg, oklch(8% 0.012 235 / 0.78), oklch(8% 0.012 235 / 0.18)); }
+    .radar-article-hero-inner { position: relative; z-index: 1; width: 100%; }
+    .radar-article-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: 0.01em; }
+    .radar-article-lead { margin-top: 2rem; color: oklch(88% 0.012 235); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.65; }
+    .radar-article-body-wrapper { background: #ffffff; margin-top: -70px; position: relative; z-index: 1; }
+    .radar-article-body { max-width: 48rem; color: rgba(0,48,73,0.72); font-size: 1rem; line-height: 1.8; }
+    .radar-article-body > * + * { margin-top: 1.25rem; }
+    .radar-article-body h2 { margin-top: 3.5rem; color: #003049; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1; }
+    .radar-article-body h3 { margin-top: 2rem; color: #003049; font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; line-height: 1.05; }
+    .radar-article-body ul { padding-left: 1.25rem; list-style: disc; }
+    .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid rgba(0,48,73,0.12); }
+    .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
+    .radar-stat span { color: rgba(0,48,73,0.65); }
+    .radar-article-related { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,48,73,0.12); }
+    .radar-related-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .radar-related-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .radar-related-links a { color: #003049; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+    .radar-related-links a:hover { color: var(--orange); }
+  </style>
+</Layout>

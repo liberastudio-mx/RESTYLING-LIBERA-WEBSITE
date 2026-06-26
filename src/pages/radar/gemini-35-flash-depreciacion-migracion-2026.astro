@@ -1,0 +1,128 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '@/assets/images/LS - radar 3.png';
+const siteUrl = 'https://www.liberastudio.tech';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gemini 2.0 Flash está muerto: qué pasó, qué lo reemplaza y cuánto cuesta ahora",
+  "description": "Google retiró Gemini 2.0 Flash el 1 de junio de 2026. Qué modelos quedan, cómo migrar y qué cambia en costos.",
+  "datePublished": "2026-06-21",
+  "dateModified": "2026-06-21",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "image": `${siteUrl}${heroImg.src}`,
+  "url": `${siteUrl}/radar/gemini-35-flash-depreciacion-migracion-2026`,
+  "articleSection": "IA",
+  "inLanguage": "es-MX"
+});
+---
+
+<Layout title="Gemini 2.0 Flash está muerto" description="Gemini 2.0 Flash está muerto: qué pasó, qué lo reemplaza y cuánto cuesta ahora." jsonLdExtra={articleSchema}>
+  <article class="radar-article-page">
+    <header class="radar-article-hero">
+      <Image src={heroImg} alt="" widths={[800, 1254]} sizes="100vw" class="radar-article-hero-image" />
+      <span class="radar-article-hero-overlay" aria-hidden="true"></span>
+      <div class="container-libera radar-article-hero-inner">
+        <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
+        <p class="eyebrow mt-10 mb-5" style="color: var(--orange); font-family: var(--font-mono);">IA · 21 junio 2026 · 4 min de lectura</p>
+        <h1 class="font-display radar-article-title">Gemini 2.0 Flash está muerto: qué pasó, qué lo reemplaza y cuánto cuesta ahora</h1>
+        <p class="radar-article-lead max-w-3xl">Google apagó Gemini 2.0 Flash el 1 de junio. Si todavía dependías de ese modelo, tu integración ya está fallando.</p>
+      </div>
+    </header>
+
+    <div class="radar-article-body-wrapper">
+      <div class="container-libera pb-28" style="padding-top: 4rem;">
+        <div class="radar-article-body">
+          <p>Los modelos <code>gemini-2.0-flash-001</code> y <code>gemini-2.0-flash-lite-001</code> quedaron fuera. No hay periodo de gracia. El cambio real es actualizar el ID de modelo, pero el tema importante es otro: el reemplazo cuesta más.</p>
+
+          <h2>Qué llegó en su lugar</h2>
+          <p>Google empujó a todo el mundo hacia <strong>Gemini 3.5 Flash</strong>, presentado en I/O 2026. No es un parche menor. Es un modelo que en varias tareas ya supera al Pro del año pasado.</p>
+          <aside class="radar-stat"><strong>76.2%</strong><span>en Terminal-Bench 2.1 para Gemini 3.5 Flash, con 1 millón de tokens de contexto.</span></aside>
+
+          <h2>El problema: el precio subió</h2>
+          <p>Flash ya no es tan barato como antes. El nuevo 3.5 Flash cuesta varias veces más que la línea anterior. Sigue siendo más económico que Pro, pero si tus cálculos seguían basados en la generación previa, el ROI cambió.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Modelo</th>
+                <th>Input / 1M</th>
+                <th>Output / 1M</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gemini 2.0 Flash</td>
+                <td>$0.10</td>
+                <td>$0.40</td>
+              </tr>
+              <tr>
+                <td>Gemini 3.5 Flash</td>
+                <td>$1.50</td>
+                <td>$9.00</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>La migración es rápida</h2>
+          <p>En la práctica, basta con sustituir el ID de modelo. No cambió la forma del request.</p>
+          <pre><code># Antes
+model = "gemini-2.0-flash-001"
+
+# Ahora
+model = "gemini-3.5-flash"</code></pre>
+
+          <h2>Cuál elegir</h2>
+          <ul>
+            <li><strong>Texto a gran volumen y costo sensible:</strong> evalúa primero variantes más ligeras.</li>
+            <li><strong>Código, agentes o tareas largas:</strong> Gemini 3.5 Flash sí justifica el cambio.</li>
+            <li><strong>Workloads que vivían de velocidad:</strong> 3.5 Flash es la ruta natural.</li>
+          </ul>
+
+          <h2>Qué enseña esto</h2>
+          <p>Los ciclos de vida de modelos se acortaron. Ya no puedes pensar en integraciones de IA como algo que cambias cada varios años. Necesitas monitoreo de deprecaciones y capacidad de migración rápida.</p>
+
+          <div class="radar-article-related">
+            <p class="radar-related-label">Si esto te interesa</p>
+            <div class="radar-related-links">
+              <a href="/radar/openai-ipo-2026-precios-api">Ver cómo también se mueven los precios en OpenAI →</a>
+              <a href="/soluciones/ai-automation/flujos-n8n">Automatizar con arquitectura más flexible →</a>
+              <a href="/soluciones/operacion-interna/integraciones">Integraciones que no dependen de un solo modelo →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .radar-article-page { background: var(--ink); color: var(--text-light); }
+    .radar-article-hero { position: relative; min-height: min(760px, 92dvh); overflow: hidden; display: flex; align-items: flex-end; padding-block: calc(var(--nav-height, 72px) + 6rem) calc(5.5rem + 70px); }
+    .radar-article-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .radar-article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.012 235 / 0.34), oklch(8% 0.012 235 / 0.78)), linear-gradient(90deg, oklch(8% 0.012 235 / 0.78), oklch(8% 0.012 235 / 0.18)); }
+    .radar-article-hero-inner { position: relative; z-index: 1; width: 100%; }
+    .radar-article-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: 0.01em; }
+    .radar-article-lead { margin-top: 2rem; color: oklch(88% 0.012 235); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.65; }
+    .radar-article-body-wrapper { background: #ffffff; margin-top: -70px; position: relative; z-index: 1; }
+    .radar-article-body { max-width: 48rem; color: rgba(0,48,73,0.72); font-size: 1rem; line-height: 1.8; }
+    .radar-article-body > * + * { margin-top: 1.25rem; }
+    .radar-article-body h2 { margin-top: 3.5rem; color: #003049; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1; }
+    .radar-article-body ul { padding-left: 1.25rem; list-style: disc; }
+    .radar-article-body code { font-family: var(--font-mono); background: rgba(0,48,73,0.06); padding: 0.1rem 0.35rem; }
+    .radar-article-body pre { overflow-x: auto; background: rgba(0,48,73,0.06); padding: 1rem 1.2rem; }
+    .radar-article-body table { width: 100%; border-collapse: collapse; overflow: hidden; font-size: 0.95rem; }
+    .radar-article-body th, .radar-article-body td { border-bottom: 1px solid rgba(0,48,73,0.12); padding: 0.85rem 0; text-align: left; }
+    .radar-article-body th { color: #003049; font-family: var(--font-mono); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.08em; }
+    .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid rgba(0,48,73,0.12); }
+    .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
+    .radar-stat span { color: rgba(0,48,73,0.65); }
+    .radar-article-related { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,48,73,0.12); }
+    .radar-related-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .radar-related-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .radar-related-links a { color: #003049; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+    .radar-related-links a:hover { color: var(--orange); }
+  </style>
+</Layout>

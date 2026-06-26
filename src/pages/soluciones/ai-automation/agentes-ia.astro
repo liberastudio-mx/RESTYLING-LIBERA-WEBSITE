@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import robotsImg from '@/assets/images/3 robots ai agents.png';
@@ -6,15 +6,6 @@ import robotsImg from '@/assets/images/3 robots ai agents.png';
 <Layout title="Agentes de IA | IA y automatización" description="Un agente de IA recibe una tarea, toma decisiones y ejecuta acciones reales. No solo responde: actúa. Agentes para seguimiento de leads, onboarding y monitoreo.">
 
   <div class="aia-page">
-
-    <!-- BREADCRUMB -->
-    <nav class="aia-breadcrumb container-libera" aria-label="breadcrumb">
-      <a href="/soluciones">Soluciones</a>
-      <span>›</span>
-      <a href="/soluciones/ai-automation">IA y automatización</a>
-      <span>›</span>
-      <span aria-current="page">Agentes de IA</span>
-    </nav>
 
     <!-- HERO -->
     <section class="aia-hero">
@@ -213,7 +204,7 @@ import robotsImg from '@/assets/images/3 robots ai agents.png';
     /* BREADCRUMB */
     .aia-breadcrumb {
       display: flex; align-items: center; gap: 0.5rem;
-      padding-top: calc(var(--nav-height) + 1.25rem);
+      padding-top: calc(var(--nav-height) + 2.5rem);
       font-size: 0.8rem; color: var(--text-secondary); flex-wrap: wrap;
     }
     .aia-breadcrumb a { color: var(--text-secondary); transition: color .2s; }
@@ -221,7 +212,7 @@ import robotsImg from '@/assets/images/3 robots ai agents.png';
     .aia-breadcrumb [aria-current="page"] { color: var(--orange); font-weight: 600; }
 
     /* HERO */
-    .aia-hero { padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+    .aia-hero { padding-top: calc(var(--nav-height) + clamp(4rem, 5vw, 5rem)); padding-bottom: clamp(3rem, 6vw, 5rem); }
     .aia-hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);

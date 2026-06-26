@@ -1,0 +1,98 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '@/assets/images/LS - radar 2.png';
+const siteUrl = 'https://www.liberastudio.tech';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "OpenAI sale a bolsa: $850B de valuación y posibles recortes en sus APIs",
+  "description": "OpenAI presentó una IPO confidencial y el mercado ya habla de recortes de precio en la API. Qué cambia para equipos que construyen sobre su stack.",
+  "datePublished": "2026-06-21",
+  "dateModified": "2026-06-21",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "image": `${siteUrl}${heroImg.src}`,
+  "url": `${siteUrl}/radar/openai-ipo-2026-precios-api`,
+  "articleSection": "IA",
+  "inLanguage": "es-MX"
+});
+---
+
+<Layout title="OpenAI sale a bolsa" description="OpenAI sale a bolsa: $850B de valuación y posibles recortes en sus APIs." jsonLdExtra={articleSchema}>
+  <article class="radar-article-page">
+    <header class="radar-article-hero">
+      <Image src={heroImg} alt="" widths={[800, 1254]} sizes="100vw" class="radar-article-hero-image" />
+      <span class="radar-article-hero-overlay" aria-hidden="true"></span>
+      <div class="container-libera radar-article-hero-inner">
+        <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
+        <p class="eyebrow mt-10 mb-5" style="color: var(--orange); font-family: var(--font-mono);">IA · 21 junio 2026 · 4 min de lectura</p>
+        <h1 class="font-display radar-article-title">OpenAI sale a bolsa: $850B de valuación y posibles recortes en sus APIs</h1>
+        <p class="radar-article-lead max-w-3xl">La solicitud confidencial de IPO y la posibilidad de bajar precios en la API no son dos noticias separadas. Son parte del mismo movimiento.</p>
+      </div>
+    </header>
+
+    <div class="radar-article-body-wrapper">
+      <div class="container-libera pb-28" style="padding-top: 4rem;">
+        <div class="radar-article-body">
+          <p>OpenAI presentó su solicitud confidencial ante la SEC con una valuación que en mercado privado se mueve entre <strong>$730B y $850B</strong>. Días después apareció otro rumor clave: posibles recortes importantes en el precio de tokens de su API.</p>
+
+          <h2>Qué significa una IPO confidencial</h2>
+          <p>No significa que la empresa ya cotiza. Significa que dio el paso formal para preparar una salida a bolsa, sin revelar aún todos los detalles financieros al público.</p>
+
+          <h2>Por qué podría bajar precios justo ahora</h2>
+          <p>Porque el mercado cambió. Anthropic, Google y otros ya presionan fuerte en enterprise y en costos por token. Antes OpenAI dominaba con mucha más distancia. Hoy ya no.</p>
+          <aside class="radar-stat"><strong>$47B</strong><span>es el revenue anualizado que Anthropic alcanzó en mayo de 2026, acelerando la guerra competitiva en modelos frontier.</span></aside>
+
+          <h2>Qué cambia si construyes sobre su API</h2>
+          <p>Lo más probable en los próximos meses no es un cambio de endpoint ni un giro técnico. Lo más probable es una presión hacia abajo en precios, con posibles nuevas capas para alto volumen.</p>
+          <p>Eso sería relevante para cualquiera que hoy está frenando proyectos por costo de tokens o afinando el ROI de automatizaciones y asistentes.</p>
+
+          <h2>Qué no cambia</h2>
+          <ul>
+            <li>Los modelos actuales y su interfaz de uso, salvo anuncio explícito.</li>
+            <li>La lógica general de la API.</li>
+            <li>La necesidad de seguir comparando proveedores, no casarte con uno por reflejo.</li>
+          </ul>
+
+          <h2>La lectura útil</h2>
+          <p>Si ya estás en producción, una eventual baja te beneficia. Si estás definiendo stack y el costo por token es el factor crítico, puede tener sentido no sobrerreaccionar y observar las próximas semanas.</p>
+          <p>La conclusión no es “espera siempre”. La conclusión es que ya estamos en una etapa donde el pricing de API también es terreno competitivo, no una tabla fija e incuestionable.</p>
+
+          <div class="radar-article-related">
+            <p class="radar-related-label">Si esto te interesa</p>
+            <div class="radar-related-links">
+              <a href="/radar/gemini-35-flash-depreciacion-migracion-2026">Comparar con el movimiento de Google Gemini →</a>
+              <a href="/radar/claude-opus-4-8">Ver qué hace Anthropic del otro lado →</a>
+              <a href="/soluciones/operacion-interna/dashboards">Monitorear costo real por flujo y proveedor →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .radar-article-page { background: var(--ink); color: var(--text-light); }
+    .radar-article-hero { position: relative; min-height: min(760px, 92dvh); overflow: hidden; display: flex; align-items: flex-end; padding-block: calc(var(--nav-height, 72px) + 6rem) calc(5.5rem + 70px); }
+    .radar-article-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .radar-article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.012 235 / 0.34), oklch(8% 0.012 235 / 0.78)), linear-gradient(90deg, oklch(8% 0.012 235 / 0.78), oklch(8% 0.012 235 / 0.18)); }
+    .radar-article-hero-inner { position: relative; z-index: 1; width: 100%; }
+    .radar-article-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: 0.01em; }
+    .radar-article-lead { margin-top: 2rem; color: oklch(88% 0.012 235); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.65; }
+    .radar-article-body-wrapper { background: #ffffff; margin-top: -70px; position: relative; z-index: 1; }
+    .radar-article-body { max-width: 48rem; color: rgba(0,48,73,0.72); font-size: 1rem; line-height: 1.8; }
+    .radar-article-body > * + * { margin-top: 1.25rem; }
+    .radar-article-body h2 { margin-top: 3.5rem; color: #003049; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1; }
+    .radar-article-body ul { padding-left: 1.25rem; list-style: disc; }
+    .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid rgba(0,48,73,0.12); }
+    .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
+    .radar-stat span { color: rgba(0,48,73,0.65); }
+    .radar-article-related { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,48,73,0.12); }
+    .radar-related-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .radar-related-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .radar-related-links a { color: #003049; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+    .radar-related-links a:hover { color: var(--orange); }
+  </style>
+</Layout>

@@ -1,7 +1,8 @@
----
+﻿---
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import heroImg from '@/assets/images/LS - radar 2.png';
+const siteUrl = 'https://www.liberastudio.tech';
 
 const articleSchema = JSON.stringify({
   "@context": "https://schema.org",
@@ -10,10 +11,10 @@ const articleSchema = JSON.stringify({
   "description": "Análisis de las mejoras de Claude Opus 4.8 y su impacto en automatización de procesos empresariales.",
   "datePublished": "2026-06-01",
   "dateModified": "2026-06-01",
-  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
-  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
-  "image": "https://www.liberastudio.tech/images/LS%20-%20radar%202.png",
-  "url": "https://www.liberastudio.tech/radar/claude-opus-4-8",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "image": `${siteUrl}${heroImg.src}`,
+  "url": `${siteUrl}/radar/claude-opus-4-8`,
   "articleSection": "IA",
   "inLanguage": "es-MX"
 });
@@ -73,7 +74,7 @@ const articleSchema = JSON.stringify({
         <div class="radar-article-related">
           <p class="radar-related-label">Si esto te interesa</p>
           <div class="radar-related-links">
-            <a href="/soluciones/ai-automation">IA aplicada a procesos reales →</a>
+            <a href="/soluciones/ai-automation/agentes-ia">IA aplicada a procesos reales →</a>
             <a href="/soluciones/ai-automation/flujos-n8n">Automatiza flujos con n8n →</a>
             <a href="/soluciones/ai-automation/automatizacion-documental">Automatización documental →</a>
           </div>

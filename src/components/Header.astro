@@ -11,7 +11,6 @@ const MOBILE_SOLUTION_GROUPS = [
   {
     heading: 'Operación Interna',
     accent: BRAND_COLORS[0],
-    href: '/soluciones/operacion-interna',
     links: [
       ['Second Brain/PAOS', '/soluciones/operacion-interna/paos'],
       ['Automatización', '/soluciones/operacion-interna/automatizacion'],
@@ -23,7 +22,6 @@ const MOBILE_SOLUTION_GROUPS = [
   {
     heading: 'Presencia Digital',
     accent: BRAND_COLORS[1],
-    href: '/soluciones/presencia-digital',
     links: [
       ['Sitios web premium', '/soluciones/presencia-digital/sitios-web-premium'],
       ['Landing pages', '/soluciones/presencia-digital/landing-pages'],
@@ -35,7 +33,6 @@ const MOBILE_SOLUTION_GROUPS = [
   {
     heading: 'IA y automatización',
     accent: BRAND_COLORS[2],
-    href: '/soluciones/ai-automation',
     links: [
       ['Agentes de IA', '/soluciones/ai-automation/agentes-ia'],
       ['Asistentes internos', '/soluciones/ai-automation/asistentes-internos'],
@@ -47,7 +44,6 @@ const MOBILE_SOLUTION_GROUPS = [
   {
     heading: 'Productos Digitales',
     accent: BRAND_COLORS[3],
-    href: '/soluciones/productos-digitales',
     links: [
       ['Web apps', '/soluciones/productos-digitales/web-apps'],
       ['MVPs', '/soluciones/productos-digitales/mvps'],
@@ -124,20 +120,20 @@ const MOBILE_SOLUTION_GROUPS = [
         >
           <div class="grid grid-cols-4 p-5 gap-1">
             {[
-              { heading: 'Operación Interna', accent: BRAND_COLORS[0], href: '/soluciones/operacion-interna',
+              { heading: 'Operación Interna', accent: BRAND_COLORS[0],
                 links: [['Second Brain/PAOS','/soluciones/operacion-interna/paos'],['Automatización','/soluciones/operacion-interna/automatizacion'],['CRM y seguimiento','/soluciones/operacion-interna/crm-seguimiento'],['Dashboards','/soluciones/operacion-interna/dashboards'],['Integraciones','/soluciones/operacion-interna/integraciones']] },
-              { heading: 'Presencia Digital',     accent: BRAND_COLORS[1], href: '/soluciones/presencia-digital',
+              { heading: 'Presencia Digital',     accent: BRAND_COLORS[1],
                 links: [['Sitios web premium','/soluciones/presencia-digital/sitios-web-premium'],['Landing pages','/soluciones/presencia-digital/landing-pages'],['Google Business Profile','/soluciones/presencia-digital/google-business-profile'],['WhatsApp Business','/soluciones/presencia-digital/whatsapp-business'],['Redes sociales','/soluciones/presencia-digital/redes-sociales']] },
-              { heading: 'IA y automatización',   accent: BRAND_COLORS[2], href: '/soluciones/ai-automation',
+              { heading: 'IA y automatización',   accent: BRAND_COLORS[2],
                 links: [['Agentes de IA','/soluciones/ai-automation/agentes-ia'],['Asistentes internos','/soluciones/ai-automation/asistentes-internos'],['Flujos con n8n','/soluciones/ai-automation/flujos-n8n'],['Clasificación de mensajes','/soluciones/ai-automation/clasificacion-mensajes'],['Automatización documental','/soluciones/ai-automation/automatizacion-documental']] },
-              { heading: 'Productos Digitales',   accent: BRAND_COLORS[3], href: '/soluciones/productos-digitales',
+              { heading: 'Productos Digitales',   accent: BRAND_COLORS[3],
                 links: [['Web apps','/soluciones/productos-digitales/web-apps'],['MVPs','/soluciones/productos-digitales/mvps'],['Apps internas','/soluciones/productos-digitales/apps-internas'],['Paneles admin','/soluciones/productos-digitales/paneles-admin'],['Prototipos','/soluciones/productos-digitales/prototipos']] },
             ].map((col) => (
               <div class="px-4 py-3 rounded-xl hover:bg-[#003049]/[0.03] transition-colors duration-150">
-                <a href={col.href} class="flex items-center gap-2 mb-3 group/col">
+                <div class="flex items-center gap-2 mb-3">
                   <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style={`background:${col.accent};`}></span>
-                  <span class="text-xs font-semibold tracking-wide uppercase transition-opacity duration-150 group-hover/col:opacity-70" style={`color:${col.accent};`}>{col.heading}</span>
-                </a>
+                  <span class="text-xs font-semibold tracking-wide uppercase" style={`color:${col.accent};`}>{col.heading}</span>
+                </div>
                 <ul class="space-y-1.5">
                   {col.links.map(([label, href]) => (
                     <li>

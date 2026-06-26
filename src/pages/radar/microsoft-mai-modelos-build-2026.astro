@@ -1,7 +1,8 @@
----
+﻿---
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import heroImg from '@/assets/images/LS - radar 1.png';
+const siteUrl = 'https://www.liberastudio.tech';
 
 const articleSchema = JSON.stringify({
   "@context": "https://schema.org",
@@ -10,10 +11,10 @@ const articleSchema = JSON.stringify({
   "description": "Microsoft presenta su familia de modelos MAI y desacopla GitHub Copilot de OpenAI. Qué significa para el ecosistema de herramientas de desarrollo.",
   "datePublished": "2026-06-01",
   "dateModified": "2026-06-01",
-  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
-  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": "https://www.liberastudio.tech" },
-  "image": "https://www.liberastudio.tech/images/LS%20-%20radar%201.png",
-  "url": "https://www.liberastudio.tech/radar/microsoft-mai-modelos-build-2026",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "image": `${siteUrl}${heroImg.src}`,
+  "url": `${siteUrl}/radar/microsoft-mai-modelos-build-2026`,
   "articleSection": "Dev",
   "inLanguage": "es-MX"
 });
@@ -97,9 +98,9 @@ const articleSchema = JSON.stringify({
         <div class="radar-article-related">
           <p class="radar-related-label">Si esto te interesa</p>
           <div class="radar-related-links">
-            <a href="/soluciones/ai-automation">IA aplicada a procesos reales →</a>
+            <a href="/soluciones/ai-automation/agentes-ia">IA aplicada a procesos reales →</a>
             <a href="/soluciones/ai-automation/asistentes-internos">Asistentes internos para tu equipo →</a>
-            <a href="/soluciones/productos-digitales">Productos digitales con IA →</a>
+            <a href="/soluciones/productos-digitales/web-apps">Productos digitales con IA →</a>
           </div>
         </div>
       </div>

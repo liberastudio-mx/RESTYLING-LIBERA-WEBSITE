@@ -1,18 +1,9 @@
----
+﻿---
 import Layout from '@/layouts/Layout.astro';
 ---
 <Layout title="Asistentes internos | IA y automatización" description="Asistentes entrenados con la información real de tu empresa para responder dudas y ayudar al equipo en procesos cotidianos.">
 
   <div class="asi-page">
-
-    <!-- BREADCRUMB -->
-    <nav class="asi-breadcrumb container-libera" aria-label="breadcrumb">
-      <a href="/soluciones">Soluciones</a>
-      <span>›</span>
-      <a href="/soluciones/ai-automation">IA y automatización</a>
-      <span>›</span>
-      <span aria-current="page">Asistentes internos</span>
-    </nav>
 
     <!-- HERO -->
     <section class="asi-hero">
@@ -257,7 +248,7 @@ import Layout from '@/layouts/Layout.astro';
     /* BREADCRUMB */
     .asi-breadcrumb {
       display: flex; align-items: center; gap: 0.5rem;
-      padding-top: calc(var(--nav-height) + 1.25rem);
+      padding-top: calc(var(--nav-height) + 2.5rem);
       font-size: 0.8rem; color: var(--text-secondary); flex-wrap: wrap;
     }
     .asi-breadcrumb a { color: var(--text-secondary); transition: color .2s; }
@@ -265,7 +256,7 @@ import Layout from '@/layouts/Layout.astro';
     .asi-breadcrumb [aria-current="page"] { color: var(--orange); font-weight: 600; }
 
     /* HERO */
-    .asi-hero { padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+    .asi-hero { padding-top: calc(var(--nav-height) + clamp(4rem, 5vw, 5rem)); padding-bottom: clamp(3rem, 6vw, 5rem); }
     .asi-hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);

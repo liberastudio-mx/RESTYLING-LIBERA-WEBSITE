@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '@/layouts/Layout.astro';
 ---
 
@@ -8,13 +8,6 @@ import Layout from '@/layouts/Layout.astro';
 >
   <!-- Design: Hybrid | Vibe: Soft Structuralism | Layout: Editorial Split | Color: Restrained -->
   <div class="proto-page">
-    <nav class="proto-breadcrumb container-libera" aria-label="Navegación de migas de pan">
-      <a href="/soluciones">Soluciones</a>
-      <span aria-hidden="true">›</span>
-      <a href="/soluciones/productos-digitales">Productos digitales</a>
-      <span aria-hidden="true">›</span>
-      <span aria-current="page">Prototipos</span>
-    </nav>
 
     <section class="proto-hero">
       <div class="container-libera proto-hero-grid">
@@ -164,9 +157,9 @@ import Layout from '@/layouts/Layout.astro';
 
   <style>
     .proto-page{overflow:clip;background:#fff;color:var(--text-primary)}
-    .proto-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;padding-top:calc(var(--nav-height) + 1.25rem);color:var(--text-secondary);font-size:.78rem}
+    .proto-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;padding-top:calc(var(--nav-height) + 2.5rem);color:var(--text-secondary);font-size:.78rem}
     .proto-breadcrumb a{color:inherit}.proto-breadcrumb a:hover,.proto-breadcrumb [aria-current="page"]{color:var(--orange)}
-    .proto-hero{padding:clamp(3.25rem,6vw,5.25rem) 0 clamp(3rem,5vw,4.5rem)}
+    .proto-hero{padding:calc(var(--nav-height) + clamp(4rem,5vw,5rem)) 0 clamp(3rem,5vw,4.5rem)}
     .proto-hero-grid{display:grid;grid-template-columns:minmax(18rem,.82fr) minmax(30rem,1.35fr);gap:clamp(2.5rem,5vw,5rem);align-items:center}
     .proto-eyebrow{width:fit-content;margin-bottom:1.35rem;padding:.32rem .65rem;border:1px solid var(--orange);border-radius:999px;color:var(--orange);font-family:var(--font-mono);font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
     .proto-title{max-width:12ch;margin:0 0 1.25rem;font-family:var(--font-display);font-size:clamp(2rem,4vw,3.15rem);font-weight:700;line-height:1.02;letter-spacing:-.035em;text-wrap:balance}

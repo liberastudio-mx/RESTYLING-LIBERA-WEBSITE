@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '@/layouts/Layout.astro';
 ---
 
@@ -7,15 +7,6 @@ import Layout from '@/layouts/Layout.astro';
   description="Una web app construida para ti hace exactamente lo que necesitas. Sin límites, sin funciones que estorban, funciona en el navegador y escala con tu operación."
 >
   <div class="webapp-page">
-
-    <!-- BREADCRUMB -->
-    <nav class="webapp-breadcrumb container-libera" aria-label="Navegación de migas de pan">
-      <a href="/soluciones">Soluciones</a>
-      <span aria-hidden="true">›</span>
-      <a href="/soluciones/productos-digitales">Productos Digitales</a>
-      <span aria-hidden="true">›</span>
-      <span aria-current="page">Web Apps</span>
-    </nav>
 
     <!-- HERO -->
     <section class="webapp-hero">
@@ -272,7 +263,7 @@ import Layout from '@/layouts/Layout.astro';
 
     .webapp-breadcrumb {
       display: flex; align-items: center; gap: 0.5rem;
-      padding-top: calc(var(--nav-height) + 1.25rem);
+      padding-top: calc(var(--nav-height) + 2.5rem);
       font-size: 0.8rem; color: var(--text-secondary);
     }
     .webapp-breadcrumb a { color: var(--text-secondary); transition: color 0.2s; }
@@ -281,7 +272,7 @@ import Layout from '@/layouts/Layout.astro';
 
     /* ── HERO ── */
     .webapp-hero {
-      padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem);
+      padding-top: calc(var(--nav-height) + clamp(4rem, 5vw, 5rem));
       padding-bottom: clamp(3rem, 6vw, 5rem);
     }
     .webapp-hero-grid {

@@ -1,0 +1,109 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '@/assets/images/LS - radar 3.png';
+const siteUrl = 'https://www.liberastudio.tech';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GitHub Copilot abandona la tarifa fija: lo que cuesta ahora y qué hacer",
+  "description": "GitHub Copilot pasó a billing por tokens el 1 de junio. Qué cambió y cómo afecta a equipos que usan funciones agénticas.",
+  "datePublished": "2026-06-20",
+  "dateModified": "2026-06-20",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "image": `${siteUrl}${heroImg.src}`,
+  "url": `${siteUrl}/radar/github-copilot-billing-por-tokens-2026`,
+  "articleSection": "Dev",
+  "inLanguage": "es-MX"
+});
+---
+
+<Layout title="GitHub Copilot abandona la tarifa fija" description="GitHub Copilot abandona la tarifa fija: lo que cuesta ahora y qué hacer." jsonLdExtra={articleSchema}>
+  <article class="radar-article-page">
+    <header class="radar-article-hero">
+      <Image src={heroImg} alt="" widths={[800, 1254]} sizes="100vw" class="radar-article-hero-image" />
+      <span class="radar-article-hero-overlay" aria-hidden="true"></span>
+      <div class="container-libera radar-article-hero-inner">
+        <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
+        <p class="eyebrow mt-10 mb-5" style="color: var(--orange); font-family: var(--font-mono);">Dev · 20 junio 2026 · 4 min de lectura</p>
+        <h1 class="font-display radar-article-title">GitHub Copilot abandona la tarifa fija: lo que cuesta ahora y qué hacer</h1>
+        <p class="radar-article-lead max-w-3xl">GitHub eliminó su cuota plana de Copilot el 1 de junio de 2026 y pasó a cobrar por tokens. Algunos desarrolladores ya reportan saltos violentos en su factura mensual.</p>
+      </div>
+    </header>
+
+    <div class="radar-article-body-wrapper">
+      <div class="container-libera pb-28" style="padding-top: 4rem;">
+        <div class="radar-article-body">
+          <p>GitHub Copilot llevaba años cobrando una cuota fija. Eso terminó. Ahora usa AI Credits: una moneda interna donde 1 crédito equivale a $0.01 USD. Cada chat, edición multiarchivo o flujo agéntico descuenta créditos según el modelo y los tokens procesados.</p>
+
+          <h2>Cómo quedó el esquema</h2>
+          <ul>
+            <li><strong>Pro ($10/mes)</strong> — 1,500 créditos incluidos.</li>
+            <li><strong>Pro+ ($39/mes)</strong> — 7,000 créditos incluidos.</li>
+            <li><strong>Business ($19 por usuario)</strong> — 1,900 créditos por usuario, con promoción temporal a 3,000.</li>
+            <li><strong>Enterprise ($39 por usuario)</strong> — 3,900 créditos por usuario, con promoción temporal a 7,000.</li>
+          </ul>
+          <p>Las completaciones inline y Next Edit Suggestions siguen siendo gratuitas. El gasto real aparece cuando usas Copilot Chat, ediciones complejas o funciones de agente.</p>
+
+          <h2>Los números que están preocupando</h2>
+          <p>Los casos más visibles son de usuarios intensivos, pero sirven para entender el riesgo: proyectos que pasaron de decenas a cientos de dólares al mes después del cambio.</p>
+          <aside class="radar-stat"><strong>20×</strong><span>es el aumento de factura que algunos usuarios reportaron al usar sesiones agénticas intensivas con el nuevo billing por consumo.</span></aside>
+          <p>Un usuario de Pro+ consumió 8% de su cuota mensual en apenas dos horas. La crítica no es que cobre más, sino que el consumo puede dispararse sin ser intuitivo para el usuario.</p>
+
+          <h2>Por qué GitHub hizo esto</h2>
+          <p>La cuota plana era cómoda, pero no reflejaba el costo real de ejecutar modelos frontier en tareas largas. Las funciones agénticas consumen mucho más contexto y más tokens que el autocompletado tradicional.</p>
+          <p>Además, Microsoft ya está moviendo el stack interno de Copilot con sus propios modelos MAI. Cobrar por créditos les permite ajustar márgenes según el modelo usado debajo.</p>
+
+          <h2>Qué hacer ahora</h2>
+          <h3>Si usas Copilot solo para completar código</h3>
+          <p>No necesitas cambiar nada. El impacto es mínimo o nulo.</p>
+
+          <h3>Si usas chat o agente</h3>
+          <p>Ve a <strong>Billing & Plans → Usage Details</strong>. Revisa qué funciones están quemando créditos. No esperes a la factura cerrada de julio.</p>
+
+          <h3>Si administras un equipo</h3>
+          <p>Calcula el baseline antes del <strong>1 de septiembre de 2026</strong>, cuando terminan las promociones de Business y Enterprise. Después de esa fecha, el colchón baja.</p>
+
+          <h2>La lectura práctica</h2>
+          <p>Esto no es un ajuste aislado. Es la señal de que las herramientas de código con IA ya no caben en un modelo “usa todo lo que quieras” cuando el uso de agentes se vuelve central.</p>
+          <p>Para equipos en México y LATAM, lo importante no es debatir si el cambio es justo. Lo importante es evitar que el consumo se vuelva impredecible.</p>
+
+          <div class="radar-article-related">
+            <p class="radar-related-label">Si esto te interesa</p>
+            <div class="radar-related-links">
+              <a href="/soluciones/ai-automation/agentes-ia">IA aplicada a procesos reales →</a>
+              <a href="/soluciones/productos-digitales/web-apps">Productos internos con IA →</a>
+              <a href="/radar/github-copilot-creditos-billing-junio-2026">Leer el análisis complementario de créditos →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .radar-article-page { background: var(--ink); color: var(--text-light); }
+    .radar-article-hero { position: relative; min-height: min(760px, 92dvh); overflow: hidden; display: flex; align-items: flex-end; padding-block: calc(var(--nav-height, 72px) + 6rem) calc(5.5rem + 70px); }
+    .radar-article-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .radar-article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.012 235 / 0.34), oklch(8% 0.012 235 / 0.78)), linear-gradient(90deg, oklch(8% 0.012 235 / 0.78), oklch(8% 0.012 235 / 0.18)); }
+    .radar-article-hero-inner { position: relative; z-index: 1; width: 100%; }
+    .radar-article-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: 0.01em; }
+    .radar-article-lead { margin-top: 2rem; color: oklch(88% 0.012 235); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.65; }
+    .radar-article-body-wrapper { background: #ffffff; margin-top: -70px; position: relative; z-index: 1; }
+    .radar-article-body { max-width: 48rem; color: rgba(0,48,73,0.72); font-size: 1rem; line-height: 1.8; }
+    .radar-article-body > * + * { margin-top: 1.25rem; }
+    .radar-article-body h2 { margin-top: 3.5rem; color: #003049; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1; }
+    .radar-article-body h3 { margin-top: 2rem; color: #003049; font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; line-height: 1.05; }
+    .radar-article-body ul { padding-left: 1.25rem; list-style: disc; }
+    .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid rgba(0,48,73,0.12); }
+    .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
+    .radar-stat span { color: rgba(0,48,73,0.65); }
+    .radar-article-related { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,48,73,0.12); }
+    .radar-related-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .radar-related-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .radar-related-links a { color: #003049; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+    .radar-related-links a:hover { color: var(--orange); }
+  </style>
+</Layout>

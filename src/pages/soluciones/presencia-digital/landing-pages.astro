@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '@/layouts/Layout.astro';
 ---
 
@@ -7,15 +7,6 @@ import Layout from '@/layouts/Layout.astro';
   description="Diseñamos landing pages enfocadas en una sola acción: captar un lead, vender una oferta, registrar asistentes o convertir tráfico en oportunidades reales."
 >
   <div class="lp-page">
-
-    <!-- BREADCRUMB -->
-    <nav class="lp-breadcrumb container-libera" aria-label="breadcrumb">
-      <a href="/soluciones">Soluciones</a>
-      <span>›</span>
-      <a href="/soluciones/presencia-digital">Presencia Digital</a>
-      <span>›</span>
-      <span aria-current="page">Landing pages</span>
-    </nav>
 
     <!-- HERO -->
     <section class="lp-hero">
@@ -286,7 +277,7 @@ import Layout from '@/layouts/Layout.astro';
     /* BREADCRUMB */
     .lp-breadcrumb {
       display: flex; align-items: center; gap: .5rem;
-      padding-top: calc(var(--nav-height) + 1.25rem);
+      padding-top: calc(var(--nav-height) + 2.5rem);
       font-size: .8rem; color: var(--text-secondary);
     }
     .lp-breadcrumb a { color: var(--text-secondary); transition: color .2s; }
@@ -294,7 +285,7 @@ import Layout from '@/layouts/Layout.astro';
     .lp-breadcrumb [aria-current="page"] { color: var(--orange); font-weight: 600; }
 
     /* HERO */
-    .lp-hero { padding-top: clamp(4rem, calc(3vw + 2.5rem), 5rem); padding-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .lp-hero { padding-top: calc(var(--nav-height) + clamp(4rem, 5vw, 5rem)); padding-bottom: clamp(2.5rem, 5vw, 4rem); }
 
     .lp-hero-grid {
       display: grid;

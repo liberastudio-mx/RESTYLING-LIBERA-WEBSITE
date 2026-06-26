@@ -64,9 +64,17 @@ const jsonLdWebsite = JSON.stringify({
   "publisher": { "@id": `${siteUrl}/#organization` }
 });
 
+const schemaType = (() => {
+  if (Astro.url.pathname === '/contacto') return 'ContactPage';
+  if (Astro.url.pathname === '/nosotros') return 'AboutPage';
+  if (Astro.url.pathname === '/radar' || Astro.url.pathname === '/trabajo') return 'CollectionPage';
+  if (Astro.url.pathname.startsWith('/soluciones/')) return 'Service';
+  return 'WebPage';
+})();
+
 const jsonLdWebPage = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": schemaType,
   "@id": `${canonicalUrl}#webpage`,
   "url": canonicalUrl,
   "name": fullTitle,
@@ -130,6 +138,8 @@ const breadcrumbLd = segments.length > 0 ? JSON.stringify({
     }))
   ]
 }) : null;
+
+const isSolucionesSubpage = segments[0] === 'soluciones' && segments.length >= 3;
 ---
 
 <!doctype html>
@@ -197,7 +207,7 @@ const breadcrumbLd = segments.length > 0 ? JSON.stringify({
     <!-- JSON-LD page-specific -->
     {jsonLdExtra && <script type="application/ld+json" set:html={jsonLdExtra} />}
   </head>
-  <body>
+  <body data-soluciones-subpage={isSolucionesSubpage ? 'true' : undefined}>
     <!-- Google Tag Manager (noscript fallback) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KD87L7NQ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -224,6 +234,16 @@ const breadcrumbLd = segments.length > 0 ? JSON.stringify({
     </a>
 
     <style>
+      body[data-soluciones-subpage="true"] :global(main > div > section:first-child[class$="-hero"]) {
+        padding-top: calc(var(--nav-height) + clamp(5.5rem, 7vw, 6.75rem)) !important;
+      }
+
+      @media (max-width: 640px) {
+        body[data-soluciones-subpage="true"] :global(main > div > section:first-child[class$="-hero"]) {
+          padding-top: calc(var(--nav-height) + 4.5rem) !important;
+        }
+      }
+
       .wa-fab {
         position: fixed;
         bottom: max(1.25rem, env(safe-area-inset-bottom));

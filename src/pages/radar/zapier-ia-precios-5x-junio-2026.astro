@@ -1,0 +1,109 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '@/assets/images/LS - radar 1.png';
+const siteUrl = 'https://www.liberastudio.tech';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Zapier cobra hasta 5x más por pasos de IA desde junio 15",
+  "description": "Zapier activó precios escalonados para pasos de IA. Cómo funcionan los tiers, qué cambia en la factura y qué revisar ya.",
+  "datePublished": "2026-06-24",
+  "dateModified": "2026-06-24",
+  "author": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "publisher": { "@type": "Organization", "name": "LIBERA Studio", "url": siteUrl },
+  "image": `${siteUrl}${heroImg.src}`,
+  "url": `${siteUrl}/radar/zapier-ia-precios-5x-junio-2026`,
+  "articleSection": "Automatización",
+  "inLanguage": "es-MX"
+});
+---
+
+<Layout title="Zapier cobra hasta 5x más por pasos de IA" description="Zapier cobra hasta 5x más por pasos de IA desde junio 15." jsonLdExtra={articleSchema}>
+  <article class="radar-article-page">
+    <header class="radar-article-hero">
+      <Image src={heroImg} alt="" widths={[800, 1254]} sizes="100vw" class="radar-article-hero-image" />
+      <span class="radar-article-hero-overlay" aria-hidden="true"></span>
+      <div class="container-libera radar-article-hero-inner">
+        <a href="/radar" class="text-sm font-medium" style="color: var(--orange);">← Radar</a>
+        <p class="eyebrow mt-10 mb-5" style="color: var(--orange); font-family: var(--font-mono);">Automatización · 24 junio 2026 · 4 min de lectura</p>
+        <h1 class="font-display radar-article-title">Zapier cobra hasta 5x más por pasos de IA desde junio 15</h1>
+        <p class="radar-article-lead max-w-3xl">Zapier activó pricing escalonado para “AI by Zapier”. Si tienes flujos activos con IA, tu costo operativo ya cambió.</p>
+      </div>
+    </header>
+
+    <div class="radar-article-body-wrapper">
+      <div class="container-libera pb-28" style="padding-top: 4rem;">
+        <div class="radar-article-body">
+          <p>El cambio entró sin demasiado ruido, pero ya pega en la factura. Desde el 15 de junio, los pasos de IA pueden costar igual, 3× o 5× según el tier asignado.</p>
+
+          <h2>Cómo quedó el esquema</h2>
+          <ul>
+            <li><strong>Standard (1×)</strong> — modelos básicos sin tool calls.</li>
+            <li><strong>Advanced (3×)</strong> — el nivel por defecto cuando hay tool calls.</li>
+            <li><strong>Premium (5×)</strong> — razonamiento avanzado y costo mucho más alto por paso.</li>
+          </ul>
+          <aside class="radar-stat"><strong>5×</strong><span>puede costar un solo paso de IA en Zapier bajo el tier Premium; el Advanced ya sube a 3×.</span></aside>
+
+          <h2>Qué cambia en la práctica</h2>
+          <p>Un flujo que antes gastaba 100 tasks mensuales puede pasar a 300 o 500 sin cambiar de lógica. Solo cambió la tarifa del paso.</p>
+          <p>Además, ahora existe un límite de <strong>75 tasks por ejecución</strong> en pasos de IA. Si lo excedes, el Zap se pausa y necesita aprobación manual.</p>
+
+          <h2>Dónde suele estar el problema</h2>
+          <p>Si usas “AI by Zapier” con búsquedas, decisiones, herramientas o acciones encadenadas, lo más probable es que ya estés en Advanced. Mucha gente ni siquiera lo sabe porque no cambió su Zap, solo el pricing.</p>
+
+          <h2>Qué puedes hacer ya</h2>
+          <h3>1. Audita tus Zaps activos</h3>
+          <p>Revisa qué pasos usan “AI by Zapier” y en qué tier están.</p>
+
+          <h3>2. Baja a Standard donde alcance</h3>
+          <p>Si solo resumes, clasifica o reformateas texto, normalmente no necesitas tool calls.</p>
+
+          <h3>3. Conecta tu propia API key</h3>
+          <p>Cuando usas tu propia cuenta de proveedor, el multiplicador desaparece y pagas el costo real del modelo, no el markup de Zapier.</p>
+
+          <h3>4. Evalúa alternativas</h3>
+          <p>Si el flujo es intensivo, n8n o Make ya ameritan comparación seria. En escenarios de alto volumen, la diferencia económica deja de ser marginal.</p>
+          <aside class="radar-stat"><strong>75</strong><span>tasks por ejecución es el nuevo techo operativo en pasos de IA antes de requerir aprobación manual.</span></aside>
+
+          <h2>La lectura de fondo</h2>
+          <p>Esto encaja con un patrón más amplio: las plataformas de automatización ya no están subsidiando tanto la IA integrada. La etapa de captación ya pasó. Ahora están trasladando costo, y margen, al usuario.</p>
+
+          <div class="radar-article-related">
+            <p class="radar-related-label">Si esto te interesa</p>
+            <div class="radar-related-links">
+              <a href="/soluciones/ai-automation/flujos-n8n">Automatizar con n8n y controlar mejor el costo →</a>
+              <a href="/soluciones/ai-automation/agentes-ia">Usar IA donde sí aporta retorno real →</a>
+              <a href="/soluciones/operacion-interna/integraciones">Conectar herramientas sin depender de un solo markup →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .radar-article-page { background: var(--ink); color: var(--text-light); }
+    .radar-article-hero { position: relative; min-height: min(760px, 92dvh); overflow: hidden; display: flex; align-items: flex-end; padding-block: calc(var(--nav-height, 72px) + 6rem) calc(5.5rem + 70px); }
+    .radar-article-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .radar-article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.012 235 / 0.34), oklch(8% 0.012 235 / 0.78)), linear-gradient(90deg, oklch(8% 0.012 235 / 0.78), oklch(8% 0.012 235 / 0.18)); }
+    .radar-article-hero-inner { position: relative; z-index: 1; width: 100%; }
+    .radar-article-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: 0.01em; }
+    .radar-article-lead { margin-top: 2rem; color: oklch(88% 0.012 235); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.65; }
+    .radar-article-body-wrapper { background: #ffffff; margin-top: -70px; position: relative; z-index: 1; }
+    .radar-article-body { max-width: 48rem; color: rgba(0,48,73,0.72); font-size: 1rem; line-height: 1.8; }
+    .radar-article-body > * + * { margin-top: 1.25rem; }
+    .radar-article-body h2 { margin-top: 3.5rem; color: #003049; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1; }
+    .radar-article-body h3 { margin-top: 2rem; color: #003049; font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; line-height: 1.05; }
+    .radar-article-body ul { padding-left: 1.25rem; list-style: disc; }
+    .radar-stat { display: grid; gap: 0.75rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid rgba(0,48,73,0.12); }
+    .radar-stat strong { color: var(--orange); font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; }
+    .radar-stat span { color: rgba(0,48,73,0.65); }
+    .radar-article-related { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,48,73,0.12); }
+    .radar-related-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .radar-related-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .radar-related-links a { color: #003049; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+    .radar-related-links a:hover { color: var(--orange); }
+  </style>
+</Layout>
