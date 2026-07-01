@@ -1,0 +1,178 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const BRAND_COLORS = ['#003049', '#d62828', '#f77f00', '#fcbf49'];
+
+const TOPICS = [
+  {
+    heading: 'Operación Interna',
+    accent: BRAND_COLORS[0],
+    text: 'Cómo ordenar procesos, seguimiento y datos antes de automatizar nada.',
+  },
+  {
+    heading: 'Presencia Digital',
+    accent: BRAND_COLORS[1],
+    text: 'Qué necesita una web, una landing o un perfil de Google Business para convertir de verdad.',
+  },
+  {
+    heading: 'IA y Automatización',
+    accent: BRAND_COLORS[2],
+    text: 'Dónde automatizar con IA tiene sentido y dónde solo agrega complejidad.',
+  },
+  {
+    heading: 'Productos Digitales',
+    accent: BRAND_COLORS[3],
+    text: 'Cuándo conviene un MVP, una app interna o un panel a medida en vez de una herramienta genérica.',
+  },
+];
+---
+
+<Layout
+  title="Guías"
+  description="Las guías de LIBERA Studio están en construcción. Contenido práctico sobre operación, presencia digital, IA y automatización, probado antes de publicarse."
+>
+  <section class="guias-hero">
+    <div class="container-libera">
+      <div class="max-w-3xl" data-reveal>
+        <span class="eyebrow block mb-4" style="color: var(--orange); font-family: var(--font-mono);">Guías</span>
+        <h1 class="font-display mb-6" style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.8rem); font-weight: 800; letter-spacing: 0.01em; color: var(--text-light); line-height: 0.95;">
+          Las guías todavía no existen.<br/>Se están escribiendo.
+        </h1>
+        <p class="text-lg" style="color: oklch(74% 0.018 235);">
+          No publicamos contenido genérico solo para llenar una sección. Cada guía sale hasta que pasa por lo mismo que aplicamos a cada sistema que construimos: se prueba primero, se publica después.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guias-topics">
+    <div class="container-libera">
+      <p class="guias-topics-label" data-reveal>Lo que vas a encontrar aquí</p>
+      <div class="guias-topics-grid">
+        {TOPICS.map((topic) => (
+          <div class="guias-topic" data-reveal>
+            <span class="guias-topic-dot" style={`background:${topic.accent};`} aria-hidden="true"></span>
+            <h2 class="guias-topic-heading">{topic.heading}</h2>
+            <p class="guias-topic-text">{topic.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="guias-cta">
+    <div class="container-libera guias-cta-inner" data-reveal>
+      <p class="guias-cta-text">
+        Mientras tanto, ya publicamos análisis prácticos sobre herramientas, modelos e IA en <a href="/radar" class="guias-cta-link">Radar</a>. Y si tu negocio necesita orden antes que contenido, hablamos directo.
+      </p>
+      <a href="/diagnostico" class="btn-primary guias-cta-btn">
+        Solicitar diagnóstico
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .guias-hero {
+    background: var(--ink-mid);
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+  }
+
+  .guias-topics {
+    background: #ffffff;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .guias-topics-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(0, 48, 73, 0.5);
+    margin-bottom: 2rem;
+  }
+
+  .guias-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 2rem;
+  }
+
+  .guias-topic {
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(0, 48, 73, 0.12);
+  }
+
+  .guias-topic-dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    margin-bottom: 0.9rem;
+  }
+
+  .guias-topic-heading {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--brand-navy, #003049);
+    margin-bottom: 0.6rem;
+  }
+
+  .guias-topic-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgba(0, 48, 73, 0.65);
+    max-width: 32rem;
+  }
+
+  .guias-cta {
+    background: #ffffff;
+    padding-bottom: 6rem;
+  }
+
+  .guias-cta-inner {
+    background: var(--ink-mid);
+    border-radius: 1.5rem;
+    padding: 3rem clamp(1.5rem, 4vw, 3.5rem);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .guias-cta-text {
+    max-width: 34rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: oklch(82% 0.012 235);
+  }
+
+  .guias-cta-link {
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  .guias-cta-btn {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 767px) {
+    .guias-hero {
+      padding-top: 7.5rem;
+    }
+
+    .guias-topics-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .guias-cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

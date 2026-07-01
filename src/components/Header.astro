@@ -96,7 +96,7 @@ const MOBILE_SOLUTION_GROUPS = [
     <nav class="central-nav hidden lg:flex items-center gap-0.5 justify-center" aria-label="Navegación principal">
 
       <!-- Logo inside pill: desktop only (pill is hidden on mobile) -->
-      <a href="/" class="nav-logo flex items-center pl-4 pr-4 flex-shrink-0" aria-label="LIBERA Studio">
+      <a href="/" class="nav-logo flex items-center flex-shrink-0" aria-label="LIBERA Studio">
         <Image src={logoWhiteImg} alt="" aria-hidden="true" width={214} height={40} class="nav-logo-img nav-logo-img--white" style="width: auto; height: 20px;" />
         <Image src={logoDarkImg}  alt="" aria-hidden="true" width={214} height={40} class="nav-logo-img nav-logo-img--dark"  style="width: auto; height: 20px;" />
       </a>
@@ -182,6 +182,15 @@ const MOBILE_SOLUTION_GROUPS = [
         </div>
       </div>
 
+      <!-- ── Guías, LINK DIRECTO ──────────────────────────────────── -->
+      <a
+        href="/guias"
+        class="nav-btn px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        aria-current={currentPath === '/guias' ? 'page' : undefined}
+      >
+        Guías
+      </a>
+
       <!-- ── Radar, LINK DIRECTO ──────────────────────────────────── -->
       <a
         href="/radar"
@@ -250,6 +259,7 @@ const MOBILE_SOLUTION_GROUPS = [
 
     {[
       { label: 'Trabajo', href: '/trabajo' },
+      { label: 'Guías', href: '/guias' },
       { label: 'Radar', href: '/radar' },
       { label: 'Nosotros', href: '/nosotros' },
     ].map((link) => (
@@ -263,6 +273,10 @@ const MOBILE_SOLUTION_GROUPS = [
 <style>
   /* ── Logo inside the nav pill ── */
   .nav-logo {
+    flex: 0 0 auto;
+    align-items: center;
+    padding-inline: var(--nav-item-px, 1rem);
+    white-space: nowrap;
     transition: opacity 0.2s var(--ease-premium);
   }
   .nav-logo:hover { opacity: 0.78; }
@@ -309,12 +323,15 @@ const MOBILE_SOLUTION_GROUPS = [
     transform: scale(0.98);
   }
   .nav-btn {
-    min-height: 2.25rem;
-    padding: 0.4rem 1rem;
+    flex: 0 0 auto;
+    min-height: 2.5rem;
+    padding-block: 0.3rem;
+    padding-inline: var(--nav-item-px, 1rem);
     border: 0;
     border-radius: 999px;
     background: transparent;
     color: oklch(99% 0.002 70) !important;
+    white-space: nowrap;
     transition:
       color 0.24s var(--ease-premium),
       background-color 0.2s var(--ease-premium),
@@ -331,17 +348,37 @@ const MOBILE_SOLUTION_GROUPS = [
     background: oklch(100% 0 0 / 0.14);
   }
   .central-nav {
+    --nav-item-px: 1rem;
+    --nav-pill-px: 1.5rem;
+    --nav-gap: 0.125rem;
     position: absolute;
     left: 50%;
     flex: 0 0 auto;
-    padding: 0.2rem;
+    width: max-content;
+    max-width: calc(100vw - 3rem);
+    gap: var(--nav-gap);
+    padding: 0.15rem var(--nav-pill-px);
     border: 1px solid var(--brand-navy);
     border-radius: 999px;
     background: var(--brand-navy);
+    overflow: visible;
     transform: translateX(-50%);
     transition:
       background-color 0.24s var(--ease-premium),
       border-color 0.24s var(--ease-premium);
+  }
+  @media (min-width: 1024px) and (max-width: 1180px) {
+    .central-nav {
+      --nav-item-px: 0.72rem;
+      --nav-pill-px: 0.95rem;
+      --nav-gap: 0.05rem;
+    }
+    .nav-btn {
+      font-size: 0.92rem;
+    }
+    .nav-logo-img {
+      height: 18px !important;
+    }
   }
   #site-header {
     --header-foreground: #003049;
