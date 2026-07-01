@@ -182,15 +182,6 @@ const MOBILE_SOLUTION_GROUPS = [
         </div>
       </div>
 
-      <!-- ── Guías, LINK DIRECTO ──────────────────────────────────── -->
-      <a
-        href="/guias"
-        class="nav-btn px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-        aria-current={currentPath === '/guias' ? 'page' : undefined}
-      >
-        Guías
-      </a>
-
       <!-- ── Radar, LINK DIRECTO ──────────────────────────────────── -->
       <a
         href="/radar"
@@ -198,6 +189,15 @@ const MOBILE_SOLUTION_GROUPS = [
         aria-current={currentPath === '/radar' ? 'page' : undefined}
       >
         Radar
+      </a>
+
+      <!-- ── Guías, LINK DIRECTO ──────────────────────────────────── -->
+      <a
+        href="/guias"
+        class="nav-btn px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        aria-current={currentPath.startsWith('/guias') ? 'page' : undefined}
+      >
+        Guías
       </a>
 
       <!-- ── Nosotros, LINK DIRECTO ─────────────────────────────── -->
@@ -259,8 +259,8 @@ const MOBILE_SOLUTION_GROUPS = [
 
     {[
       { label: 'Trabajo', href: '/trabajo' },
-      { label: 'Guías', href: '/guias' },
       { label: 'Radar', href: '/radar' },
+      { label: 'Guías', href: '/guias' },
       { label: 'Nosotros', href: '/nosotros' },
     ].map((link) => (
       <a href={link.href} class="mobile-menu-link">
