@@ -18,6 +18,8 @@ import radar2Img       from '@/assets/images/LS - radar 2.png';
 import radar3Img       from '@/assets/images/LS - radar 3.png';
 import radarOpenaiIpoImg from '@/assets/images/LS - radar openai ipo.png';
 import radarGeminiMigrationImg from '@/assets/images/LS - radar gemini migration.png';
+import heroMountainsImg from '@/assets/images/hero-libera-mountains.png';
+import heroLogoImg from '@/assets/images/LIBERA-Logo-white.png';
 
 const solucionesHome = [
   {
@@ -96,50 +98,60 @@ const solucionesHome = [
   <div class="hero-pin-stage">
   <section
     id="hero"
-    data-header-theme="light"
+    data-header-theme="dark"
     class="hero-panel relative flex flex-col justify-center min-h-[100dvh] overflow-hidden"
-    style="background: #ffffff;"
+    style="background: #001824;"
     aria-label="Hero"
   >
-    <!-- DotField interactive background -->
-    <div id="hero-dot-field" class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+    <!-- Mountain background image -->
+    <Image
+      src={heroMountainsImg}
+      alt=""
+      aria-hidden="true"
+      widths={[800, 1440, 1920]}
+      sizes="100vw"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      style="z-index: 0;"
+    />
 
-    <!-- Content -->
-    <div class="container-libera relative z-10 py-20">
-
-      <!-- Headline -->
-      <h1
-        class="mb-8"
-        style="color: #003049; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(3.5rem, 7.5vw, 9rem);"
-        data-reveal
-        data-hero-headline
-      >
-        <span data-hero-line style="display:block; white-space:nowrap;">Construimos</span>
-        <span data-hero-line style="display:block; white-space:nowrap;">el sistema que</span>
-        <span data-hero-line style="display:block; white-space:nowrap;"><em style="color: var(--orange); font-style: italic;">libera</em> tu negocio.</span>
-      </h1>
-
-      <!-- Subheadline -->
+    <!-- Hero content — sits between mountain (z-0) and canvas mask (z-2) -->
+    <div
+      class="hero-content-reveal absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+      style="z-index: 1;"
+    >
+      <Image
+        src={heroLogoImg}
+        alt="LIBERA Studio"
+        width={858}
+        height={160}
+        class="hero-logo mb-8"
+        loading="eager"
+        style="width: clamp(14rem, 36vw, 42rem); height: auto;"
+      />
       <p
-        class="mb-10 max-w-2xl leading-relaxed"
-        style="color: #003049; opacity: 0.7; font-size: clamp(1.35rem, 2.2vw, 2rem);"
-        data-reveal
+        class="mb-10 leading-relaxed"
+        style="color: rgba(255,255,255,0.88); font-size: clamp(1.05rem, 1.8vw, 1.5rem); max-width: 36rem;"
       >
-        Presencia digital, automatización e inteligencia artificial.
+        Menos tareas repetitivas. M&aacute;s negocio funcionando.
       </p>
-
-      <!-- CTAs -->
-      <div class="flex flex-wrap items-center gap-4" data-reveal>
+      <div class="flex flex-wrap items-center justify-center gap-4">
         <a href="#diagnostico" class="btn btn-primary">
-          Solicitar diagnóstico
+          Solicitar diagn&oacute;stico
           <span class="btn-icon" aria-hidden="true">→</span>
         </a>
         <a href="/trabajo" class="btn btn-ghost-light">
           Trabajos
         </a>
       </div>
-
     </div>
+
+    <!-- Ink-reveal canvas mask — sits on top of content and mountain (z-2) -->
+    <canvas
+      id="hero-ink-canvas"
+      aria-hidden="true"
+      style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none;"
+    ></canvas>
 
   </section>
   </div>
@@ -3976,4 +3988,159 @@ const solucionesHome = [
   })();
 
 
+</script>
+
+<script>
+  // Hero ink-reveal interactive mask
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const MC = [0, 24, 36];
+    const BRUSH = 180;
+    const LIFETIME = 700;
+    const R_START = 14;
+    const R_VARY = 0.42;
+    const STAMP_STEP = 14;
+    const MAX_STAMPS = 180;
+    const SEGMENTS = 36;
+    const WOBBLE = [0.14, 0.08, 0.05];
+    const GRAD_INNER = 0.2;
+    const GRAD_STOPS = [0.95, 0.88, 0];
+
+    const canvas = /** @type {HTMLCanvasElement|null} */ (document.getElementById('hero-ink-canvas'));
+    const section = document.getElementById('hero');
+    if (!canvas || !section) return;
+
+    /** @type {{ x: number; y: number; born: number; seed: number; rmax: number }[]} */
+    let stamps = [];
+    let running = false;
+    let lastPos = /** @type {{ x: number; y: number } | null} */ (null);
+    let dims = { w: 0, h: 0 };
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = section.getBoundingClientRect();
+      dims = { w: rect.width, h: rect.height };
+      canvas.width = Math.round(dims.w * dpr);
+      canvas.height = Math.round(dims.h * dpr);
+      canvas.style.width = dims.w + 'px';
+      canvas.style.height = dims.h + 'px';
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = `rgb(${MC[0]},${MC[1]},${MC[2]})`;
+      ctx.fillRect(0, 0, dims.w, dims.h);
+    }
+
+    function carveInk(ctx, x, y, r, seed, alpha) {
+      const g = ctx.createRadialGradient(x, y, r * GRAD_INNER, x, y, r);
+      g.addColorStop(0, `rgba(0,0,0,${GRAD_STOPS[0] * alpha})`);
+      g.addColorStop(0.5, `rgba(0,0,0,${GRAD_STOPS[1] * alpha})`);
+      g.addColorStop(1, `rgba(0,0,0,${GRAD_STOPS[2] * alpha})`);
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      for (let i = 0; i <= SEGMENTS; i++) {
+        const a = (i / SEGMENTS) * Math.PI * 2;
+        const wob =
+          0.78 +
+          WOBBLE[0] * Math.sin(a * 3 + seed) +
+          WOBBLE[1] * Math.sin(a * 5 + seed * 2.1) +
+          WOBBLE[2] * Math.sin(a * 7 + seed * 0.7);
+        const px = x + Math.cos(a) * r * wob;
+        const py = y + Math.sin(a) * r * wob;
+        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function addStamp(x, y) {
+      if (stamps.length >= MAX_STAMPS) stamps.shift();
+      stamps.push({
+        x, y,
+        born: performance.now(),
+        seed: Math.random() * Math.PI * 2,
+        rmax: BRUSH * (1 - R_VARY + Math.random() * R_VARY),
+      });
+    }
+
+    function stampAlong(x, y) {
+      if (!lastPos) {
+        addStamp(x, y);
+      } else {
+        const dx = x - lastPos.x, dy = y - lastPos.y;
+        const dist = Math.hypot(dx, dy);
+        const steps = Math.max(1, Math.ceil(dist / STAMP_STEP));
+        for (let i = 1; i <= steps; i++) {
+          addStamp(lastPos.x + (dx * i) / steps, lastPos.y + (dy * i) / steps);
+        }
+      }
+      lastPos = { x, y };
+    }
+
+    function loop() {
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      const now = performance.now();
+
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = `rgb(${MC[0]},${MC[1]},${MC[2]})`;
+      ctx.fillRect(0, 0, dims.w, dims.h);
+      ctx.globalCompositeOperation = 'destination-out';
+
+      for (let i = stamps.length - 1; i >= 0; i--) {
+        const t = (now - stamps[i].born) / LIFETIME;
+        if (t >= 1) { stamps.splice(i, 1); continue; }
+        const ease = 1 - Math.pow(1 - t, 3);
+        const r = R_START + (stamps[i].rmax - R_START) * ease;
+        const alpha = 1 - t * t;
+        carveInk(ctx, stamps[i].x, stamps[i].y, r, stamps[i].seed, alpha);
+      }
+
+      if (stamps.length) requestAnimationFrame(loop);
+      else running = false;
+    }
+
+    function startLoop() {
+      if (!running) { running = true; requestAnimationFrame(loop); }
+    }
+
+    function getCanvasPos(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
+      return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    // cursor: crosshair on the hero to signal interactivity
+    section.style.cursor = 'crosshair';
+
+    section.addEventListener('mouseenter', (e) => {
+      const p = getCanvasPos(e.clientX, e.clientY);
+      lastPos = p; stampAlong(p.x, p.y); startLoop();
+    });
+    section.addEventListener('mousemove', (e) => {
+      const p = getCanvasPos(e.clientX, e.clientY);
+      stampAlong(p.x, p.y); startLoop();
+    });
+    section.addEventListener('mouseleave', () => { lastPos = null; });
+
+    section.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      const p = getCanvasPos(t.clientX, t.clientY);
+      lastPos = p; stampAlong(p.x, p.y); startLoop();
+    }, { passive: true });
+    section.addEventListener('touchmove', (e) => {
+      const t = e.touches[0];
+      const p = getCanvasPos(t.clientX, t.clientY);
+      stampAlong(p.x, p.y); startLoop();
+    }, { passive: true });
+    section.addEventListener('touchend', () => { lastPos = null; });
+
+    document.addEventListener('astro:before-swap', () => {
+      window.removeEventListener('resize', resize);
+    }, { once: true });
+  })();
 </script>
