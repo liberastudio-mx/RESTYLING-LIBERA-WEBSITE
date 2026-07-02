@@ -324,111 +324,143 @@ const solucionesHome = [
   <!-- 4. SOLUCIONES -->
   <section
     id="soluciones"
-    data-solutions-section
     data-header-theme="light"
     style="background: var(--surface);"
-    class="solutions-overlap pb-24 lg:pb-32"
+    class="sol-bento-section"
     aria-label="Nuestras soluciones"
   >
-    <div class="container-libera solutions-pin">
-      <div class="solutions-layout">
+    <div class="container-libera">
 
-        <!-- Left: full-height sticky image -->
-        <div class="solutions-image-col">
-          <figure class="solution-visual-shell">
-            <div class="solution-visual-frame">
-              {solucionesHome.map((sol, i) => (
-                <Image
-                  src={sol.image}
-                  alt={sol.label}
-                  widths={[600, 900, 1340]}
-                  sizes="(max-width: 1023px) 100vw, 50vw"
-                  class={`solution-visual-image ${i === 0 ? 'is-active' : ''}`}
-                  data-solution-image={sol.id}
-                  loading="eager"
-                  decoding="async"
-                />
-              ))}
+      <div class="sol-bento-intro" data-reveal>
+        <span class="sol-eyebrow">Soluciones</span>
+        <h2 class="sol-bento-heading">
+          Diseñamos <em style="color: var(--orange); font-style: italic;">los sistemas que conectan</em> presencia, operación e inteligencia.
+        </h2>
+      </div>
+
+      <div class="sol-bento-grid">
+
+        <!-- Card 01: Featured — large, content-rich -->
+        <article class="sol-card sol-card--featured" style={`--accent: ${solucionesHome[0].accent};`} data-reveal>
+          <div class="sol-card-shell">
+            <header class="sol-card-header">
+              <span class="sol-card-num" aria-hidden="true">01</span>
+              <span class="sol-card-label">{solucionesHome[0].label}</span>
+            </header>
+            <div class="sol-card-img-wrap">
+              <Image
+                src={solucionesHome[0].image}
+                alt={solucionesHome[0].label}
+                widths={[480, 780]}
+                sizes="(max-width: 767px) 100vw, 40vw"
+                class="sol-card-img"
+                loading="eager"
+              />
             </div>
-          </figure>
-        </div>
-
-        <!-- Right: title + cards -->
-        <div class="solutions-sticky">
-          <div class="solutions-intro">
-            <h2 class="display-lg solutions-title" style="color: var(--text-primary);">
-              Diseñamos <em style="color: var(--orange); font-style: italic;">los sistemas que conectan</em> presencia, operación e inteligencia.
-            </h2>
+            <div class="sol-card-body">
+              <h3 class="sol-card-promise">{solucionesHome[0].promise}</h3>
+              <p class="sol-card-desc">{solucionesHome[0].description}</p>
+              <ul class="sol-service-list">
+                {solucionesHome[0].services.map((s) => (
+                  <li>
+                    <a href={s.href} class="sol-service-row">
+                      <span>{s.label}</span>
+                      <span class="sol-service-arrow" aria-hidden="true">→</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+        </article>
 
-          <div
-            class="solutions-card-rail"
-            aria-label="Lista de soluciones"
-            data-solutions-rail
-            tabindex="0"
-          >
-          {solucionesHome.map((sol, i) => (
-            <article
-              class={`solution-card group ${i === 0 ? 'is-active is-visible' : ''}`}
-              data-solution-card={sol.id}
-              style={`--solution-accent: ${sol.accent};`}
-            >
-              <div class="solution-card-glow" aria-hidden="true"></div>
-
-              <div class="relative">
-                <div class="flex items-center justify-end gap-3 mb-8">
-                  <span class="text-xs font-semibold tracking-widest uppercase" style={`color: ${sol.accent};`}>
-                    {sol.label}
-                  </span>
-                  <span class="w-3 h-3 rounded-full flex-shrink-0" style={`background: ${sol.accent};`} aria-hidden="true"></span>
-                </div>
-
-                <h3 class="solution-card-title">
-                  {sol.promise}
-                </h3>
-
-                <p class="solution-card-copy">
-                  {sol.description}
-                </p>
-
-                <div class="solution-card-lower">
-                  <div class="solution-service-list">
-                    {sol.services.map((service) => (
-                      <a href={service.href} class="solution-service-tag">
-                        <span>{service.label}</span>
-                        <span class="solution-service-arrow" aria-hidden="true">→</span>
-                      </a>
-                    ))}
-                  </div>
-
-                  <div class="solution-card-mobile-visual" aria-hidden="true">
-                    <Image
-                      src={sol.image}
-                      alt=""
-                      widths={[320, 560]}
-                      sizes="(max-width: 767px) 42vw, 1px"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+        <!-- Card 02: Presencia — image-heavy -->
+        <article class="sol-card sol-card--visual" style={`--accent: ${solucionesHome[1].accent};`} data-reveal>
+          <div class="sol-card-shell sol-card-shell--dark">
+            <Image
+              src={solucionesHome[1].image}
+              alt={solucionesHome[1].label}
+              widths={[480, 780]}
+              sizes="(max-width: 767px) 100vw, 34vw"
+              class="sol-card-bg-img"
+              loading="lazy"
+            />
+            <div class="sol-card-overlay" aria-hidden="true"></div>
+            <div class="sol-card-visual-content">
+              <header class="sol-card-header sol-card-header--light">
+                <span class="sol-card-num" aria-hidden="true">02</span>
+                <span class="sol-card-label">{solucionesHome[1].label}</span>
+              </header>
+              <div class="sol-card-visual-bottom">
+                <h3 class="sol-card-promise sol-card-promise--light">{solucionesHome[1].promise}</h3>
+                <a href={solucionesHome[1].href} class="sol-card-cta">
+                  Ver solución <span aria-hidden="true">→</span>
+                </a>
               </div>
-
-            </article>
-          ))}
+            </div>
           </div>
-          <div class="solutions-dots" aria-label="Navegación del carrusel">
-            {solucionesHome.map((sol, i) => (
-              <button
-                type="button"
-                class={`solutions-dot ${i === 0 ? 'is-active' : ''}`}
-                data-solutions-dot={i}
-                aria-label={`Ir a ${sol.label}`}
-                aria-current={i === 0 ? 'true' : 'false'}
-              ></button>
-            ))}
-          </div>
+        </article>
 
-        </div>
+        <!-- Card 03: IA — image-heavy -->
+        <article class="sol-card sol-card--visual" style={`--accent: ${solucionesHome[2].accent};`} data-reveal>
+          <div class="sol-card-shell sol-card-shell--dark">
+            <Image
+              src={solucionesHome[2].image}
+              alt={solucionesHome[2].label}
+              widths={[380, 600]}
+              sizes="(max-width: 767px) 100vw, 26vw"
+              class="sol-card-bg-img"
+              loading="lazy"
+            />
+            <div class="sol-card-overlay" aria-hidden="true"></div>
+            <div class="sol-card-visual-content">
+              <header class="sol-card-header sol-card-header--light">
+                <span class="sol-card-num" aria-hidden="true">03</span>
+                <span class="sol-card-label">{solucionesHome[2].label}</span>
+              </header>
+              <div class="sol-card-visual-bottom">
+                <h3 class="sol-card-promise sol-card-promise--light">{solucionesHome[2].promise}</h3>
+                <a href={solucionesHome[2].href} class="sol-card-cta">
+                  Ver solución <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 04: Productos — wide panoramic -->
+        <article class="sol-card sol-card--wide" style={`--accent: ${solucionesHome[3].accent};`} data-reveal>
+          <div class="sol-card-shell sol-card-shell--wide">
+            <div class="sol-card-wide-content">
+              <header class="sol-card-header">
+                <span class="sol-card-num" aria-hidden="true">04</span>
+                <span class="sol-card-label">{solucionesHome[3].label}</span>
+              </header>
+              <h3 class="sol-card-promise">{solucionesHome[3].promise}</h3>
+              <ul class="sol-service-list sol-service-list--horizontal">
+                {solucionesHome[3].services.map((s) => (
+                  <li>
+                    <a href={s.href} class="sol-service-row">
+                      <span>{s.label}</span>
+                      <span class="sol-service-arrow" aria-hidden="true">→</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="sol-card-wide-img">
+              <Image
+                src={solucionesHome[3].image}
+                alt={solucionesHome[3].label}
+                widths={[480, 780]}
+                sizes="(max-width: 767px) 100vw, 40vw"
+                class="sol-card-img"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -3255,138 +3287,324 @@ const solucionesHome = [
       display: none;
     }
   }
+
+  /* ── Soluciones Bento ─────────────────────────────────────── */
+  .sol-bento-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: var(--surface);
+  }
+
+  .sol-bento-intro {
+    max-width: 44rem;
+    margin-bottom: 3rem;
+  }
+
+  .sol-eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  .sol-bento-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text-primary);
+  }
+
+  /* Grid layout */
+  .sol-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+  }
+
+  .sol-card--featured { grid-column: span 5; grid-row: span 2; }
+  .sol-card:nth-child(2) { grid-column: span 4; }
+  .sol-card:nth-child(3) { grid-column: span 3; }
+  .sol-card--wide { grid-column: span 7; }
+
+  /* Card shell */
+  .sol-card-shell {
+    height: 100%;
+    border-radius: 1.5rem;
+    border: 1px solid oklch(0% 0 0 / 0.07);
+    background: #ffffff;
+    overflow: hidden;
+    transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1),
+                box-shadow 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .sol-card:hover .sol-card-shell {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px oklch(0% 0 0 / 0.10);
+  }
+
+  .sol-card-shell--dark {
+    background: oklch(14% 0.02 235);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+  }
+
+  .sol-card-shell--wide {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  /* Featured card internals */
+  .sol-card--featured .sol-card-shell {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sol-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  .sol-card-header--light .sol-card-num,
+  .sol-card-header--light .sol-card-label {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .sol-card-num {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .sol-card-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  /* Image areas */
+  .sol-card-img-wrap {
+    flex: 0 0 auto;
+    overflow: hidden;
+    margin: 0.75rem 0.75rem 0;
+    border-radius: 0.875rem;
+    aspect-ratio: 4/3;
+  }
+
+  .sol-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.56s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .sol-card:hover .sol-card-img { transform: scale(1.04); }
+
+  /* Background image cards */
+  .sol-card-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.56s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .sol-card:hover .sol-card-bg-img { transform: scale(1.04); }
+
+  .sol-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      oklch(10% 0.02 235 / 0.3) 0%,
+      oklch(10% 0.02 235 / 0.85) 65%,
+      oklch(10% 0.02 235 / 0.95) 100%
+    );
+  }
+
+  .sol-card-visual-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 0 1.25rem;
+  }
+
+  .sol-card-visual-bottom {
+    padding: 0 1.25rem;
+  }
+
+  /* Text content */
+  .sol-card-body {
+    flex: 1;
+    padding: 1rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .sol-card-promise {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-primary);
+  }
+
+  .sol-card-promise--light {
+    color: rgba(255,255,255,0.95);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sol-card-desc {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  .sol-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    transition: gap 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .sol-card:hover .sol-card-cta { gap: 0.6rem; }
+
+  /* Service list */
+  .sol-service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .sol-service-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.45rem 0;
+    border-top: 1px solid oklch(0% 0 0 / 0.07);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.18s, padding-left 0.18s;
+  }
+
+  .sol-service-row:hover {
+    color: var(--accent);
+    padding-left: 0.25rem;
+  }
+
+  .sol-service-arrow {
+    opacity: 0.35;
+    transition: opacity 0.18s, transform 0.18s;
+  }
+
+  .sol-service-row:hover .sol-service-arrow {
+    opacity: 1;
+    transform: translateX(0.2rem);
+  }
+
+  /* Wide card (04) */
+  .sol-card-wide-content {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .sol-card-wide-img {
+    flex: 0 0 42%;
+    overflow: hidden;
+  }
+
+  .sol-card-wide-img .sol-card-img {
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .sol-service-list--horizontal {
+    flex-direction: column;
+    flex: 1;
+  }
+
+  /* Mobile */
+  @media (max-width: 1023px) {
+    .sol-bento-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+
+    .sol-card--featured { grid-column: span 2; grid-row: auto; }
+    .sol-card:nth-child(2) { grid-column: span 1; }
+    .sol-card:nth-child(3) { grid-column: span 1; }
+    .sol-card--wide { grid-column: span 2; }
+
+    .sol-card-img-wrap { aspect-ratio: 16/9; }
+  }
+
+  @media (max-width: 639px) {
+    .sol-bento-section { padding-top: 4rem; padding-bottom: 4rem; }
+
+    .sol-bento-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sol-card--featured,
+    .sol-card:nth-child(2),
+    .sol-card:nth-child(3),
+    .sol-card--wide { grid-column: span 1; grid-row: auto; }
+
+    .sol-card-shell--wide { flex-direction: column; }
+    .sol-card-wide-img { flex: 0 0 200px; }
+
+    .sol-card-shell--dark { min-height: 260px; }
+
+    .sol-card:hover .sol-card-shell { transform: none; }
+    .sol-card:hover .sol-card-bg-img,
+    .sol-card:hover .sol-card-img { transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sol-card-shell,
+    .sol-card-img,
+    .sol-card-bg-img,
+    .sol-service-row,
+    .sol-service-arrow,
+    .sol-card-cta { transition: none; }
+  }
 </style>
 
-<script>
-  const solutionCards = [...document.querySelectorAll<HTMLElement>('[data-solution-card]')];
-  const solutionImages = [...document.querySelectorAll<HTMLElement>('[data-solution-image]')];
-  const solutionsRail = document.querySelector<HTMLElement>('[data-solutions-rail]');
-  const solutionsSection = document.querySelector<HTMLElement>('[data-solutions-section]');
-  const solutionDots = [...document.querySelectorAll<HTMLButtonElement>('[data-solutions-dot]')];
-  if (solutionsRail && solutionCards.length > 0) {
-    let activeIndex = 0;
-    const reduceSolutionsMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const coarseSolutionsPointer = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-    const desktopSolutionsMode = window.matchMedia('(min-width: 1200px) and (hover: hover) and (pointer: fine)').matches;
-    const clampSolutions = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
-
-    const setActiveSolution = (index: number) => {
-      activeIndex = Math.min(solutionCards.length - 1, Math.max(0, index));
-      const activeId = solutionCards[activeIndex]?.dataset.solutionCard ?? '';
-
-      solutionCards.forEach((card, cardIndex) => {
-        card.classList.toggle('is-active', cardIndex === activeIndex);
-      });
-
-      solutionImages.forEach((image) => {
-        image.classList.toggle('is-active', image.dataset.solutionImage === activeId);
-      });
-
-      solutionDots.forEach((dot, dotIndex) => {
-        const isActive = dotIndex === activeIndex;
-        dot.classList.toggle('is-active', isActive);
-        dot.setAttribute('aria-current', isActive ? 'true' : 'false');
-      });
-
-    };
-
-    const goToSolution = (index: number) => {
-      const target = solutionCards[Math.min(solutionCards.length - 1, Math.max(0, index))];
-      if (!target) return;
-      const railRect = solutionsRail.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      solutionsRail.scrollTo({
-        left: solutionsRail.scrollLeft + targetRect.left - railRect.left,
-        behavior: reduceSolutionsMotion ? 'auto' : 'smooth',
-      });
-    };
-
-    if (desktopSolutionsMode && solutionsSection) {
-      const updateDesktopSolutions = () => {
-        const scrollable = Math.max(1, solutionsSection.offsetHeight - window.innerHeight);
-        const rawProgress = clampSolutions((window.scrollY - solutionsSection.offsetTop) / scrollable);
-        const active = Math.round(rawProgress * Math.max(1, solutionCards.length - 1));
-
-        solutionCards.forEach((card, cardIndex) => {
-          const isActive = cardIndex === active;
-          card.style.setProperty('--solution-card-opacity', isActive ? '1' : '0');
-          card.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-        });
-
-        setActiveSolution(active);
-      };
-
-      updateDesktopSolutions();
-      window.addEventListener('scroll', updateDesktopSolutions, { passive: true });
-      window.addEventListener('resize', updateDesktopSolutions, { passive: true });
-    } else {
-      solutionsRail.addEventListener('keydown', (event) => {
-        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-        event.preventDefault();
-        goToSolution(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
-      });
-
-      solutionDots.forEach((dot) => {
-        dot.addEventListener('click', () => {
-          const index = Number(dot.dataset.solutionsDot ?? '0');
-          goToSolution(index);
-        });
-      });
-
-      let draggingSolutions = false;
-      let draggedSolutions = false;
-      let solutionDragStartX = 0;
-      let solutionDragStartScroll = 0;
-
-      if (!coarseSolutionsPointer) {
-        solutionsRail.addEventListener('mousedown', (event) => {
-          if (event.button !== 0) return;
-          event.preventDefault();
-          draggingSolutions = true;
-          draggedSolutions = false;
-          solutionDragStartX = event.clientX;
-          solutionDragStartScroll = solutionsRail.scrollLeft;
-          solutionsRail.classList.add('is-dragging');
-        });
-
-        window.addEventListener('mousemove', (event) => {
-          if (!draggingSolutions) return;
-          const distance = event.clientX - solutionDragStartX;
-          if (Math.abs(distance) > 6) draggedSolutions = true;
-          solutionsRail.scrollLeft = solutionDragStartScroll - distance;
-        });
-
-        window.addEventListener('mouseup', () => {
-          if (!draggingSolutions) return;
-          draggingSolutions = false;
-          solutionsRail.classList.remove('is-dragging');
-        });
-
-        solutionsRail.addEventListener('dragstart', (event) => event.preventDefault());
-        solutionsRail.addEventListener('click', (event) => {
-          if (!draggedSolutions) return;
-          event.preventDefault();
-          event.stopPropagation();
-        }, true);
-      }
-
-      const compactObserver = new IntersectionObserver(
-        (entries) => {
-          const mostVisible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-          if (!mostVisible) return;
-          const index = solutionCards.indexOf(mostVisible.target as HTMLElement);
-          if (index >= 0) setActiveSolution(index);
-        },
-        { root: solutionsRail, threshold: [0.55, 0.75, 0.95] }
-      );
-
-      solutionCards.forEach((card) => compactObserver.observe(card));
-      setActiveSolution(0);
-    }
-  }
-</script>
 
 <script>
   const isTouchScrollLayout = window.matchMedia('(max-width: 1023px), (hover: none), (pointer: coarse)').matches;
@@ -3538,6 +3756,7 @@ const solucionesHome = [
     const methodTitleLines = [...document.querySelectorAll('[data-method-clone-title-line]')];
     const methodStepTitles = [...document.querySelectorAll('[data-method-clone-step-title]')];
     const reduceMethodMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouchScrollLayout = window.matchMedia('(max-width: 1023px), (hover: none), (pointer: coarse)').matches;
 
     let sectionTop = 0;
     let sectionHeight = 0;
