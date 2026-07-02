@@ -71,26 +71,29 @@ const MOBILE_SOLUTION_GROUPS = [
 
   <div class="container-libera relative h-full flex items-center justify-between gap-8">
 
-    <!-- Logo: mobile only (on desktop the logo lives inside the nav pill) -->
-    <a href="/" class="site-logo lg:hidden flex-shrink-0 flex items-center z-10" aria-label="LIBERA Studio, Inicio">
-      <Image
-        src={logoDarkImg}
-        alt="LIBERA Studio"
-        width={214}
-        height={40}
-        class="site-logo-image site-logo-image--dark block"
-        style="width: auto; height: 24px;"
-      />
-      <Image
-        src={logoWhiteImg}
-        alt=""
-        aria-hidden="true"
-        width={214}
-        height={40}
-        class="site-logo-image site-logo-image--white block"
-        style="width: auto; height: 24px;"
-      />
-    </a>
+    <!-- Mobile pill nav (logo + hamburger inside a centered pill) -->
+    <div class="mobile-nav-pill" aria-hidden="false">
+      <a href="/" class="mobile-pill-logo flex-shrink-0 flex items-center" aria-label="LIBERA Studio, Inicio">
+        <Image
+          src={logoWhiteImg}
+          alt="LIBERA Studio"
+          width={214}
+          height={40}
+          style="width: auto; height: 22px;"
+        />
+      </a>
+      <button
+        id="menu-toggle"
+        class="mobile-pill-toggle flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-full"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú"
+      >
+        <span id="bar1" class="w-5 h-0.5 rounded-full transition-all duration-300 origin-center" style="background: oklch(98% 0.004 70);"></span>
+        <span id="bar2" class="w-5 h-0.5 rounded-full transition-all duration-300" style="background: oklch(98% 0.004 70);"></span>
+        <span id="bar3" class="w-5 h-0.5 rounded-full transition-all duration-300 origin-center" style="background: oklch(98% 0.004 70);"></span>
+      </button>
+    </div>
 
     <!-- Desktop nav -->
     <nav class="central-nav hidden lg:flex items-center gap-0.5 justify-center" aria-label="Navegación principal">
@@ -211,21 +214,6 @@ const MOBILE_SOLUTION_GROUPS = [
 
     </nav>
 
-    <!-- CTA + hamburger -->
-    <div class="flex items-center gap-3 flex-shrink-0">
-      <!-- Hamburger, mobile only -->
-      <button
-        id="menu-toggle"
-        class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-md"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        aria-label="Abrir menú"
-      >
-        <span id="bar1" class="w-5 h-0.5 rounded-full transition-all duration-300 origin-center" style="background: currentColor;"></span>
-        <span id="bar2" class="w-5 h-0.5 rounded-full transition-all duration-300" style="background: currentColor;"></span>
-        <span id="bar3" class="w-5 h-0.5 rounded-full transition-all duration-300 origin-center" style="background: currentColor;"></span>
-      </button>
-    </div>
   </div>
 
 </header>
@@ -428,25 +416,50 @@ const MOBILE_SOLUTION_GROUPS = [
   #site-header[data-header-theme="dark"] .site-logo-image--white {
     opacity: 1;
   }
+  /* Mobile pill nav: hidden on desktop, flex on mobile */
+  .mobile-nav-pill {
+    display: none;
+  }
   @media (max-width: 1023px) {
+    .mobile-nav-pill {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.45rem 0.25rem 1.1rem;
+      background: var(--brand-navy);
+      border: 1px solid var(--brand-navy);
+      border-radius: 999px;
+      height: 2.75rem;
+      transition:
+        background-color 0.24s var(--ease-premium),
+        border-color 0.24s var(--ease-premium);
+    }
+    .mobile-pill-logo {
+      line-height: 0;
+      transition: opacity 0.2s var(--ease-premium);
+    }
+    .mobile-pill-logo:hover { opacity: 0.78; }
+    .mobile-pill-toggle {
+      color: oklch(98% 0.004 70);
+      transition:
+        background-color 0.2s var(--ease-premium),
+        transform 0.2s var(--ease-premium);
+    }
+    .mobile-pill-toggle:hover { background: oklch(100% 0 0 / 0.12); }
+    .mobile-pill-toggle:active { transform: scale(0.94); }
+
+    /* Header itself is transparent — pill carries the visual */
     #site-header {
       --header-foreground: oklch(98% 0.004 70);
       --header-hover: oklch(100% 0 0 / 0.12);
-      background: var(--brand-navy);
+      background: transparent;
       color: var(--header-foreground);
-      box-shadow: 0 0.75rem 2rem oklch(15% 0.025 235 / 0.14);
     }
     #header-bg {
-      background: var(--brand-navy);
-    }
-    #site-header .site-logo-image--dark {
-      opacity: 0;
-    }
-    #site-header .site-logo-image--white {
-      opacity: 1;
-    }
-    #menu-toggle {
-      color: var(--header-foreground);
+      background: transparent;
     }
   }
   .dropdown.kb-open,
