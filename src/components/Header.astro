@@ -459,9 +459,21 @@ const MOBILE_SOLUTION_GROUPS = [
       display: flex;
       align-items: center;
       line-height: 0;
+      position: relative;
     }
-    .mobile-pill-logo-img { display: block; }
-    .mobile-pill-logo-img--dark { display: none; }
+    .mobile-pill-logo-img {
+      display: block;
+      transition: opacity 0.24s var(--ease-premium);
+    }
+    /* Dark logo sits on top, hidden by default (pill is dark navy = show white) */
+    .mobile-pill-logo-img--dark {
+      position: absolute;
+      left: 0;
+      opacity: 0;
+    }
+    .mobile-pill-logo-img--white {
+      opacity: 1;
+    }
 
     .mobile-pill-toggle {
       display: flex;
