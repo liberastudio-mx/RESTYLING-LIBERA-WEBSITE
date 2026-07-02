@@ -912,22 +912,22 @@ const solucionesHome = [
     /* Problema */
     .problem-pin-stage {
       min-height: auto;
-      margin-top: -100dvh;
+      margin-top: 0;
     }
 
     .problem-overlap {
       height: auto;
-      min-height: 100dvh;
+      min-height: auto;
       position: relative;
       grid-template-columns: 1fr;
     }
 
     .problem-left {
-      padding: calc(var(--nav-height, 4rem) + 2rem) clamp(1.25rem, 4vw, 3.5rem) 2rem;
+      padding: calc(var(--nav-height, 4rem) + 1rem) clamp(1.25rem, 4vw, 3.5rem) 1.5rem;
     }
 
     .problem-right {
-      height: 45svh;
+      height: 30svh;
       padding-top: 0;
     }
 
@@ -1368,6 +1368,11 @@ const solucionesHome = [
      AFTER the base CSS correctly restore normal flow on mobile.
   ─────────────────────────────────────────────────────────────────── */
   @media (max-width: 1023px) {
+    /* Hero: collapse pin-stage so sticky has 0 range = behaves as relative.
+       The JS scroll-lock handles the "stay in place" during ink reveal. */
+    .hero-pin-stage {
+      min-height: auto;
+    }
     .work-pin-stage {
       min-height: auto;
       margin-top: 0;
