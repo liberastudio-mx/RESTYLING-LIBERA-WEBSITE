@@ -4025,16 +4025,15 @@ const solucionesHome = [
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const MC = [0, 24, 36];
-    const BRUSH = 180;
-    const LIFETIME = 700;
-    const R_START = 14;
-    const R_VARY = 0.42;
-    const STAMP_STEP = 14;
-    const MAX_STAMPS = 180;
+    const BRUSH = 210;
+    const EXPAND_MS = 380; // stamp reaches full size then stays permanently
+    const R_START = 16;
+    const R_VARY = 0.38;
+    const STAMP_STEP = 18;
     const SEGMENTS = 36;
     const WOBBLE = [0.14, 0.08, 0.05];
-    const GRAD_INNER = 0.2;
-    const GRAD_STOPS = [0.95, 0.88, 0];
+    const GRAD_INNER = 0.18;
+    const GRAD_STOPS = [1.0, 0.93, 0];
 
     const canvas = /** @type {HTMLCanvasElement|null} */ (document.getElementById('hero-ink-canvas'));
     const section = document.getElementById('hero');
@@ -4085,7 +4084,6 @@ const solucionesHome = [
     }
 
     function addStamp(x, y) {
-      if (stamps.length >= MAX_STAMPS) stamps.shift();
       stamps.push({
         x, y,
         born: performance.now(),
@@ -4113,21 +4111,20 @@ const solucionesHome = [
       if (!ctx) return;
       const now = performance.now();
 
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = `rgb(${MC[0]},${MC[1]},${MC[2]})`;
-      ctx.fillRect(0, 0, dims.w, dims.h);
+      // No background redraw — holes are permanent once carved
       ctx.globalCompositeOperation = 'destination-out';
 
+      let hasActive = false;
       for (let i = stamps.length - 1; i >= 0; i--) {
-        const t = (now - stamps[i].born) / LIFETIME;
-        if (t >= 1) { stamps.splice(i, 1); continue; }
-        const ease = 1 - Math.pow(1 - t, 3);
+        const t = Math.min(1, (now - stamps[i].born) / EXPAND_MS);
+        const ease = 1 - Math.pow(1 - t, 2.5);
         const r = R_START + (stamps[i].rmax - R_START) * ease;
-        const alpha = 1 - t * t;
-        carveInk(ctx, stamps[i].x, stamps[i].y, r, stamps[i].seed, alpha);
+        carveInk(ctx, stamps[i].x, stamps[i].y, r, stamps[i].seed, 1.0);
+        if (t < 1) hasActive = true;
+        else stamps.splice(i, 1);
       }
 
-      if (stamps.length) requestAnimationFrame(loop);
+      if (hasActive) requestAnimationFrame(loop);
       else running = false;
     }
 
