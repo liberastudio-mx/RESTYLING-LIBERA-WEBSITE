@@ -3319,6 +3319,18 @@ const solucionesHome = [
     z-index: 0;
   }
 
+  /* Late mobile overrides — must follow the base rule above in source order */
+  @media (max-width: 1023px) {
+    .statement-wrap { height: calc(480svh + 100dvh); }
+  }
+  @media (max-width: 640px) {
+    .statement-wrap { height: calc(440svh + 100dvh); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .statement-wrap  { height: auto; }
+    .statement-dwell { height: 0; display: none; }
+  }
+
   .statement-section {
     position: sticky;
     top: 0;
