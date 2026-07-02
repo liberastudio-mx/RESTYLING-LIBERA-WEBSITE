@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- LIBERA 'A' lettermark as favicon -->
+  <rect width="32" height="32" rx="7" fill="#141010"/>
+  <text
+    x="4" y="25"
+    font-family="system-ui, sans-serif"
+    font-size="26"
+    font-weight="700"
+    fill="#E8701A"
+    letter-spacing="-0.04em"
+  >A</text>
+</svg>
