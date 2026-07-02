@@ -4026,7 +4026,9 @@ const solucionesHome = [
 
     const MC = [0, 24, 36];
     const BRUSH = 210;
-    const EXPAND_MS = 380; // stamp reaches full size then stays permanently
+    const EXPAND_MS = 350;  // fast pop to full size
+    const LIFETIME = 6000;  // 6s total before fully dark again
+    const FADE_AT = 0.5;    // hold at full opacity until 50% of lifetime, then fade
     const R_START = 16;
     const R_VARY = 0.38;
     const STAMP_STEP = 18;
@@ -4111,20 +4113,23 @@ const solucionesHome = [
       if (!ctx) return;
       const now = performance.now();
 
-      // No background redraw — holes are permanent once carved
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = `rgb(${MC[0]},${MC[1]},${MC[2]})`;
+      ctx.fillRect(0, 0, dims.w, dims.h);
       ctx.globalCompositeOperation = 'destination-out';
 
-      let hasActive = false;
       for (let i = stamps.length - 1; i >= 0; i--) {
-        const t = Math.min(1, (now - stamps[i].born) / EXPAND_MS);
-        const ease = 1 - Math.pow(1 - t, 2.5);
+        const age = now - stamps[i].born;
+        const t = age / LIFETIME;
+        if (t >= 1) { stamps.splice(i, 1); continue; }
+        const expandT = Math.min(1, age / EXPAND_MS);
+        const ease = 1 - Math.pow(1 - expandT, 2.5);
         const r = R_START + (stamps[i].rmax - R_START) * ease;
-        carveInk(ctx, stamps[i].x, stamps[i].y, r, stamps[i].seed, 1.0);
-        if (t < 1) hasActive = true;
-        else stamps.splice(i, 1);
+        const alpha = t < FADE_AT ? 1.0 : 1.0 - (t - FADE_AT) / (1.0 - FADE_AT);
+        carveInk(ctx, stamps[i].x, stamps[i].y, r, stamps[i].seed, alpha);
       }
 
-      if (hasActive) requestAnimationFrame(loop);
+      if (stamps.length) requestAnimationFrame(loop);
       else running = false;
     }
 
